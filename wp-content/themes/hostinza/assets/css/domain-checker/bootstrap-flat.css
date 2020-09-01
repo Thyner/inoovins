@@ -1,0 +1,225 @@
+#hostinza-style .img-thumbnail {
+  border-radius: 0;
+}
+#hostinza-style code {
+  border-radius: 0;
+}
+#hostinza-style pre {
+  border-radius: 0;
+}
+#hostinza-style .form-control {
+  border-radius: 0;
+}
+#hostinza-style .form-control:focus {
+  border-color: #66afe9;
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .input-sm {
+  border-radius: 0;
+}
+#hostinza-style .input-lg {
+  border-radius: 0;
+}
+#hostinza-style .btn {
+  border-radius: 0;
+}
+#hostinza-style .btn-lg {
+  border-radius: 0;
+}
+#hostinza-style .btn-sm,
+#hostinza-style .btn-xs {
+  border-radius: 0;
+}
+#hostinza-style .dropdown-menu {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .btn-group-xs > .btn {
+  border-radius: 0;
+}
+#hostinza-style .btn-group-sm > .btn {
+  border-radius: 0;
+}
+#hostinza-style .btn-group-lg > .btn {
+  border-radius: 0;
+}
+#hostinza-style .btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+}
+#hostinza-style .btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+}
+#hostinza-style .input-group-lg > .form-control,
+#hostinza-style .input-group-lg > .input-group-addon,
+#hostinza-style .input-group-lg > .input-group-btn > .btn {
+  border-radius: 0;
+}
+#hostinza-style .input-group-sm > .form-control,
+#hostinza-style .input-group-sm > .input-group-addon,
+#hostinza-style .input-group-lg > .input-group-btn > .btn {
+  border-radius: 0;
+}
+#hostinza-style .input-group-addon {
+  border-radius: 0;
+}
+#hostinza-style .input-group-addon.input-sm {
+  border-radius: 0;
+}
+#hostinza-style .input-group-addon.input-lg {
+  border-radius: 0;
+}
+#hostinza-style .nav-tabs > li > a {
+  border-radius: 0;
+}
+#hostinza-style .nav-pills > li > a {
+  border-radius: 0;
+}
+@media (min-width: 768px) {
+  #hostinza-style .navbar {
+    border-radius: 0;
+  }
+}
+#hostinza-style .navbar-toggle {
+  border-radius: 0;
+}
+#hostinza-style .navbar-toggle .icon-bar {
+  border-radius: 0;
+}
+#hostinza-style .breadcrumb {
+  border-radius: 0;
+}
+#hostinza-style .pagination {
+  border-radius: 0;
+}
+#hostinza-style .pagination > li:first-child > a,
+#hostinza-style .pagination > li:first-child > span {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#hostinza-style .pagination > li:last-child > a,
+#hostinza-style .pagination > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#hostinza-style .pagination-lg > li:first-child > a,
+#hostinza-style .pagination-lg > li:first-child > span {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#hostinza-style .pagination-lg > li:last-child > a,
+#hostinza-style .pagination-lg > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#hostinza-style .pagination-sm > li:first-child > a,
+#hostinza-style .pagination-sm > li:first-child > span {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#hostinza-style .pagination-sm > li:last-child > a,
+#hostinza-style .pagination-sm > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#hostinza-style .pager li > a,
+#hostinza-style .pager li > span {
+  border-radius: 0;
+}
+#hostinza-style .label {
+  border-radius: 0;
+}
+#hostinza-style .badge {
+  border-radius: 0;
+}
+#hostinza-style .container .jumbotron {
+  border-radius: 0;
+}
+#hostinza-style .thumbnail {
+  border-radius: 0;
+}
+#hostinza-style .alert {
+  border-radius: 0;
+}
+#hostinza-style .progress {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .progress-bar {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .list-group-item:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#hostinza-style .list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#hostinza-style .panel {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .panel-heading {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#hostinza-style .panel-footer {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#hostinza-style .panel-group .panel {
+  border-radius: 0;
+}
+#hostinza-style .well {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .well-lg {
+  border-radius: 0;
+}
+#hostinza-style .well-sm {
+  border-radius: 0;
+}
+#hostinza-style .close {
+  text-shadow: none;
+}
+#hostinza-style .modal-content {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  #hostinza-style .modal-content {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+#hostinza-style .tooltip-inner {
+  border-radius: 0;
+}
+#hostinza-style .popover {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#hostinza-style .popover-title {
+  border-radius: 0;
+}
+#hostinza-style .carousel-control {
+  text-shadow: none;
+}
+#hostinza-style .carousel-indicators li {
+  border-radius: 0;
+}
+#hostinza-style .carousel-caption {
+  text-shadow: none;
+}

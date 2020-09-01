@@ -1,0 +1,136 @@
+#hostinza-style .btn-striped {
+  color: #333333;
+  background-color: #ffffff;
+  border-left-width: 3px;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+#hostinza-style .btn-striped:hover,
+#hostinza-style .btn-striped:focus,
+#hostinza-style .btn-striped:active,
+#hostinza-style .btn-striped.active {
+  color: #333333;
+  background-color: #ebebeb;
+  border-right: 1px solid #adadad;
+  border-top: 1px solid #adadad;
+  border-bottom: 1px solid #adadad;
+}
+#hostinza-style .btn-striped.disabled,
+#hostinza-style .btn-striped[disabled],
+#hostinza-style fieldset[disabled] .btn-striped,
+#hostinza-style .btn-striped.disabled:hover,
+#hostinza-style .btn-striped[disabled]:hover,
+#hostinza-style fieldset[disabled] .btn-striped:hover,
+#hostinza-style .btn-striped.disabled:focus,
+#hostinza-style .btn-striped[disabled]:focus,
+#hostinza-style fieldset[disabled] .btn-striped:focus,
+#hostinza-style .btn-striped.disabled:active,
+#hostinza-style .btn-striped[disabled]:active,
+#hostinza-style fieldset[disabled] .btn-striped:active,
+#hostinza-style .btn-striped.disabled.active,
+#hostinza-style .btn-striped[disabled].active,
+#hostinza-style fieldset[disabled] .btn-striped.active {
+  background-color: #ffffff;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+#hostinza-style .btn-striped-right {
+  color: #333333;
+  background-color: #ffffff;
+  border-right-width: 3px;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+#hostinza-style .btn-striped-right:hover,
+#hostinza-style .btn-striped-right:focus,
+#hostinza-style .btn-striped-right:active,
+#hostinza-style .btn-striped-right.active {
+  color: #333333;
+  background-color: #ebebeb;
+  border-left: 1px solid #adadad;
+  border-top: 1px solid #adadad;
+  border-bottom: 1px solid #adadad;
+}
+#hostinza-style .btn-striped-right.disabled,
+#hostinza-style .btn-striped-right[disabled],
+#hostinza-style fieldset[disabled] .btn-striped-right,
+#hostinza-style .btn-striped-right.disabled:hover,
+#hostinza-style .btn-striped-right[disabled]:hover,
+#hostinza-style fieldset[disabled] .btn-striped-right:hover,
+#hostinza-style .btn-striped-right.disabled:focus,
+#hostinza-style .btn-striped-right[disabled]:focus,
+#hostinza-style fieldset[disabled] .btn-striped-right:focus,
+#hostinza-style .btn-striped-right.disabled:active,
+#hostinza-style .btn-striped-right[disabled]:active,
+#hostinza-style fieldset[disabled] .btn-striped-right:active,
+#hostinza-style .btn-striped-right.disabled.active,
+#hostinza-style .btn-striped-right[disabled].active,
+#hostinza-style fieldset[disabled] .btn-striped-right.active {
+  background-color: #ffffff;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+#hostinza-style .callout {
+  margin: 20px 0;
+  padding: 10px 30px 10px 15px;
+  border: none;
+  border-left: 4px solid transparent;
+}
+#hostinza-style .callout h4 {
+  margin-top: 0;
+  color: inherit;
+}
+#hostinza-style .callout .callout-link {
+  font-weight: bold;
+}
+#hostinza-style .callout > p,
+#hostinza-style .callout > ul {
+  margin-bottom: 0;
+}
+#hostinza-style .callout > p + p {
+  margin-top: 5px;
+}
+#hostinza-style .callout-success {
+  background-color: #e7fadf;
+  border-color: #b9ceab;
+}
+#hostinza-style .callout-success hr {
+  border-top-color: #c9e2b3;
+}
+#hostinza-style .callout-success .callout-link {
+  color: #356635;
+}
+#hostinza-style .callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+#hostinza-style .callout-info hr {
+  border-top-color: #a6e1ec;
+}
+#hostinza-style .callout-info .callout-link {
+  color: #2d6987;
+}
+#hostinza-style .callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+#hostinza-style .callout-warning hr {
+  border-top-color: #f8e5be;
+}
+#hostinza-style .callout-warning .callout-link {
+  color: #a47e3c;
+}
+#hostinza-style .callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+#hostinza-style .callout-danger hr {
+  border-top-color: #e6c1c7;
+}
+#hostinza-style .callout-danger .callout-link {
+  color: #953b39;
+}

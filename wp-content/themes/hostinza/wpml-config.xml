@@ -1,0 +1,53 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1">mega_menu</custom-type>
+  </custom-types>
+  <admin-texts>
+    <key name="theme_mods_hostinza">
+      <key name="0"/>
+      <key name="site_logo"/>
+      <key name="top_header_nav">
+        <key name="0">
+          <key name="label"/>
+          <key name="link"/>
+        </key>
+        <key name="1">
+          <key name="label"/>
+          <key name="link"/>
+        </key>
+      </key>
+      <key name="nav_contact_info">
+        <key name="0">
+          <key name="image"/>
+          <key name="title"/>
+          <key name="sub_title"/>
+        </key>
+        <key name="1">
+          <key name="image"/>
+          <key name="title"/>
+          <key name="sub_title"/>
+        </key>
+        <key name="2">
+          <key name="image"/>
+          <key name="title"/>
+          <key name="sub_title"/>
+        </key>
+      </key>
+      <key name="footer_bg_image"/>
+      <key name="terms_text"/>
+      <key name="copyright_text"/>
+      <key name="footer_logo"/>
+      <key name="nav_sidebar_logo"/>
+      <key name="nav_sidebar_content"/>
+      <key name="sidebar_btn"/>
+      <key name="404_title"/>
+      <key name="back_to_home_label"/>
+      <key name="404_logo"/>
+      <key name="top_header_phn"/>
+      <key name="top_header_email"/>
+      <key name="nav_cart_url"/>
+      <key name="blog_banner_title"/>
+      <key name="sidebar_subscribe_shortcode"/>
+    </key>
+  </admin-texts>
+</wpml-config>
