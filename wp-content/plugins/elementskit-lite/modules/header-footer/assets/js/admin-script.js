@@ -6,21 +6,32 @@ jQuery(document).ready(function ($) {
     //     placeholder: "--",
     // });
 
-    $('.row-actions .edit a, .page-title-action, .column-title .row-title').on('click', function (e) {
+    $('.row-actions .edit a, .page-title-action, .row-title').on('click', function (e) {
         e.preventDefault();
         var id = 0;
         var modal = $('#elementskit_headerfooter_modal');
         var parent = $(this).parents('.column-title');
+        var form = $('#elementskit-template-modalinput-form');
+        var nonce = form.attr('data-nonce');
 
         modal.addClass('loading');
         modal.modal('show');
         if (parent.length > 0) {
             id = parent.find('.hidden').attr('id').split('_')[1];
 
-            $.get(window.elementskit.resturl + 'my-template/get/' + id, function (data) {
-                ElementsKit_Template_Editor(data);
-                modal.removeClass('loading');
+            $.ajax({
+                url: window.elementskit.resturl + 'my-template/get/' + id,
+                type: 'get',
+                headers: {
+                    'X-WP-Nonce': nonce
+                },
+                dataType: 'json',
+                success: function (data) {
+                    ElementsKit_Template_Editor(data);
+                    modal.removeClass('loading');
+                }
             });
+
         } else {
             var data = {
                 title: '',
@@ -81,13 +92,13 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var modal = $('#elementskit_headerfooter_modal');
         modal.addClass('loading');
-    
+
         var form_data = $(this).serialize();
         var id = $(this).attr('data-ekit-id');
         var open_editor = $(this).attr('data-open-editor');
         var admin_url = $(this).attr('data-editor-url');
         var nonce = $(this).attr('data-nonce');
-    
+
         //console.log(form_data);
         $.ajax({
             url: window.elementskit.resturl + 'my-template/update/' + id,
@@ -126,9 +137,8 @@ jQuery(document).ready(function ($) {
                 }
             }
         });
-    
+
     });
-    
 
     $('.ekit-template-modalinput-condition_singular_id').select2({
         ajax: {
@@ -148,7 +158,7 @@ jQuery(document).ready(function ($) {
     });
 
     function ElementsKit_Template_Editor(data) {
-
+        //console.log(data);
         // set the form data
         $('.ekit-template-modalinput-title').val(data.title);
         $('.ekit-template-modalinput-condition_a').val(data.condition_a);
@@ -174,7 +184,7 @@ jQuery(document).ready(function ($) {
                 ids: String(data.condition_singular_id)
             }
         }).then(function (data) {
-
+            //console.log(data);
             if (data !== null && data.results.length > 0) {
                 el.html(' ');
                 $.each(data.results, function (i, v) {

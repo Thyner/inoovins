@@ -1,6 +1,6 @@
 <?php 
-namespace ElementsKit\Modules\Megamenu;
-use ElementsKit\Libs\Framework\Attr;
+namespace ElementsKit_Lite\Modules\Megamenu;
+use ElementsKit_Lite\Libs\Framework\Attr;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -15,7 +15,7 @@ class Options{
         $this->dir = dirname(__FILE__) . '/';
 
         // get current module's url
-        $this->url = \ElementsKit::plugin_url() . 'modules/megamenu/';
+        $this->url = \ElementsKit_Lite::plugin_url() . 'modules/megamenu/';
         
         add_action( 'admin_footer', [ $this, 'options_menu_item'] );
         add_action( 'admin_footer', [ $this, 'options_megamenu'] );
@@ -30,7 +30,7 @@ class Options{
 
         $nav_menus            = wp_get_nav_menus( array('orderby' => 'name') );
         $menu_count           = count( $nav_menus );
-        $nav_menu_selected_id = isset( $_REQUEST['menu'] ) ? (int) sanitize_key($_REQUEST['menu']) : 0;
+        $nav_menu_selected_id = isset( $_REQUEST['menu'] ) ? (int) $_REQUEST['menu'] : 0;
         $add_new_screen       = ( isset( $_GET['menu'] ) && 0 == $_GET['menu'] ) ? true : false;
 
         $this->current_menu_id = $nav_menu_selected_id;
@@ -68,7 +68,7 @@ class Options{
     }
     
 	public static function get_icons() {
-        return include \ElementsKit::module_dir() . 'controls/icon-list.php';
+        return include \ElementsKit_Lite::module_dir() . 'controls/icon-list.php';
     }    
 
     function options_menu_item() {
@@ -98,15 +98,15 @@ class Options{
         if($screen->base != 'nav-menus' || !isset($_POST['update-nav-menu-nonce']) ){
             return;
         }
-        $menu_id = isset($_POST['menu']) ? sanitize_key($_POST['menu']) : 0;
-        $is_enabled = isset($_POST['is_enabled']) ? sanitize_key($_POST['is_enabled']) : 0;
+        $menu_id = isset($_POST['menu']) ? $_POST['menu'] : 0;
+        $is_enabled = isset($_POST['is_enabled']) ? $_POST['is_enabled'] : 0;
 
         $data = Attr::instance()->utils->get_option(Init::$megamenu_settings_key, []);
         $data['menu_location_' . $menu_id] = [
             'is_enabled' => $is_enabled,
         ];
 
-        Attr::instance()->utils->save_sanitized(Init::$megamenu_settings_key, $data);
+        Attr::instance()->utils->save_option(Init::$megamenu_settings_key, $data);
 
     }
 }

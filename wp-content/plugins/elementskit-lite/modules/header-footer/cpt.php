@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\HeaderFooterBuilder;
+namespace ElementsKit_Lite\Modules\HeaderFooterBuilder;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -15,20 +15,20 @@ class Cpt{
     public function post_type() {
         
 		$labels = array(
-			'name'               => __( 'Templates', 'elementskit' ),
-			'singular_name'      => __( 'Template', 'elementskit' ),
-			'menu_name'          => __( 'Header Footer', 'elementskit' ),
-			'name_admin_bar'     => __( 'Templates', 'elementskit' ),
-			'add_new'            => __( 'Add New', 'elementskit' ),
-			'add_new_item'       => __( 'Add New Template', 'elementskit' ),
-			'new_item'           => __( 'New Template', 'elementskit' ),
-			'edit_item'          => __( 'Edit Template', 'elementskit' ),
-			'view_item'          => __( 'View Template', 'elementskit' ),
-			'all_items'          => __( 'All Templates', 'elementskit' ),
-			'search_items'       => __( 'Search Templates', 'elementskit' ),
-			'parent_item_colon'  => __( 'Parent Templates:', 'elementskit' ),
-			'not_found'          => __( 'No Templates found.', 'elementskit' ),
-			'not_found_in_trash' => __( 'No Templates found in Trash.', 'elementskit' ),
+			'name'               => esc_html__( 'Templates', 'elementskit-lite' ),
+			'singular_name'      => esc_html__( 'Template', 'elementskit-lite' ),
+			'menu_name'          => esc_html__( 'Header Footer', 'elementskit-lite' ),
+			'name_admin_bar'     => esc_html__( 'Header Footer', 'elementskit-lite' ),
+			'add_new'            => esc_html__( 'Add New', 'elementskit-lite' ),
+			'add_new_item'       => esc_html__( 'Add New Template', 'elementskit-lite' ),
+			'new_item'           => esc_html__( 'New Template', 'elementskit-lite' ),
+			'edit_item'          => esc_html__( 'Edit Template', 'elementskit-lite' ),
+			'view_item'          => esc_html__( 'View Template', 'elementskit-lite' ),
+			'all_items'          => esc_html__( 'All Templates', 'elementskit-lite' ),
+			'search_items'       => esc_html__( 'Search Templates', 'elementskit-lite' ),
+			'parent_item_colon'  => esc_html__( 'Parent Templates:', 'elementskit-lite' ),
+			'not_found'          => esc_html__( 'No Templates found.', 'elementskit-lite' ),
+			'not_found_in_trash' => esc_html__( 'No Templates found in Trash.', 'elementskit-lite' ),
 		);
 
 		$args = array(
@@ -49,7 +49,7 @@ class Cpt{
 
     public function cpt_menu(){
         $link_our_new_cpt = 'edit.php?post_type=elementskit_template';
-        add_submenu_page('elementskit', esc_html__('Header Footer', 'elementskit'), esc_html__('Header Footer', 'elementskit'), 'manage_options', $link_our_new_cpt);
+        add_submenu_page('elementskit', esc_html__('Header Footer', 'elementskit-lite'), esc_html__('Header Footer', 'elementskit-lite'), 'manage_options', $link_our_new_cpt);
     }
 
     function load_canvas_template( $single_template ) {

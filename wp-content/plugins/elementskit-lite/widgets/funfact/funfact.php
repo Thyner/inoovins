@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Funfact_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Funfact_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Funfact extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -38,7 +38,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
             'ekit_funfact_section_icon',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -46,19 +46,19 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_icon_type',
             [
-                'label' => esc_html__( 'Icon type ', 'elementskit' ),
+                'label' => esc_html__( 'Icon type ', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'icon' => [
-                        'title' => esc_html__( 'Icon', 'elementskit' ),
+                        'title' => esc_html__( 'Icon', 'elementskit-lite' ),
                         'icon' => 'fa fa-star',
                     ],
                     'image_icon' => [
-                        'title' => esc_html__( 'Image', 'elementskit' ),
+                        'title' => esc_html__( 'Image', 'elementskit-lite' ),
                         'icon' => 'fa fa-image',
                     ],
                     'none' => [
-                        'title' => esc_html__( 'None', 'elementskit' ),
+                        'title' => esc_html__( 'None', 'elementskit-lite' ),
                         'icon' => 'fa fa-stop-circle',
                     ],
                 ],
@@ -70,11 +70,11 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_icons__switch',
             [
-                'label' => esc_html__('Add icon? ', 'elementskit'),
+                'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_funfact_icon_type'        => 'icon',
                 ]
@@ -84,7 +84,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_funfact_icon',
                 'default' => [
@@ -101,12 +101,12 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_view',
             [
-                'label' => esc_html__( 'View', 'elementskit' ),
+                'label' => esc_html__( 'View', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'default' => esc_html__( 'Default', 'elementskit' ),
-                    'fill-icon' => esc_html__( 'Stacked', 'elementskit' ),
-                    'framed' => esc_html__( 'Framed', 'elementskit' ),
+                    'default' => esc_html__( 'Default', 'elementskit-lite' ),
+                    'fill-icon' => esc_html__( 'Stacked', 'elementskit-lite' ),
+                    'framed' => esc_html__( 'Framed', 'elementskit-lite' ),
                 ],
                 'default' => 'default',
                 'condition' => [
@@ -119,7 +119,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_icon_image',
             [
-                'label' => esc_html__( 'Choose Image', 'elementskit' ),
+                'label' => esc_html__( 'Choose Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -149,7 +149,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
 			'ekit_funfact_content_section',
 			[
-				'label' => esc_html__( 'Content', 'elementskit' ),
+				'label' => esc_html__( 'Content', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -157,30 +157,30 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_number',
             [
-                'label' => esc_html__( 'Number ', 'elementskit' ),
+                'label' => esc_html__( 'Number ', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => '254',
-                'placeholder' => esc_html__( 'Enter number', 'elementskit' ),
+                'placeholder' => esc_html__( 'Enter number', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_funfact_number_suffix',
             [
-                'label' => esc_html__( 'Number Suffix ', 'elementskit' ),
+                'label' => esc_html__( 'Number Suffix ', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'M',
-                'placeholder' => esc_html__( 'M+', 'elementskit' ),
+                'placeholder' => esc_html__( 'M+', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_funfact_title_text',
             [
-                'label' => esc_html__( 'Title ', 'elementskit' ),
+                'label' => esc_html__( 'Title ', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'This is the heading', 'elementskit' ),
-                'placeholder' => esc_html__( 'Enter your title', 'elementskit' ),
+                'default' => esc_html__( 'This is the heading', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'Enter your title', 'elementskit-lite' ),
                 'label_block' => true,
             ]
         );
@@ -188,7 +188,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
 			'ekit_funfact_super',
 			[
-				'label' => esc_html__( 'Enable Super', 'elementskit' ),
+				'label' => esc_html__( 'Enable Super', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 			]
@@ -197,10 +197,10 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_super_text',
             [
-                'label' => esc_html__( 'Super', 'elementskit' ),
+                'label' => esc_html__( 'Super', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => '+',
-                'placeholder' => esc_html__( '+', 'elementskit' ),
+                'placeholder' => esc_html__( '+', 'elementskit-lite' ),
 				'condition' => ['ekit_funfact_super' => 'yes'],
             ]
         );
@@ -211,7 +211,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
 			'ekit_funfact_settings_items',
 			[
-				'label' => esc_html__( 'Settings', 'elementskit' ),
+				'label' => esc_html__( 'Settings', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -220,19 +220,19 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_text_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -243,7 +243,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_title_size',
             [
-                'label' => esc_html__( 'Title HTML Tag', 'elementskit' ),
+                'label' => esc_html__( 'Title HTML Tag', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'h1' => 'H1',
@@ -271,7 +271,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_hover_border_bottom',
             [
-                'label' => esc_html__( 'Enable Hover Border Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Enable Hover Border Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
             ]
@@ -280,7 +280,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_hover_border_bottom_color',
             [
-                'label'     => esc_html__( 'Hover Border Bottom Color', 'elementskit' ),
+                'label'     => esc_html__( 'Hover Border Bottom Color', 'elementskit-lite' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-funfact.style-border-bottom:before' => 'background-color: {{VALUE}}',
@@ -294,15 +294,15 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_hover_border_bottom_direction',
             [
-                'label' => esc_html__( 'Hover Direction', 'elementskit' ),
+                'label' => esc_html__( 'Hover Direction', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::CHOOSE,
                 'options' => [
                     'hover_from_left' => [
-                        'title' => esc_html__( 'From Left', 'elementskit' ),
+                        'title' => esc_html__( 'From Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-right',
                     ],
                     'hover_from_right' => [
-                        'title' => esc_html__( 'From Right', 'elementskit' ),
+                        'title' => esc_html__( 'From Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-left',
                     ],
                 ],
@@ -328,7 +328,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
 			'ekit_funfact_enable_vertical_border',
 			[
-				'label' => esc_html__( 'Enable Vertical Border', 'elementskit' ),
+				'label' => esc_html__( 'Enable Vertical Border', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 			]
@@ -337,15 +337,15 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_enable_vertical_border_position',
             [
-                'label' => esc_html__( 'Border Direction', 'elementskit' ),
+                'label' => esc_html__( 'Border Direction', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::CHOOSE,
                 'options' => [
                     'border_left_side' => [
-                        'title' => esc_html__( 'From Left', 'elementskit' ),
+                        'title' => esc_html__( 'From Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-right',
                     ],
                     'border_right_side' => [
-                        'title' => esc_html__( 'From Right', 'elementskit' ),
+                        'title' => esc_html__( 'From Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-left',
                     ],
                 ],
@@ -365,7 +365,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
             'ekit_funfact_style_section_image',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'conditions'    => [
                     'terms' => [
@@ -394,7 +394,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_image_space',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -418,21 +418,21 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_tab(
             'ekit_funfact_style_img_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_funfact_imge_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact .funfact-icon img',
             ]
         );
         $this->add_responsive_control(
             'ekit_funfact_icon_image_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -444,7 +444,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_funfact_iamge_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact .funfact-icon img',
             ]
         );
@@ -454,7 +454,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_tab(
             'ekit_funfact_style_img_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -462,14 +462,14 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_funfact_imge_border_hover_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact .funfact-icon img:hover',
             ]
         );
         $this->add_responsive_control(
             'ekit_funfact_icon_image_hover_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -481,7 +481,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_funfact_image_box_shadow_hv_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact .funfact-icon img:hover',
             ]
         );
@@ -489,7 +489,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_image_hover_animation',
             [
-                'label' => esc_html__( 'Animation', 'elementskit' ),
+                'label' => esc_html__( 'Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
 				'selector' => '{{WRAPPER}} .elementskit-funfact .funfact-icon img:hover',
             ]
@@ -508,7 +508,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
             'ekit_funfact_section_style_icon',
             [
-                'label' => esc_html__( 'Icons', 'elementskit' ),
+                'label' => esc_html__( 'Icons', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_funfact_icons__switch'    => 'yes',
@@ -523,14 +523,14 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_tab(
             'ekit_funfact_icon_colors_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_responsive_control(
             'ekit_funfact_icon_primary_color',
             [
-                'label' => esc_html__( 'Color', 'elementskit' ),
+                'label' => esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -543,7 +543,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_secondary_color_normal',
             [
-                'label' => esc_html__( 'BG Color', 'elementskit' ),
+                'label' => esc_html__( 'BG Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -556,7 +556,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_funfact_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact-icon, {{WRAPPER}} .elementskit-funfact svg',
             ]
         );
@@ -564,7 +564,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -578,14 +578,14 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_tab(
             'ekit_funfact_icon_colors_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_responsive_control(
             'ekit_funfact_hover_primary_color',
             [
-                'label' => esc_html__( 'Primary Color', 'elementskit' ),
+                'label' => esc_html__( 'Primary Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -598,7 +598,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_hover_secondary_color',
             [
-                'label' => esc_html__( 'Secondary Color', 'elementskit' ),
+                'label' => esc_html__( 'Secondary Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -611,7 +611,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_funfact_border_icon_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact:hover .elementskit-funfact-icon, {{WRAPPER}} .elementskit-funfact:hover svg',
                 'condition' => [
                     'ekit_funfact_view!' => 'Stacked',
@@ -621,7 +621,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_hover_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -636,7 +636,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_funfact_icon_size',
             [
-                'label' => esc_html__( 'Size', 'elementskit' ),
+                'label' => esc_html__( 'Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -658,7 +658,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_space',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -679,7 +679,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_icon_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -699,7 +699,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_rotate',
             [
-                'label' => esc_html__( 'Rotate', 'elementskit' ),
+                'label' => esc_html__( 'Rotate', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -726,7 +726,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
             'ekit_funfact_section_style_content',
             [
-                'label' => esc_html__( 'Content', 'elementskit' ),
+                'label' => esc_html__( 'Content', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -735,7 +735,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_heading_number',
             [
-                'label' => esc_html__( 'Number Count', 'elementskit' ),
+                'label' => esc_html__( 'Number Count', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -744,7 +744,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_description_color',
             [
-                'label' => esc_html__( 'Number Color', 'elementskit' ),
+                'label' => esc_html__( 'Number Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -757,7 +757,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_funfact_number_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementskit-funfact .funfact-content .number-percentage-wraper',
 			]
@@ -767,7 +767,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_number_count_bottom_space',
             [
-                'label' => esc_html__( 'Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -784,7 +784,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_number_count_right_space',
             [
-                'label' => esc_html__( 'Right Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Right Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -802,7 +802,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_heading_title',
             [
-                'label' => esc_html__( 'Title', 'elementskit' ),
+                'label' => esc_html__( 'Title', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -811,7 +811,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_title_bottom_space',
             [
-                'label' => esc_html__( 'Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -828,7 +828,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_title_color',
             [
-                'label' => esc_html__( 'Color', 'elementskit' ),
+                'label' => esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -849,7 +849,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_info_box_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -868,7 +868,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
 			'ekit_funfact_super_controls',
 			[
-				'label' => esc_html__( 'Super', 'elementskit' ),
+				'label' => esc_html__( 'Super', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_funfact_super' => 'yes',
@@ -879,7 +879,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_super_color',
             [
-                'label' => esc_html__( 'Number Color', 'elementskit' ),
+                'label' => esc_html__( 'Number Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -892,7 +892,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_funfact_super_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .elementskit-funfact .super',
 			]
@@ -901,7 +901,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_funfact_super_position_top',
 			[
-				'label' => esc_html__( 'Top', 'elementskit' ),
+				'label' => esc_html__( 'Top', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -924,7 +924,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_super_position_left_right',
             [
-                'label' => esc_html__( 'Horizontal space', 'elementskit' ),
+                'label' => esc_html__( 'Horizontal space', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -947,20 +947,20 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_funfact_super_vertical_position',
 			[
-				'label' => esc_html__( 'Vertical Position', 'elementskit' ),
+				'label' => esc_html__( 'Vertical Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'top' => [
-						'title' => esc_html__( 'Top', 'elementskit' ),
+						'title' => esc_html__( 'Top', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => esc_html__( 'Middle', 'elementskit' ),
+						'title' => esc_html__( 'Middle', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => esc_html__( 'Bottom', 'elementskit' ),
+						'title' => esc_html__( 'Bottom', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -982,7 +982,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
             'ekit_funfact_section_background_style',
             [
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
             ]
         );
@@ -991,7 +991,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_funfact_bg',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-funfact',
             ]
@@ -1000,7 +1000,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_bg_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -1013,7 +1013,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_funfact_box_shadow',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact',
             ]
         );
@@ -1021,7 +1021,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_kit_funfact_border',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-funfact',
             ]
         );
@@ -1029,7 +1029,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_border_radious',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -1041,7 +1041,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_box_ainmation',
             [
-                'label' => esc_html__( 'Entrance Animation', 'elementskit' ),
+                'label' => esc_html__( 'Entrance Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::ANIMATION,
                 'prefix_class' => 'animated ',
             ]
@@ -1051,10 +1051,10 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_show_overly',
             [
-                'label' => esc_html__( 'Enable Overlay', 'elementskit' ),
+                'label' => esc_html__( 'Enable Overlay', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -1062,7 +1062,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_responsive_control(
             'ekit_funfact_bg_ovelry_color',
             [
-                'label' => esc_html__( 'Overlay Color', 'elementskit' ),
+                'label' => esc_html__( 'Overlay Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-funfact .elementskit-funfact-overlay' => 'background: {{VALUE}}',
@@ -1078,7 +1078,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->start_controls_section(
 			'ekit_funfact_divider_tab',
 			[
-				'label' => esc_html__( 'Devider', 'elementskit' ),
+				'label' => esc_html__( 'Devider', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_funfact_enable_vertical_border' => 'yes',
@@ -1089,7 +1089,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_funfact_divider_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1112,7 +1112,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_funfact_divider_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1136,7 +1136,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_funfact_divider_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-funfact .vertical-bar',
 			]
@@ -1145,19 +1145,19 @@ class Elementskit_Widget_Funfact extends Widget_Base {
         $this->add_control(
             'ekit_funfact_enable_border_verticaly_position',
             [
-                'label' => esc_html__( 'Border Direction', 'elementskit' ),
+                'label' => esc_html__( 'Border Direction', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::CHOOSE,
                 'options' => [
                     'position_top' => [
-                        'title' => esc_html__( 'From Top', 'elementskit' ),
+                        'title' => esc_html__( 'From Top', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-up',
                     ],
                     'position_center' => [
-                        'title' => esc_html__( 'From Center', 'elementskit' ),
+                        'title' => esc_html__( 'From Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'position_bottom' => [
-                        'title' => esc_html__( 'From Down', 'elementskit' ),
+                        'title' => esc_html__( 'From Down', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-down',
                     ],
                 ],
@@ -1219,7 +1219,7 @@ class Elementskit_Widget_Funfact extends Widget_Base {
 
         ?>
 
-        <div <?php echo \ElementsKit\Utils::kses($this->get_render_attribute_string( 'funfact_wrapper' )); ?>>
+        <div <?php echo \ElementsKit_Lite\Utils::kses($this->get_render_attribute_string( 'funfact_wrapper' )); ?>>
             <?php if ($settings['ekit_funfact_enable_vertical_border'] == 'yes') : ?>
             <div class="vertical-bar <?php echo esc_attr($settings['ekit_funfact_enable_vertical_border_position']); ?>"></div>
             <?php endif; ?>
@@ -1227,10 +1227,10 @@ class Elementskit_Widget_Funfact extends Widget_Base {
                 <?php if(($settings['ekit_funfact_icon_type'] == 'image_icon') || ($settings['ekit_funfact_icon_type'] == 'icon')) : ?>
                 <div class="funfact-icon">
                     <?php if($settings['ekit_funfact_icon_type'] == 'image_icon') : ?>
-                        <?php echo \ElementsKit\Utils::render($image_html); ?>
+                        <?php echo \ElementsKit_Lite\Utils::render($image_html); ?>
                     <?php endif; ?>
                     <?php if($settings['ekit_funfact_icon_type'] == 'icon') : ?>
-                        <i <?php echo \ElementsKit\Utils::kses($this->get_render_attribute_string( 'icon' )); ?>></i>
+                        <i <?php echo \ElementsKit_Lite\Utils::kses($this->get_render_attribute_string( 'icon' )); ?>></i>
 
                         <?php
                             // new icon
@@ -1253,10 +1253,10 @@ class Elementskit_Widget_Funfact extends Widget_Base {
                     <div class="number-percentage-wraper">
                         <span class="number-percentage" data-value="<?php echo esc_attr($settings['ekit_funfact_number']); ?>" data-animation-duration="3500">0</span><?php echo esc_html($settings['ekit_funfact_number_suffix']); ?>
                         <?php if ($settings['ekit_funfact_super'] == 'yes') : ?>
-                        <span class="super"><?php echo \ElementsKit\Utils::kses($settings['ekit_funfact_super_text']); ?></span>
+                        <span class="super"><?php echo \ElementsKit_Lite\Utils::kses($settings['ekit_funfact_super_text']); ?></span>
                         <?php endif; ?>
                     </div>
-                    <<?php echo \ElementsKit\Utils::render($settings['ekit_funfact_title_size']); ?> class="funfact-title"><?php echo esc_html($settings['ekit_funfact_title_text']); ?></<?php echo esc_html($settings['ekit_funfact_title_size']); ?>>
+                    <<?php echo \ElementsKit_Lite\Utils::render($settings['ekit_funfact_title_size']); ?> class="funfact-title"><?php echo esc_html($settings['ekit_funfact_title_text']); ?></<?php echo esc_html($settings['ekit_funfact_title_size']); ?>>
                     <?php echo $enable_ovelry_color; ?>
                 </div>
             </div>

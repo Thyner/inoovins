@@ -1,14 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Tab_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_Tab_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-simple-tab';
     }
 
     static function get_title() {
-        return esc_html__( 'Tab', 'elementskit' );
+        return esc_html__( 'Tab', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,15 +17,15 @@ class Elementskit_Widget_Tab_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'tab/';
+        return \ElementsKit_Lite::widget_dir() . 'tab/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'tab/';
+        return \ElementsKit_Lite::widget_url() . 'tab/';
     }
 
 }

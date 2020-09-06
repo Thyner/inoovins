@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Jetpack by WordPress.com - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-31 11:14:08+0000\n"
+"PO-Revision-Date: 2020-09-04 06:28:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,117 @@ msgstr ""
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Jetpack by WordPress.com - Stable (latest release)\n"
+
+#: modules/shortcodes/instagram.php:284
+msgid "Invalid Instagram resource"
+msgstr "Ressource Instagram non valide"
+
+#: modules/shortcodes/instagram.php:263
+msgid "Jetpack must be active to fetch Instagram embed"
+msgstr "Jetpack doit être actif pour récupérer l’intégration Instagram"
+
+#: modules/contact-form/grunion-contact-form.php:2439
+#: _inc/blocks/editor-beta.js:18 _inc/blocks/editor-no-post-editor.js:18
+#: _inc/blocks/editor-experimental.js:18 _inc/blocks/editor.js:18
+msgid "Consent"
+msgstr "Consentement"
+
+#: modules/contact-form/grunion-contact-form.php:382
+#: _inc/blocks/editor-beta.js:18 _inc/blocks/editor-no-post-editor.js:18
+#: _inc/blocks/editor-experimental.js:18 _inc/blocks/editor.js:18
+msgid "Can we send you an email from time to time?"
+msgstr "Pouvons-nous vous envoyer un e-mail de temps en temps ?"
+
+#: modules/contact-form/grunion-contact-form.php:378
+#: _inc/blocks/editor-beta.js:18 _inc/blocks/editor-no-post-editor.js:18
+#: _inc/blocks/editor-experimental.js:18 _inc/blocks/editor.js:18
+msgid "By submitting your information, you're giving us permission to email you. You may unsubscribe at any time."
+msgstr "En envoyant vos informations, vous nous autorisez à vous envoyer des e-mails. Vous pouvez vous désabonner à tout moment."
+
+#. translators: placeholder is a plugin name.
+#: _inc/lib/class.core-rest-api-endpoints.php:3674
+msgid "Activated %s"
+msgstr "Activée %s"
+
+#. translators: placeholder is a plugin slug.
+#: _inc/lib/class.core-rest-api-endpoints.php:3645
+msgid "Plugin %s is already active."
+msgstr "L’extension %s est déjà active."
+
+#: _inc/lib/class.core-rest-api-endpoints.php:3617
+msgid "You did not specify a plugin."
+msgstr "Vous n’avez pas spécifié d’extension."
+
+#: _inc/lib/class.core-rest-api-endpoints.php:3604
+msgid "Status parameter missing."
+msgstr "Paramètre status manquant."
+
+#: _inc/lib/class.core-rest-api-endpoints.php:3566
+msgid "Unable to determine what plugin was installed."
+msgstr "Impossible de déterminer quelle extension a été installée."
+
+#. translators: placeholder is a plugin name.
+#: _inc/lib/class.core-rest-api-endpoints.php:3549
+msgid "Installed %s"
+msgstr "Installée %s"
+
+#. translators: %1$s: plugin name. -- %2$s: error message.
+#: _inc/lib/class.core-rest-api-endpoints.php:3528
+msgid "Unable to install %1$s: %2$s "
+msgstr "Impossible d’installer %1$s : %2$s "
+
+#. translators: %s is an error code (e.g. `token_mismatch`)
+#: _inc/lib/class.core-rest-api-endpoints.php:1786
+msgid "Failed fetching site data from WordPress.com (%s). If the problem persists, try reconnecting Jetpack."
+msgstr "Échec de l’extraction des données de site à partir de WordPress.com (%s). Si le problème persiste, essayez de reconnecter Jetpack."
+
+#: _inc/lib/class.core-rest-api-endpoints.php:1725
+msgid "site_id_missing"
+msgstr "site_id_missing"
+
+#: _inc/lib/class.core-rest-api-endpoints.php:445
+msgid "The plugin activation status."
+msgstr "État d’activation de l’extension."
+
+#: _inc/lib/class.core-rest-api-endpoints.php:441
+msgid "WordPress.org plugin directory slug."
+msgstr "Slug de répertoire de l’extension WordPress.org."
+
+#: class.jetpack-connection-banner.php:387
+msgid "More than 5 million WordPress sites trust Jetpack for their website security and performance."
+msgstr "Plus de 5 millions de sites WordPress font confiance à Jetpack pour la sécurité et les performances de leurs sites Web."
+
+#: class.jetpack-connection-banner.php:381
+msgid "Improve visitor engagement and sales with a customized search experience."
+msgstr "Améliorez l’implication des visiteurs et les ventes grâce à une expérience de recherche personnalisée."
+
+#: class.jetpack-connection-banner.php:380
+msgid "Speed up your mobile site and reduce bandwidth usage automatically."
+msgstr "Accélérez votre site mobile et réduisez l’utilisation de la bande passante automatiquement."
+
+#: class.jetpack-connection-banner.php:379
+msgid "Keep people on your site longer with lightning-fast page load times through our free global CDN."
+msgstr "Gardez les visiteurs plus longtemps sur votre site avec des temps de chargement de pages extrêmement rapides grâce à notre réseau mondial de diffusion de contenu gratuit."
+
+#: class.jetpack-connection-banner.php:365
+msgid "Free protection against brute force attacks and instant notifications if your site goes down."
+msgstr "Protection gratuite contre les attaques par force brute et notifications instantanées si votre site tombe en panne."
+
+#: class.jetpack-connection-banner.php:364
+msgid "Real-time backups save every change and one-click restores get you back online quickly."
+msgstr "Les sauvegardes en temps réel enregistrent toutes les modifications, tandis que les restaurations en un clic vous permettent d’être de nouveau en ligne rapidement."
+
+#: class.jetpack-connection-banner.php:363
+msgid "Stay one step ahead of security threats with automatic scanning, one-click fixes, and spam protection."
+msgstr "Gardez une longueur d’avance sur les menaces de sécurité grâce à l’analyse automatique, à la résolution des problèmes en un clic et à la protection contre le contenu indésirable."
+
+#: class.jetpack-connection-banner.php:361
+msgid "Always-on Security"
+msgstr "Toujours en sécurité"
+
+#: 3rd-party/creative-mail.php:102
+msgid "There was an error installing Creative Mail."
+msgstr "Une erreur est survenue lors de l’installation de Creative Mail."
 
 #: extensions/blocks/story/story.php:99 extensions/blocks/story/story.php:159
 msgid "Error retrieving media"
@@ -168,6 +279,14 @@ msgstr "Chargement d’une nouvelle page"
 msgid "Excluded Post Types"
 msgstr "Exclure des types de publication"
 
+#: modules/search/class-jetpack-search-customize.php:136
+msgid "Choose post types to exclude from search results."
+msgstr "Choisir des types de publication à exclure des résultats de recherche."
+
+#: modules/sharedaddy/sharing-service.php:892
+msgid "Customize buttons"
+msgstr "Personnaliser les boutons"
+
 #: _inc/lib/core-api/wpcom-endpoints/class-wpcom-rest-api-v2-endpoint-external-media.php:128
 msgid "The post ID to attach the upload to."
 msgstr "L’ID de l’article auquel le média doit être attaché."
@@ -177,55 +296,47 @@ msgstr "L’ID de l’article auquel le média doit être attaché."
 msgid "Jetpack is in Offline Mode:"
 msgstr "Jetpack est en mode de développement :"
 
-#: modules/sharedaddy/sharing-service.php:892
-msgid "Customize buttons"
-msgstr "Personnaliser les boutons"
-
 #: _inc/lib/class-jetpack-instagram-gallery-helper.php:67
 msgid "The requested Instagram connection is not available anymore."
 msgstr "La connexion Instagram requise n’est plus disponible."
-
-#: modules/search/class-jetpack-search-customize.php:136
-msgid "Choose post types to exclude from search results."
-msgstr "Choisir des types de publication à exclure des résultats de recherche."
 
 #. Translators: 1. File name. 2. Jetpack version number.
 #: functions.global.php:93
 msgid "The %1$s file will be removed from the Jetpack plugin in version %2$s."
 msgstr "Le fichier %1$s sera supprimé de l’extension Jetpack dans la version %2$s."
 
-#: class.jetpack.php:7384 class.jetpack.php:7386 _inc/build/admin.js:71
-msgid "Automatically clear spam from comments and forms. Save time, get more responses, give your visitors a better experience – all without lifting a finger."
-msgstr "Supprimez automatiquement le contenu indésirable des commentaires et des formulaires. Gagnez du temps, obtenez plus de réponses et offrez une meilleure expérience à vos visiteurs sans vous fatiguer."
-
-#: class.jetpack.php:7392 class.jetpack-admin.php:74
-msgid "Anti-Spam"
-msgstr "Anti-spam"
-
 #. Translators: 1. Function name. 2. Jetpack version number.
 #: functions.global.php:53
 msgid "The %1$s function will be removed from the Jetpack plugin in version %2$s."
 msgstr "La fonction %1$s sera supprimée de l’extension Jetpack dans la version %2$s."
 
-#: class.jetpack.php:1701
-msgid "The jetpack_offline_mode filter is set to true."
-msgstr "Le filtre jetpack_offline_mode est réglé à true."
+#: class.jetpack.php:7392 class.jetpack-admin.php:74
+msgid "Anti-Spam"
+msgstr "Anti-spam"
 
-#: class.jetpack.php:1688
-msgid "Jetpack is not in Offline Mode."
-msgstr "Jetpack n’est pas en mode de développement."
+#: class.jetpack.php:7384 class.jetpack.php:7386 _inc/build/admin.js:71
+msgid "Automatically clear spam from comments and forms. Save time, get more responses, give your visitors a better experience – all without lifting a finger."
+msgstr "Supprimez automatiquement le contenu indésirable des commentaires et des formulaires. Gagnez du temps, obtenez plus de réponses et offrez une meilleure expérience à vos visiteurs sans vous fatiguer."
 
 #: class.jetpack.php:7383 _inc/build/admin.js:71
 msgid "Jetpack Anti-Spam"
 msgstr "Jetpack Anti-spam"
 
-#: class.jetpack.php:1694
-msgid "The WP_LOCAL_DEV constant is defined in wp-config.php or elsewhere."
-msgstr "La constante WP_LOCAL_DEV est réglée dans wp-config.php ou ailleurs."
+#: class.jetpack.php:1701
+msgid "The jetpack_offline_mode filter is set to true."
+msgstr "Le filtre jetpack_offline_mode est réglé à true."
 
 #: class.jetpack.php:1696
 msgid "The site URL is a known local development environment URL (e.g. http://localhost)."
 msgstr "L’URL du site est un environnement de développement connu (http://localhost par exemple)."
+
+#: class.jetpack.php:1694
+msgid "The WP_LOCAL_DEV constant is defined in wp-config.php or elsewhere."
+msgstr "La constante WP_LOCAL_DEV est réglée dans wp-config.php ou ailleurs."
+
+#: class.jetpack.php:1688
+msgid "Jetpack is not in Offline Mode."
+msgstr "Jetpack n’est pas en mode de développement."
 
 #: modules/widgets/class-jetpack-instagram-widget.php:553
 #: _inc/blocks/editor-beta.js:18 _inc/blocks/editor-no-post-editor.js:18
@@ -475,13 +586,13 @@ msgstr "Ne pas vendre mes informations personnelles"
 msgid "Please Wait"
 msgstr "Veuillez patienter"
 
-#: modules/wordads/php/class-wordads-ccpa-do-not-sell-link-widget.php:20
-msgid "Do Not Sell Link (CCPA)"
-msgstr "Lien Ne pas vendre (CCPA)"
-
 #: modules/wordads/php/class-wordads-ccpa-do-not-sell-link-widget.php:22
 msgid "Inserts \"Do Not Sell My Personal Information\" link required by the California Consumer Privacy Act (CCPA)"
 msgstr "Insère un lien « Ne pas vendre mes informations personnelles » requis par la California Consumer Privacy Act (CCPA, loi de Californie sur la vie privée des consommateurs)"
+
+#: modules/wordads/php/class-wordads-ccpa-do-not-sell-link-widget.php:20
+msgid "Do Not Sell Link (CCPA)"
+msgstr "Lien Ne pas vendre (CCPA)"
 
 #: views/admin/deactivation-dialog.php:51
 msgid "Are you sure you want to deactivate?"
@@ -592,6 +703,10 @@ msgstr "Jetpack effectue une synchronisation complète de votre site"
 msgid "How many Instagram posts?"
 msgstr "Combien de publications Instagram ?"
 
+#: _inc/lib/core-api/wpcom-endpoints/class-wpcom-rest-api-v2-endpoint-instagram-gallery.php:70
+msgid "An Instagram Keyring access token."
+msgstr "Un jeton d’accès Instagram Keyring."
+
 #: class-jetpack-wizard-banner.php:206 _inc/build/admin.js:60
 msgid "Business Use"
 msgstr "Utilisation professionnelle"
@@ -603,10 +718,6 @@ msgstr "Utilisation personnelle"
 #: class-jetpack-wizard-banner.php:181 _inc/build/admin.js:60
 msgid "Answer a few questions and we’ll help you secure, speed up, customize, and grow your WordPress website."
 msgstr "Répondez à quelques questions pour que nous puissions vous aider à sécuriser, dynamiser, personnaliser et développer votre site Web WordPress."
-
-#: _inc/lib/core-api/wpcom-endpoints/class-wpcom-rest-api-v2-endpoint-instagram-gallery.php:70
-msgid "An Instagram Keyring access token."
-msgstr "Un jeton d’accès Instagram Keyring."
 
 #: class-jetpack-wizard-banner.php:178 _inc/build/admin.js:60
 msgid "Jetpack is a cloud-powered tool built by Automattic."
@@ -1322,15 +1433,15 @@ msgctxt "Module Description"
 msgid "Let visitors subscribe to new posts and comments via email"
 msgstr "Offrez la possibilité aux visiteurs de s'abonner aux nouveaux articles et commentaires par e-mail"
 
-#: modules/module-headings.php:37
-msgctxt "Module Description"
-msgid "Enable the option to copy entire posts and pages, including tags and settings"
-msgstr "Activez l'option de copie de l'intégralité des articles et des pages, y compris des étiquettes et des réglages"
-
 #: modules/module-headings.php:127
 msgctxt "Module Description"
 msgid "Enabling brute force protection will prevent bots and hackers from attempting to log in to your website with common username and password combinations."
 msgstr "L'activation de la protection contre les attaques par force brute empêchera les pirates et les robots d'essayer de se connecter à votre site Web avec des combinaisons standard de nom d'utilisateur et de mot de passe."
+
+#: modules/module-headings.php:37
+msgctxt "Module Description"
+msgid "Enable the option to copy entire posts and pages, including tags and settings"
+msgstr "Activez l'option de copie de l'intégralité des articles et des pages, y compris des étiquettes et des réglages"
 
 #: modules/masterbar/masterbar.php:968
 msgctxt "admin bar menu group label"
@@ -2735,6 +2846,10 @@ msgstr[1] "Mises à jour automatiques activées sur %d extensions."
 msgid "Disable Automatic Updates"
 msgstr "Désactiver les mises à jour automatiques"
 
+#: modules/calypsoify/class.jetpack-calypsoify.php:144
+msgid "Enable Automatic Updates"
+msgstr "Activer les mises à jour automatiques"
+
 #: modules/shortcodes/crowdsignal.php:339
 msgid "Take Our Poll"
 msgstr "Répondre à notre sondage"
@@ -2762,10 +2877,6 @@ msgstr "L'ID Gist que vous avez fourni n'est plus valide. Veuillez en essayer un
 #: modules/shortcodes/gist.php:128
 msgid "Please specify a Gist URL or ID."
 msgstr "Veuillez préciser une URL ou un ID Gist."
-
-#: modules/calypsoify/class.jetpack-calypsoify.php:144
-msgid "Enable Automatic Updates"
-msgstr "Activer les mises à jour automatiques"
 
 #: modules/shortcodes/instagram.php:127
 msgid "Instagram Video"

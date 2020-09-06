@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\Conflicts;
+namespace ElementsKit_Lite\Compatibility\Conflicts;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -34,7 +34,7 @@ class Scripts {
 	public static function instance() {
         if ( is_null( self::$instance ) ) {
 
-            // Fire when ElementsKit instance.
+            // Fire when ElementsKit_Lite instance.
             self::$instance = new self();
         }
 

@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Header_Footer;
+namespace ElementsKit_Lite\Modules\Header_Footer;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -78,11 +78,11 @@ class Activator {
         ];
 
         if($instance->header_template != null){
-			\ElementsKit\Utils::render_elementor_content_css($instance->header_template);
+			\ElementsKit_Lite\Utils::render_elementor_content_css($instance->header_template);
 		}
 
 		if($instance->footer_template != null){
-			\ElementsKit\Utils::render_elementor_content_css($instance->footer_template);
+			\ElementsKit_Lite\Utils::render_elementor_content_css($instance->footer_template);
 		}
 
         wp_cache_set( 'elementskit_template_ids', $ids );
@@ -106,6 +106,11 @@ class Activator {
             ],
         ];
         $this->templates = get_posts($arg);
+
+        // more conditions can be triggered at once
+        // don't use switch case
+        // may impliment and callable by dynamic class in future
+
 
         // entire site
         if(!is_admin()){

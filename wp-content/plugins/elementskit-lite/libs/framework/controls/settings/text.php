@@ -8,6 +8,7 @@
         placeholder="<?php echo esc_attr($placeholder); ?>"
         name="<?php echo esc_attr($name); ?>"
         value="<?php echo esc_attr($value); ?>"
+        <?php echo esc_attr($disabled) ?>
     >
     <small id="ekit-admin-option-text-help<?php echo esc_attr(self::strify($name)); ?>" class="form-text text-muted"><?php echo esc_html($info); ?></small>
 </div>

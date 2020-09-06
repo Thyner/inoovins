@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 
@@ -42,10 +42,10 @@ class Control_Type_Font extends CT_Base {
 
 			foreach($realArray as $val => $label) {
 
-				$ret .= "\t\t\t\t\t" . '\'' . esc_html($label) . '\' => \'' . esc_html($val) . '\'' . PHP_EOL;
+				$ret .= "\t\t\t\t\t" . '\'' . esc_html($label) . '\' => \'' . esc_html($val) . '\',' . PHP_EOL;
 			}
 
-			$ret .= "\t\t\t\t" . ')' . PHP_EOL;
+			$ret .= "\t\t\t\t" . '),' . PHP_EOL;
 		}
 
 		if(!empty($conf->groups)) {
@@ -56,11 +56,23 @@ class Control_Type_Font extends CT_Base {
 
 			foreach($realArray as $val => $label) {
 
-				$ret .= "\t\t\t\t\t" . '\'' . esc_html($val) . '\' => \'' . esc_html($label) . '\'' . PHP_EOL;
+				$ret .= "\t\t\t\t\t" . '\'' . esc_html($val) . '\' => \'' . esc_html($label) . '\',' . PHP_EOL;
 			}
 
-			$ret .= "\t\t\t\t" . ')' . PHP_EOL;
-		}
+			$ret .= "\t\t\t\t" . '),' . PHP_EOL;
+      }
+      
+      if (!empty($conf->selectors)) {
+         $selectors = (array) $conf->selectors;
+         $ret .= "\t\t\t\t" . '\'selectors\' => array(' . PHP_EOL;
+
+         foreach ($selectors as $selectorName => $selectorValue) {
+            $selectorProperty = str_replace(',', ', {{WRAPPER}} ', $selectorName);
+            $ret .= "\t\t\t\t\t" . '\'{{WRAPPER}} '. $selectorProperty .'\' => \'' . esc_html($selectorValue) . '\',' . PHP_EOL;
+         }
+
+         $ret .= "\t\t\t\t" . ')' . PHP_EOL;
+      }
 
 		return $ret;
 

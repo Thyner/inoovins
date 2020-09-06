@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Icon_Box_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Icon_Box_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Icon_Box extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -33,26 +33,26 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box',
             [
-                'label' => esc_html__( 'Icon Box', 'elementskit' ),
+                'label' => esc_html__( 'Icon Box', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_icon_box_enable_header_icon', [
-                'label'       => esc_html__( 'Icon Type', 'elementskit' ),
+                'label'       => esc_html__( 'Icon Type', 'elementskit-lite' ),
                 'type'        => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options'     => [
                     'none' => [
-                        'title' => esc_html__( 'None', 'elementskit' ),
+                        'title' => esc_html__( 'None', 'elementskit-lite' ),
                         'icon'  => 'fa fa-ban',
                     ],
                     'icon' => [
-                        'title' => esc_html__( 'Icon', 'elementskit' ),
+                        'title' => esc_html__( 'Icon', 'elementskit-lite' ),
                         'icon'  => 'fa fa-paint-brush',
                     ],
                     'image' => [
-                        'title' => esc_html__( 'Image', 'elementskit' ),
+                        'title' => esc_html__( 'Image', 'elementskit-lite' ),
                         'icon'  => 'fa fa-image',
                     ],
                 ],
@@ -63,11 +63,11 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_header_icons__switch',
             [
-                'label' => esc_html__('Add icon? ', 'elementskit'),
+                'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_icon_box_enable_header_icon!' => 'none',
                 ]
@@ -77,7 +77,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_header_icons',
             [
-                'label' => esc_html__( 'Header Icon', 'elementskit' ),
+                'label' => esc_html__( 'Header Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_icon_box_header_icon',
                 'default' => [
@@ -95,7 +95,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_header_image',
             [
-                'label' => esc_html__( 'Choose Image', 'elementskit' ),
+                'label' => esc_html__( 'Choose Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -112,13 +112,13 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_title_text',
             [
-                'label' => esc_html__( 'Title ', 'elementskit' ),
+                'label' => esc_html__( 'Title ', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => esc_html__( 'This is the heading', 'elementskit' ),
-                'placeholder' => esc_html__( 'Enter your title', 'elementskit' ),
+                'default' => esc_html__( 'This is the heading', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'Enter your title', 'elementskit-lite' ),
                 'label_block' => true,
                 'separator' => 'before',
             ]
@@ -127,13 +127,13 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_description_text',
             [
-                'label' => esc_html__( 'Content', 'elementskit' ),
+                'label' => esc_html__( 'Content', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => esc_html__( 'Click edit  to change this text. Lorem ipsum dolor sit amet, cctetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementskit' ),
-                'placeholder' => esc_html__( 'Enter your description', 'elementskit' ),
+                'default' => esc_html__( 'Click edit  to change this text. Lorem ipsum dolor sit amet, cctetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'Enter your description', 'elementskit-lite' ),
                 'separator' => 'none',
                 'rows' => 10,
                 'show_label' => false,
@@ -147,16 +147,16 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_section_button',
             [
-                'label' => esc_html__( 'Read More', 'elementskit' ),
+                'label' => esc_html__( 'Read More', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_icon_box_enable_btn',
             [
-                'label' => esc_html__( 'Enable Button', 'elementskit' ),
+                'label' => esc_html__( 'Enable Button', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'separator' => 'before',
@@ -165,10 +165,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_enable_hover_btn',
             [
-                'label' => esc_html__( 'Enable Hover Btn', 'elementskit' ),
+                'label' => esc_html__( 'Enable Hover Btn', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'separator' => 'before',
@@ -180,7 +180,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_button_position',
             [
-                'label' => esc_html__( 'bottom position', 'elementskit' ),
+                'label' => esc_html__( 'bottom position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'condition' => [
@@ -206,10 +206,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_btn_text',
             [
-                'label' =>esc_html__( 'Label', 'elementskit' ),
+                'label' =>esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' =>esc_html__( 'Learn more ', 'elementskit' ),
-                'placeholder' =>esc_html__( 'Learn more ', 'elementskit' ),
+                'default' =>esc_html__( 'Learn more ', 'elementskit-lite' ),
+                'placeholder' =>esc_html__( 'Learn more ', 'elementskit-lite' ),
                 'dynamic'     => array( 'active' => true ),
                 'condition' => [
                     'ekit_icon_box_enable_btn' => 'yes',
@@ -221,7 +221,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_btn_url',
             [
-                'label' =>esc_html__( 'URL', 'elementskit' ),
+                'label' =>esc_html__( 'URL', 'elementskit-lite' ),
                 'type' => Controls_Manager::URL,
                 'placeholder' =>esc_url('http://your-link.com'),
                 'default' => [
@@ -241,11 +241,11 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_icons__switch',
             [
-                'label' => esc_html__('Add icon? ', 'elementskit'),
+                'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_icon_box_enable_btn' => 'yes',
                 ]
@@ -255,7 +255,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_icons',
             [
-                'label' =>esc_html__( 'Icon', 'elementskit' ),
+                'label' =>esc_html__( 'Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_icon_box_icon',
                 'default' => [
@@ -271,12 +271,12 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_icon_align',
             [
-                'label' =>esc_html__( 'Icon Position', 'elementskit' ),
+                'label' =>esc_html__( 'Icon Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left',
                 'options' => [
-                    'left' =>esc_html__( 'Before', 'elementskit' ),
-                    'right' =>esc_html__( 'After', 'elementskit' ),
+                    'left' =>esc_html__( 'Before', 'elementskit-lite' ),
+                    'right' =>esc_html__( 'After', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_icon_box_icons__switch'   => 'yes',
@@ -288,10 +288,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_show_global_link',
             [
-                'label' => esc_html__( 'Global Link', 'elementskit' ),
+                'label' => esc_html__( 'Global Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -303,9 +303,9 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_global_link',
             [
-                'label' => esc_html__( 'Link', 'elementskit' ),
+                'label' => esc_html__( 'Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'elementskit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'elementskit-lite' ),
                 'show_external' => true,
                 'default' => [
                     'url' => 'https://your-link.com',
@@ -328,17 +328,17 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_section_settings',
             [
-                'label' => esc_html__( 'Settings', 'elementskit' ),
+                'label' => esc_html__( 'Settings', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_icon_box_enable_water_mark',
             [
-                'label' => esc_html__( 'Enable Hover Water Mark ', 'elementskit' ),
+                'label' => esc_html__( 'Enable Hover Water Mark ', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -347,7 +347,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_water_mark_icons',
             [
-                'label' => esc_html__( 'Social Icons', 'elementskit' ),
+                'label' => esc_html__( 'Social Icons', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_icon_box_water_mark_icon',
                 'default' => [
@@ -366,13 +366,13 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_icon_position',
             [
-                'label' => esc_html__( 'Icon Position', 'elementskit' ),
+                'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'top',
                 'options' => [
-                    'top'  => esc_html__( 'Top', 'elementskit' ),
-                    'left'  => esc_html__( 'Left', 'elementskit' ),
-                    'right'  => esc_html__( 'Right', 'elementskit' ),
+                    'top'  => esc_html__( 'Top', 'elementskit-lite' ),
+                    'left'  => esc_html__( 'Left', 'elementskit-lite' ),
+                    'right'  => esc_html__( 'Right', 'elementskit-lite' ),
                 ],
                 'separator' => 'before',
                 'condition' => [
@@ -385,19 +385,19 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_text_align_responsive',
             [
-                'label' => esc_html__( 'Content Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Content Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -414,7 +414,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_title_size',
             [
-                'label' => esc_html__( 'Title HTML Tag', 'elementskit' ),
+                'label' => esc_html__( 'Title HTML Tag', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'h1' => 'H1',
@@ -436,7 +436,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_badge_control_tab',
             [
-                'label' => esc_html__( 'Badge', 'elementskit' ),
+                'label' => esc_html__( 'Badge', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -444,10 +444,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_badge_control',
             [
-                'label' => esc_html__( 'Show Badge', 'elementskit' ),
+                'label' => esc_html__( 'Show Badge', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'elementskit' ),
-                'label_off' => esc_html__( 'Hide', 'elementskit' ),
+                'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -455,10 +455,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_badge_title',
             [
-                'label' => esc_html__( 'Title', 'elementskit' ),
+                'label' => esc_html__( 'Title', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'EXCLUSIVE', 'elementskit' ),
-                'placeholder' => esc_html__( 'Type your title here', 'elementskit' ),
+                'default' => esc_html__( 'EXCLUSIVE', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'Type your title here', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_icon_box_badge_control' => 'yes'
                 ]
@@ -468,17 +468,17 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_badge_position',
             [
-                'label' => esc_html__( 'Border Style', 'elementskit' ),
+                'label' => esc_html__( 'Border Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'top_left',
                 'options' => [
-                    'top_left'  => esc_html__( 'Top Left', 'elementskit' ),
-                    'top_center' => esc_html__( 'Top Center', 'elementskit' ),
-                    'top_right' => esc_html__( 'Top Right', 'elementskit' ),
-                    'center_left' => esc_html__( 'Center Left', 'elementskit' ),
-                    'bottom_left' => esc_html__( 'Bottom Left', 'elementskit' ),
-                    'bottom_center' => esc_html__( 'Bottom Center', 'elementskit' ),
-                    'bottom_right' => esc_html__( 'Bottom Right', 'elementskit' ),
+                    'top_left'  => esc_html__( 'Top Left', 'elementskit-lite' ),
+                    'top_center' => esc_html__( 'Top Center', 'elementskit-lite' ),
+                    'top_right' => esc_html__( 'Top Right', 'elementskit-lite' ),
+                    'center_left' => esc_html__( 'Center Left', 'elementskit-lite' ),
+                    'bottom_left' => esc_html__( 'Bottom Left', 'elementskit-lite' ),
+                    'bottom_center' => esc_html__( 'Bottom Center', 'elementskit-lite' ),
+                    'bottom_right' => esc_html__( 'Bottom Right', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_icon_box_badge_control' => 'yes'
@@ -492,7 +492,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_section_style_icon',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_icon_box_enable_header_icon!' => 'none',
@@ -506,14 +506,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_icon_colors_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_icon_box_icon_primary_color',
             [
-                'label' => esc_html__( 'Icon Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#656565',
                 'selectors' => [
@@ -529,7 +529,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_icon_secondary_color_normal',
             [
-                'label' => esc_html__( 'Icon BG Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon BG Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -542,7 +542,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_icon_box_border',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-info-box-icon',
             ]
         );
@@ -552,7 +552,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icon_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -572,14 +572,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_icon_colors_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_icon_box_hover_primary_color',
             [
-                'label' => esc_html__( 'Icon Hover Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon Hover Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -595,7 +595,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_hover_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'elementskit' ),
+                'label' => esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -608,7 +608,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_icon_box_border_icon_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-infobox:hover .elementskit-info-box-icon',
             ]
         );
@@ -616,14 +616,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_icons_hover_animation',
             [
-                'label' => esc_html__( 'Hover Animation', 'elementskit' ),
+                'label' => esc_html__( 'Hover Animation', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::HOVER_ANIMATION,
             ]
         );
         $this->add_responsive_control(
             'ekit_icon_box_icons_hover_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -644,7 +644,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_icon_size',
             [
-                'label' => esc_html__( 'Size', 'elementskit' ),
+                'label' => esc_html__( 'Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -670,7 +670,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icon_space',
             [
-                'label' => esc_html__( 'Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -690,7 +690,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_icon_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -706,7 +706,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_rotate',
             [
-                'label' => esc_html__( 'Rotate', 'elementskit' ),
+                'label' => esc_html__( 'Rotate', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -721,7 +721,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icon_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -739,7 +739,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icon_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -758,7 +758,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icon_line_height',
             [
-                'label' => esc_html__( 'Line Height', 'elementskit' ),
+                'label' => esc_html__( 'Line Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -777,7 +777,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icon_vertical_align',
             [
-                'label' => esc_html__( 'Vertical Position ', 'elementskit' ),
+                'label' => esc_html__( 'Vertical Position ', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -800,7 +800,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_section_style_content',
             [
-                'label' => esc_html__( 'Content', 'elementskit' ),
+                'label' => esc_html__( 'Content', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -808,7 +808,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_heading_title',
             [
-                'label' => esc_html__( 'Title', 'elementskit' ),
+                'label' => esc_html__( 'Title', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -817,7 +817,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_title_bottom_space',
             [
-                'label' => esc_html__( 'Margin', 'elementskit' ),
+                'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -833,7 +833,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_title_color',
             [
-                'label' => esc_html__( 'Color', 'elementskit' ),
+                'label' => esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000000',
                 'selectors' => [
@@ -844,7 +844,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_title_color_hover',
             [
-                'label' => esc_html__( 'Color Hover', 'elementskit' ),
+                'label' => esc_html__( 'Color Hover', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000000',
                 'selectors' => [
@@ -864,7 +864,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_heading_description',
             [
-                'label' => esc_html__( 'Description', 'elementskit' ),
+                'label' => esc_html__( 'Description', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -873,7 +873,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_description_color',
             [
-                'label' => esc_html__( 'Color', 'elementskit' ),
+                'label' => esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#656565',
                 'selectors' => [
@@ -884,7 +884,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_description_color_hover',
             [
-                'label' => esc_html__( 'Color Hover as', 'elementskit' ),
+                'label' => esc_html__( 'Color Hover as', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#656565',
                 'selectors' => [
@@ -905,7 +905,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_margin',
             [
-                'label' => esc_html__( 'Margin', 'elementskit' ),
+                'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -925,7 +925,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_watermark',
             [
-                'label' => esc_html__( 'Water Mark', 'elementskit' ),
+                'label' => esc_html__( 'Water Mark', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -937,7 +937,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_watermark_color',
             [
-                'label' => esc_html__( 'Water Mark Color', 'elementskit' ),
+                'label' => esc_html__( 'Water Mark Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000000',
                 'selectors' => [
@@ -953,7 +953,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_watermark_font_size',
             [
-                'label' => esc_html__( 'Water Mark Font Size', 'elementskit' ),
+                'label' => esc_html__( 'Water Mark Font Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -984,7 +984,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_section_style',
             [
-                'label' => esc_html__( 'Button', 'elementskit' ),
+                'label' => esc_html__( 'Button', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_icon_box_enable_btn' => 'yes',
@@ -994,7 +994,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_text_padding',
             [
-                'label' =>esc_html__( 'Padding', 'elementskit' ),
+                'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -1005,7 +1005,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_text_margin',
             [
-                'label' =>esc_html__( 'Margin', 'elementskit' ),
+                'label' =>esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -1018,14 +1018,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_icon_box_typography_group',
-                'label' =>esc_html__( 'Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-btn',
             ]
         );
         $this->add_responsive_control(
             'ekit_icon_box_btn_icon_font_size',
             array(
-                'label'      => esc_html__( 'Icon Font Size', 'elementskit' ),
+                'label'      => esc_html__( 'Icon Font Size', 'elementskit-lite' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array(
                     'px', 'em', 'rem',
@@ -1050,14 +1050,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_tab_button_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_icon_box_button_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'elementskit' ),
+                'label' => esc_html__( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -1071,7 +1071,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_btn_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-btn',
             ]
@@ -1081,14 +1081,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_icon_box_button_border_color_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-btn',
             ]
         );
         $this->add_responsive_control(
             'ekit_icon_box_btn_border_radius',
             [
-                'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+                'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
                 'default' => [
@@ -1115,14 +1115,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_tab_button_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_icon_box_btn_hover_color',
             [
-                'label' => esc_html__( 'Text Color', 'elementskit' ),
+                'label' => esc_html__( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-infobox:hover .elementskit-btn' => 'color: {{VALUE}};',
@@ -1135,7 +1135,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_btn_background_hover_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-infobox:hover .elementskit-btn',
             ]
@@ -1145,14 +1145,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_icon_box_button_border_hv_color_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-infobox:hover .elementskit-btn',
             ]
         );
         $this->add_responsive_control(
             'ekit_icon_box_btn_hover_border_radius',
             [
-                'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+                'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
                 'default' => [
@@ -1177,7 +1177,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_button_hover_animation',
             [
-                'label' => esc_html__( 'Animation', 'elementskit' ),
+                'label' => esc_html__( 'Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -1193,7 +1193,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_section_background_style',
             [
-                'label' => esc_html__( 'Icon Box Container', 'elementskit' ),
+                'label' => esc_html__( 'Icon Box Container', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
             ]
         );
@@ -1201,14 +1201,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_section_background_style_n_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_infobox_bg_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient', 'video' ],
                 'selector' => '{{WRAPPER}} .elementskit-infobox',
             ]
@@ -1216,7 +1216,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_infobox_bg_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default' =>     [
@@ -1235,7 +1235,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_icon_box_infobox_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-infobox',
             ]
         );
@@ -1243,14 +1243,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_icon_box_iocnbox_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-infobox',
             ]
         );
         $this->add_responsive_control(
             'ekit_icon_box_infobox_border_radious',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -1261,7 +1261,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_infobox_box_ainmation',
             [
-                'label' => esc_html__( 'Entrance Animation', 'elementskit' ),
+                'label' => esc_html__( 'Entrance Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::ANIMATION,
                 'prefix_class' => 'animated ',
             ]
@@ -1270,14 +1270,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_section_background_style_n_hv_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_infobox_bg_hover_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient', 'video' ],
                 'selector' => '{{WRAPPER}} .elementskit-infobox:hover',
             ]
@@ -1285,7 +1285,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_infobox_bg_padding_inner',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
 
@@ -1299,7 +1299,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_icon_box_infobox_box_shadow_hv_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-infobox:hover',
             ]
         );
@@ -1307,14 +1307,14 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_icon_box_icon_box_border_hv_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-infobox:hover',
             ]
         );
         $this->add_responsive_control(
             'ekit_icon_box_infobox_border_radious_hv',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -1325,7 +1325,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_info_box_hover_animation',
             [
-                'label' => esc_html__( 'Hover Animation', 'elementskit' ),
+                'label' => esc_html__( 'Hover Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -1337,7 +1337,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_section_bg_ovelry_style',
             [
-                'label' => esc_html__( 'Background Overlay ', 'elementskit' ),
+                'label' => esc_html__( 'Background Overlay ', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
             ]
         );
@@ -1345,10 +1345,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_show_image_overlay',
             [
-                'label' => esc_html__( 'Enable Image Overlay', 'elementskit' ),
+                'label' => esc_html__( 'Enable Image Overlay', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -1357,7 +1357,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_show_image',
             [
-                'label' => esc_html__( 'Choose Image', 'elementskit' ),
+                'label' => esc_html__( 'Choose Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
                     'active' => true,
@@ -1375,7 +1375,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_image_ovelry_color',
-                'label' => esc_html__( 'Background Overlay Color', 'elementskit' ),
+                'label' => esc_html__( 'Background Overlay Color', 'elementskit-lite' ),
                 'types' => [ 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-infobox.image-active::before',
                 'condition' => [
@@ -1387,10 +1387,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_show_overlay',
             [
-                'label' => esc_html__( 'Enable Overlay', 'elementskit' ),
+                'label' => esc_html__( 'Enable Overlay', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -1406,7 +1406,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_section_bg_ov_style_n_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -1414,7 +1414,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_bg_ovelry_color',
-                'label' => esc_html__( 'Background Overlay Color', 'elementskit' ),
+                'label' => esc_html__( 'Background Overlay Color', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-infobox.gradient-active::before',
             ]
@@ -1423,7 +1423,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_tab(
             'ekit_icon_box_section_bg_ov_style_n_hv_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -1431,7 +1431,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_bg_ovelry_color_hv',
-                'label' => esc_html__( 'Background Overlay Color', 'elementskit' ),
+                'label' => esc_html__( 'Background Overlay Color', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-infobox.gradient-active:hover::before',
             ]
@@ -1442,23 +1442,23 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_control(
             'ekit_icon_box_section_bg_hover_color_direction',
             [
-                'label' => esc_html__( 'Hover Direction', 'elementskit' ),
+                'label' => esc_html__( 'Hover Direction', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::CHOOSE,
                 'options' => [
                     'hover_from_left' => [
-                        'title' => esc_html__( 'From Left', 'elementskit' ),
+                        'title' => esc_html__( 'From Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-right',
                     ],
                     'hover_from_top' => [
-                        'title' => esc_html__( 'From Top', 'elementskit' ),
+                        'title' => esc_html__( 'From Top', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-down',
                     ],
                     'hover_from_right' => [
-                        'title' => esc_html__( 'From Right', 'elementskit' ),
+                        'title' => esc_html__( 'From Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-left',
                     ],
                     'hover_from_bottom' => [
-                        'title' => esc_html__( 'From Bottom', 'elementskit' ),
+                        'title' => esc_html__( 'From Bottom', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-up',
                     ],
 
@@ -1475,7 +1475,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->start_controls_section(
             'ekit_icon_box_badge_style_tab',
             [
-                'label' => esc_html__( 'Badge', 'elementskit' ),
+                'label' => esc_html__( 'Badge', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_icon_box_badge_control' => 'yes',
@@ -1487,7 +1487,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_badge_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
@@ -1506,7 +1506,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_badge_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
@@ -1526,7 +1526,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_icon_box_badge_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .ekit-badge',
             ]
@@ -1536,7 +1536,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_icon_box_badge_box_shadow',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .ekit-badge',
             ]
         );
@@ -1545,7 +1545,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_icon_box_badge_typography',
-                'label' => esc_html__( 'Typography', 'elementskit' ),
+                'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                 'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .ekit-badge',
             ]
@@ -1613,10 +1613,10 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         <?php endif; ?>
         <!-- end link opening -->
 
-        <div <?php echo \ElementsKit\Utils::render($this->get_render_attribute_string( 'infobox_wrapper' )); ?>>
+        <div <?php echo \ElementsKit_Lite\Utils::render($this->get_render_attribute_string( 'infobox_wrapper' )); ?>>
         <?php if(! empty($settings['ekit_icon_box_header_icons']) && $settings['ekit_icon_box_enable_header_icon'] == 'icon' ) : ?>
             <div class="elementskit-box-header <?php echo 'elementor-animation-'.esc_attr($settings['ekit_icon_icons_hover_animation']); ?>">
-                <div class="elementskit-info-box-icon  <?php echo \ElementsKit\Utils::render($settings['ekit_icon_box_icon_position'] != 'top' ? 'text-center' : ''); ?>">
+                <div class="elementskit-info-box-icon  <?php echo \ElementsKit_Lite\Utils::render($settings['ekit_icon_box_icon_position'] != 'top' ? 'text-center' : ''); ?>">
                     <?php
 
                         $migrated = isset( $settings['__fa4_migrated']['ekit_icon_box_header_icons'] );
@@ -1638,19 +1638,19 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         <?php endif;?>
         <?php if(! empty($settings['ekit_icon_box_header_image']) && $settings['ekit_icon_box_enable_header_icon'] == 'image' ) : ?>
             <div class="elementskit-box-header">
-                <div class="elementskit-info-box-icon <?php echo \ElementsKit\Utils::render($settings['ekit_icon_box_icon_position'] != 'top' ? 'text-center' : ''); ?>">
+                <div class="elementskit-info-box-icon <?php echo \ElementsKit_Lite\Utils::render($settings['ekit_icon_box_icon_position'] != 'top' ? 'text-center' : ''); ?>">
                     <img src="<?php echo esc_url($settings['ekit_icon_box_header_image']['url'])?>" alt="<?php echo  esc_attr($settings['ekit_icon_box_title_text']); ?>">
                 </div>
           </div>
         <?php endif;?>
         <div class="box-body">
             <?php if ($settings['ekit_icon_box_title_text'] != '') { ?>
-                <<?php echo \ElementsKit\Utils::render($settings['ekit_icon_box_title_size']); ?> class="elementskit-info-box-title">
+                <<?php echo \ElementsKit_Lite\Utils::render($settings['ekit_icon_box_title_size']); ?> class="elementskit-info-box-title">
                     <?php echo esc_html($settings['ekit_icon_box_title_text']); ?>
-                </<?php echo \ElementsKit\Utils::render($settings['ekit_icon_box_title_size']); ?>>
+                </<?php echo \ElementsKit_Lite\Utils::render($settings['ekit_icon_box_title_size']); ?>>
             <?php } ?>
             <?php if($settings['ekit_icon_box_description_text'] != ''): ?>
-            <p><?php echo \ElementsKit\Utils::kses($settings['ekit_icon_box_description_text'] ); ?> </p>
+            <p><?php echo \ElementsKit_Lite\Utils::kses($settings['ekit_icon_box_description_text'] ); ?> </p>
             <?php endif; ?>
             <?php if($settings['ekit_icon_box_enable_btn'] == 'yes') :  ?>
                 <div class="box-footer <?php if($settings['ekit_icon_box_enable_hover_btn']== 'yes'){echo esc_attr("enable_hover_btn");} else {echo esc_attr("disable_hover_button");}?>">
@@ -1732,7 +1732,7 @@ class Elementskit_Widget_Icon_Box extends Widget_Base {
         <?php endif; ?>
 
         <?php if(!empty($settings['ekit_icon_box_show_image_overlay']) && $settings['ekit_icon_box_show_image_overlay'] == 'yes') :  ?>
-            <?php echo \ElementsKit\Utils::render($image); ?>
+            <?php echo \ElementsKit_Lite\Utils::render($image); ?>
         <?php endif; ?>
 
         <?php if($settings['ekit_icon_box_badge_control'] == 'yes' && $settings['ekit_icon_box_badge_title'] != '') : ?>

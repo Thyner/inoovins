@@ -1,7 +1,8 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Post_List_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_Post_List_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
 	public function wp_init(){
 		// post view count based on single page visit
@@ -37,7 +38,7 @@ class Elementskit_Widget_Post_List_Handler extends Core\Handler_Widget{
 
 
 	static function get_title() {
-		return esc_html__( 'Post List', 'elementskit' );
+		return esc_html__( 'Post List', 'elementskit-lite' );
 	}
 
 
@@ -54,10 +55,10 @@ class Elementskit_Widget_Post_List_Handler extends Core\Handler_Widget{
 	}
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'post-list/';
+        return \ElementsKit_Lite::widget_dir() . 'post-list/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'post-list/';
+        return \ElementsKit_Lite::widget_url() . 'post-list/';
     }
 }

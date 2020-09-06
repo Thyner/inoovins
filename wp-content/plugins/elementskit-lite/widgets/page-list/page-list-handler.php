@@ -1,7 +1,8 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Page_List_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_Page_List_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
 		return 'elementskit-page-list';
@@ -9,7 +10,7 @@ class Elementskit_Widget_Page_List_Handler extends Core\Handler_Widget{
 
 
 	static function get_title() {
-		return esc_html__( 'Page List', 'elementskit' );
+		return esc_html__( 'Page List', 'elementskit-lite' );
 	}
 
 
@@ -27,11 +28,11 @@ class Elementskit_Widget_Page_List_Handler extends Core\Handler_Widget{
 	}
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'page-list/';
+        return \ElementsKit_Lite::widget_dir() . 'page-list/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'page-list/';
+        return \ElementsKit_Lite::widget_url() . 'page-list/';
     }
 
 }

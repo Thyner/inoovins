@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Controls;
+namespace ElementsKit_Lite\Modules\Controls;
 
 defined( 'ABSPATH' ) || exit;
 

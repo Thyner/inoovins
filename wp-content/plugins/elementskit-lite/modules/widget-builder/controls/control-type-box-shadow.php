@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 
@@ -11,33 +11,37 @@ class Control_Type_Box_Shadow extends CT_Base {
 		$ret = '';
 
 		if(!empty($conf->label)) {
-			$ret .= "\t\t\t\t" . '\'label\' => esc_html( \'' . esc_html($conf->label) . '\' ),' . PHP_EOL;
-		}
-
-		if(!empty($conf->description)) {
-			$ret .= "\t\t\t\t" . '\'description\' =>  esc_html( \'' . esc_html($conf->description) . '\' ),' . PHP_EOL;
-		}
-
-		if(!empty($conf->separator)) {
-			$ret .= "\t\t\t\t" . '\'separator\' => \'' . esc_html($conf->separator) . '\' ,' . PHP_EOL;
+			$ret .= "\t\t\t\t" . '\'label\' => esc_html( \'' . esc_html($conf->label) . '\', \'elementskit\' ),' . PHP_EOL;
 		}
 
 		if(!empty($conf->selector)) {
 			$selectorProperty = str_replace(',', ', {{WRAPPER}} ', esc_html($conf->selector));
-			$ret .= "\t\t\t\t" . '\'selector\' => \'{{WRAPPER}} ' . $selectorProperty . '\' ,' . PHP_EOL;
+			$ret .= "\t\t\t\t" . '\'selector\' => \'{{WRAPPER}} ' . $selectorProperty . '\',' . PHP_EOL;
 		}
+		
+		if ( isset($conf->show_label) || isset($conf->label_block) || !empty($conf->separator) || !empty($conf->classes) ):
+			$ret .= "\t\t\t\t'fields_options' => [";
+			$ret .= "\n\t\t\t\t\t'box_shadow_type' => [";
 
-		if(!empty($conf->classes)) {
-			$ret .= "\t\t\t\t" . '\'classes\' => \'' . esc_html($conf->classes) . '\' ,' . PHP_EOL;
-		}
+			if ( isset( $conf->show_label ) ) {
+				$ret .= "\n\t\t\t\t\t\t'show_label' => ". ($conf->show_label == 1 ? 'true' : 'false') .",";
+			}
 
-		if(isset($conf->show_label)) {
-			$ret .= "\t\t\t\t" . '\'show_label\' => ' . ($conf->show_label == 1 ? 'true' : 'false') . ' ,' . PHP_EOL;
-		}
+			if ( isset( $conf->label_block ) ) {
+				$ret .= "\n\t\t\t\t\t\t'label_block' => ". ($conf->label_block == 1 ? 'true' : 'false') .",";
+			}
 
-		if(isset($conf->label_block)) {
-			$ret .= "\t\t\t\t" . '\'label_block\' => ' . ($conf->label_block == 1 ? 'true' : 'false') . ' ,' . PHP_EOL;
-		}
+			if ( !empty( $conf->separator ) ) {
+				$ret .= "\n\t\t\t\t\t\t'separator' => '". esc_html($conf->separator) ."',";
+			}
+
+			if ( !empty( $conf->classes ) ) {
+				$ret .= "\n\t\t\t\t\t\t'classes' => '". esc_html($conf->classes) ."',";
+			}
+
+			$ret .= "\n\t\t\t\t\t],";
+			$ret .= "\n\t\t\t\t],\n";
+		endif;
 
 		return $ret;
 	}

@@ -5,7 +5,7 @@
   position: relative; }
   #elementskit-template-modalinput-form .attr-modal-content .ekit-spinner {
     position: absolute;
-    top: 50%;
+    top: 50% !important;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -21,8 +21,13 @@
 #elementskit-template-modalinput-form .attr-form-control {
   font-size: 14px;
   height: 50px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); }
+  border: 1px solid #e5e5e5;
+  border-radius: 5px; }
+  #elementskit-template-modalinput-form .attr-form-control:focus {
+    border: 1px solid #F2295B;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none; }
 
 #elementskit-template-modalinput-form .attr-input-label {
   display: inline-block;
@@ -157,10 +162,10 @@
   margin-left: 5px;
   padding: 2px 5px 3px;
   color: #FFFFFF;
-  background-color: #9a9a9a;
+  background-color: #888888;
   border-radius: 3px;
   font-size: 10px;
   line-height: 1;
-  font-weight: 700; }
+  font-weight: 400; }
   .ekit-headerfooter-status-active {
     background-color: #00cd00; }

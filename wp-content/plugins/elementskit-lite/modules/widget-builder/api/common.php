@@ -1,9 +1,9 @@
 <?php 
-namespace ElementsKit\Modules\Widget_Builder\Api;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Api;
 
 defined( 'ABSPATH' ) || exit;
 
-class Common extends \ElementsKit\Core\Handler_Api {
+class Common extends \ElementsKit_Lite\Core\Handler_Api {
 
     public function config(){
         $this->prefix = 'widget-builder';
@@ -11,7 +11,7 @@ class Common extends \ElementsKit\Core\Handler_Api {
     }
 
     private function fix_title($title){
-        return ($title == '') ? ('ElementsKit Custom Widget #' . time()) : $title;
+        return ($title == '') ? ('ElementsKit_Lite Custom Widget #' . time()) : $title;
     }
 
 
@@ -22,7 +22,7 @@ class Common extends \ElementsKit\Core\Handler_Api {
 	         return [
 		         'success' => false,
 		         'message' => [
-			         esc_html__("Not enough permission.", 'elementskit')
+			         esc_html__("Not enough permission.", 'elementskit-lite')
 		         ],
 	         ];
          }
@@ -36,7 +36,7 @@ class Common extends \ElementsKit\Core\Handler_Api {
 	        return [
 		        'success' => false,
 		        'message' => [
-			        esc_html__("Invalid data.", 'elementskit')
+			        esc_html__("Invalid data.", 'elementskit-lite')
 		        ],
 	        ];
         }
@@ -57,16 +57,19 @@ class Common extends \ElementsKit\Core\Handler_Api {
             $widget_data['ID'] = $id;
             wp_update_post( $widget_data );
         }
+        update_post_meta( $id, '_elementor_edit_mode', 'builder' );
+        update_post_meta( $id, '_wp_page_template', 'elementor_canvas' );
+
         $data->push_id = $id;
 
         //update_post_meta( $id, '_wp_page_template', 'elementor_canvas' );
         update_post_meta( $id, 'elementskit_custom_widget_data', $data );
-        \ElementsKit\Modules\Widget_Builder\Widget_File::instance()->create($data, $id);
+        \ElementsKit_Lite\Modules\Widget_Builder\Widget_File::instance()->create($data, $id);
 
         return [
             'success' => true,
             'message' => [
-                esc_html__("Widget data saved!", 'elementskit')
+                esc_html__("Widget data saved!", 'elementskit-lite')
             ],
             'push_id' => $id
         ];
@@ -80,7 +83,7 @@ class Common extends \ElementsKit\Core\Handler_Api {
 		    return [
 			    'success' => false,
 			    'message' => [
-				    esc_html__("Not enough permission.", 'elementskit')
+				    esc_html__("Not enough permission.", 'elementskit-lite')
 			    ],
 		    ];
 	    }

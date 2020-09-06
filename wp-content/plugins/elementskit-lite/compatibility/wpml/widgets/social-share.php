@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -48,7 +48,7 @@ class Ekit_Social_Share extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_socialshare_label':
-				return esc_html__( 'Label (Social Share)', 'elementskit' );
+				return esc_html__( 'Label (Social Share)', 'elementskit-lite' );
 				break;
 
 			default:

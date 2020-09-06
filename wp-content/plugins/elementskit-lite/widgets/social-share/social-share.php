@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Social_Share_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Social_Share_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Social_Share extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -39,20 +39,20 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->start_controls_section(
             'ekit_socialshare_section_tab_content',
             [
-                'label' => esc_html__('Social Media', 'elementskit'),
+                'label' => esc_html__('Social Media', 'elementskit-lite'),
             ]
         );
 
         $this->add_control(
 			'ekit_socialshare_style',
 			[
-				'label' => esc_html__( 'Choose Style', 'elementskit' ),
+				'label' => esc_html__( 'Choose Style', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'icon',
 				'options' => [
-					'icon'  => esc_html__( 'Icon', 'elementskit' ),
-					'text' => esc_html__( 'Text', 'elementskit' ),
-					'both' => esc_html__( 'Both', 'elementskit' ),
+					'icon'  => esc_html__( 'Icon', 'elementskit-lite' ),
+					'text' => esc_html__( 'Text', 'elementskit-lite' ),
+					'both' => esc_html__( 'Both', 'elementskit-lite' ),
 				],
 			]
         );
@@ -60,12 +60,12 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_control(
 			'ekit_socialshare_style_icon_position',
 			[
-				'label' => esc_html__( 'Icon Position', 'elementskit' ),
+				'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_socialshare_style' => 'both'
@@ -76,7 +76,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialshare_icon_padding_right',
 			[
-				'label' => esc_html__( 'Spacing Right', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -103,7 +103,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialshare_icon_padding_left',
 			[
-				'label' => esc_html__( 'Spacing Left', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Left', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -130,19 +130,19 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialshare_list_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -160,7 +160,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_control(
             'ekit_socialshare_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'label_block' => true,
                 'fa4compatibility' => 'ekit_socialshare_icon',
                 'type' => Controls_Manager::ICONS,
@@ -175,43 +175,43 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_control(
             'ekit_socialshare_label_text',
             [
-                'label' => esc_html__( 'Social Media', 'elementskit' ),
+                'label' => esc_html__( 'Social Media', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'facebook',
                 'options' => [
-                    'facebook'      => esc_html__( 'Facebook', 'elementskit' ),
-                    'twitter'       => esc_html__( 'Twitter', 'elementskit' ),
-                    'instagram'    => esc_html__( 'Instagram', 'elementskit' ),
-                    'pinterest'     => esc_html__( 'Pinterest', 'elementskit' ),
-                    'linkedin'      => esc_html__( 'Linkedin', 'elementskit' ),
-                    'tumblr'        => esc_html__( 'Tumblr', 'elementskit' ),
-                    'snapchat'        => esc_html__( 'Snapchat', 'elementskit' ),
-                    'flicker'        => esc_html__( 'Flicker', 'elementskit' ),
-                    'vkontakte'     => esc_html__( 'Vkontakte', 'elementskit' ),
-                    'odnoklassniki' => esc_html__( 'Odnoklassniki', 'elementskit' ),
-                    'moimir'        => esc_html__( 'Moimir', 'elementskit' ),
-                    'live journal'   => esc_html__( 'Live journal', 'elementskit' ),
-                    'blogger'       => esc_html__( 'Blogger', 'elementskit' ),
-                    'digg'          => esc_html__( 'Digg', 'elementskit' ),
-                    'evernote'      => esc_html__( 'Evernote', 'elementskit' ),
-                    'reddit'        => esc_html__( 'Reddit', 'elementskit' ),
-                    'delicious'     => esc_html__( 'Delicious', 'elementskit' ),
-                    'stumbleupon'   => esc_html__( 'Stumbleupon', 'elementskit' ),
-                    'pocket'        => esc_html__( 'Pocket', 'elementskit' ),
-                    'surfingbird'   => esc_html__( 'Surfingbird', 'elementskit' ),
-                    'liveinternet'  => esc_html__( 'Liveinternet', 'elementskit' ),
-                    'buffer'        => esc_html__( 'Buffer', 'elementskit' ),
-                    'instapaper'    => esc_html__( 'Instapaper', 'elementskit' ),
-                    'xing'          => esc_html__( 'Xing', 'elementskit' ),
-                    'wordpress'     => esc_html__( 'WordPress', 'elementskit' ),
-                    'baidu'         => esc_html__( 'Baidu', 'elementskit' ),
-                    'renren'        => esc_html__( 'Renren', 'elementskit' ),
-                    'weibo'         => esc_html__( 'Weibo', 'elementskit' ),
-                    'skype'         => esc_html__( 'Skype', 'elementskit' ),
-                    'telegram'      => esc_html__( 'Telegram', 'elementskit' ),
-                    'viber'         => esc_html__( 'Viber', 'elementskit' ),
-                    'whatsapp'      => esc_html__( 'Whatsapp', 'elementskit' ),
-                    'line'          => esc_html__( 'Line', 'elementskit' ),
+                    'facebook'      => esc_html__( 'Facebook', 'elementskit-lite' ),
+                    'twitter'       => esc_html__( 'Twitter', 'elementskit-lite' ),
+                    'instagram'    => esc_html__( 'Instagram', 'elementskit-lite' ),
+                    'pinterest'     => esc_html__( 'Pinterest', 'elementskit-lite' ),
+                    'linkedin'      => esc_html__( 'Linkedin', 'elementskit-lite' ),
+                    'tumblr'        => esc_html__( 'Tumblr', 'elementskit-lite' ),
+                    'snapchat'        => esc_html__( 'Snapchat', 'elementskit-lite' ),
+                    'flicker'        => esc_html__( 'Flicker', 'elementskit-lite' ),
+                    'vkontakte'     => esc_html__( 'Vkontakte', 'elementskit-lite' ),
+                    'odnoklassniki' => esc_html__( 'Odnoklassniki', 'elementskit-lite' ),
+                    'moimir'        => esc_html__( 'Moimir', 'elementskit-lite' ),
+                    'live journal'   => esc_html__( 'Live journal', 'elementskit-lite' ),
+                    'blogger'       => esc_html__( 'Blogger', 'elementskit-lite' ),
+                    'digg'          => esc_html__( 'Digg', 'elementskit-lite' ),
+                    'evernote'      => esc_html__( 'Evernote', 'elementskit-lite' ),
+                    'reddit'        => esc_html__( 'Reddit', 'elementskit-lite' ),
+                    'delicious'     => esc_html__( 'Delicious', 'elementskit-lite' ),
+                    'stumbleupon'   => esc_html__( 'Stumbleupon', 'elementskit-lite' ),
+                    'pocket'        => esc_html__( 'Pocket', 'elementskit-lite' ),
+                    'surfingbird'   => esc_html__( 'Surfingbird', 'elementskit-lite' ),
+                    'liveinternet'  => esc_html__( 'Liveinternet', 'elementskit-lite' ),
+                    'buffer'        => esc_html__( 'Buffer', 'elementskit-lite' ),
+                    'instapaper'    => esc_html__( 'Instapaper', 'elementskit-lite' ),
+                    'xing'          => esc_html__( 'Xing', 'elementskit-lite' ),
+                    'wordpress'     => esc_html__( 'WordPress', 'elementskit-lite' ),
+                    'baidu'         => esc_html__( 'Baidu', 'elementskit-lite' ),
+                    'renren'        => esc_html__( 'Renren', 'elementskit-lite' ),
+                    'weibo'         => esc_html__( 'Weibo', 'elementskit-lite' ),
+                    'skype'         => esc_html__( 'Skype', 'elementskit-lite' ),
+                    'telegram'      => esc_html__( 'Telegram', 'elementskit-lite' ),
+                    'viber'         => esc_html__( 'Viber', 'elementskit-lite' ),
+                    'whatsapp'      => esc_html__( 'Whatsapp', 'elementskit-lite' ),
+                    'line'          => esc_html__( 'Line', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -220,7 +220,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_control(
             'ekit_socialshare_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
             ]
         );
@@ -234,7 +234,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->start_controls_tab(
             'ekit_socialshare_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -242,7 +242,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_responsive_control(
 			'ekit_socialshare_icon_color',
 			[
-				'label' =>esc_html__( 'Color', 'elementskit' ),
+				'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#222222',
 				'selectors' => [
@@ -256,7 +256,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_responsive_control(
 			'ekit_socialshare_icon_bg_color',
 			[
-				'label' =>esc_html__( 'Background Color', 'elementskit' ),
+				'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} > a' => 'background-color: {{VALUE}};',
@@ -268,7 +268,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_socialshare_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a',
 			]
 		);
@@ -277,7 +277,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'ekit_socialshare_icon_normal_text_shadow',
-				'label' => esc_html__( 'Text Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Text Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a',
 			]
         );
@@ -296,7 +296,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		$socialshare->start_controls_tab(
             'ekit_socialshare_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -304,7 +304,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_responsive_control(
 			'ekit_socialshare_icon_hover_color',
 			[
-				'label' =>esc_html__( 'Color', 'elementskit' ),
+				'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover' => 'color: {{VALUE}};',
@@ -317,7 +317,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $socialshare->add_responsive_control(
 			'ekit_socialshare_icon_hover_bg_color',
 			[
-				'label' =>esc_html__( 'Background Color', 'elementskit' ),
+				'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#3b5998',
 				'selectors' => [
@@ -331,7 +331,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'ekit_socialshare_icon_hover_text_shadow',
-				'label' => esc_html__( 'Text Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Text Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover',
 			]
         );
@@ -347,7 +347,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_socialshare_border_hover',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover',
 			]
 		);
@@ -362,7 +362,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_control(
             'ekit_socialshare_add_icons',
             [
-                'label' => esc_html__('Add Social Media', 'elementskit'),
+                'label' => esc_html__('Add Social Media', 'elementskit-lite'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $socialshare->get_controls(),
                 'default' => [
@@ -405,7 +405,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		 $this->start_controls_section(
             'ekit_socialshare_section_tab_style',
             [
-                'label' => esc_html__('Social Media', 'elementskit'),
+                'label' => esc_html__('Social Media', 'elementskit-lite'),
 				 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -413,19 +413,19 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialshare_list_item_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -441,12 +441,12 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialshare_list_display',
             [
-                'label' => esc_html__( 'Display', 'elementskit' ),
+                'label' => esc_html__( 'Display', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'inline-block',
                 'options' => [
-                    'inline-block' => esc_html__( 'Inline Block', 'elementskit' ),
-                    'block' => esc_html__( 'Block', 'elementskit' ),
+                    'inline-block' => esc_html__( 'Inline Block', 'elementskit-lite' ),
+                    'block' => esc_html__( 'Block', 'elementskit-lite' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .ekit_socialshare > li' => 'display: {{VALUE}};',
@@ -458,14 +458,14 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialshare_list_decoration_box',
             [
-                'label' => esc_html__( 'Decoration', 'elementskit' ),
+                'label' => esc_html__( 'Decoration', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
 				'default' => 'none',
                 'options' => [
-                    'none' => esc_html__( 'None', 'elementskit' ),
-                    'underline' => esc_html__( 'Underline', 'elementskit' ),
-                    'overline' => esc_html__( 'Overline', 'elementskit' ),
-                    'line-through' => esc_html__( 'Line Through', 'elementskit' ),
+                    'none' => esc_html__( 'None', 'elementskit-lite' ),
+                    'underline' => esc_html__( 'Underline', 'elementskit-lite' ),
+                    'overline' => esc_html__( 'Overline', 'elementskit-lite' ),
+                    'line-through' => esc_html__( 'Line Through', 'elementskit-lite' ),
 
                 ],
                 'selectors' => ['{{WRAPPER}} .ekit_socialshare > li > a' => 'text-decoration: {{VALUE}};'],
@@ -476,7 +476,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialshare_list_border_radius',
             [
-                'label' => esc_html__( 'Border radius', 'elementskit' ),
+                'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
@@ -495,10 +495,10 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_control(
 			'ekit_socialshare_list_style_use_height_and_width',
 			[
-				'label' => esc_html__( 'Use Height Width', 'elementskit' ),
+				'label' => esc_html__( 'Use Height Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -507,7 +507,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialshare_list_item_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'default' => [
@@ -532,7 +532,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_socialshare_list_item_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'default' => [
@@ -557,7 +557,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialshare_list_line_height',
 			[
-				'label' => esc_html__( 'Line Height', 'elementskit' ),
+				'label' => esc_html__( 'Line Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -587,7 +587,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialshare_list_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -612,7 +612,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_socialshare_list_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ekit_socialshare > li > a',
 			]
@@ -624,7 +624,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_socialshare_list_margin',
             [
-                'label'         => esc_html__('Margin', 'elementskit'),
+                'label'         => esc_html__('Margin', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
 				'default' => [
@@ -642,7 +642,7 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialshare_list_padding',
             [
-                'label'         => esc_html__('Padding', 'elementskit'),
+                'label'         => esc_html__('Padding', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
                 'selectors' => [
@@ -691,9 +691,9 @@ class Elementskit_Widget_Social_Share extends Widget_Base {
                         <?php endif; ?>
                         <?php if($settings['ekit_socialshare_style'] != 'icon' ): ?>
                         <?php if ($icon['ekit_socialshare_label'] == '') : ?>
-                        <?php echo esc_html((preg_replace('/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', ' ', ucwords($icon['ekit_socialshare_label_text']))), 'elementskit')?>
+                        <?php echo esc_html((preg_replace('/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', ' ', ucwords($icon['ekit_socialshare_label_text']))), 'elementskit-lite')?>
                         <?php else : ?>
-                        <?php echo esc_html($icon['ekit_socialshare_label'], 'elementskit')?>
+                        <?php echo esc_html($icon['ekit_socialshare_label'], 'elementskit-lite')?>
                         <?php endif; ?>
                         <?php endif; ?>
                         <?php if($settings['ekit_socialshare_style'] != 'text' && $settings['ekit_socialshare_style_icon_position'] == 'after'): ?>

@@ -1,14 +1,14 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Contact_Form7_Handler extends Core\Handler_Widget{
+class Elementskit_Widget_Contact_Form7_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-contact-form7';
     }
 
     static function get_title() {
-        return esc_html__( 'Contact form 7', 'elementskit' );
+        return esc_html__( 'Contact form 7', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +16,14 @@ class Elementskit_Widget_Contact_Form7_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'contact-form7/';
+        return \ElementsKit_Lite::widget_dir() . 'contact-form7/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'contact-form7/';
+        return \ElementsKit_Lite::widget_url() . 'contact-form7/';
     }
 }

@@ -1,7 +1,8 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Lottie_Handler extends Core\Handler_Widget {
+
+class Elementskit_Widget_Lottie_Handler extends \ElementsKit_Lite\Core\Handler_Widget {
 
     public function wp_init(){
         include self::get_dir() . 'json-handler.php';
@@ -12,7 +13,7 @@ class Elementskit_Widget_Lottie_Handler extends Core\Handler_Widget {
     }
 
     static function get_title() {
-        return esc_html__( 'Lottie', 'elementskit' );
+        return esc_html__( 'Lottie', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -20,14 +21,14 @@ class Elementskit_Widget_Lottie_Handler extends Core\Handler_Widget {
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'lottie/';
+        return \ElementsKit_Lite::widget_dir() . 'lottie/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'lottie/';
+        return \ElementsKit_Lite::widget_url() . 'lottie/';
     }
 }

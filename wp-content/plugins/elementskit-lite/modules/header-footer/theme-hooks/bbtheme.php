@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Header_Footer\Theme_Hooks;
+namespace ElementsKit_Lite\Modules\Header_Footer\Theme_Hooks;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -56,7 +56,7 @@ class Bbtheme {
 		?>
 			<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
 				<div class="ekit-template-content-markup ekit-template-content-header">
-					<?php echo \ElementsKit\Utils::render_elementor_content($this->header); ?>
+					<?php echo \ElementsKit_Lite\Utils::render_elementor_content($this->header); ?>
 				</div>
 			</header>
 			<style>
@@ -78,7 +78,7 @@ class Bbtheme {
 			do_action('elementskit/template/before_footer'); ?>
 
 				<footer itemscope="itemscope" itemtype="https://schema.org/WPFooter">
-				<?php echo \ElementsKit\Utils::render_elementor_content($this->footer); ; ?>
+				<?php echo \ElementsKit_Lite\Utils::render_elementor_content($this->footer); ; ?>
 				</footer>
 
 			<?php 

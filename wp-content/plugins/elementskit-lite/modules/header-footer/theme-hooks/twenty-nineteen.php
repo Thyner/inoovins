@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Header_Footer\Theme_Hooks;
+namespace ElementsKit_Lite\Modules\Header_Footer\Theme_Hooks;
 
 defined( 'ABSPATH' ) || exit;
 

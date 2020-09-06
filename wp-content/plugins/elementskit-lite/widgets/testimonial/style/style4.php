@@ -1,4 +1,4 @@
-<div class="elementskit-testimonial-slider ekit-testimonia-style-4" <?php echo \ElementsKit\Utils::render($wrapper_data); ?>>
+<div class="elementskit-testimonial-slider ekit-testimonia-style-4" <?php echo $this->get_render_attribute_string('wrapper'); ?>>
 	<?php foreach ($testimonials as $testimonial): ?>
 		<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style elementor-repeater-item-<?php echo esc_attr( $testimonial[ '_id' ] ); ?>">
 			<div class="elementskit-commentor-bio <?php echo esc_attr($ekit_testimonial_client_area_alignment); ?>">
@@ -13,7 +13,7 @@
 				<?php } ?>
 				<span class="elementskit-profile-info">
 					<strong class="elementskit-author-name"><?php echo isset($testimonial['client_name']) ? esc_html($testimonial['client_name']) : ''; ?></strong>
-					<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit\Utils::kspan($testimonial['designation']) : ''; ?></span>
+					<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit_Lite\Utils::kspan($testimonial['designation']) : ''; ?></span>
 				</span>
 			</div>
 			<div class="elementskit-commentor-content">
@@ -40,7 +40,7 @@
 
 				<?php endif;?>
 				<?php if ( isset($testimonial['review']) && !empty($testimonial['review'])) : ?>
-					<p><?php echo isset($testimonial['review']) ? \ElementsKit\Utils::kses($testimonial['review']) : ''; ?></p>
+					<p><?php echo isset($testimonial['review']) ? \ElementsKit_Lite\Utils::kses($testimonial['review']) : ''; ?></p>
 				<?php endif; ?>
 				<?php if ($ekit_testimonial_rating_enable == 'yes') : ?>
 				<ul class="elementskit-stars">

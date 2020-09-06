@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit;
+namespace ElementsKit_Lite;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -110,7 +110,7 @@ class Controls_Ajax_Select2_Api extends Core\Handler_Api {
             'orderby'       => 'name', 
             'order'         => 'DESC',
             'hide_empty'    => true,
-            'number'        => 6
+            'number'        => 10
         ];
 
         if(isset($this->request['ids'])){

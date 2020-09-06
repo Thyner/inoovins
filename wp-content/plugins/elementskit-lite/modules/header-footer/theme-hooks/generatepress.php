@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Header_Footer\Theme_Hooks;
+namespace ElementsKit_Lite\Modules\Header_Footer\Theme_Hooks;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -49,7 +49,7 @@ class Generatepress {
   public function add_plugin_header_markup(){
 		do_action('elementskit/template/before_header');
 		echo '<div class="ekit-template-content-markup ekit-template-content-header">';
-		echo \ElementsKit\Utils::render_elementor_content($this->header); 
+		echo \ElementsKit_Lite\Utils::render_elementor_content($this->header); 
 		echo '</div>';
 		do_action('elementskit/template/after_header');
   }
@@ -64,7 +64,7 @@ class Generatepress {
   public function add_plugin_footer_markup(){
 		do_action('elementskit/template/before_footer');
 		echo '<div class="ekit-template-content-markup ekit-template-content-footer">';
-		echo \ElementsKit\Utils::render_elementor_content($this->footer); 
+		echo \ElementsKit_Lite\Utils::render_elementor_content($this->footer); 
 		echo '</div>';
 		do_action('elementskit/template/after_footer');
   }

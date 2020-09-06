@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_We_Forms_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_We_Forms_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_We_Forms extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -35,18 +35,18 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'ekit_weform_section_tab', [
-                'label' =>esc_html__( 'weForm', 'elementskit' ),
+                'label' =>esc_html__( 'weForm', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_weform_form_id',
             [
-                'label' => __( 'Select Your Form', 'elementskit' ),
+                'label' => __( 'Select Your Form', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'default' => '0',
-				'options' => \ElementsKit\Utils::ekit_get__forms('wpuf_contact_form'),
+				'options' => \ElementsKit_Lite\Utils::ekit_get__forms('wpuf_contact_form'),
             ]
         );
 
@@ -55,7 +55,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_weform__section_fields_style',
             [
-                'label' => __( 'Fields', 'elementskit' ),
+                'label' => __( 'Fields', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
 		);
@@ -63,7 +63,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_large_field_width',
             [
-                'label' => __( 'Input Width', 'elementskit' ),
+                'label' => __( 'Input Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'default' => [
@@ -95,7 +95,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_field_margin',
             [
-                'label' => __( 'Input Spacing', 'elementskit' ),
+                'label' => __( 'Input Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -107,7 +107,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_field_padding',
             [
-                'label' => __( 'Padding', 'elementskit' ),
+                'label' => __( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -120,7 +120,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_field_border_radius',
             [
-                'label' => __( 'Border Radius', 'elementskit' ),
+                'label' => __( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -133,7 +133,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_weform_field_typography',
-                'label' => __( 'Typography', 'elementskit' ),
+                'label' => __( 'Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields input:not(.weforms_submit_btn), .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields textarea',
                 'scheme' => Scheme_Typography::TYPOGRAPHY_3
             ]
@@ -142,7 +142,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_field_textcolor',
             [
-                'label' => __( 'Input Text Color', 'elementskit' ),
+                'label' => __( 'Input Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields input:not(.weforms_submit_btn), {{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields textarea' => 'color: {{VALUE}};',
@@ -153,7 +153,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 		$this->add_control(
             'ekit_weform_field_placeholder_color',
             [
-                'label' => __( 'Input Placeholder Color', 'elementskit' ),
+                'label' => __( 'Input Placeholder Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} ::-webkit-input-placeholder'	=> 'color: {{VALUE}};',
@@ -168,7 +168,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_weform_tab_field_normal',
             [
-                'label' => __( 'Normal', 'elementskit' ),
+                'label' => __( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
@@ -191,7 +191,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_field_bg_color',
             [
-                'label' => __( 'Background Color', 'elementskit' ),
+                'label' => __( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields input:not(.weforms_submit_btn), {{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields textarea' => 'background-color: {{VALUE}}',
@@ -204,7 +204,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 		$this->start_controls_tab(
             'ekit_weform_tab_field_focus',
             [
-                'label' => __( 'Focus', 'elementskit' ),
+                'label' => __( 'Focus', 'elementskit-lite' ),
             ]
 		);
 
@@ -227,7 +227,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 		$this->add_control(
             'ekit_weform_field_focus_bg_color',
             [
-                'label' => __( 'Background Color', 'elementskit' ),
+                'label' => __( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields input:focus:not(.weforms_submit_btn), {{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields textarea:focus' => 'background-color: {{VALUE}}',
@@ -244,7 +244,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_weform_form-label',
             [
-                'label' => __( 'Label', 'elementskit' ),
+                'label' => __( 'Label', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -252,7 +252,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_label_margin',
             [
-                'label' => __( 'Margin', 'elementskit' ),
+                'label' => __( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -264,7 +264,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_label_padding',
             [
-                'label' => __( 'Padding', 'elementskit' ),
+                'label' => __( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -285,7 +285,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_weform_label_typography',
-                'label' => __( 'Label Typography', 'elementskit' ),
+                'label' => __( 'Label Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .wpuf-label label, {{WRAPPER}} .wpuf-form-sub-label',
                 'scheme' => Scheme_Typography::TYPOGRAPHY_3
             ]
@@ -295,7 +295,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_weform_desc_typography',
-                'label' => __( 'Help Text Typography', 'elementskit' ),
+                'label' => __( 'Help Text Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .wpuf-fields .wpuf-help',
                 'scheme' => Scheme_Typography::TYPOGRAPHY_3
             ]
@@ -304,7 +304,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_label_color',
             [
-                'label' => __( 'Label Text Color', 'elementskit' ),
+                'label' => __( 'Label Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-label label, {{WRAPPER}} .wpuf-form-sub-label' => 'color: {{VALUE}}',
@@ -315,7 +315,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 		$this->add_control(
             'ekit_weform_requered_label',
             [
-                'label' => __( 'Required Label Color', 'elementskit' ),
+                'label' => __( 'Required Label Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-label .required' => 'color: {{VALUE}} !important',
@@ -326,7 +326,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 		$this->add_control(
             'ekit_weform_desc_color',
             [
-                'label' => __( 'Help Text Color', 'elementskit' ),
+                'label' => __( 'Help Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-fields .wpuf-help' => 'color: {{VALUE}}',
@@ -339,7 +339,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_weform_submit',
             [
-                'label' => __( 'Button', 'elementskit' ),
+                'label' => __( 'Button', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
 		);
@@ -347,10 +347,10 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_submit_btn_width',
             [
-                'label' => __( 'Button Full Width?', 'elementskit' ),
+                'label' => __( 'Button Full Width?', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __( 'Yes', 'elementskit' ),
-                'label_off' => __( 'No', 'elementskit' ),
+                'label_on' => __( 'Yes', 'elementskit-lite' ),
+                'label_off' => __( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -359,7 +359,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_button_width',
             [
-                'label' => __( 'Button Width', 'elementskit' ),
+                'label' => __( 'Button Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'condition' => [
@@ -388,19 +388,19 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_weform_submit_btn_position',
             [
-                'label' => __( 'Button Position', 'elementskit' ),
+                'label' => __( 'Button Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'elementskit' ),
+                        'title' => __( 'Left', 'elementskit-lite' ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'elementskit' ),
+                        'title' => __( 'Center', 'elementskit-lite' ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'elementskit' ),
+                        'title' => __( 'Right', 'elementskit-lite' ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -418,7 +418,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_submit_margin',
             [
-                'label' => __( 'Margin', 'elementskit' ),
+                'label' => __( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -430,7 +430,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_weform_submit_padding',
             [
-                'label' => __( 'Padding', 'elementskit' ),
+                'label' => __( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -459,7 +459,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_submit_border_radius',
             [
-                'label' => __( 'Border Radius', 'elementskit' ),
+                'label' => __( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -497,14 +497,14 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_weform_tab_button_normal',
             [
-                'label' => __( 'Normal', 'elementskit' ),
+                'label' => __( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_weform_submit_color',
             [
-                'label' => __( 'Text Color', 'elementskit' ),
+                'label' => __( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -516,7 +516,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_submit_bg_color',
             [
-                'label' => __( 'Background Color', 'elementskit' ),
+                'label' => __( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]' => 'background-color: {{VALUE}};',
@@ -529,14 +529,14 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_weform_tab_button_hover',
             [
-                'label' => __( 'Hover', 'elementskit' ),
+                'label' => __( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_weform_submit_hover_color',
             [
-                'label' => __( 'Text Color', 'elementskit' ),
+                'label' => __( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]:hover, {{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]:focus' => 'color: {{VALUE}};',
@@ -547,7 +547,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_submit_hover_bg_color',
             [
-                'label' => __( 'Background Color', 'elementskit' ),
+                'label' => __( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]:hover, {{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]:focus' => 'background-color: {{VALUE}};',
@@ -558,7 +558,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
         $this->add_control(
             'ekit_weform_submit_hover_border_color',
             [
-                'label' => __( 'Border Color', 'elementskit' ),
+                'label' => __( 'Border Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]:hover, {{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]:focus' => 'border-color: {{VALUE}};',
@@ -579,7 +579,7 @@ class Elementskit_Widget_We_Forms extends Widget_Base {
 			
 
 		if ( ! empty( $settings['ekit_weform_form_id'] ) ) {
-            echo \ElementsKit\Utils::ekit_do_shortcode( 'weforms', [
+            echo \ElementsKit_Lite\Utils::ekit_do_shortcode( 'weforms', [
                 'id' => $settings['ekit_weform_form_id'],
             ] );
 		}

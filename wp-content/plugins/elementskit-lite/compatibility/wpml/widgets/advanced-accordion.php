@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -48,7 +48,7 @@ class Ekit_Advanced_Accordion extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'acc_title':
-				return esc_html__( 'Title (Advanced Accordion)', 'elementskit' );
+				return esc_html__( 'Title (Advanced Accordion)', 'elementskit-lite' );
 				break;
 
 			default:

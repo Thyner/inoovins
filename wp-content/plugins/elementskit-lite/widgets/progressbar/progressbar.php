@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Progressbar_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Progressbar_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Progressbar extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -36,27 +36,27 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'ekit_progressbar_content', [
-                'label' => esc_html__( 'Progress Bar', 'elementskit' ),
+                'label' => esc_html__( 'Progress Bar', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_progressbar_style',
             [
-                'label' =>esc_html__( 'Style', 'elementskit' ),
+                'label' =>esc_html__( 'Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => '',
                 'options' => [
-                    '' => esc_html__( 'Default', 'elementskit' ),
-                    'inner-content skill-big' => esc_html__( 'Inner Content', 'elementskit' ),
-                    'skilltrack-style2' => esc_html__( 'Bar Shadow', 'elementskit' ),
-                    'tooltip-style3' => esc_html__( 'Tooltip', 'elementskit' ),
-                    'tooltip-style2' => esc_html__( 'Tooltip Box', 'elementskit' ),
-                    'tooltip-style' => esc_html__( 'Tooltip Rounded', 'elementskit' ),
-                    'pin-style' => esc_html__( 'Tooltip Circle', 'elementskit' ),
-                    'style-switch' => esc_html__( 'Switch', 'elementskit' ),
-                    'style-ribbon' => esc_html__( 'Ribbon', 'elementskit' ),
-                    'style-stripe skill-medium tooltip-style' => esc_html__( 'Stripe', 'elementskit' ),
+                    '' => esc_html__( 'Default', 'elementskit-lite' ),
+                    'inner-content skill-big' => esc_html__( 'Inner Content', 'elementskit-lite' ),
+                    'skilltrack-style2' => esc_html__( 'Bar Shadow', 'elementskit-lite' ),
+                    'tooltip-style3' => esc_html__( 'Tooltip', 'elementskit-lite' ),
+                    'tooltip-style2' => esc_html__( 'Tooltip Box', 'elementskit-lite' ),
+                    'tooltip-style' => esc_html__( 'Tooltip Rounded', 'elementskit-lite' ),
+                    'pin-style' => esc_html__( 'Tooltip Circle', 'elementskit-lite' ),
+                    'style-switch' => esc_html__( 'Switch', 'elementskit-lite' ),
+                    'style-ribbon' => esc_html__( 'Ribbon', 'elementskit-lite' ),
+                    'style-stripe skill-medium tooltip-style' => esc_html__( 'Stripe', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -64,7 +64,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_control(
             'ekit_progressbar_icons',
             [
-                'label'         => esc_html__('Add Icon', 'elementskit'),
+                'label'         => esc_html__('Add Icon', 'elementskit-lite'),
                 'label_block'   => true,
                 'type'          => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_progressbar_icon',
@@ -82,7 +82,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_control(
             'ekit_progressbar_title',
             [
-                'label'         => esc_html__('Title', 'elementskit'),
+                'label'         => esc_html__('Title', 'elementskit-lite'),
                 'label_block'   => true,
                 'type'          => Controls_Manager::TEXT,
                 'default'       => 'WordPress',
@@ -92,7 +92,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_control(
             'ekit_progressbar_percentage',
             [
-                'label'     => esc_html__('Percentage', 'elementskit'),
+                'label'     => esc_html__('Percentage', 'elementskit-lite'),
                 'type'      => Controls_Manager::NUMBER,
                 'min'       => 1,
                 'max'       => 100,
@@ -104,7 +104,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_responsive_control(
             'ekit_progressbar_data_duration',
             [
-                'label'     => esc_html__('Animation Duration', 'elementskit'),
+                'label'     => esc_html__('Animation Duration', 'elementskit-lite'),
                 'type'      => Controls_Manager::SLIDER,
                 'size_units' => [ 'px'],
 				'range' => [
@@ -128,7 +128,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         // Bar Styles
         $this->start_controls_section(
             'ekit_progressbar_bar_style', [
-                'label' =>esc_html__( 'Bar', 'elementskit' ),
+                'label' =>esc_html__( 'Bar', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -137,7 +137,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'      => 'ekit_progressbar_background',
-                'label'     => esc_html__( 'Background', 'elementskit' ),
+                'label'     => esc_html__( 'Background', 'elementskit-lite' ),
                 'types'     => [ 'classic', 'gradient' ],
                 'selector'  => '{{WRAPPER}} .skillbar-group .skill-bar',
                 'default'   => '#f5f5f5'
@@ -147,7 +147,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_responsive_control(
             'ekit_progressbar_bar_height',
             [
-                'label'         => esc_html__('Height', 'elementskit'),
+                'label'         => esc_html__('Height', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'range'  => [
@@ -170,7 +170,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_progressbar_bar_shadow',
-                'label' => esc_html__( 'Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .skillbar-group .skill-bar',
             ]
         );
@@ -178,7 +178,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_responsive_control(
             'ekit_progressbar_bar_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'elementskit' ),
+                'label'      => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors'  => [
@@ -190,7 +190,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_responsive_control(
             'ekit_progressbar_bar_padding',
             [
-                'label'      => esc_html__( 'Padding', 'elementskit' ),
+                'label'      => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'condition' => [
@@ -205,7 +205,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_responsive_control(
             'ekit_progressbar_bar_margin',
             [
-                'label'      => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label'      => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'default'       => [
@@ -224,7 +224,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         // Track Styles
         $this->start_controls_section(
             'ekit_progressbar_track_style', [
-                'label'  =>esc_html__( 'Track', 'elementskit' ),
+                'label'  =>esc_html__( 'Track', 'elementskit-lite' ),
                 'tab'    => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -233,7 +233,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'      => 'ekit_progressbar_track_color',
-                'label'     => esc_html__( 'Track Color', 'elementskit' ),
+                'label'     => esc_html__( 'Track Color', 'elementskit-lite' ),
                 'types'     => [ 'classic', 'gradient' ],
 
                 'condition' => [
@@ -245,7 +245,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         //ekit_progressbar_style style-stripe skill-medium tooltip-style
         $this->add_responsive_control(
             'ekit_progressbar_strip_color', [
-                'label'      => esc_html__( 'Stripe Color', 'elementskit' ),
+                'label'      => esc_html__( 'Stripe Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_progressbar_style' => ['style-stripe skill-medium tooltip-style'],
@@ -259,7 +259,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
 
         $this->add_responsive_control(
             'ekit_progressbar_switch_color', [
-                'label'      => esc_html__( 'Switch Color', 'elementskit' ),
+                'label'      => esc_html__( 'Switch Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_progressbar_style' => ['style-switch'],
@@ -275,7 +275,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_progressbar_track_shadow',
-                'label' => esc_html__( 'Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .skillbar-group .skill-track',
             ]
         );
@@ -283,7 +283,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         $this->add_responsive_control(
             'ekit_progressbar_track_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'elementskit' ),
+                'label'      => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors'  => [
@@ -298,14 +298,14 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         // Title Styles
         $this->start_controls_section(
             'ekit_progressbar_title_style', [
-                'label' =>esc_html__( 'Title', 'elementskit' ),
+                'label' =>esc_html__( 'Title', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
             'ekit_progressbar_title_color', [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .skillbar-group .skill-title' => 'color: {{VALUE}};'
@@ -331,14 +331,14 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
         // Percent Styles
         $this->start_controls_section(
             'ekit_progressbar_percent_style', [
-                'label' =>esc_html__( 'Percent', 'elementskit' ),
+                'label' =>esc_html__( 'Percent', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
             'ekit_progressbar_percent_color', [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .skillbar-group .number-percentage-wraper' => 'color: {{VALUE}};'
@@ -355,7 +355,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
 
         $this->add_responsive_control(
             'ekit_progressbar_percent_tooltip_bg', [
-                'label'      => esc_html__( 'Background Color', 'elementskit' ),
+                'label'      => esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_progressbar_style' => ['tooltip-style', 'style-stripe skill-medium tooltip-style'],
@@ -368,7 +368,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
 
         $this->add_responsive_control(
             'ekit_progressbar_percent_pin_bg', [
-                'label'      => esc_html__( 'Background Color', 'elementskit' ),
+                'label'      => esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_progressbar_style' => ['style-ribbon', 'pin-style', 'tooltip-style2', 'tooltip-style3'],
@@ -393,7 +393,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
          // Icon Styles
          $this->start_controls_section(
             'ekit_progressbar_icon_style', [
-                'label' =>esc_html__( 'Icon', 'elementskit' ),
+                'label' =>esc_html__( 'Icon', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_progressbar_style!' => '',
@@ -404,7 +404,7 @@ class Elementskit_Widget_Progressbar extends Widget_Base {
 
         $this->add_responsive_control(
             'ekit_progressbar_icon_color', [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .skillbar-group .skill-track > span i' => 'color: {{VALUE}};',

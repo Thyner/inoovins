@@ -1,0 +1,53 @@
+<?php
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+add_action('wplc_version_migration', 'wplc_chat_activation' );
+add_action('wp_enqueue_scripts', 'wplc_add_chat_client_page_resources' );
+add_action('wp_footer', 'wplc_chat_client_page');
+
+function wplc_add_chat_client_page_resources($hook)
+{
+    if(is_admin())
+    {
+        return;
+    }
+    global $wplc_base_file;
+	$wplc_settings = TCXSettings::getSettings();
+	if(TCXUtilsHelper::wplc_show_chat_client()) {
+
+		wp_register_style( "wplc-chat-client-css", wplc_plugins_url( '/chat_client.css', __FILE__ ), array(), WPLC_PLUGIN_VERSION );
+		wp_enqueue_style( "wplc-chat-client-css" );
+
+		wp_register_script( "wplc-chat_app", wplc_plugins_url( '/js/callus.js', __FILE__ ), array(), WPLC_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'wplc-chat_app' );
+
+		$script_data = array(
+			'wplc_delay' => intval( $wplc_settings->wplc_chat_delay ) * 1000
+		);
+
+		wp_register_script( "wplc-chat_client", wplc_plugins_url( '/js/chat_client.js', __FILE__ ), array(), WPLC_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'wplc-chat_client' );
+
+		wp_localize_script( 'wplc-chat_client', 'chat_localization_data', $script_data );
+	}
+}
+
+function wplc_chat_client_page()
+{
+    if(!TCXUtilsHelper::wplc_show_chat_client())
+    {
+        return;
+    }
+    $support_chat_client = new ChatClientController("chat_client");
+    $support_chat_client->run();
+}
+
+function wplc_chat_activation()
+{
+	TCXChatHelper::module_db_integration();
+	TCXChatRatingHelper::module_db_integration();
+}
+

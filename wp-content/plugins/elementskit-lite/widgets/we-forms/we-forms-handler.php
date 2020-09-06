@@ -1,14 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_We_Forms_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_We_Forms_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-we-forms';
     }
 
     static function get_title() {
-        return esc_html__( 'We Forms', 'elementskit' );
+        return esc_html__( 'We Forms', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +17,14 @@ class Elementskit_Widget_We_Forms_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'we-forms/';
+        return \ElementsKit_Lite::widget_dir() . 'we-forms/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'we-forms/';
+        return \ElementsKit_Lite::widget_url() . 'we-forms/';
     }
 }

@@ -9,7 +9,7 @@ if(!function_exists( 'hfe_render_header' )){
 
         do_action('elementskit/template/before_header');
         echo '<div class="ekit-template-content-markup ekit-template-content-header">';
-            echo \ElementsKit\Utils::render_elementor_content($elementskit_template_ids[0]);
+            echo \ElementsKit_Lite\Utils::render_elementor_content($elementskit_template_ids[0]);
         echo '</div>';
         do_action('elementskit/template/after_header');
     }
@@ -31,7 +31,7 @@ if(!function_exists( 'hfe_render_footer' )){
 
         do_action('elementskit/template/before_header');
         echo '<div class="ekit-template-content-markup ekit-template-content-header">';
-            echo \ElementsKit\Utils::render_elementor_content($elementskit_template_ids[1]);
+            echo \ElementsKit_Lite\Utils::render_elementor_content($elementskit_template_ids[1]);
         echo '</div>';
         do_action('elementskit/template/after_header');
     }

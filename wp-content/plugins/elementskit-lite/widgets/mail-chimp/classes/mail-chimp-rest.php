@@ -1,5 +1,6 @@
 <?php
 if(!function_exists('ekit_mail_chimp_rest')){
+
 	function ekit_mail_chimp_rest(WP_REST_Request $request ){
 		$return = ['success' => [], 'error' => [] ];
 		
@@ -57,13 +58,14 @@ if(!function_exists('ekit_mail_chimp_rest')){
 }
 
 /**
-* wp rest api add action 
-*/
+ * wp rest api add action
+ */
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'elementskit', '/mailchimp/', 
-	array(
-		'methods' => 'GET',
-		'callback' => 'ekit_mail_chimp_rest',
-	  ) 
-  );
-} );
+	register_rest_route( 'elementskit-lite', '/mailchimp/',
+		array(
+			'methods' => 'GET',
+			'callback' => 'ekit_mail_chimp_rest',
+			'permission_callback' => '__return_true',
+		)
+	);
+});

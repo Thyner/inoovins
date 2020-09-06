@@ -3,7 +3,7 @@ Contributors: Ataurr, wpmet, emrnco, pobonpaul1994, easin55474, khalidjubair
 Tags: elementor addons, mega menu, header footer builder, elements, elementor extensions, elementor modules, page builder addons, elementor addon, elementor widget, addons
 Requires at least: 4.6
 Tested up to: 5.5
-Stable tag: 1.5.12
+Stable tag: 2.0.0
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -226,6 +226,44 @@ We have developed Awesome exclusive modules which saved tons of time when you ar
 
 
 == Changelog ==
+Version: 2.0.0
+Fix: Template import issues has been fixed
+Fix: All compatibility issues with elementor latest(3.0.0+) version has been fixed
+Fix: All W3C Markup Validation issues has been successfully validated
+Optimization: 
+- Bundled all CSS files for improving load time and performance by reducing the number of requests.
+    - For Front-end: 15 css files marged & minified into 1 files.
+    - For Back-end: 12 css files marged & minified into 1 files.
+
+- Bundled all JS files for improving load time, performance, conflict by reducing the number of requests.
+    - For Front-end: 20 JS files marged & minified into 1 files.
+    - For Back-end: 22 JS files marged & minified into 1 files.
+
+- In the admin, deffirent css and js file has been separated. It's has been loading based on the setting pages.
+
+- We used lots of third party JS Plugins. But right now we are using elementor supported JS Plugins. Like:
+    1. Slick js
+    2. Magnific JS
+    3. Masonry
+    4. Date picker and so on.
+
+- There was a Huge amount of unused CSS code. We have optimized all of them. 
+
+- There was like 200 lines of JS code which has been optimized. because:
+    - We can use html/css instead of JS like image-accordion etc
+    - Used cached js code(By function) instead of repeated code
+    - Some of the widgets like 'Timeline' widgets had heavy JS code. We make it totally lightweight. Such: Instead of raw scroll functionality, we have used elementor waypoint function.
+
+- We have removed vendor-prefixed extra code and again merged it into a css file.
+
+- Fixed settings page bugs
+
+- Improved settings design for a better look and best UI.
+
+- Added version number for all of our enqueued CSS and js for default browser caching and it will improve overall site performance.
+
+- Improved UI for megamenu widget
+
 Version: 1.5.12
 - Latest elementor 3.0.1 compatibility added
 

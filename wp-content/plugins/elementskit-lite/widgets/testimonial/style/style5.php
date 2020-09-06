@@ -1,4 +1,4 @@
-<div  class="elementskit-testimonial-slider ekit_testimonial_style_5" <?php echo \ElementsKit\Utils::render($wrapper_data); ?>>
+<div  class="elementskit-testimonial-slider ekit_testimonial_style_5" <?php echo $this->get_render_attribute_string('wrapper'); ?>>
 	<?php foreach ($testimonials as $testimonial): ?>
 	<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style elementskit-testimonial-slider-block-style-two elementor-repeater-item-<?php echo esc_attr( $testimonial[ '_id' ] ); ?>">
         <div class="elementskit-commentor-header">
@@ -53,7 +53,7 @@
 				?>
 				<div class="elementskit-profile-info">
 					<strong class="elementskit-author-name"><?php echo isset($testimonial['client_name']) ? esc_html($testimonial['client_name']) : ''; ?></strong>
-					<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit\Utils::kspan($testimonial['designation']) : ''; ?></span>
+					<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit_Lite\Utils::kspan($testimonial['designation']) : ''; ?></span>
 				</div>
 			</div>
 			<?php if(isset($ekit_testimonial_wartermark_enable) && ($ekit_testimonial_wartermark_enable == 'yes') && ($ekit_testimonial_wartermark_position == 'bottom')):?>
@@ -76,7 +76,7 @@
 			<?php endif;?>
 		</div>
         <?php if ( isset($testimonial['review']) && !empty($testimonial['review'])) : ?>
-			<div class="elementskit-commentor-content"><p><?php echo isset($testimonial['review']) ? \ElementsKit\Utils::kses($testimonial['review']) : ''; ?></p></div>
+			<div class="elementskit-commentor-content"><p><?php echo isset($testimonial['review']) ? \ElementsKit_Lite\Utils::kses($testimonial['review']) : ''; ?></p></div>
 		<?php endif;  ?>
 	</div>
 	<?php endforeach; ?>

@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Lottie_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Lottie_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Lottie extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -16,7 +16,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
         parent::__construct( $data, $args );
         
         wp_register_script( 'lottie', Handler::get_url() . 'assets/js/lottie.min.js', null, '5.6.8', true );
-        wp_register_script( 'lottie-init', Handler::get_url() . 'assets/js/lottie.init.js', ['lottie', 'elementor-frontend'], \ElementsKit::VERSION, true );
+        wp_register_script( 'lottie-init', Handler::get_url() . 'assets/js/lottie.init.js', ['lottie', 'elementor-frontend'], \ElementsKit_Lite::version(), true );
     }
 
     public function get_script_depends() {
@@ -43,23 +43,23 @@ class Elementskit_Widget_Lottie extends Widget_Base {
         $this->start_controls_section(
             'ekit_lottie',
             [
-                'label' => esc_html__( 'Lottie', 'elementskit' ),
+                'label' => esc_html__( 'Lottie', 'elementskit-lite' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
             $this->add_control(
                 'ekit_lottie_type',
                 [
-                    'label'         => esc_html__( 'Select JSON', 'elementskit' ),
+                    'label'         => esc_html__( 'Select JSON', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::CHOOSE,
                     'default'       => 'file',
                     'options'       => [
                         'file'  => [
-                            'title' => esc_html__( 'JSON File', 'elementskit' ),
+                            'title' => esc_html__( 'JSON File', 'elementskit-lite' ),
                             'icon' => 'far fa-file',
                         ],
                         'url'   => [
-                            'title' => esc_html__( 'JSON URL', 'elementskit' ),
+                            'title' => esc_html__( 'JSON URL', 'elementskit-lite' ),
                             'icon' => 'fas fa-link',
                         ],
                     ]
@@ -71,7 +71,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
                 [
                     'show_label'    => false,
                     'description'   => sprintf(
-                        __('Discover thousands of %sLottie animations%s ready to use.', 'elementskit'),
+                        __('Discover thousands of %sLottie animations%s ready to use.', 'elementskit-lite'),
                         '<a href="https://lottiefiles.com/featured" target="_blank">',
                         '</a>'
                     ),
@@ -89,12 +89,12 @@ class Elementskit_Widget_Lottie extends Widget_Base {
                     'show_label'    => false,
                     'label_block'   => true,
                     'description'   => sprintf(
-                        __('Discover thousands of %sLottie animations%s ready to use.', 'elementskit'),
+                        __('Discover thousands of %sLottie animations%s ready to use.', 'elementskit-lite'),
                         '<a href="https://lottiefiles.com/featured" target="_blank">',
                         '</a>'
                     ),
                     'type'          => \Elementor\Controls_Manager::TEXT,
-                    'placeholder'   => esc_html__( 'https://example.com/file.json', 'elementskit' ),
+                    'placeholder'   => esc_html__( 'https://example.com/file.json', 'elementskit-lite' ),
                     'show_external' => false,
                     'condition'     => [
                         'ekit_lottie_type'  => 'url'
@@ -105,7 +105,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_link_check',
                 [
-                    'label'         => esc_html__( 'Link', 'elementskit' ),
+                    'label'         => esc_html__( 'Link', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SWITCHER,
                 ]
             );
@@ -124,7 +124,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_options',
                 [
-                    'label'         => esc_html__( 'Animation Options', 'elementskit' ),
+                    'label'         => esc_html__( 'Animation Options', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::HEADING,
                     'separator'     => 'before',
                 ]
@@ -133,7 +133,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_reverse',
                 [
-                    'label'         => esc_html__( 'Reverse', 'elementskit' ),
+                    'label'         => esc_html__( 'Reverse', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SWITCHER,
                 ]
             );
@@ -141,7 +141,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_autoplay',
                 [
-                    'label'         => esc_html__( 'Autoplay', 'elementskit' ),
+                    'label'         => esc_html__( 'Autoplay', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SWITCHER,
                     'return_value'  => 'true',
                     'default'       => 'true',
@@ -151,7 +151,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_on_scroll',
                 [
-                    'label'         => esc_html__( 'Start when visible', 'elementskit' ),
+                    'label'         => esc_html__( 'Start when visible', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SWITCHER,
                     'condition'     => [
                         'ekit_lottie_autoplay'  => ''
@@ -162,7 +162,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_loop',
                 [
-                    'label'         => esc_html__( 'Loop', 'elementskit' ),
+                    'label'         => esc_html__( 'Loop', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SWITCHER,
                     'return_value'  => 'true',
                     'default'       => 'true',
@@ -172,7 +172,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_loop_count',
                 [
-                    'label'         => esc_html__( 'Loop Count', 'elementskit' ),
+                    'label'         => esc_html__( 'Loop Count', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SLIDER,
                     'range'         => [
                         'px'    => [
@@ -188,7 +188,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_speed',
                 [
-                    'label'         => esc_html__( 'Speed', 'elementskit' ),
+                    'label'         => esc_html__( 'Speed', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SLIDER,
                     'range'         => [
                         'px'    => [
@@ -205,16 +205,16 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_renderer',
                 [
-                    'label'         => esc_html__( 'Render Type', 'elementskit' ),
+                    'label'         => esc_html__( 'Render Type', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::CHOOSE,
                     'default'       => 'svg',
                     'options'       => [
                         'svg'           => [
-                            'title' => esc_html__( 'SVG', 'elementskit' ),
+                            'title' => esc_html__( 'SVG', 'elementskit-lite' ),
                             'icon'  => 'fa fa-magic',
                         ],
                         'canvas'        => [
-                            'title' => esc_html__( 'Canvas', 'elementskit' ),
+                            'title' => esc_html__( 'Canvas', 'elementskit-lite' ),
                             'icon'  => 'fa fa-chalkboard',
                         ],
                     ],
@@ -224,13 +224,13 @@ class Elementskit_Widget_Lottie extends Widget_Base {
             $this->add_control(
                 'ekit_lottie_action',
                 [
-                    'label'         => esc_html__( 'On Hover', 'elementskit' ),
+                    'label'         => esc_html__( 'On Hover', 'elementskit-lite' ),
                     'type'          => \Elementor\Controls_Manager::SELECT,
                     'options'       => [
-                        ''          => esc_html__( 'None', 'elementskit' ),
-                        'play'      => esc_html__( 'Play', 'elementskit' ),
-                        'pause'     => esc_html__( 'Pause', 'elementskit' ),
-                        'reverse'   => esc_html__( 'Reverse', 'elementskit' ),
+                        ''          => esc_html__( 'None', 'elementskit-lite' ),
+                        'play'      => esc_html__( 'Play', 'elementskit-lite' ),
+                        'pause'     => esc_html__( 'Pause', 'elementskit-lite' ),
+                        'reverse'   => esc_html__( 'Reverse', 'elementskit-lite' ),
                     ],
                 ]
             );
@@ -239,7 +239,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
         $this->start_controls_section(
             'ekit_lottie_styles',
             [
-                'label' => esc_html__( 'Lottie', 'elementskit' ),
+                'label' => esc_html__( 'Lottie', 'elementskit-lite' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -249,13 +249,13 @@ class Elementskit_Widget_Lottie extends Widget_Base {
                 $this->start_controls_tab(
                     'ekit_lottie_normal',
                     [
-                        'label' => esc_html__( 'Normal', 'elementskit' ),
+                        'label' => esc_html__( 'Normal', 'elementskit-lite' ),
                     ]
                 );
                     $this->add_control(
                         'ekit_lottie_opacity',
                         [
-                            'label'         => esc_html__( 'Opacity', 'elementskit' ),
+                            'label'         => esc_html__( 'Opacity', 'elementskit-lite' ),
                             'type'          => \Elementor\Controls_Manager::SLIDER,
                             'range'         => [
                                 'px'    => [
@@ -282,13 +282,13 @@ class Elementskit_Widget_Lottie extends Widget_Base {
                 $this->start_controls_tab(
                     'ekit_lottie_hover',
                     [
-                        'label' => esc_html__( 'Hover', 'elementskit' ),
+                        'label' => esc_html__( 'Hover', 'elementskit-lite' ),
                     ]
                 );
                     $this->add_control(
                         'ekit_lottie_opacity_hover',
                         [
-                            'label'         => esc_html__( 'Opacity', 'elementskit' ),
+                            'label'         => esc_html__( 'Opacity', 'elementskit-lite' ),
                             'type'          => \Elementor\Controls_Manager::SLIDER,
                             'range'         => [
                                 'px'    => [
@@ -314,7 +314,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
                     $this->add_control(
                         'ekit_lottie_transition',
                         [
-                            'label' => esc_html__( 'Transition', 'elementskit' ),
+                            'label' => esc_html__( 'Transition', 'elementskit-lite' ),
                             'type'  => \Elementor\Controls_Manager::SLIDER,
                             'range' => [
                                 'px'    => [
@@ -358,7 +358,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
         );
 
 
-        if ( $settings['ekit_lottie_json']['url'] ):
+        if ( !empty($settings['ekit_lottie_json']['url']) ):
             $this->add_render_attribute( 'wrapper', 'data-path', $settings['ekit_lottie_json']['url'] );
         else:
             $this->add_render_attribute( 'wrapper', 'data-path', $settings['ekit_lottie_url'] );
@@ -372,7 +372,7 @@ class Elementskit_Widget_Lottie extends Widget_Base {
         endif;
 
 
-        if ( $settings['ekit_lottie_link']['url'] ):
+        if ( !empty($settings['ekit_lottie_link']['url']) && $settings['ekit_lottie_link']['url'] ):
             $this->add_render_attribute( 'wrapper', 'class', 'met_d--block' );
             $this->add_link_attributes( 'link', $settings['ekit_lottie_link'] );
         

@@ -1,4 +1,4 @@
-<div class="elementskit-testimonial-slider <?php echo esc_attr($wrapper_class); ?>" <?php echo \ElementsKit\Utils::render($wrapper_data); ?>>
+<div class="elementskit-testimonial-slider <?php echo esc_attr($wrapper_class); ?>" <?php echo $this->get_render_attribute_string('wrapper'); ?>>
 <?php
 	// start foreach loop
 	foreach ($testimonials as $testimonial):
@@ -17,14 +17,14 @@
 						<?php
 							} ?>
 						<?php if ( isset($testimonial['review']) && !empty($testimonial['review'])) : ?>
-							<p><?php echo isset($testimonial['review']) ? \ElementsKit\Utils::kses($testimonial['review']) : ''; ?></p>
+							<p><?php echo isset($testimonial['review']) ? \ElementsKit_Lite\Utils::kses($testimonial['review']) : ''; ?></p>
 						<?php endif;  ?>
 						<?php if ( 'yes' == $ekit_testimonial_title_separetor ): ?>
 							<span class="elementskit-border-hr"></span>
 						<?php endif; ?>
 						<span class="elementskit-profile-info">
 							<strong class="elementskit-author-name"><?php echo isset($testimonial['client_name']) ? esc_html($testimonial['client_name']) : ''; ?></strong>
-							<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit\Utils::kspan($testimonial['designation']) : ''; ?></span>
+							<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit_Lite\Utils::kspan($testimonial['designation']) : ''; ?></span>
 						</span>
 					</div>
 				</div>

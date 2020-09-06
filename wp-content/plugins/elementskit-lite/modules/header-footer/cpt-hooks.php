@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Header_Footer;
+namespace ElementsKit_Lite\Modules\Header_Footer;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,8 +29,8 @@ class Cpt_Hooks {
 		unset( $columns['date'] );
 		unset( $columns['author'] );
 
-		$columns['type'] = esc_html__( 'Type', 'elementskit' );
-		$columns['condition'] = esc_html__( 'Conditions', 'elementskit' );
+		$columns['type'] = esc_html__( 'Type', 'elementskit-lite' );
+		$columns['condition'] = esc_html__( 'Conditions', 'elementskit-lite' );
 		$columns['date']      = $date_column;
 		$columns['author']      = $author_column;
 
@@ -53,8 +53,8 @@ class Cpt_Hooks {
                 $active = get_post_meta( $post_id, 'elementskit_template_activation', true );
                 
                 echo ucfirst($type) . (($active == 'yes') 
-                ? ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-active">'. esc_html__('Active', 'elementskit') .'</span>' ) 
-                : ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-inactive">'. esc_html__('Inactive', 'elementskit') .'</span>' ));
+                ? ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-active">'. esc_html__('Active', 'elementskit-lite') .'</span>' ) 
+                : ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-inactive">'. esc_html__('Inactive', 'elementskit-lite') .'</span>' ));
 
 				break;
             case 'condition':
@@ -84,7 +84,7 @@ class Cpt_Hooks {
 
     public function  query_filter($query) {
         global $pagenow;
-        $current_page = isset( $_GET['post_type'] ) ? sanitize_key($_GET['post_type']) : '';
+        $current_page = isset( $_GET['post_type'] ) ? $_GET['post_type'] : '';
 
         if ( 
             is_admin() 
@@ -94,7 +94,7 @@ class Cpt_Hooks {
             && $_GET['elementskit_type_filter'] != ''
             && $_GET['elementskit_type_filter'] != 'all'
         ){
-            $type = sanitize_key($_GET['elementskit_type_filter']);
+            $type = $_GET['elementskit_type_filter'];
             $query->query_vars['meta_key'] = 'elementskit_template_type';
             $query->query_vars['meta_value'] = $type;
             $query->query_vars['meta_compare'] = '=';

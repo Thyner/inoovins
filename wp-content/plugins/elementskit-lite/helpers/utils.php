@@ -1,35 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace ElementsKit_Lite;
 
 defined( 'ABSPATH' ) || exit;
+
 /**
  * Global helper class.
  *
  * @since 1.0.0
  */
 
-class Utils{
-
-    /**
-     * Get elementskit older version if has any.
-     *
-     * @since 1.0.0
-     * @access public
-     */
-    public static function old_version(){
-        $version = get_option('elementskit_version');
-        return null == $version ? -1 : $version;
-    }
-
-    /**
-     * Set elementskit installed version as current version.
-     *
-     * @since 1.0.0
-     * @access public
-     */
-    public static function set_version(){
-        //return update_option('elementskit_version', \ElementsKit::plugin_url());
-    }
+class Utils {
 
     /**
      * Auto generate classname from path.
@@ -197,14 +177,14 @@ class Utils{
 
             if (!empty($contact_forms) && !is_wp_error($contact_forms)) {
 
-                $options[0] = esc_html__('Select Ninja Form', 'elementskit');
+                $options[0] = esc_html__('Select Ninja Form', 'elementskit-lite');
 
                 foreach ($contact_forms as $form) {
                     $options[$form->get_id()] = $form->get_setting('title');
                 }
             }
         } else {
-            $options[0] = esc_html__('Create a Form First', 'elementskit');
+            $options[0] = esc_html__('Create a Form First', 'elementskit-lite');
         }
 
         return $options;
@@ -228,7 +208,7 @@ class Utils{
 				$table_options[$table['id']] = $table['name'];
 			}
 		} else {
-            $table_options[0] = esc_html__('Create a Table First', 'elementskit');
+            $table_options[0] = esc_html__('Create a Table First', 'elementskit-lite');
         }
 
 		return $table_options;
@@ -251,6 +231,18 @@ class Utils{
 		return $array;
 	}
 
+	public static function render_elementor_content_css($content_id){
+		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+			$css_file = new \Elementor\Core\Files\CSS\Post( $content_id );
+			$css_file->enqueue();
+		}
+	}
+
+	public static function render_elementor_content($content_id){
+		$elementor_instance = \Elementor\Plugin::instance();
+		return $elementor_instance->frontend->get_builder_content_for_display( $content_id , true);
+	}
+	
 	public static function render($content){
 		if (stripos($content, "elementskit-has-lisence") !== false) {
 			return null;
@@ -258,16 +250,7 @@ class Utils{
 
 		return $content;
 	}
-	public static function render_elementor_content_css($content_id){
-		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
-			$css_file = new \Elementor\Core\Files\CSS\Post( $content_id );
-			$css_file->enqueue();
-		}
-	}
-	public static function render_elementor_content($content_id){
-		$elementor_instance = \Elementor\Plugin::instance();
-		return $elementor_instance->frontend->get_builder_content_for_display( $content_id , true);
-	}
+	
 	public static function render_tab_content($content, $id){
 		return str_replace('.elementor-'.$id.' ', '#elementor .elementor-'.$id.' ', $content);
 	}

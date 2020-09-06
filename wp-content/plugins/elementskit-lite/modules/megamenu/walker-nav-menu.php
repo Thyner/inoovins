@@ -1,10 +1,10 @@
 <?php
-namespace ElementsKit;
+namespace ElementsKit_Lite;
 
-use \ElementsKit\Modules\Megamenu\Init;
-use \ElementsKit\Libs\Framework\Attr;
+use \ElementsKit_Lite\Modules\Megamenu\Init;
+use \ElementsKit_Lite\Libs\Framework\Attr;
 
-class Elementskit_Menu_Walker extends \Walker_Nav_Menu
+class ElementsKit_Menu_Walker extends \Walker_Nav_Menu
 {
     public $menu_Settings;
 
@@ -14,7 +14,7 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
         $data = get_post_meta($menu_item_id, $meta_key, true);
         $data = (array) json_decode($data);
 
-        $format = [
+        $default = [
             "menu_id" => null,
             "menu_has_child" => '',
             "menu_enable" => 0,
@@ -28,7 +28,7 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
             "vertical_menu_width" => '',
             "megamenu_width_type" => 'default_width',
         ];
-        return array_merge($format, $data);
+        return array_merge($default, $data);
     }
 
     public function is_megamenu($menu_slug){
@@ -41,7 +41,7 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
         }
 
         $return = 0;
-        $modules_active = \ElementsKit\Libs\Framework\Classes\Utils::instance()->get_option('module_list', \ElementsKit::default_modules());
+        $modules_active = \ElementsKit_Lite\Libs\Framework\Classes\Utils::instance()->get_option('module_list', \ElementsKit_Lite\Helpers\Module_List::instance()->get_list());
 
         $settings = Attr::instance()->utils->get_option(Init::$megamenu_settings_key, []);
         $term = get_term_by('slug', $menu_slug, 'nav_menu');
@@ -147,9 +147,9 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
             $class_names .= ' active';
         }
 
-        //
+
         $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-        // print_r($class_names);
+
         /**
          * Filter the ID applied to a menu item's list item element.
          *
@@ -167,23 +167,23 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
         $data_attr = '';
         switch ($item_meta['megamenu_width_type']) {
             case 'default_width':
-                $data_attr =  esc_attr( 'data-vertical-menu=750px' );
+                $data_attr =  esc_attr( ' data-vertical-menu=750px' );
                 break;
 
             case 'full_width':
-                $data_attr =  'data-vertical-menu=""';
+                $data_attr =  ' data-vertical-menu=""';
                 break;
 
             case 'custom_width':
-                $data_attr = $item_meta['vertical_menu_width'] === '' ? esc_attr( 'data-vertical-menu=750px' ) : esc_attr( 'data-vertical-menu='.$item_meta['vertical_menu_width'].'' );
+                $data_attr = $item_meta['vertical_menu_width'] === '' ? esc_attr( ' data-vertical-menu=750px' ) : esc_attr( ' data-vertical-menu='.$item_meta['vertical_menu_width'].'' );
                 break;
 
             default:
-                $data_attr =  esc_attr( 'data-vertical-menu=750px' );
+                $data_attr =  esc_attr( ' data-vertical-menu=750px' );
                 break;
         }
         //
-        $output .= $indent . '<li' . $id . $class_names . $data_attr .'>';
+        $output .= $indent . '<li' . $id . $class_names . $data_attr . '>';
         $atts = array();
         $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
         $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
@@ -211,7 +211,7 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
         if (in_array('current-menu-item', $item->classes)) {
             $atts['class'] .= ' active';
         }
-        // print_r($item);
+
         //
         /**
          * Filter the HTML attributes applied to a menu item's anchor element.
@@ -241,15 +241,7 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
         }
         $item_output = $args->before;
         // New
-        /*
-        if ($depth === 0 && in_array('menu-item-has-children', $classes)) {
-            $item_output .= '<a class="nav-link dropdown-toggle"' . $attributes .'data-toggle="dropdown">';
-        } elseif ($depth === 0) {
-            $item_output .= '<a class="nav-link"' . $attributes .'>';
-        } else {
-            $item_output .= '<a class="dropdown-item"' . $attributes .'>';
-        }
-        */
+
         //
         $item_output .= '<a'. $attributes .'>';
 
@@ -314,7 +306,7 @@ class Elementskit_Menu_Walker extends \Walker_Nav_Menu
                         $elementor = \Elementor\Plugin::instance();
                         $output .= $elementor->frontend->get_builder_content_for_display( $builder_post->ID );
                     }else{
-                        $output .= esc_html__('No content found', 'elementskit');
+                        $output .= esc_html__('No content found', 'elementskit-lite');
                     }
 
                     $output .= '</ul>';

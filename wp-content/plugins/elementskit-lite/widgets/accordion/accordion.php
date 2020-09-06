@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\ElementsKit_Widget_Accordion_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\ElementsKit_Widget_Accordion_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Accordion extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -33,7 +33,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
 
         $this->start_controls_section(
             'section_tab', [
-                'label' =>esc_html__( 'Accordion', 'elementskit' ),
+                'label' =>esc_html__( 'Accordion', 'elementskit-lite' ),
             ]
         );
         $repeater = new Repeater();
@@ -41,7 +41,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
 
         $repeater->add_control(
             'acc_title', [
-                'label' => esc_html__('Title', 'elementskit'),
+                'label' => esc_html__('Title', 'elementskit-lite'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -50,17 +50,17 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $repeater->add_control(
             'ekit_acc_is_active',
             [
-                'label' => esc_html__('Keep this slide open? ', 'elementskit'),
+                'label' => esc_html__('Keep this slide open? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
             ]
         );
 
         $repeater->add_control(
             'acc_content', [
-                'label' => esc_html__('Description', 'elementskit'),
+                'label' => esc_html__('Description', 'elementskit-lite'),
                 'type' => Controls_Manager::WYSIWYG,
                 'label_block' => true,
             ]
@@ -69,7 +69,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_items',
             [
-                'label' => esc_html__('Content', 'elementskit'),
+                'label' => esc_html__('Content', 'elementskit-lite'),
                 'type' => Controls_Manager::REPEATER,
                 'separator' => 'before',
                 'title_field' => '{{ acc_title }}',
@@ -94,10 +94,10 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_open_first_slide',
             [
-                'label' => esc_html__( 'Keep first slide auto open?', 'elementskit' ),
+                'label' => esc_html__( 'Keep first slide auto open?', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -106,15 +106,15 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_style',
             [
-                'label' =>esc_html__( 'Style', 'elementskit' ),
+                'label' =>esc_html__( 'Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'accoedion-primary',
                 'options' => [
-                    'accoedion-primary' =>esc_html__( 'Primary', 'elementskit' ),
-                    'curve-shape' =>esc_html__( 'Curve Shape', 'elementskit' ),
-                    'accoedion-primary side-curve' =>esc_html__( 'Side Curve', 'elementskit' ),
-                    'accordion-4' =>esc_html__( 'Box Icon', 'elementskit' ),
-                    'floating-style' =>esc_html__( 'Floating Style', 'elementskit' ),
+                    'accoedion-primary' =>esc_html__( 'Primary', 'elementskit-lite' ),
+                    'curve-shape' =>esc_html__( 'Curve Shape', 'elementskit-lite' ),
+                    'accoedion-primary side-curve' =>esc_html__( 'Side Curve', 'elementskit-lite' ),
+                    'accordion-4' =>esc_html__( 'Box Icon', 'elementskit-lite' ),
+                    'floating-style' =>esc_html__( 'Floating Style', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -123,19 +123,19 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         // Icon setting
         $this->start_controls_section(
             'ekit_accordion_section_setting', [
-                'label' =>esc_html__( 'Icon', 'elementskit' ),
+                'label' =>esc_html__( 'Icon', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_accordion_icon_pos_style',
             [
-                'label' => esc_html__( 'Icon Position', 'elementskit' ),
+                'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'right',
                 'options' => [
-                    'right'  => esc_html__( 'Right', 'elementskit' ),
-                    'left' => esc_html__( 'Left', 'elementskit' ),
-                    'bothside' => esc_html__( 'Both side', 'elementskit' ),
+                    'right'  => esc_html__( 'Right', 'elementskit-lite' ),
+                    'left' => esc_html__( 'Left', 'elementskit-lite' ),
+                    'bothside' => esc_html__( 'Both side', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -143,10 +143,10 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_display_loop_count',
             [
-                'label' => esc_html__( 'Show Loop Count', 'elementskit' ),
+                'label' => esc_html__( 'Show Loop Count', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'elementskit' ),
-                'label_off' => esc_html__( 'Hide', 'elementskit' ),
+                'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -157,7 +157,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_left_icons',
             [
-                'label' => esc_html__( 'Left Icon', 'elementskit' ),
+                'label' => esc_html__( 'Left Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_accordion_left_icon',
                 'default' => [
@@ -172,7 +172,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_left_icon_actives',
             [
-                'label' => esc_html__( 'Left Icon Active', 'elementskit' ),
+                'label' => esc_html__( 'Left Icon Active', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_accordion_left_icon_active',
                 'default' => [
@@ -187,7 +187,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_right_icons',
             [
-                'label' => esc_html__( 'Right Icon', 'elementskit' ),
+                'label' => esc_html__( 'Right Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_accordion_right_icon',
                 'default' => [
@@ -202,7 +202,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_right_icon_actives',
             [
-                'label' => esc_html__( 'Right Icon Active', 'elementskit' ),
+                'label' => esc_html__( 'Right Icon Active', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_accordion_right_icon_active',
                 'default' => [
@@ -220,7 +220,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
 
         $this->start_controls_section(
             'ekit_accordion_section_title_style', [
-                'label'	 =>esc_html__( 'Title', 'elementskit' ),
+                'label'	 =>esc_html__( 'Title', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -236,12 +236,12 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'ekit_accordion_style_open_tab',
             [
-                'label' => esc_html__( 'Open', 'elementskit' ),
+                'label' => esc_html__( 'Open', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_accordion_title_color', [
-                'label'		 =>esc_html__( 'Color', 'elementskit' ),
+                'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type'		 => Controls_Manager::COLOR,
                 'selectors'	 => [
                     '{{WRAPPER}} .elementskit-accordion .elementskit-card .elementskit-card-header>.elementskit-btn-link[aria-expanded="true"]' => 'color: {{VALUE}};',
@@ -254,7 +254,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_accordion_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'condition' => [
                     'ekit_accordion_style!' => ['curve-shape']
@@ -264,7 +264,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         );
         $this->add_control(
             'ekit_accordion_curve_fill_color', [
-                'label'      =>esc_html__( 'Background Color', 'elementskit' ),
+                'label'      =>esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_accordion_style' => ['curve-shape']
@@ -276,7 +276,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         );
         $this->add_control(
             'ekit_accordion_curve_stroke_color', [
-                'label'      =>esc_html__( 'Border Color', 'elementskit' ),
+                'label'      =>esc_html__( 'Border Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_accordion_style' => ['curve-shape']
@@ -292,7 +292,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_accordion_title_border_open',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_accordion_style!' => ['curve-shape']
                 ],
@@ -303,7 +303,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_border_radious_curve_shape_open',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'condition' => [
@@ -318,7 +318,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_accordion_box_shadow_open',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-accordion .elementskit-card .elementskit-card-header>.elementskit-btn-link[aria-expanded="true"]',
             ]
         );
@@ -328,12 +328,12 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'ekit_accordion_style_close_tab',
             [
-                'label' => esc_html__( 'Closed', 'elementskit' ),
+                'label' => esc_html__( 'Closed', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_accordion_title_color_close', [
-                'label'		 =>esc_html__( 'Color', 'elementskit' ),
+                'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type'		 => Controls_Manager::COLOR,
                 'selectors'	 => [
                     '{{WRAPPER}} .elementskit-accordion .elementskit-card-header>.elementskit-btn-link' => 'color: {{VALUE}};'
@@ -344,7 +344,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_accordion_background_close',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'condition' => [
                     'ekit_accordion_style!' => ['curve-shape']
@@ -354,7 +354,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         );
         $this->add_control(
             'ekit_accordion_curve_fill_close', [
-                'label'      =>esc_html__( 'Background', 'elementskit' ),
+                'label'      =>esc_html__( 'Background', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_accordion_style' => ['curve-shape']
@@ -366,7 +366,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         );
         $this->add_control(
             'ekit_accordion_curve_stroke_close', [
-                'label'      =>esc_html__( 'Border Color', 'elementskit' ),
+                'label'      =>esc_html__( 'Border Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_accordion_style' => ['curve-shape']
@@ -382,7 +382,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_accordion_title_border_close',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_accordion_style!' => ['curve-shape']
                 ],
@@ -392,7 +392,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_border_radious_close',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'condition' => [
@@ -408,7 +408,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_accordion_box_shadow_close',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-accordion .elementskit-card-header>.elementskit-btn-link',
             ]
         );
@@ -427,7 +427,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'ekit_accordion_title_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px' ],
                 'selectors' => [
@@ -440,7 +440,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
 
         $this->add_responsive_control(
             'ekit_accordion_title_margin_bottom', [
-                'label'			 =>esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label'			 =>esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type'			 => Controls_Manager::SLIDER,
                 'default'		 => [
                     'size' => '',
@@ -463,14 +463,14 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         //Subtitle Style Section
         $this->start_controls_section(
             'ekit_accordion_section_content_style', [
-                'label'	 =>esc_html__( 'Description', 'elementskit' ),
+                'label'	 =>esc_html__( 'Description', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'ekit_accordion_content_color', [
-                'label'		 =>esc_html__( 'Color', 'elementskit' ),
+                'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type'		 => Controls_Manager::COLOR,
                 'selectors'	 => [
                     '{{WRAPPER}} .elementskit-accordion .elementskit-card-body p' => 'color: {{VALUE}};',
@@ -490,7 +490,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_accordion_content_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-accordion .elementskit-card-body, {{WRAPPER}} .accordion.floating-style .elementskit-card-body',
             ]
@@ -499,7 +499,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_content_border_radious',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -511,7 +511,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'ekit_accordion_content_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -523,7 +523,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'ekit_accordion_content_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -552,7 +552,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
 
         $this->start_controls_section(
             'ekit_accordion_section_border_style', [
-                'label'	 =>esc_html__( 'Border', 'elementskit' ),
+                'label'	 =>esc_html__( 'Border', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -561,7 +561,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_accordion_border_open',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-accordion > .elementskit-card',
             ]
         );
@@ -569,7 +569,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_control(
             'ekit_accordion_border_radious_open',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -582,7 +582,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_accordion_element_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-accordion > .elementskit-card',
             ]
         );
@@ -593,7 +593,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         //Icon Style Section
         $this->start_controls_section(
             'ekit_accordion_section_icon_style', [
-                'label'	 =>esc_html__( 'Icon', 'elementskit' ),
+                'label'	 =>esc_html__( 'Icon', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -601,7 +601,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_accordion_section_icon_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -616,13 +616,13 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'ekit_accordion_icon_open_tab',
             [
-                'label' => esc_html__( 'Slide Closed Icon', 'elementskit' ),
+                'label' => esc_html__( 'Slide Closed Icon', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_accordion_icon_color_close', [
-                'label'		 =>esc_html__( 'Color', 'elementskit' ),
+                'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type'		 => Controls_Manager::COLOR,
                 'selectors'	 => [
                     '{{WRAPPER}} .elementskit-accordion .elementskit-card-header .elementskit-btn-link .icon-open' => 'color: {{VALUE}};',
@@ -635,7 +635,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'ekit_accordion_icon_typography_close',
             [
-                'label' => esc_html__( 'Size', 'elementskit' ),
+                'label' => esc_html__( 'Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -665,7 +665,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_accordion_icon_box_open_bg',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-accordion.accordion-4 .elementskit-card-header .elementskit-btn-link::before',
                 'condition' => [
@@ -678,13 +678,13 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'ekit_accordion_icon_close_tab',
             [
-                'label' => esc_html__( ' Slide Open icon', 'elementskit' ),
+                'label' => esc_html__( ' Slide Open icon', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_accordion_icon_color', [
-                'label'		 =>esc_html__( 'Color', 'elementskit' ),
+                'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type'		 => Controls_Manager::COLOR,
                 'selectors'	 => [
                     '{{WRAPPER}} .elementskit-accordion .elementskit-card-header .elementskit-btn-link .icon-closed' => 'color: {{VALUE}};',
@@ -696,7 +696,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'ekit_accordion_icon_typography', //icon id different because replaced the previous control
             [
-                'label' => esc_html__( 'Size', 'elementskit' ),
+                'label' => esc_html__( 'Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -726,7 +726,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_accordion_icon_box_close_bg',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-accordion.accordion-4 .elementskit-card-header .elementskit-btn-link[aria-expanded="true"]::before',
                 'condition' => [
@@ -778,7 +778,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
                 ?>
 
                 <div class="elementskit-card">
-                    <div class="elementskit-card-header" id="primaryHeading-<?php echo esc_attr($i); ?>">
+                    <div class="elementskit-card-header" id="primaryHeading-<?php echo esc_attr($i); ?>-<?php echo esc_attr($this->get_id()); ?>">
                         <a href="#Collapse-<?php echo esc_attr($accorion_content['_id'].$acc_id)?>" class="elementskit-btn-link collapsed" data-ekit-toggle="collapse" data-target="#Collapse-<?php echo esc_attr($accorion_content['_id'].$acc_id)?>" aria-expanded="<?php echo esc_attr($is_active == ' collapse' ? 'false' : 'true');  ?>" aria-controls="Collapse-<?php echo esc_attr($accorion_content['_id'].$acc_id)?>">
                             <?php if(($ekit_accordion_icon_pos_style == 'left') || ($ekit_accordion_icon_pos_style == 'bothside')) :  ?>
                                 <div class="ekit_accordion_icon_left_group">
@@ -883,7 +883,7 @@ class Elementskit_Widget_Accordion extends Widget_Base {
                         </a>
                     </div>
 
-                    <div id="Collapse-<?php echo esc_attr($accorion_content['_id'].$acc_id)?>" class="<?php echo esc_attr($is_active); ?>" aria-labelledby="primaryHeading-<?php echo esc_attr($i); ?>" data-parent="#accordion-<?php echo esc_attr($acc_id); ?>">
+                    <div id="Collapse-<?php echo esc_attr($accorion_content['_id'].$acc_id)?>" class="<?php echo esc_attr($is_active); ?>" aria-labelledby="primaryHeading-<?php echo esc_attr($i); ?>-<?php echo esc_attr($this->get_id()); ?>" data-parent="#accordion-<?php echo esc_attr($acc_id); ?>">
 
                         <div class="elementskit-card-body">
                             <?php echo do_shortcode(($accorion_content['acc_content'])); ?>

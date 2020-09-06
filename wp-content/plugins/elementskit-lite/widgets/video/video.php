@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Video_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Video_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Video extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -37,7 +37,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_video_popup_content_section',
 			[
-				'label' => esc_html__( 'Video', 'elementskit' ),
+				'label' => esc_html__( 'Video', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -45,13 +45,13 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_button_style',
 			[
-				'label' => esc_html__( 'Button Style', 'elementskit' ),
+				'label' => esc_html__( 'Button Style', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'icon',
 				'options' => [
-					'text'  => esc_html__( 'Text', 'elementskit' ),
-					'icon' => esc_html__( 'Icon', 'elementskit' ),
-					'both' => esc_html__( 'Both', 'elementskit' ),
+					'text'  => esc_html__( 'Text', 'elementskit-lite' ),
+					'icon' => esc_html__( 'Icon', 'elementskit-lite' ),
+					'both' => esc_html__( 'Both', 'elementskit-lite' ),
 				],
 			]
 		);
@@ -59,11 +59,11 @@ class Elementskit_Widget_Video extends Widget_Base {
 		 $this->add_control(
             'ekit_video_popup_button_title',
             [
-                'label' =>esc_html__( 'Button Title', 'elementskit' ),
+                'label' =>esc_html__( 'Button Title', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' =>esc_html__( 'Play Video', 'elementskit' ),
-				'default' =>esc_html__( 'Play Video', 'elementskit' ),
+                'placeholder' =>esc_html__( 'Play Video', 'elementskit-lite' ),
+				'default' =>esc_html__( 'Play Video', 'elementskit-lite' ),
 				'condition' => [
 					'ekit_video_popup_button_style' => ['text', 'both']
 				],
@@ -76,11 +76,11 @@ class Elementskit_Widget_Video extends Widget_Base {
 		 $this->add_control(
             'ekit_video_popup_button_icons__switch',
             [
-                'label' => esc_html__('Add icon? ', 'elementskit'),
+                'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'condition' => [
 					'ekit_video_popup_button_style' 		=> ['icon', 'both'],
 				]
@@ -90,7 +90,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		 $this->add_control(
             'ekit_video_popup_button_icons',
             [
-                'label' =>esc_html__( 'Button Icon', 'elementskit' ),
+                'label' =>esc_html__( 'Button Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_video_popup_button_icon',
                 'default' => [
@@ -107,12 +107,12 @@ class Elementskit_Widget_Video extends Widget_Base {
 		 $this->add_control(
 			'ekit_video_popup_icon_align',
 			[
-				'label' =>esc_html__( 'Icon Position', 'elementskit' ),
+				'label' =>esc_html__( 'Icon Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before' =>esc_html__( 'Before', 'elementskit' ),
-					'after' =>esc_html__( 'After', 'elementskit' ),
+					'before' =>esc_html__( 'Before', 'elementskit-lite' ),
+					'after' =>esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_video_popup_button_style' => 'both',
@@ -124,10 +124,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		 $this->add_control(
             'ekit_video_popup_video_glow',
             [
-                'label' =>esc_html__( 'Active Glow', 'elementskit' ),
+                'label' =>esc_html__( 'Active Glow', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
             ]
@@ -137,12 +137,12 @@ class Elementskit_Widget_Video extends Widget_Base {
 		 $this->add_control(
             'ekit_video_popup_video_type',
             [
-                'label'     => esc_html__( 'Video Type', 'elementskit' ),
+                'label'     => esc_html__( 'Video Type', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'youtube',
                 'options'   => [
-                      'youtube'=> esc_html__( 'youtube', 'elementskit' ),
-                      'vimeo'=> esc_html__( 'vimeo', 'elementskit' ),
+                      'youtube'=> esc_html__( 'youtube', 'elementskit-lite' ),
+                      'vimeo'=> esc_html__( 'vimeo', 'elementskit-lite' ),
                 ]
             ]
         );
@@ -150,7 +150,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_url',
 			[
-				'label' => esc_html__( 'URL to embed', 'elementskit' ),
+				'label' => esc_html__( 'URL to embed', 'elementskit-lite' ),
 				'type' => Controls_Manager::TEXT,
 				'input_type' => 'url',
 				'placeholder' => esc_html( 'https://www.youtube.com/watch?v=1MTkZPys7mU' ),
@@ -165,7 +165,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_start_time',
 			[
-				'label' => esc_html__( 'Start Time', 'elementskit' ),
+				'label' => esc_html__( 'Start Time', 'elementskit-lite' ),
 				'type' => Controls_Manager::NUMBER,
 				'input_type' => 'number',
 				'placeholder' =>  '',
@@ -177,7 +177,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_end_time',
 			[
-				'label' => esc_html__( 'End TIme', 'elementskit' ),
+				'label' => esc_html__( 'End TIme', 'elementskit-lite' ),
 				'type' => Controls_Manager::NUMBER,
 				'input_type' => 'number',
 				'placeholder' => '',
@@ -188,10 +188,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_auto_play',
 			[
-				'label' => esc_html__( 'Auto Play', 'elementskit' ),
+				'label' => esc_html__( 'Auto Play', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'yes',
 			]
@@ -200,10 +200,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_video_mute',
 			[
-				'label' => esc_html__( 'Mute', 'elementskit' ),
+				'label' => esc_html__( 'Mute', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'no',
 			]
@@ -212,10 +212,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_video_loop',
 			[
-				'label' => esc_html__( 'Loop', 'elementskit' ),
+				'label' => esc_html__( 'Loop', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'no',
 			]
@@ -224,10 +224,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_video_player_control',
 			[
-				'label' => esc_html__( 'Player Control', 'elementskit' ),
+				'label' => esc_html__( 'Player Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'no',
 			]
@@ -236,10 +236,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 	   $this->add_control(
 			'ekit_video_popup_video_intro_title',
 			[
-				'label' => esc_html__( 'Intro Title', 'elementskit' ),
+				'label' => esc_html__( 'Intro Title', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' =>esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'no',
 				'condition' => ['ekit_video_popup_video_type' => 'vimeo']
@@ -249,10 +249,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_video_intro_portrait',
 			[
-				'label' => esc_html__( 'Intro Portrait', 'elementskit' ),
+				'label' => esc_html__( 'Intro Portrait', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'no',
 				'condition' => ['ekit_video_popup_video_type' => 'vimeo']
@@ -262,10 +262,10 @@ class Elementskit_Widget_Video extends Widget_Base {
         $this->add_control(
 			'ekit_video_popup_video_intro_byline',
 			[
-				'label' => esc_html__( 'Intro Byline', 'elementskit' ),
+				'label' => esc_html__( 'Intro Byline', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => '1',
 				'default' => 'no',
 				'condition' => ['ekit_video_popup_video_type' => 'vimeo']
@@ -278,31 +278,31 @@ class Elementskit_Widget_Video extends Widget_Base {
         $this->start_controls_section(
 			'ekit_video_popup_style_section',
 			[
-				'label' => esc_html__( 'Style', 'elementskit' ),
+				'label' => esc_html__( 'Style', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
 			'ekit_video_popup_title_align', [
-				'label'			 =>esc_html__( 'Alignment', 'elementskit' ),
+				'label'			 =>esc_html__( 'Alignment', 'elementskit-lite' ),
 				'type'			 => Controls_Manager::CHOOSE,
 				'options'		 => [
 
 					'left'		 => [
-						'title'	 =>esc_html__( 'Left', 'elementskit' ),
+						'title'	 =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon'	 => 'fa fa-align-left',
 					],
 					'center'	 => [
-						'title'	 =>esc_html__( 'Center', 'elementskit' ),
+						'title'	 =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon'	 => 'fa fa-align-center',
 					],
 					'right'		 => [
-						'title'	 =>esc_html__( 'Right', 'elementskit' ),
+						'title'	 =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon'	 => 'fa fa-align-right',
 					],
 					'justify'	 => [
-						'title'	 =>esc_html__( 'Justified', 'elementskit' ),
+						'title'	 =>esc_html__( 'Justified', 'elementskit-lite' ),
 						'icon'	 => 'fa fa-align-justify',
 					],
 				],
@@ -326,7 +326,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_video_popup_section_style',
 			[
-				'label' =>esc_html__( 'Button Style', 'elementskit' ),
+				'label' =>esc_html__( 'Button Style', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -334,7 +334,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_text_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -346,7 +346,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_video_popup_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -371,7 +371,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_video_popup_btn_typography',
-				'label' =>esc_html__( 'Typography', 'elementskit' ),
+				'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-video-popup-btn',
 			]
 		);
@@ -380,10 +380,10 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_btn_use_height_and_width',
 			[
-				'label' => esc_html__( 'Use height width', 'elementskit' ),
+				'label' => esc_html__( 'Use height width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -392,7 +392,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_btn_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -422,7 +422,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_btn_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -452,7 +452,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_btn_line_height',
 			[
-				'label' => esc_html__( 'Line height', 'elementskit' ),
+				'label' => esc_html__( 'Line height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -482,7 +482,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_btn_glow_color',
 			[
-				'label' => esc_html__( 'Glow Color', 'elementskit' ),
+				'label' => esc_html__( 'Glow Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -506,14 +506,14 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_video_popup_button_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_video_popup_btn_text_color',
 			[
-				'label' =>esc_html__( 'Text Color', 'elementskit' ),
+				'label' =>esc_html__( 'Text Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
@@ -536,14 +536,14 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_video_popup_btn_tab_button_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_video_popup_btn_hover_color',
 			[
-				'label' =>esc_html__( 'Text Color', 'elementskit' ),
+				'label' =>esc_html__( 'Text Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
@@ -572,7 +572,7 @@ class Elementskit_Widget_Video extends Widget_Base {
         $this->start_controls_section(
 			'ekit_video_popup_border_style',
 			[
-				'label' =>esc_html__( 'Border Style', 'elementskit' ),
+				'label' =>esc_html__( 'Border Style', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -580,15 +580,15 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_btn_border_style',
 			[
-				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'None', 'elementskit' ),
-					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+					'' => esc_html__( 'None', 'elementskit-lite' ),
+					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .ekit-video-popup-btn' => 'border-style: {{VALUE}};',
@@ -598,7 +598,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_control(
 			'ekit_video_popup_btn_border_dimensions',
 			[
-				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .ekit-video-popup-btn' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -609,14 +609,14 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_video_popup__button_border_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_video_popup_btn_border_color',
 			[
-				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -629,13 +629,13 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_video_popup_btn_tab_button_border_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
 		$this->add_control(
 			'ekit_video_popup_btn_hover_border_color',
 			[
-				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -648,7 +648,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_btn_border_radius',
 			[
-				'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+				'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'default' => [
@@ -667,7 +667,7 @@ class Elementskit_Widget_Video extends Widget_Base {
         $this->start_controls_section(
 			'ekit_video_popup_box_shadow_style',
 			[
-				'label' =>esc_html__( 'Shadow Style', 'elementskit' ),
+				'label' =>esc_html__( 'Shadow Style', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -676,7 +676,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_video_popup_btn_box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-video-popup-btn',
 			]
 		);
@@ -695,7 +695,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_video_popup_icon_style',
 			[
-				'label' => esc_html__( 'Icon', 'elementskit' ),
+				'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ekit_video_popup_button_icons__switch'	=> 'yes',
@@ -707,7 +707,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_icon_padding_right',
 			[
-				'label' => esc_html__( 'Padding Right', 'elementskit' ),
+				'label' => esc_html__( 'Padding Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -738,7 +738,7 @@ class Elementskit_Widget_Video extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_video_popup_icon_padding_left',
 			[
-				'label' => esc_html__( 'Padding Left', 'elementskit' ),
+				'label' => esc_html__( 'Padding Left', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [

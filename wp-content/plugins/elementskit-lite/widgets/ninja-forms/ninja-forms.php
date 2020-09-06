@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Ninja_Forms_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Ninja_Forms_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Ninja_Forms extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -30,18 +30,18 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'ekit_ninja_section_tab', [
-                'label' =>esc_html__( 'Ninja Form', 'elementskit' ),
+                'label' =>esc_html__( 'Ninja Form', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_ninja_form_id',
             [
-                'label' => __( 'Select Your Form', 'elementskit' ),
+                'label' => __( 'Select Your Form', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'default' => '0',
-				'options' => \ElementsKit\Utils::ekit_get_ninja_form(),
+				'options' => \ElementsKit_Lite\Utils::ekit_get_ninja_form(),
             ]
         );
 
@@ -56,7 +56,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_form_title_style',
             [
-                'label'                 => __( 'Title & Description', 'elementskit' ),
+                'label'                 => __( 'Title & Description', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -64,19 +64,19 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_heading_alignment',
             [
-                'label'                 => __( 'Alignment', 'elementskit' ),
+                'label'                 => __( 'Alignment', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'elementskit' ),
+						'title' => __( 'Left', 'elementskit-lite' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'elementskit' ),
+						'title' => __( 'Center', 'elementskit-lite' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'elementskit' ),
+						'title' => __( 'Right', 'elementskit-lite' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -90,7 +90,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_title_heading',
             [
-                'label'                 => __( 'Title', 'elementskit' ),
+                'label'                 => __( 'Title', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
             ]
@@ -99,7 +99,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_form_title_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -112,7 +112,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_form_title_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-form-title h3',
             ]
         );
@@ -120,7 +120,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_ninja_form_title_margin',
 			[
-				'label'                 => __( 'Margin', 'elementskit' ),
+				'label'                 => __( 'Margin', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
                 'allowed_dimensions'    => 'vertical',
@@ -142,7 +142,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_label_style',
             [
-                'label'                 => __( 'Labels', 'elementskit' ),
+                'label'                 => __( 'Labels', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -150,7 +150,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_text_color_label',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .ekit_ninjaForms_container .nf-field-label label' => 'color: {{VALUE}}',
@@ -162,7 +162,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_typography_label',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-field-label label',
             ]
         );
@@ -173,7 +173,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_required_notice_style',
             [
-                'label'                 => __( 'Required Fields Notice', 'elementskit' ),
+                'label'                 => __( 'Required Fields Notice', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -181,7 +181,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_required_notice_text_color',
             [
-                'label'                 => __( 'Color', 'elementskit' ),
+                'label'                 => __( 'Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -193,7 +193,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_required_notice_spacing',
             [
-                'label'                 => __( 'Spacing', 'elementskit' ),
+                'label'                 => __( 'Spacing', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -213,7 +213,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_required_notice_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-form-fields-required',
             ]
@@ -225,7 +225,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_fields_style',
             [
-                'label'                 => __( 'Input & Textarea', 'elementskit' ),
+                'label'                 => __( 'Input & Textarea', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -233,19 +233,19 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_input_alignment',
             [
-                'label'                 => __( 'Alignment', 'elementskit' ),
+                'label'                 => __( 'Alignment', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'      => [
-						'title' => __( 'Left', 'elementskit' ),
+						'title' => __( 'Left', 'elementskit-lite' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center'    => [
-						'title' => __( 'Center', 'elementskit' ),
+						'title' => __( 'Center', 'elementskit-lite' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'     => [
-						'title' => __( 'Right', 'elementskit' ),
+						'title' => __( 'Right', 'elementskit-lite' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -261,14 +261,14 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_ninja_tab_fields_normal',
             [
-                'label'                 => __( 'Normal', 'elementskit' ),
+                'label'                 => __( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_ninja_field_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -280,7 +280,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_field_bg_color',
             [
-                'label'                 => __( 'Background Color', 'elementskit' ),
+                'label'                 => __( 'Background Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -293,7 +293,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_field_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-field input[type="text"], {{WRAPPER}} .ekit_ninjaForms_container .nf-field input[type="email"], {{WRAPPER}} .ekit_ninjaForms_container .nf-field input[type="tel"], {{WRAPPER}} .ekit_ninjaForms_container .nf-field textarea, {{WRAPPER}} .ekit_ninjaForms_container .nf-field select',
 				'separator'             => 'before',
             ]
@@ -302,7 +302,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_text_indent',
             [
-                'label'                 => __( 'Text Indent', 'elementskit' ),
+                'label'                 => __( 'Text Indent', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -337,7 +337,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'ekit_ninja_field_border',
-				'label'                 => __( 'Border', 'elementskit' ),
+				'label'                 => __( 'Border', 'elementskit-lite' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-field input[type="text"], {{WRAPPER}} .ekit_ninjaForms_container .nf-field input[type="email"], {{WRAPPER}} .ekit_ninjaForms_container .nf-field input[type="tel"], {{WRAPPER}} .ekit_ninjaForms_container .nf-field textarea, {{WRAPPER}} .ekit_ninjaForms_container .nf-field select',
@@ -348,7 +348,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 		$this->add_control(
 			'ekit_ninja_field_radius',
 			[
-				'label'                 => __( 'Border Radius', 'elementskit' ),
+				'label'                 => __( 'Border Radius', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -360,7 +360,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_input_width',
             [
-                'label'                 => __( 'Input Width', 'elementskit' ),
+                'label'                 => __( 'Input Width', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -380,7 +380,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_textarea_width',
             [
-                'label'                 => __( 'Textarea Width', 'elementskit' ),
+                'label'                 => __( 'Textarea Width', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -399,7 +399,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_textarea_height',
             [
-                'label'                 => __( 'Textarea Height', 'elementskit' ),
+                'label'                 => __( 'Textarea Height', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px' => [
@@ -418,7 +418,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_ninja_field_padding',
 			[
-				'label'                 => __( 'Padding', 'elementskit' ),
+				'label'                 => __( 'Padding', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -452,14 +452,14 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_ninja_tab_fields_focus',
             [
-                'label'                 => __( 'Focus', 'elementskit' ),
+                'label'                 => __( 'Focus', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_ninja_field_bg_color_focus',
             [
-                'label'                 => __( 'Background Color', 'elementskit' ),
+                'label'                 => __( 'Background Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -472,7 +472,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'ekit_ninja_focus_input_border',
-				'label'                 => __( 'Border', 'elementskit' ),
+				'label'                 => __( 'Border', 'elementskit-lite' ),
 				'placeholder'       => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-field input:focus, {{WRAPPER}} .ekit_ninjaForms_container .nf-field textarea:focus, {{WRAPPER}} .list-select-wrap select:active+div, {{WRAPPER}} .list-select-wrap select:focus+div',
@@ -498,7 +498,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_field_description_style',
             [
-                'label'                 => __( 'Field Description', 'elementskit' ),
+                'label'                 => __( 'Field Description', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -506,7 +506,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_field_description_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .ekit_ninjaForms_container .nf-field .nf-field-description' => 'color: {{VALUE}}',
@@ -518,7 +518,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_field_description_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-field .nf-field-description',
             ]
         );
@@ -526,7 +526,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_field_description_spacing',
             [
-                'label'                 => __( 'Spacing', 'elementskit' ),
+                'label'                 => __( 'Spacing', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -548,7 +548,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_placeholder_style',
             [
-                'label'                 => __( 'Placeholder', 'elementskit' ),
+                'label'                 => __( 'Placeholder', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -556,7 +556,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_text_color_placeholder',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .ekit_ninjaForms_container .nf-field input::-webkit-input-placeholder, {{WRAPPER}} .ekit_ninjaForms_container .nf-field textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -574,7 +574,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_submit_button_style',
             [
-                'label'                 => __( 'Submit Button', 'elementskit' ),
+                'label'                 => __( 'Submit Button', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -582,12 +582,12 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_button_width_type',
             [
-                'label'                 => __( 'Width', 'elementskit' ),
+                'label'                 => __( 'Width', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'custom',
                 'options'               => [
-                    'full-width'    => __( 'Full Width', 'elementskit' ),
-                    'custom'        => __( 'Custom', 'elementskit' ),
+                    'full-width'    => __( 'Full Width', 'elementskit-lite' ),
+                    'custom'        => __( 'Custom', 'elementskit-lite' ),
                 ],
                 'prefix_class'          => 'ekit_ninjaForms_container-button-',
             ]
@@ -596,19 +596,19 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_ninja_button_align',
 			[
-				'label'                 => __( 'Alignment', 'elementskit' ),
+				'label'                 => __( 'Alignment', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::CHOOSE,
 				'options'               => [
 					'left'        => [
-						'title'   => __( 'Left', 'elementskit' ),
+						'title'   => __( 'Left', 'elementskit-lite' ),
 						'icon'    => 'eicon-h-align-left',
 					],
 					'center'      => [
-						'title'   => __( 'Center', 'elementskit' ),
+						'title'   => __( 'Center', 'elementskit-lite' ),
 						'icon'    => 'eicon-h-align-center',
 					],
 					'right'       => [
-						'title'   => __( 'Right', 'elementskit' ),
+						'title'   => __( 'Right', 'elementskit-lite' ),
 						'icon'    => 'eicon-h-align-right',
 					],
 				],
@@ -625,7 +625,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_ninja_button_width',
             [
-                'label'                 => __( 'Width', 'elementskit' ),
+                'label'                 => __( 'Width', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'default'               => [
                     'size'      => '130',
@@ -653,7 +653,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_ninja_tab_button_normal',
             [
-                'label'                 => __( 'Normal', 'elementskit' ),
+                'label'                 => __( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -661,7 +661,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_button_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .submit-container input[type="button"]',
 				// 'separator'             => 'before',
@@ -671,7 +671,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_button_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -683,7 +683,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_button_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'elementskit' ),
+                'label'                 => __( 'Background Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -706,7 +706,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'ekit_ninja_button_border_normal',
-				'label'                 => __( 'Border', 'elementskit' ),
+				'label'                 => __( 'Border', 'elementskit-lite' ),
 				'placeholder'       => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .submit-container input[type="button"]',
@@ -716,7 +716,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 		$this->add_control(
 			'ekit_ninja_button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'elementskit' ),
+				'label'                 => __( 'Border Radius', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -728,7 +728,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_ninja_button_padding',
 			[
-				'label'                 => __( 'Padding', 'elementskit' ),
+				'label'                 => __( 'Padding', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -740,7 +740,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_ninja_button_margin',
 			[
-				'label'                 => __( 'Margin', 'elementskit' ),
+				'label'                 => __( 'Margin', 'elementskit-lite' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -754,14 +754,14 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_ninja_tab_button_hover',
             [
-                'label'                 => __( 'Hover', 'elementskit' ),
+                'label'                 => __( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_ninja_button_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'elementskit' ),
+                'label'                 => __( 'Background Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -773,7 +773,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_button_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -785,7 +785,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_button_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'elementskit' ),
+                'label'                 => __( 'Border Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -804,7 +804,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_success_message_style',
             [
-                'label'                 => __( 'Success Message', 'elementskit' ),
+                'label'                 => __( 'Success Message', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -812,7 +812,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_success_message_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .ekit_ninjaForms_container .nf-response-msg' => 'color: {{VALUE}}',
@@ -824,7 +824,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_ninja_success_message_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'selector'              => '{{WRAPPER}} .ekit_ninjaForms_container .nf-response-msg',
             ]
         );
@@ -835,7 +835,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_ninja_section_error_style',
             [
-                'label'                 => __( 'Errors', 'elementskit' ),
+                'label'                 => __( 'Errors', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -843,7 +843,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_error_messages_heading',
             [
-                'label'                 => __( 'Error Messages', 'elementskit' ),
+                'label'                 => __( 'Error Messages', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::HEADING,
             ]
         );
@@ -851,7 +851,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_error_message_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -863,7 +863,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_validation_errors_heading',
             [
-                'label'                 => __( 'Validation Errors', 'elementskit' ),
+                'label'                 => __( 'Validation Errors', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -872,7 +872,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_validation_error_description_color',
             [
-                'label'                 => __( 'Error Description Color', 'elementskit' ),
+                'label'                 => __( 'Error Description Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -884,7 +884,7 @@ class Elementskit_Widget_Ninja_Forms extends Widget_Base {
         $this->add_control(
             'ekit_ninja_validation_error_field_input_border_color',
             [
-                'label'                 => __( 'Error Field Input Border Color', 'elementskit' ),
+                'label'                 => __( 'Error Field Input Border Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [

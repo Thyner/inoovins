@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Libs\Pro_Label;
+namespace ElementsKit_Lite\Libs\Pro_Label;
 defined( 'ABSPATH' ) || exit;
 
 trait Admin_Notice{
@@ -10,8 +10,8 @@ trait Admin_Notice{
      */
     public function insert_plugin_links($links)
     {
-        $links[] = sprintf('<a href="'.admin_url().'admin.php?page=elementskit">' . esc_html__('Settings', 'elementskit') . '</a>');
-        $links[] = sprintf('<a href="https://go.wpmet.com/ekitpro" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'elementskit') . '</a>');
+        $links[] = sprintf('<a href="'.admin_url().'admin.php?page=elementskit">' . esc_html__('Settings', 'elementskit-lite') . '</a>');
+        $links[] = sprintf('<a href="https://go.wpmet.com/ekitpro" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'elementskit-lite') . '</a>');
 
         return $links;
     }
@@ -24,8 +24,8 @@ trait Admin_Notice{
     public function insert_plugin_row_meta($links, $file)
     {
         if($file == 'elementskit/elementskit-lite.php'){
-            $links[] = sprintf('<a href="https://go.wpmet.com/ekitdoc" target="_blank">' . esc_html__('Documentation', 'elementskit') . '</a>');
-            $links[] = sprintf('<a href="https://go.wpmet.com/ekityoutube" target="_blank">' . esc_html__('Video Tutorials', 'elementskit') . '</a>');
+            $links[] = sprintf('<a href="https://go.wpmet.com/ekitdoc" target="_blank">' . esc_html__('Documentation', 'elementskit-lite') . '</a>');
+            $links[] = sprintf('<a href="https://go.wpmet.com/ekityoutube" target="_blank">' . esc_html__('Video Tutorials', 'elementskit-lite') . '</a>');
         }
         return $links;
     }
@@ -37,7 +37,7 @@ trait Admin_Notice{
 
     public function show_go_pro_notice(){
 
-    $btn['label'] = esc_html__('Go Pro Now', 'elementskit');
+    $btn['label'] = esc_html__('Go Pro Now', 'elementskit-lite');
     $btn['url'] = 'https://go.wpmet.com/ekitpro';
 
 
@@ -47,7 +47,7 @@ trait Admin_Notice{
     ob_clean();
 
 
-    \ElementsKit\Notice::push(
+    \ElementsKit_Lite\Notice::push(
         [
             'id'          => 'elementskit-go-pro',
             'type'        => 'success',

@@ -1,19 +1,19 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Testimonial_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Testimonial_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Testimonial extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
     
     public function __construct( $data = [], $args = null ) {
 		parent::__construct( $data, $args );
-		$this->add_script_depends('slick');
+		$this->add_script_depends('jquery-slick');
 	}
 
     public function get_name() {
@@ -37,7 +37,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_section(
             'ekit_testimonial_layout_section_tab_style',
             [
-                'label' => esc_html__('Layout', 'elementskit'),
+                'label' => esc_html__('Layout', 'elementskit-lite'),
             ]
         );
 
@@ -47,42 +47,42 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
             'ekit_testimonial_style',
             [
-                'label' => esc_html__('Choose Style', 'elementskit'),
+                'label' => esc_html__('Choose Style', 'elementskit-lite'),
                 'type' => ElementsKit_Controls_Manager::IMAGECHOOSE,
                 'default' => 'style1',
                 'options' => [
 					'style1' => [
-						'title' => esc_html__( 'Default', 'elementskit' ),
+						'title' => esc_html__( 'Default', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/1.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/1.png',
                         'width' => '33.33%',
 					],
 					'style2' => [
-						'title' => esc_html__( 'Grid Style without image', 'elementskit' ),
+						'title' => esc_html__( 'Grid Style without image', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/2.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/2.png',
                         'width' => '33.33%',
 					],
 					'style3' => [
-						'title' => esc_html__( 'Image with Ratting', 'elementskit' ),
+						'title' => esc_html__( 'Image with Ratting', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/3.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/3.png',
                         'width' => '33.33%',
 					],
 					'style4' => [
-						'title' => esc_html__( 'image style 4', 'elementskit' ),
+						'title' => esc_html__( 'image style 4', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/4.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/4.png',
                         'width' => '33.33%',
 					],
 					'style5' => [
-						'title' => esc_html__( 'image style 5', 'elementskit' ),
+						'title' => esc_html__( 'image style 5', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/5.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/5.png',
                         'width' => '33.33%',
 					],
 					'style6' => [
-						'title' => esc_html__( 'image style 6', 'elementskit' ),
+						'title' => esc_html__( 'image style 6', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/6.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/6.png',
                         'width' => '33.33%',
@@ -95,7 +95,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_section(
             'ekit_testimonial_section_tab_style',
             [
-                'label' => esc_html__('Testimonial', 'elementskit'),
+                'label' => esc_html__('Testimonial', 'elementskit-lite'),
             ]
         );
 
@@ -103,10 +103,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
             'ekit_testimonial_wartermark_enable',
             [
-                'label' => esc_html__( 'Enable Quote Icon', 'elementskit' ),
+                'label' => esc_html__( 'Enable Quote Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
 				'default' => 'no',
 				'condition' => [
@@ -118,7 +118,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
             'ekit_testimonial_wartermarks',
             [
-                'label' => esc_html__( 'Quote Icon', 'elementskit' ),
+                'label' => esc_html__( 'Quote Icon', 'elementskit-lite' ),
                 'label_block' => true,
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_testimonial_wartermark',
@@ -137,13 +137,13 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_wartermark_position',
 			[
-				'label' => esc_html__( 'Quote Icon Position', 'elementskit' ),
+				'label' => esc_html__( 'Quote Icon Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'top',
 				'separator'    => 'before',
 				'options' => [
-					'top'  => esc_html__( 'Top', 'elementskit' ),
-					'bottom' => esc_html__( 'Bottom', 'elementskit' ),
+					'top'  => esc_html__( 'Top', 'elementskit-lite' ),
+					'bottom' => esc_html__( 'Bottom', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_testimonial_wartermark_enable' => 'yes',
@@ -155,10 +155,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_wartermark_mask_show_badge',
 			[
-				'label' => esc_html__( 'Show Quote Icon Badge', 'elementskit' ),
+				'label' => esc_html__( 'Show Quote Icon Badge', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 				'separator'    => 'before',
@@ -172,10 +172,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_wartermark_custom_position',
 			[
-				'label' => esc_html__( 'Custom Position', 'elementskit' ),
+				'label' => esc_html__( 'Custom Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 				'separator'    => 'before',
@@ -188,7 +188,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_wartermark_custom_position_offset_x',
 			[
-				'label' => esc_html__( 'Left', 'elementskit' ),
+				'label' => esc_html__( 'Left', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -219,7 +219,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_wartermark_custom_position_offset_y',
 			[
-				'label' => esc_html__( 'top', 'elementskit' ),
+				'label' => esc_html__( 'top', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -251,10 +251,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
             'ekit_testimonial_rating_enable',
             [
-                'label' => esc_html__( 'Enable Rating', 'elementskit' ),
+                'label' => esc_html__( 'Enable Rating', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
 				'default' => 'yes',
 				'separetor' => 'before',
@@ -268,10 +268,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
             'ekit_testimonial_title_separetor',
             [
-                'label'     => esc_html__( 'Show Separator', 'elementskit' ),
+                'label'     => esc_html__( 'Show Separator', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SWITCHER,
-                'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'default'   => 'yes',
 				'separator'    => 'before',
 				'condition' => [
@@ -283,46 +283,46 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$repeater = new Repeater();
         $repeater->add_control(
             'client_name', [
-                'label' => esc_html__('Client Name', 'elementskit'),
+                'label' => esc_html__('Client Name', 'elementskit-lite'),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__('Testimonial #1', 'elementskit'),
+				'default' => esc_html__('Testimonial #1', 'elementskit-lite'),
 				'label_block' => true,
             ]
         );
         $repeater->add_control(
             'designation', [
-                'label' => esc_html__('Designation', 'elementskit'),
+                'label' => esc_html__('Designation', 'elementskit-lite'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__('Designation', 'elementskit'),
+				'default' => esc_html__('Designation', 'elementskit-lite'),
             ]
         );
         $repeater->add_control(
             'review', [
-				'label' => esc_html__('Testimonial Review', 'elementskit'),
+				'label' => esc_html__('Testimonial Review', 'elementskit-lite'),
 				'type' => Controls_Manager::TEXTAREA,
 				'label_block' => true,
-				'default' => esc_html__('Review Text', 'elementskit'),
+				'default' => esc_html__('Review Text', 'elementskit-lite'),
             ]
         );
         $repeater->add_control(
             'rating', [
-				'label' => esc_html__('Testimonial Rating', 'elementskit'),
+				'label' => esc_html__('Testimonial Rating', 'elementskit-lite'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '5',
 				'options'   => [
-					'5'     => esc_html__( '5', 'elementskit' ),
-					'4'     => esc_html__( '4', 'elementskit' ),
-					'3'     => esc_html__( '3', 'elementskit' ),
-					'2'     => esc_html__( '2', 'elementskit' ),
-					'1'     => esc_html__( '1', 'elementskit' ),
+					'5'     => esc_html__( '5', 'elementskit-lite' ),
+					'4'     => esc_html__( '4', 'elementskit-lite' ),
+					'3'     => esc_html__( '3', 'elementskit-lite' ),
+					'2'     => esc_html__( '2', 'elementskit-lite' ),
+					'1'     => esc_html__( '1', 'elementskit-lite' ),
 				],
 				'label_block' => true,
             ]
         );
         $repeater->add_control(
             'client_photo', [
-				'label' => esc_html__('Client Avatar', 'elementskit'),
+				'label' => esc_html__('Client Avatar', 'elementskit-lite'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -331,7 +331,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         );
         $repeater->add_control(
             'client_logo', [
-				'label' => esc_html__('Logo', 'elementskit'),
+				'label' => esc_html__('Logo', 'elementskit-lite'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -350,7 +350,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         );
         $repeater->add_control(
             'client_logo_active', [
-				'label' => esc_html__('Logo Active', 'elementskit'),
+				'label' => esc_html__('Logo Active', 'elementskit-lite'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -362,7 +362,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_testimonial_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic'],
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}}',
             ]
@@ -370,12 +370,12 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_control(
             'ekit_testimonial_data',
             [
-                'label' => esc_html__('Testimonial', 'elementskit'),
+                'label' => esc_html__('Testimonial', 'elementskit-lite'),
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
-                    [ 'client_name' => esc_html__('Testimonial #1', 'elementskit') ],
-                    [ 'client_name' => esc_html__('Testimonial #2', 'elementskit') ],
-                    [ 'client_name' => esc_html__('Testimonial #3', 'elementskit') ],
+                    [ 'client_name' => esc_html__('Testimonial #1', 'elementskit-lite') ],
+                    [ 'client_name' => esc_html__('Testimonial #2', 'elementskit-lite') ],
+                    [ 'client_name' => esc_html__('Testimonial #3', 'elementskit-lite') ],
                 ],
 
                 'fields' => $repeater->get_controls(),
@@ -392,14 +392,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_section(
             'ekit_testimonial_layout_settings',
             [
-                'label' => esc_html__( 'Settings', 'elementskit' ),
+                'label' => esc_html__( 'Settings', 'elementskit-lite' ),
             ]
         );
 
 		$this->add_responsive_control(
 			'ekit_testimonial_left_right_spacing',
 			[
-				'label' => esc_html__( 'Spacing Left Right', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Left Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -435,7 +435,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_top_bottom_spacing',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -447,7 +447,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_testimonial_slidetoshow',
 			[
-				'label' => esc_html__( 'Slides To Show', 'elementskit' ),
+				'label' => esc_html__( 'Slides To Show', 'elementskit-lite' ),
 				'type' =>  Controls_Manager::NUMBER,
 				'min' => 1,
 				'max' => 20,
@@ -459,7 +459,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_testimonial_slidesToScroll',
 			[
-				'label' => esc_html__( 'Slides To Scroll', 'elementskit' ),
+				'label' => esc_html__( 'Slides To Scroll', 'elementskit-lite' ),
 				'type' =>  Controls_Manager::NUMBER,
 				'min' => 1,
 				'max' => 20,
@@ -471,7 +471,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_control(
 			'ekit_testimonial_speed',
 			[
-				'label' => esc_html__( 'Speed', 'elementskit' ),
+				'label' => esc_html__( 'Speed', 'elementskit-lite' ),
 				'type' =>  Controls_Manager::NUMBER,
 				'min' => 1,
 				'max' => 10000,
@@ -483,10 +483,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_autoplay',
 			[
-				'label' => esc_html__( 'Autoplay', 'elementskit' ),
+				'label' => esc_html__( 'Autoplay', 'elementskit-lite' ),
 				'type' =>  Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -495,10 +495,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_control(
 			'ekit_testimonial_show_arrow',
 			[
-				'label' => esc_html__( 'Show arrow', 'elementskit' ),
+				'label' => esc_html__( 'Show arrow', 'elementskit-lite' ),
 				'type' =>   Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => '',
 			]
@@ -507,10 +507,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_control(
 			'ekit_testimonial_show_dot',
 			[
-				'label' => esc_html__( 'Show dots', 'elementskit' ),
+				'label' => esc_html__( 'Show dots', 'elementskit-lite' ),
 				'type' =>   Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => '',
 			]
@@ -519,7 +519,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_control(
 			'ekit_testimonial_left_arrows',
 			[
-				'label' => esc_html__( 'Left arrow Icon', 'elementskit' ),
+				'label' => esc_html__( 'Left arrow Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_testimonial_left_arrow',
                 'default' => [
@@ -535,7 +535,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_control(
 			'ekit_testimonial_right_arrows',
 			[
-				'label' => esc_html__( 'Right arrow Icon', 'elementskit' ),
+				'label' => esc_html__( 'Right arrow Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_testimonial_right_arrow',
                 'default' => [
@@ -551,10 +551,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
             'ekit_testimonial_pause_on_hover',
             [
-                'label' => esc_html__( 'Pause on Hover', 'elementskit' ),
+                'label' => esc_html__( 'Pause on Hover', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -565,7 +565,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		// layout controll style start
 		 $this->start_controls_section(
 		    'ekit_testimonial_section_layout', [
-			    'label'	 => esc_html__( 'Layout', 'elementskit' ),
+			    'label'	 => esc_html__( 'Layout', 'elementskit-lite' ),
 			    'tab'	 => Controls_Manager::TAB_STYLE,
 		    ]
 	    );
@@ -574,7 +574,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_layout_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-tootltip-testimonial .elementskit-commentor-content, {{WRAPPER}} .elementskit-single-testimonial-slider, {{WRAPPER}} .elementskit-testimonial_card, {{WRAPPER}} .elementskit-tootltip-testimonial .elementskit-commentor-content::before',
 			]
@@ -583,7 +583,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_testimonial_layout_margin',
             [
-                'label'         => esc_html__('Column Gap', 'elementskit'),
+                'label'         => esc_html__('Column Gap', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'selectors' => [
@@ -596,7 +596,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		 $this->add_responsive_control(
 			'ekit_testimonial_layout_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -608,7 +608,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_parent_container_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -624,7 +624,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		//  $this->add_responsive_control(
 		// 	'ekit_testimonial_layout_border_radius',
 		// 	[
-		// 		'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+		// 		'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 		// 		'type' => Controls_Manager::DIMENSIONS,
 		// 		'size_units' => [ 'px'],
 		// 		'default' => [
@@ -642,7 +642,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_layout_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -662,7 +662,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_testimonial_layout_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-single-testimonial-slider',
 			]
 		);
@@ -670,7 +670,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_layout_active_hedaing',
 			[
-				'label' => esc_html__( 'Active', 'elementskit' ),
+				'label' => esc_html__( 'Active', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -679,7 +679,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_layout_active_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'elementskit' ),
+				'label' => esc_html__( 'Border Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-testimonial-slider:hover' => 'border-color: {{VALUE}}',
@@ -691,7 +691,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_layout_active_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-single-testimonial-slider:before',
 			]
@@ -702,7 +702,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 
 		$this->start_controls_section(
 		    'ekit_testimonial_section_wraper_style', [
-			    'label'	 => esc_html__( 'Wraper content style', 'elementskit' ),
+			    'label'	 => esc_html__( 'Wraper content style', 'elementskit-lite' ),
 				'tab'	 => Controls_Manager::TAB_STYLE,
 		    ]
 		);
@@ -711,19 +711,19 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wraper_vertical_alignment',
 			[
-				'label' =>esc_html__( 'Vertical Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Vertical Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'flex-start'    => [
-						'title' =>esc_html__( 'Top', 'elementskit' ),
+						'title' =>esc_html__( 'Top', 'elementskit-lite' ),
 						'icon' => 'fa fa-caret-up',
 					],
 					'center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'flex-end' => [
-						'title' =>esc_html__( 'Bottom', 'elementskit' ),
+						'title' =>esc_html__( 'Bottom', 'elementskit-lite' ),
 						'icon' => 'fa fa-caret-down',
 					],
 				],
@@ -737,19 +737,19 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wraper_horizontal_alignment',
 			[
-				'label' =>esc_html__( 'Horizontal Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Horizontal Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' =>esc_html__( 'Left', 'elementskit' ),
+						'title' =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' =>esc_html__( 'Right', 'elementskit' ),
+						'title' =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -765,7 +765,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wraper_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -777,10 +777,10 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_section_wraper_use_height',
 			[
-				'label' => esc_html__( 'Use Fixed Height', 'elementskit' ),
+				'label' => esc_html__( 'Use Fixed Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -789,7 +789,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -822,7 +822,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_testimonial_content_description',
 			[
-				'label' => esc_html__( 'Description', 'elementskit' ),
+				'label' => esc_html__( 'Description', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -831,7 +831,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_testimonial_description_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementskit-single-testimonial-slider  .elementskit-commentor-content > p, {{WRAPPER}} .elementskit-testimonial_card .elementskit-commentor-coment',
 			]
@@ -840,7 +840,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_description_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -853,7 +853,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_description_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-testimonial-slider  .elementskit-commentor-content > p' => 'color: {{VALUE}}',
@@ -865,7 +865,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_description_active_option',
 			[
-				'label' => esc_html__( 'Active', 'elementskit' ),
+				'label' => esc_html__( 'Active', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -874,7 +874,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_description_active_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-testimonial-slider:hover  .elementskit-commentor-content > p' => 'color: {{VALUE}}',
@@ -888,7 +888,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 
 	    $this->start_controls_section(
 		    'ekit_testimonial_section_testimonial_ratting_style', [
-			    'label'	 => esc_html__( 'Rating', 'elementskit' ),
+			    'label'	 => esc_html__( 'Rating', 'elementskit-lite' ),
 			    'tab'	 => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ekit_testimonial_style' => ['style3', 'style4', 'style5', 'style6'],
@@ -900,7 +900,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 	    // Testimonial Review ratting Color
 	    $this->add_responsive_control(
 		    'ekit_testimonial_review_ratting_color', [
-			    'label'		 =>esc_html__( 'Color', 'elementskit' ),
+			    'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type'		 => Controls_Manager::COLOR,
 				'default' => '#fec42d',
 			    'selectors'	 => [
@@ -912,7 +912,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_testimonial_review_ratting_font_size',
             [
-                'label'         => esc_html__('Font Size', 'elementskit'),
+                'label'         => esc_html__('Font Size', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'selectors' => [
@@ -924,7 +924,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_review_ratting_right_spacing',
 			[
-				'label' => esc_html__( 'Items Margin Right', 'elementskit' ),
+				'label' => esc_html__( 'Items Margin Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -947,7 +947,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_review_ratting_spacing',
 			[
-				'label' => esc_html__( 'Review Margin', 'elementskit' ),
+				'label' => esc_html__( 'Review Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -960,7 +960,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 
 		$this->start_controls_section(
 		    'ekit_testimonial_section_wathermark_style', [
-			    'label'	 => esc_html__( 'Quote icon', 'elementskit' ),
+			    'label'	 => esc_html__( 'Quote icon', 'elementskit-lite' ),
 				'tab'	 => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ekit_testimonial_wartermark_enable' => 'yes',
@@ -975,14 +975,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_watermark_normal_color_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
 		// Testimonial wathermark Color
 	    $this->add_responsive_control(
 		    'ekit_testimonial_section_wathermark_color', [
-			    'label'		 =>esc_html__( 'Color', 'elementskit' ),
+			    'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 			    'type'		 => Controls_Manager::COLOR,
 			    'selectors'	 => [
 				    '{{WRAPPER}} .elementskit-single-testimonial-slider .elementskit-watermark-icon > i' => 'color: {{VALUE}};',
@@ -999,14 +999,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_watermark_active_color_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_responsive_control(
             'ekit_testimonial_section_wathermark_active_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .elementskit-single-testimonial-slider:hover .elementskit-watermark-icon > i' => 'color: {{VALUE}};',
@@ -1034,7 +1034,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wathermark_typography',
 			[
-				'label' => esc_html__( 'Font Size', 'elementskit' ),
+				'label' => esc_html__( 'Font Size', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1061,7 +1061,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wathermark_margin_bottom',
 			[
-				'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1088,7 +1088,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wathermark_icon_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1104,7 +1104,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_section_wathermark_icon_badge_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-commentor-content > i, {{WRAPPER}} .elementskit-icon-content > i,{{WRAPPER}} .elementskit-watermark-icon > i, {{WRAPPER}} .elementskit-watermark-icon svg',
 				'condition' => [
@@ -1116,7 +1116,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wathermark_icon_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1146,7 +1146,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_section_wathermark_badge_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ '%' ],
 				'range' => [
@@ -1172,7 +1172,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_section_wathermark_badge_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider-block-style-three .elementskit-icon-content.commentor-badge::before',
 				'condition' => [
@@ -1187,7 +1187,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_testimonial_title_separetor_tab',
 			[
-				'label' => esc_html__( 'Title Separetor', 'elementskit' ),
+				'label' => esc_html__( 'Title Separetor', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ekit_testimonial_title_separetor' => 'yes'
@@ -1202,14 +1202,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_title_separetor_normal_color_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_control(
             'ekit_testimonial_title_separator_color',
             [
-                'label'      => esc_html__( 'Separator Color', 'elementskit' ),
+                'label'      => esc_html__( 'Separator Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .elementskit-single-testimonial-slider .elementskit-border-hr' => 'background-color: {{VALUE}};',
@@ -1222,14 +1222,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_title_separetor_active_color_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_control(
             'ekit_testimonial_title_separator_active_color',
             [
-                'label'      => esc_html__( 'Separator Color', 'elementskit' ),
+                'label'      => esc_html__( 'Separator Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .elementskit-single-testimonial-slider:hover .elementskit-border-hr' => 'background-color: {{VALUE}};',
@@ -1252,7 +1252,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_testimonial_title_separator_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1274,7 +1274,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_testimonial_title_separator_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1297,7 +1297,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_testimonial_title_separator_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors' => [
@@ -1312,7 +1312,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_testimonial_client_content_section',
 			[
-				'label' => esc_html__( 'Client', 'elementskit' ),
+				'label' => esc_html__( 'Client', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1321,7 +1321,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_name_heading',
 			[
-				'label' => esc_html__( 'Client Name', 'elementskit' ),
+				'label' => esc_html__( 'Client Name', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1335,14 +1335,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_name_normal_color_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
 		// Client Name Color
 		$this->add_control(
 		    'ekit_testimonial_client_name_normal_color', [
-			    'label'		 =>esc_html__( 'Color', 'elementskit' ),
+			    'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 			    'type'		 => Controls_Manager::COLOR,
 			    'selectors'	 => [
 				    '{{WRAPPER}} .elementskit-profile-info .elementskit-author-name' => 'color: {{VALUE}};'
@@ -1355,14 +1355,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_name_active_color_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
 		);
 
 		// Client Name Color
 		$this->add_control(
 		    'ekit_testimonial_client_name_active_color', [
-			    'label'		 =>esc_html__( 'Color', 'elementskit' ),
+			    'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 			    'type'		 => Controls_Manager::COLOR,
 			    'selectors'	 => [
 				    '{{WRAPPER}} .elementskit-single-testimonial-slider:hover .elementskit-author-name' => 'color: {{VALUE}};'
@@ -1394,7 +1394,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_name_spacing_bottom',
 			[
-				'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1418,7 +1418,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_designation_heading',
 			[
-				'label' => esc_html__( 'Client Designation', 'elementskit' ),
+				'label' => esc_html__( 'Client Designation', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1431,14 +1431,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_designation_normal_color_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
 		// Designation Color
 	    $this->add_control(
 		    'ekit_testimonial_designation_normal_color', [
-			    'label'		 =>esc_html__( 'Color', 'elementskit' ),
+			    'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 			    'type'		 => Controls_Manager::COLOR,
 			    'selectors'	 => [
 				    '{{WRAPPER}} .elementskit-profile-info .elementskit-author-des' => 'color: {{VALUE}};'
@@ -1451,14 +1451,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_client_designation_active_color_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
 		);
 
 		// Designation Color
 	    $this->add_control(
 		    'ekit_testimonial_designation_active_color', [
-			    'label'		 =>esc_html__( 'Color', 'elementskit' ),
+			    'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 			    'type'		 => Controls_Manager::COLOR,
 			    'selectors'	 => [
 				    '{{WRAPPER}} .elementskit-single-testimonial-slider:hover .elementskit-author-des' => 'color: {{VALUE}};'
@@ -1481,7 +1481,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_spacing',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1502,7 +1502,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_logo_heading',
 			[
-				'label' => esc_html__( 'Client Logo', 'elementskit' ),
+				'label' => esc_html__( 'Client Logo', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1515,7 +1515,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_logo_margin_bottom',
 			[
-				'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1542,7 +1542,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_image_heading',
 			[
-				'label' => esc_html__( 'Client Image', 'elementskit' ),
+				'label' => esc_html__( 'Client Image', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1556,7 +1556,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_client_image_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-profile-image-card::before',
 				'condition' => [
@@ -1568,19 +1568,19 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_area_alignment',
 			[
-				'label' =>esc_html__( 'Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'client_left'    => [
-						'title' =>esc_html__( 'Left', 'elementskit' ),
+						'title' =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'client_center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'client_right' => [
-						'title' =>esc_html__( 'Right', 'elementskit' ),
+						'title' =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -1595,7 +1595,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_testimonial_client_image_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-commentor-image > img',
 				'condition' => [
 					'ekit_testimonial_style' => ['style4', 'style5', 'style6']
@@ -1607,7 +1607,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_testimonial_client_image_box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-commentor-image > img',
 				'condition' => [
 					'ekit_testimonial_style' => ['style4', 'style5', 'style6']
@@ -1617,7 +1617,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_image_margin_',
 			[
-				'label' => __( 'Margin', 'elementskit' ),
+				'label' => __( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1631,7 +1631,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_image_margin_bottom',
 			[
-				'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1657,7 +1657,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_image_margin_right',
 			[
-				'label' => esc_html__( 'Margin Right', 'elementskit' ),
+				'label' => esc_html__( 'Margin Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1683,7 +1683,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_testimonial_client_image_size',
             [
-                'label'   => esc_html__('Image Size', 'elementskit'),
+                'label'   => esc_html__('Image Size', 'elementskit-lite'),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1705,7 +1705,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_author_container_top',
 			[
-				'label' => esc_html__( 'Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1734,7 +1734,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_testimonial_client_dot_tab',
 			[
-				'label' => esc_html__( 'Dot', 'elementskit' ),
+				'label' => esc_html__( 'Dot', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ekit_testimonial_show_dot' => 'yes'
@@ -1745,7 +1745,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_bottom',
 			[
-				'label' => esc_html__( 'Dot Top Spacing', 'elementskit' ),
+				'label' => esc_html__( 'Dot Top Spacing', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1768,7 +1768,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1791,7 +1791,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1814,7 +1814,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_border_radius',
 			[
-				'label' => esc_html__( 'Border radius', 'elementskit' ),
+				'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1826,7 +1826,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_spacing',
 			[
-				'label' => esc_html__( 'Margin right', 'elementskit' ),
+				'label' => esc_html__( 'Margin right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1850,7 +1850,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_client_dot_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-dots li button',
 			]
@@ -1859,7 +1859,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'ekit_testimonial_client_dot_active_heading',
 			[
-				'label' => esc_html__( 'Active', 'elementskit' ),
+				'label' => esc_html__( 'Active', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1869,7 +1869,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_client_dot_active_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-dots li.slick-active button',
 			]
@@ -1878,7 +1878,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_active_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1901,7 +1901,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_active_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1924,7 +1924,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_client_dot_active_scale',
 			[
-				'label' => esc_html__( 'Scale', 'elementskit' ),
+				'label' => esc_html__( 'Scale', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1950,7 +1950,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_testimonial_nav_style_tab',
 			[
-				'label' => esc_html__( 'Nav', 'elementskit' ),
+				'label' => esc_html__( 'Nav', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'ekit_testimonial_show_arrow' => 'yes'
@@ -1961,7 +1961,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_font_size',
 			[
-				'label' => esc_html__( 'Font Size', 'elementskit' ),
+				'label' => esc_html__( 'Font Size', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1985,7 +1985,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_right_icon',
 			[
-				'label' => esc_html__( 'Prev', 'elementskit' ),
+				'label' => esc_html__( 'Prev', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ '%' ],
 				'range' => [
@@ -2007,7 +2007,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_left_icon',
 			[
-				'label' => esc_html__( 'Next', 'elementskit' ),
+				'label' => esc_html__( 'Next', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ '%' ],
 				'range' => [
@@ -2029,7 +2029,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -2042,7 +2042,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -2066,7 +2066,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -2089,7 +2089,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->add_responsive_control(
             'ekit_testimonial_nav_vertical_align',
             [
-                'label' => esc_html__( 'vertical_align', 'elementskit' ),
+                'label' => esc_html__( 'vertical_align', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px','%' ],
                 'range' => [
@@ -2116,14 +2116,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_nav_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_font_color_normal',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000000',
 				'selectors' => [
@@ -2137,7 +2137,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_nav_background_normal',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-prev, {{WRAPPER}} .elementskit-testimonial-slider .slick-next',
 			]
@@ -2147,7 +2147,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_testimonial_nav_box_shadow_normal',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-prev, {{WRAPPER}} .elementskit-testimonial-slider .slick-next',
 			]
 		);
@@ -2156,7 +2156,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_testimonial_nav_border_normal',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-prev, {{WRAPPER}} .elementskit-testimonial-slider .slick-next',
 			]
 		);
@@ -2166,14 +2166,14 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
         $this->start_controls_tab(
             'ekit_testimonial_nav_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_responsive_control(
 			'ekit_testimonial_nav_font_color_hover',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000000',
 				'selectors' => [
@@ -2187,7 +2187,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_testimonial_nav_background_hover',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-prev:hover, {{WRAPPER}} .elementskit-testimonial-slider .slick-next:hover',
 			]
@@ -2197,7 +2197,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_testimonial_nav_box_shadow_hover',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-prev:hover, {{WRAPPER}} .elementskit-testimonial-slider .slick-next:hover',
 			]
 		);
@@ -2206,7 +2206,7 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_testimonial_nav_border_hover',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-testimonial-slider .slick-prev:hover, {{WRAPPER}} .elementskit-testimonial-slider .slick-next:hover',
 			]
 		);
@@ -2231,31 +2231,81 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		$testimonials = [];
 		$settings = $this->get_settings_for_display();
 		extract($settings);
-		$wrapper_data   = 	$ekit_testimonial_slidetoshow != "" ? "data-slidestoshow='$ekit_testimonial_slidetoshow' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_slidetoshow_tablet != "" ? "data-slidestoshowtablet= '$ekit_testimonial_slidetoshow_tablet' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_slidetoshow_mobile != "" ? "data-slidestoshowmobile= '$ekit_testimonial_slidetoshow_mobile' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_slidesToScroll != "" ? "data-slidestoscroll= '$ekit_testimonial_slidesToScroll' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_slidesToScroll_tablet != "" ? "data-slidesToScroll_tablet= '$ekit_testimonial_slidesToScroll_tablet' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_slidesToScroll_mobile != "" ? "data-slidesToScroll_mobile= '$ekit_testimonial_slidesToScroll_mobile' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_speed !="" ? "data-speed= '$ekit_testimonial_speed' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_autoplay != "" ? "data-autoplay= '$ekit_testimonial_autoplay' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_show_arrow != "" ? "data-show_arrow= '$ekit_testimonial_show_arrow' " : "";
-		$wrapper_data  .= 	$ekit_testimonial_show_dot != "" ? "data-show_dot= '$ekit_testimonial_show_dot' " : "";
-		$wrapper_data  .= 	is_rtl() ? "data-rtl='true'" : "";
 
-		// new icon
+		// Left Arrow Icon
 		$migrated = isset( $settings['__fa4_migrated']['ekit_testimonial_left_arrows'] );
-		// Check if its a new widget without previously selected icon using the old Icon control
+		// - Check if its a new widget without previously selected icon using the old Icon control
 		$is_new = empty( $settings['ekit_testimonial_left_arrow'] );
 
-		$wrapper_data  .= 	($is_new || $migrated) ? $settings['ekit_testimonial_left_arrows']['library'] != 'svg' ? 'data-left_icon="'. $settings['ekit_testimonial_left_arrows']['value'] .'"' : '' : 'data-left_icon="'. $settings['ekit_testimonial_left_arrow'] .'"';
+		$prevArrowIcon = ($is_new || $migrated) ? (!empty($ekit_testimonial_left_arrows) && $settings['ekit_testimonial_left_arrows']['library'] != 'svg' ? $settings['ekit_testimonial_left_arrows']['value'] : '') : $settings['ekit_testimonial_left_arrow'];
 
-		// new icon
+		// Right Arrow Icon
 		$migrated = isset( $settings['__fa4_migrated']['ekit_testimonial_right_arrows'] );
-		// Check if its a new widget without previously selected icon using the old Icon control
+		// - Check if its a new widget without previously selected icon using the old Icon control
 		$is_new = empty( $settings['ekit_testimonial_right_arrow'] );
-		$wrapper_data  .= 	($is_new || $migrated) ? $settings['ekit_testimonial_left_arrows']['library'] != 'svg' ? ' data-right_icon="'. $settings['ekit_testimonial_right_arrows']['value'] .'"' : '' : ' data-right_icon="'. $settings['ekit_testimonial_right_arrow'] .'"';
-		$wrapper_data  .= 	$ekit_testimonial_pause_on_hover != "" ? "data-pause_on_hover= '$ekit_testimonial_pause_on_hover' " : "";
+
+		$nextArrowIcon = ($is_new || $migrated) ? !empty($ekit_testimonial_right_arrows) && $settings['ekit_testimonial_right_arrows']['library'] != 'svg' ? $settings['ekit_testimonial_right_arrows']['value'] : '' : $settings['ekit_testimonial_right_arrow'];
+
+		// Config
+		$config = [
+			'rtl'				=> is_rtl(),
+			'arrows'			=> $ekit_testimonial_show_arrow ? true : false,
+			'dots'				=> $ekit_testimonial_show_dot ? true : false,
+			'pauseOnHover'		=> $ekit_testimonial_pause_on_hover ? true : false,
+			'prevArrow'			=> $prevArrowIcon,
+			'nextArrow'			=> $nextArrowIcon,
+			'autoplay'			=> $ekit_testimonial_autoplay ? true : false,
+			'autoplaySpeed'		=> $ekit_testimonial_speed ? $ekit_testimonial_speed : 1000,
+			'infinite'			=> $ekit_testimonial_autoplay ? true : false,
+			'slidesToShow'		=> $ekit_testimonial_slidetoshow ? $ekit_testimonial_slidetoshow : 1,
+			'slidesToScroll'	=> $ekit_testimonial_slidesToScroll ? $ekit_testimonial_slidesToScroll : 1,
+			'responsive'		=> [],
+		];
+
+		// Config->Responsive->Table
+		if ( $ekit_testimonial_slidetoshow_tablet || $ekit_testimonial_slidetoshow_tablet ) {
+			$config_tablet_settings = [];
+
+			if ( $ekit_testimonial_slidetoshow_tablet ) {
+				$config_tablet_settings['slidesToShow'] = $ekit_testimonial_slidetoshow_tablet;
+			}
+
+			if ( $ekit_testimonial_slidesToScroll_tablet ) {
+				$config_tablet_settings['slidesToScroll'] = $ekit_testimonial_slidesToScroll_tablet;
+			}
+
+			array_push($config['responsive'], [
+				'breakpoint'	=> 1024,
+				'settings'		=> $config_tablet_settings,
+			]);
+		}
+
+		// Config->Responsive->Mobile
+		if ( $ekit_testimonial_slidetoshow_mobile || $ekit_testimonial_slidetoshow_mobile ) {
+			$config_mobile_settings = [];
+
+			if ( $ekit_testimonial_slidetoshow_mobile ) {
+				$config_mobile_settings['slidesToShow'] = $ekit_testimonial_slidetoshow_mobile;
+			}
+
+			if ( $ekit_testimonial_slidesToScroll_mobile ) {
+				$config_mobile_settings['slidesToScroll'] = $ekit_testimonial_slidesToScroll_mobile;
+			}
+
+			array_push($config['responsive'], [
+				'breakpoint'	=> 480,
+				'settings'		=> $config_mobile_settings,
+				'arrows'		=> false
+			]);
+		}
+
+		// HTML Attribute
+		$this->add_render_attribute(
+			'wrapper',
+			[
+				'data-config'	=> wp_json_encode($config),
+			]
+		);
 
 
         $testimonials = isset($ekit_testimonial_data) ? $ekit_testimonial_data : [];
@@ -2270,8 +2320,6 @@ class Elementskit_Widget_Testimonial extends Widget_Base {
 		}
 
 		if (is_array($testimonials) && !empty($testimonials)):
-
-
 			require Handler::get_dir() . 'style/'.$style.'.php';
 	 	endif; // end if check testimonila array
     }

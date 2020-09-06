@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Post_Grid_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Post_Grid_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Post_Grid extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -36,7 +36,7 @@ class Elementskit_Widget_Post_Grid extends Widget_Base {
         $this->start_controls_section(
             'content_tab',
             [
-                'label' => esc_html__('Widget settings', 'elementskit'),
+                'label' => esc_html__('Widget settings', 'elementskit-lite'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -44,9 +44,9 @@ class Elementskit_Widget_Post_Grid extends Widget_Base {
         $this->add_control(
             'post_cat',
             [
-                'label' =>esc_html__('Select Categories', 'elementskit'),
+                'label' =>esc_html__('Select Categories', 'elementskit-lite'),
                 'type'      => ElementsKit_Controls_Manager::AJAXSELECT2,
-                'description'	=> esc_html__('To avail this option you need to set/add a featured image to posts..', 'elementskit'),
+                'description'	=> esc_html__('To avail this option you need to set/add a featured image to posts..', 'elementskit-lite'),
                 'options'   =>'ajaxselect2/category',
                 'label_block' => true,
                 'multiple'  => true,
@@ -55,24 +55,24 @@ class Elementskit_Widget_Post_Grid extends Widget_Base {
         $this->add_control(
             'post_count',
             [
-              'label'         => esc_html__( 'Post count', 'elementskit' ),
+              'label'         => esc_html__( 'Post count', 'elementskit-lite' ),
               'type'          => Controls_Manager::NUMBER,
-              'default'       => esc_html__( '3', 'elementskit' )
+              'default'       => esc_html__( '3', 'elementskit-lite' )
             ]
           );
 
           $this->add_responsive_control(
             'count_col',
             [
-                'label'     => esc_html__( 'Select Column', 'elementskit' ),
+                'label'     => esc_html__( 'Select Column', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'ekit___column-2',
                 'tablet_default' => 'ekit___column-2',
                 'mobile_default' => 'ekit___column-2',
                 'options'   => [
-                      'ekit___column-2'     => esc_html__( '2 Column', 'elementskit' ),
-                      'ekit___column-3'     => esc_html__( '3 Column', 'elementskit' ),
-                      'ekit___column-4'     => esc_html__( '4 Column', 'elementskit' ),
+                      'ekit___column-2'     => esc_html__( '2 Column', 'elementskit-lite' ),
+                      'ekit___column-3'     => esc_html__( '3 Column', 'elementskit-lite' ),
+                      'ekit___column-4'     => esc_html__( '4 Column', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -82,7 +82,7 @@ class Elementskit_Widget_Post_Grid extends Widget_Base {
         $this->start_controls_section(
             'style_tab',
             [
-                'label' => esc_html__( 'Grid Styles', 'elementskit' ),
+                'label' => esc_html__( 'Grid Styles', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
@@ -90,7 +90,7 @@ class Elementskit_Widget_Post_Grid extends Widget_Base {
         $this->add_responsive_control(
 			'post_grid_item_height',
 			[
-				'label'         => esc_html__( 'Use Fixed Height', 'elementskit' ),
+				'label'         => esc_html__( 'Use Fixed Height', 'elementskit-lite' ),
 				'type'          => Controls_Manager::SLIDER,
 				'size_units'    => [ 'px' ],
 				'range'         => [

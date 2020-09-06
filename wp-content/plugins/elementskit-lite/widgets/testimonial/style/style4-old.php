@@ -3,7 +3,7 @@
 		<div class="elementskit-tootltip-testimonial text-center">
 			<div class="elementskit-commentor-content">
 				<?php if ( isset($testimonial['review']) && !empty($testimonial['review'])) : ?>
-					<p><?php echo isset($testimonial['review']) ? \ElementsKit\Utils::kses($testimonial['review']) : ''; ?></p>
+					<p><?php echo isset($testimonial['review']) ? \ElementsKit_Lite\Utils::kses($testimonial['review']) : ''; ?></p>
 				<?php endif;  ?>
 
 				<?php if(isset($ekit_testimonial_wartermark_enable) && $ekit_testimonial_wartermark_enable == 'yes'):?>

@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Libs\Template;
+namespace ElementsKit_Lite\Libs\Template;
 
 defined( 'ABSPATH' ) || exit;
 

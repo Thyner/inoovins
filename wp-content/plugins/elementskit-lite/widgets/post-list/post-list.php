@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Post_List_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Post_List_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Post_List extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -36,20 +36,20 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon',
 			[
-				'label' => esc_html__( 'List', 'elementskit' ),
+				'label' => esc_html__( 'List', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
             'section_layout_options',
             [
-                'label' => esc_html__( 'Show post by:', 'elementskit' ),
+                'label' => esc_html__( 'Show post by:', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'selected',
 				'options' => [
-					'recent'           => esc_html__( 'Recent Post', 'elementskit' ),
-					'popular'          => esc_html__( 'Popular Post', 'elementskit' ),
-					'selected'         => esc_html__( 'Selected Post', 'elementskit' ),
+					'recent'           => esc_html__( 'Recent Post', 'elementskit-lite' ),
+					'popular'          => esc_html__( 'Popular Post', 'elementskit-lite' ),
+					'selected'         => esc_html__( 'Selected Post', 'elementskit-lite' ),
 				],
 
             ]
@@ -58,7 +58,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'section_recent_post_limit',
 			[
-				'label'   => esc_html__( 'Product Limit', 'elementskit' ),
+				'label'   => esc_html__( 'Product Limit', 'elementskit-lite' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5,
 				'condition'	=> [
@@ -73,17 +73,17 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$repeater->add_control(
 			'text',
 			[
-				'label' => esc_html__( 'Text', 'elementskit' ),
+				'label' => esc_html__( 'Text', 'elementskit-lite' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'placeholder' => esc_html__( 'List Title', 'elementskit' ),
+				'placeholder' => esc_html__( 'List Title', 'elementskit-lite' ),
 			]
 		);
 
 		$repeater->add_control(
 			'link',
 			[
-                'label' =>esc_html__('Select Post', 'elementskit'),
+                'label' =>esc_html__('Select Post', 'elementskit-lite'),
                 'type'      => ElementsKit_Controls_Manager::AJAXSELECT2,
                 'options'   =>'ajaxselect2/post_list',
                 'label_block' => true,
@@ -109,7 +109,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_post_list_settings_tab',
 			[
-				'label' => esc_html__( 'Settings', 'elementskit' ),
+				'label' => esc_html__( 'Settings', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -117,16 +117,16 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => esc_html__( 'Layout', 'elementskit' ),
+				'label' => esc_html__( 'Layout', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'default' => 'traditional',
 				'options' => [
 					'traditional' => [
-						'title' => esc_html__( 'Default', 'elementskit' ),
+						'title' => esc_html__( 'Default', 'elementskit-lite' ),
 						'icon' => 'eicon-editor-list-ul',
 					],
 					'inline' => [
-						'title' => esc_html__( 'Inline', 'elementskit' ),
+						'title' => esc_html__( 'Inline', 'elementskit-lite' ),
 						'icon' => 'eicon-ellipsis-h',
 					],
 				],
@@ -140,10 +140,10 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'show_feature_image',
 			[
-				'label' => esc_html__( 'Show Featured Image', 'elementskit' ),
+				'label' => esc_html__( 'Show Featured Image', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -152,10 +152,10 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'show_post_icon',
 			[
-				'label' => esc_html__( 'Show Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 				'condition'	=> [
@@ -167,7 +167,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'icons',
 			[
-				'label' => esc_html__( 'Icon', 'elementskit' ),
+				'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'label_block' => true,
 				'fa4compatibility' => 'icon',
@@ -185,10 +185,10 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'show_post_meta',
 			[
-				'label' => esc_html__( 'Show Meta', 'elementskit' ),
+				'label' => esc_html__( 'Show Meta', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -197,10 +197,10 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'show_date_meta',
 			[
-				'label' => esc_html__( 'Show Date Meta', 'elementskit' ),
+				'label' => esc_html__( 'Show Date Meta', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 				'condition' => [
@@ -212,7 +212,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'date_meta__icons',
 			[
-				'label' => __( 'Date Meta Icon', 'elementskit' ),
+				'label' => __( 'Date Meta Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'date_meta__icon',
                 'default' => [
@@ -229,10 +229,10 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'show_category_meta',
 			[
-				'label' => esc_html__( 'Show Category Meta', 'elementskit' ),
+				'label' => esc_html__( 'Show Category Meta', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 				'condition' => [
@@ -244,7 +244,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'category_meta__icons',
 			[
-				'label' => __( 'Category Meta Icon', 'elementskit' ),
+				'label' => __( 'Category Meta Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'category_meta__icon',
                 'default' => [
@@ -261,12 +261,12 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'post_meta_position',
 			[
-				'label' => esc_html__( 'Meta Position', 'elementskit' ),
+				'label' => esc_html__( 'Meta Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'top_position',
 				'options' => [
-					'top_position'  => esc_html__( 'Top', 'elementskit' ),
-					'bottom_position' => esc_html__( 'Bottom', 'elementskit' ),
+					'top_position'  => esc_html__( 'Top', 'elementskit-lite' ),
+					'bottom_position' => esc_html__( 'Bottom', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'show_post_meta' => 'yes',
@@ -281,7 +281,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon_list',
 			[
-				'label' => esc_html__( 'List', 'elementskit' ),
+				'label' => esc_html__( 'List', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -289,7 +289,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'space_between',
 			[
-				'label' => esc_html__( 'Space Between', 'elementskit' ),
+				'label' => esc_html__( 'Space Between', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -310,19 +310,19 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label' => esc_html__( 'Alignment', 'elementskit' ),
+				'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'elementskit' ),
+						'title' => esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'elementskit' ),
+						'title' => esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'eicon-h-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'elementskit' ),
+						'title' => esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -333,10 +333,10 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'divider',
 			[
-				'label' => esc_html__( 'Divider', 'elementskit' ),
+				'label' => esc_html__( 'Divider', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Off', 'elementskit' ),
-				'label_on' => esc_html__( 'On', 'elementskit' ),
+				'label_off' => esc_html__( 'Off', 'elementskit-lite' ),
+				'label_on' => esc_html__( 'On', 'elementskit-lite' ),
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon-list-item:not(:last-child):after' => 'content: ""',
 				],
@@ -347,12 +347,12 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'divider_style',
 			[
-				'label' => esc_html__( 'Style', 'elementskit' ),
+				'label' => esc_html__( 'Style', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'solid' => esc_html__( 'Solid', 'elementskit' ),
-					'dotted' => esc_html__( 'Dotted', 'elementskit' ),
-					'dashed' => esc_html__( 'Dashed', 'elementskit' ),
+					'solid' => esc_html__( 'Solid', 'elementskit-lite' ),
+					'dotted' => esc_html__( 'Dotted', 'elementskit-lite' ),
+					'dashed' => esc_html__( 'Dashed', 'elementskit-lite' ),
 				],
 				'default' => 'solid',
 				'condition' => [
@@ -368,7 +368,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'divider_weight',
 			[
-				'label' => esc_html__( 'Weight', 'elementskit' ),
+				'label' => esc_html__( 'Weight', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -392,7 +392,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'divider_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -410,7 +410,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'divider_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px' ],
 				'default' => [
@@ -439,7 +439,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'divider_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ddd',
 				'scheme' => [
@@ -460,7 +460,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label' => esc_html__( 'Icon', 'elementskit' ),
+				'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'	=> [
 					'show_feature_image!'	=> 'yes',
@@ -471,7 +471,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -488,7 +488,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'icon_color_hover',
 			[
-				'label' => esc_html__( 'Hover', 'elementskit' ),
+				'label' => esc_html__( 'Hover', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -501,7 +501,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__( 'Size', 'elementskit' ),
+				'label' => esc_html__( 'Size', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 14,
@@ -524,7 +524,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_text_style',
 			[
-				'label' => esc_html__( 'Text', 'elementskit' ),
+				'label' => esc_html__( 'Text', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -532,7 +532,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'elementskit' ),
+				'label' => esc_html__( 'Text Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -548,7 +548,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'text_color_hover',
 			[
-				'label' => esc_html__( 'Hover', 'elementskit' ),
+				'label' => esc_html__( 'Hover', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -560,7 +560,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_control(
 			'text_indent',
 			[
-				'label' => esc_html__( 'Padding Left', 'elementskit' ),
+				'label' => esc_html__( 'Padding Left', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -590,7 +590,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_post_list_meta_style_tab',
 			[
-				'label' => esc_html__( 'Meta', 'elementskit' ),
+				'label' => esc_html__( 'Meta', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_post_meta' => 'yes'
@@ -602,7 +602,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_post_list_meta_content_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementor-icon-list-item .meta-lists > span',
 			]
@@ -611,7 +611,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_post_list_meta_content_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -635,7 +635,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -647,7 +647,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -662,14 +662,14 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_post_list_normal_tab',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#7f8595',
 				'selectors' => [
@@ -682,7 +682,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_bg_color',
 			[
-				'label' => esc_html__( 'Background Color', 'elementskit' ),
+				'label' => esc_html__( 'Background Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon-list-item .meta-lists > span' => 'background-color: {{VALUE}}',
@@ -693,7 +693,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -707,14 +707,14 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_post_list_hover_tab',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_color_hover',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon-list-item .meta-lists > span:hover' => 'color: {{VALUE}}',
@@ -726,7 +726,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_bg_color_hover',
 			[
-				'label' => esc_html__( 'Background Color', 'elementskit' ),
+				'label' => esc_html__( 'Background Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon-list-item .meta-lists > span:hover' => 'background-color: {{VALUE}}',
@@ -737,7 +737,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_post_list_meta_content_border_radius_hover',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -857,7 +857,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 						};
 						?>
 
-						<span class="elementor-icon-list-text"><?php echo esc_html($text, 'elementskit'); ?></span>
+						<span class="elementor-icon-list-text"><?php echo esc_html($text, 'elementskit-lite'); ?></span>
 
 						<?php if ($settings['show_post_meta'] == 'yes') { 
 							if ($settings['post_meta_position'] == 'bottom_position') {
@@ -937,7 +937,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 
 		
 		?>
-		<ul <?php echo \ElementsKit\Utils::render($this->get_render_attribute_string( 'icon_list' )); ?>>
+		<ul <?php echo \ElementsKit_Lite\Utils::render($this->get_render_attribute_string( 'icon_list' )); ?>>
 			<?php
 			$post_args = array(
 				'post_type'			=> 'post',
@@ -958,7 +958,7 @@ class Elementskit_Widget_Post_List extends Widget_Base {
 						echo $this->post_list($post);
 					}
 				} else {
-					_e('Opps, No posts were found.', 'elementskit');
+					_e('Opps, No posts were found.', 'elementskit-lite');
 				}
 			} else {
 				foreach ( $settings['icon_list'] as $index => $item ) {

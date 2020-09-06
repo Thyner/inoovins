@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -48,7 +48,7 @@ class Ekit_Gallery extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_gallery_filter_label':
-				return esc_html__( 'Filter Label (Gallery)', 'elementskit' );
+				return esc_html__( 'Filter Label (Gallery)', 'elementskit-lite' );
 				break;
 
 			default:

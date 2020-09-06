@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Controls;
+namespace ElementsKit_Lite\Modules\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -74,6 +74,7 @@ class Widget_Area extends \Elementor\Base_Data_Control {
 	protected function get_default_settings() {
 		return [
 			'label_block' => true,
+			'show_edit_button' => false,
 		];
 	}
 }

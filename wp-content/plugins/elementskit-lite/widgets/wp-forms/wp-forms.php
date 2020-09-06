@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Wp_Forms_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Wp_Forms_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Wp_Forms extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -35,18 +35,18 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'ekit_wpform_section_tab', [
-                'label' =>esc_html__( 'wpForm', 'elementskit' ),
+                'label' =>esc_html__( 'wpForm', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_wpform_form_id',
             [
-                'label' => __( 'Select Your Form', 'elementskit' ),
+                'label' => __( 'Select Your Form', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'default' => '0',
-				'options' => \ElementsKit\Utils::ekit_get__forms('wpforms'),
+				'options' => \ElementsKit_Lite\Utils::ekit_get__forms('wpforms'),
             ]
         );
 
@@ -56,7 +56,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_wpForms_section_label_style',
             [
-                'label'             => __( 'Labels', 'elementskit' ),
+                'label'             => __( 'Labels', 'elementskit-lite' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -64,7 +64,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_text_color_label',
             [
-                'label'             => __( 'Text Color', 'elementskit' ),
+                'label'             => __( 'Text Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'selectors'         => [
                     '{{WRAPPER}} .ekit_wpForms_container .wpforms-field label' => 'color: {{VALUE}}',
@@ -76,7 +76,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'              => 'ekit_wpForms_typography_label',
-                'label'             => __( 'Typography', 'elementskit' ),
+                'label'             => __( 'Typography', 'elementskit-lite' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .ekit_wpForms_container .wpforms-field label',
             ]
@@ -88,7 +88,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_wpForms_section_fields_style',
             [
-                'label'             => __( 'Input & Textarea', 'elementskit' ),
+                'label'             => __( 'Input & Textarea', 'elementskit-lite' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -96,19 +96,19 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_input_alignment',
             [
-                'label'                 => __( 'Alignment', 'elementskit' ),
+                'label'                 => __( 'Alignment', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'options'               => [
                     'left'      => [
-                        'title' => __( 'Left', 'elementskit' ),
+                        'title' => __( 'Left', 'elementskit-lite' ),
                         'icon'  => 'fa fa-align-left',
                     ],
                     'center'    => [
-                        'title' => __( 'Center', 'elementskit' ),
+                        'title' => __( 'Center', 'elementskit-lite' ),
                         'icon'  => 'fa fa-align-center',
                     ],
                     'right'     => [
-                        'title' => __( 'Right', 'elementskit' ),
+                        'title' => __( 'Right', 'elementskit-lite' ),
                         'icon'  => 'fa fa-align-right',
                     ],
                 ],
@@ -124,14 +124,14 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_wpForms_tab_fields_normal',
             [
-                'label'                 => __( 'Normal', 'elementskit' ),
+                'label'                 => __( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_wpForms_field_bg_color',
             [
-                'label'             => __( 'Background Color', 'elementskit' ),
+                'label'             => __( 'Background Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -143,7 +143,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_field_text_color',
             [
-                'label'             => __( 'Text Color', 'elementskit' ),
+                'label'             => __( 'Text Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -156,7 +156,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'              => 'ekit_wpForms_field_border',
-                'label'             => __( 'Border', 'elementskit' ),
+                'label'             => __( 'Border', 'elementskit-lite' ),
                 'placeholder'       => '1px',
                 'default'           => '1px',
                 'selector'          => '{{WRAPPER}} .ekit_wpForms_container .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .ekit_wpForms_container .wpforms-field textarea, {{WRAPPER}} .ekit_wpForms_container .wpforms-field select',
@@ -167,7 +167,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_field_radius',
             [
-                'label'             => __( 'Border Radius', 'elementskit' ),
+                'label'             => __( 'Border Radius', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -186,7 +186,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_input_width',
             [
-                'label'             => __( 'Input Width', 'elementskit' ),
+                'label'             => __( 'Input Width', 'elementskit-lite' ),
                 'type'              => Controls_Manager::SLIDER,
                 'range'             => [
                     'px' => [
@@ -213,7 +213,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_textarea_width',
             [
-                'label'             => __( 'Textarea Width', 'elementskit' ),
+                'label'             => __( 'Textarea Width', 'elementskit-lite' ),
                 'type'              => Controls_Manager::SLIDER,
                 'range'             => [
                     'px' => [
@@ -232,7 +232,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_textarea_height',
             [
-                'label'             => __( 'Textarea Height', 'elementskit' ),
+                'label'             => __( 'Textarea Height', 'elementskit-lite' ),
                 'type'              => Controls_Manager::SLIDER,
                 'range'             => [
                     'px' => [
@@ -251,7 +251,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_field_padding',
             [
-                'label'             => __( 'Padding', 'elementskit' ),
+                'label'             => __( 'Padding', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -264,7 +264,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_field_spacing',
             [
-                'label'             => __( 'Margin', 'elementskit' ),
+                'label'             => __( 'Margin', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -288,7 +288,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_wpForms_tab_fields_focus',
             [
-                'label'                 => __( 'Focus', 'elementskit' ),
+                'label'                 => __( 'Focus', 'elementskit-lite' ),
             ]
         );
 
@@ -296,7 +296,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'              => 'ekit_wpForms_focus_input_border',
-                'label'             => __( 'Border', 'elementskit' ),
+                'label'             => __( 'Border', 'elementskit-lite' ),
                 'placeholder'       => '1px',
                 'default'           => '1px',
                 'selector'          => '{{WRAPPER}} .ekit_wpForms_container .wpforms-field input:focus, {{WRAPPER}} .ekit_wpForms_container .wpforms-field textarea:focus',
@@ -322,7 +322,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_wpForms_section_field_description_style',
             [
-                'label'                 => __( 'Field Description', 'elementskit' ),
+                'label'                 => __( 'Field Description', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -330,7 +330,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_field_description_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .ekit_wpForms_container .wpforms-field .wpforms-field-description, {{WRAPPER}} .ekit_wpForms_container .wpforms-field .wpforms-field-sublabel' => 'color: {{VALUE}}',
@@ -342,7 +342,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'ekit_wpForms_field_description_typography',
-                'label'                 => __( 'Typography', 'elementskit' ),
+                'label'                 => __( 'Typography', 'elementskit-lite' ),
                 'selector'              => '{{WRAPPER}} .ekit_wpForms_container .wpforms-field .wpforms-field-description, {{WRAPPER}} .ekit_wpForms_container .wpforms-field .wpforms-field-sublabel',
             ]
         );
@@ -350,7 +350,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_field_description_spacing',
             [
-                'label'             => __( 'Padding', 'elementskit' ),
+                'label'             => __( 'Padding', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -367,7 +367,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_wpForms_section_placeholder_style',
             [
-                'label'             => __( 'Placeholder', 'elementskit' ),
+                'label'             => __( 'Placeholder', 'elementskit-lite' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -376,7 +376,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'              => 'ekit_wpForms_field_typography',
-                'label'             => __( 'Typography', 'elementskit' ),
+                'label'             => __( 'Typography', 'elementskit-lite' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .ekit_wpForms_container .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .ekit_wpForms_container .wpforms-field textarea, {{WRAPPER}} .ekit_wpForms_container .wpforms-field select',
                 'separator'         => 'before',
@@ -386,7 +386,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_text_color_placeholder',
             [
-                'label'             => __( 'Text Color', 'elementskit' ),
+                'label'             => __( 'Text Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'selectors'         => [
                     '{{WRAPPER}} .ekit_wpForms_container .wpforms-field input::-webkit-input-placeholder, {{WRAPPER}} .ekit_wpForms_container .wpforms-field textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -401,7 +401,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_wpForms_section_submit_button_style',
             [
-                'label'             => __( 'Submit Button', 'elementskit' ),
+                'label'             => __( 'Submit Button', 'elementskit-lite' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -409,12 +409,12 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_button_width_type',
             [
-                'label'                 => __( 'Width', 'elementskit' ),
+                'label'                 => __( 'Width', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'custom',
                 'options'               => [
-                    'full-width'    => __( 'Full Width', 'elementskit' ),
-                    'custom'        => __( 'Custom', 'elementskit' ),
+                    'full-width'    => __( 'Full Width', 'elementskit-lite' ),
+                    'custom'        => __( 'Custom', 'elementskit-lite' ),
                 ],
                 'prefix_class'          => 'ekit_wpForms_container-form-button-',
             ]
@@ -423,19 +423,19 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_button_align',
             [
-                'label'             => __( 'Alignment', 'elementskit' ),
+                'label'             => __( 'Alignment', 'elementskit-lite' ),
                 'type'              => Controls_Manager::CHOOSE,
                 'options'           => [
                     'left'        => [
-                        'title'   => __( 'Left', 'elementskit' ),
+                        'title'   => __( 'Left', 'elementskit-lite' ),
                         'icon'    => 'eicon-h-align-left',
                     ],
                     'center'      => [
-                        'title'   => __( 'Center', 'elementskit' ),
+                        'title'   => __( 'Center', 'elementskit-lite' ),
                         'icon'    => 'eicon-h-align-center',
                     ],
                     'right'       => [
-                        'title'   => __( 'Right', 'elementskit' ),
+                        'title'   => __( 'Right', 'elementskit-lite' ),
                         'icon'    => 'eicon-h-align-right',
                     ],
                 ],
@@ -453,7 +453,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_button_width',
             [
-                'label'                 => __( 'Width', 'elementskit' ),
+                'label'                 => __( 'Width', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -477,7 +477,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_wpForms_tab_button_normal',
             [
-                'label'             => __( 'Normal', 'elementskit' ),
+                'label'             => __( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -485,7 +485,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'              => 'ekit_wpForms_button_typography',
-                'label'             => __( 'Typography', 'elementskit' ),
+                'label'             => __( 'Typography', 'elementskit-lite' ),
                 'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .ekit_wpForms_container .wpforms-submit-container .wpforms-submit',
                 'separator'         => 'before',
@@ -495,7 +495,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_button_bg_color_normal',
             [
-                'label'             => __( 'Background Color', 'elementskit' ),
+                'label'             => __( 'Background Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -507,7 +507,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_button_text_color_normal',
             [
-                'label'             => __( 'Text Color', 'elementskit' ),
+                'label'             => __( 'Text Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -529,7 +529,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'              => 'ekit_wpForms_button_border_normal',
-                'label'             => __( 'Border', 'elementskit' ),
+                'label'             => __( 'Border', 'elementskit-lite' ),
                 'placeholder'       => '1px',
                 'default'           => '1px',
                 'selector'          => '{{WRAPPER}} .ekit_wpForms_container .wpforms-submit-container .wpforms-submit',
@@ -539,7 +539,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_button_border_radius',
             [
-                'label'             => __( 'Border Radius', 'elementskit' ),
+                'label'             => __( 'Border Radius', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -551,7 +551,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_button_padding',
             [
-                'label'             => __( 'Padding', 'elementskit' ),
+                'label'             => __( 'Padding', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -563,7 +563,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_responsive_control(
             'ekit_wpForms_button_margin',
             [
-                'label'             => __( 'Margin', 'elementskit' ),
+                'label'             => __( 'Margin', 'elementskit-lite' ),
                 'type'              => Controls_Manager::DIMENSIONS,
                 'size_units'        => [ 'px', 'em', '%' ],
                 'selectors'         => [
@@ -577,14 +577,14 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_tab(
             'ekit_wpForms_tab_button_hover',
             [
-                'label'             => __( 'Hover', 'elementskit' ),
+                'label'             => __( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_wpForms_button_bg_color_hover',
             [
-                'label'             => __( 'Background Color', 'elementskit' ),
+                'label'             => __( 'Background Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -596,7 +596,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_button_text_color_hover',
             [
-                'label'             => __( 'Text Color', 'elementskit' ),
+                'label'             => __( 'Text Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -608,7 +608,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_button_border_color_hover',
             [
-                'label'             => __( 'Border Color', 'elementskit' ),
+                'label'             => __( 'Border Color', 'elementskit-lite' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
                 'selectors'         => [
@@ -627,7 +627,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->start_controls_section(
             'ekit_wpForms_section_error_style',
             [
-                'label'                 => __( 'Errors', 'elementskit' ),
+                'label'                 => __( 'Errors', 'elementskit-lite' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -635,7 +635,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $this->add_control(
             'ekit_wpForms_error_message_text_color',
             [
-                'label'                 => __( 'Text Color', 'elementskit' ),
+                'label'                 => __( 'Text Color', 'elementskit-lite' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -668,7 +668,7 @@ class Elementskit_Widget_Wp_Forms extends Widget_Base {
         $settings = $this->get_settings();
 
 		if ( ! empty( $settings['ekit_wpform_form_id'] ) ) {
-            echo \ElementsKit\Utils::ekit_do_shortcode( 'wpforms', [
+            echo \ElementsKit_Lite\Utils::ekit_do_shortcode( 'wpforms', [
                 'id' => $settings['ekit_wpform_form_id'],
             ] );
 		}

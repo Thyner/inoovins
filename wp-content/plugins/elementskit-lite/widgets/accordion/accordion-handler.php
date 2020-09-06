@@ -1,14 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class ElementsKit_Widget_Accordion_Handler extends Core\Handler_Widget{
+
+class ElementsKit_Widget_Accordion_Handler extends \ElementsKit_Lite\Core\Handler_Widget {
 
     static function get_name() {
         return 'elementskit-accordion';
     }
 
     static function get_title() {
-        return esc_html__( 'Accordion', 'elementskit' );
+        return esc_html__( 'Accordion', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +17,14 @@ class ElementsKit_Widget_Accordion_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'accordion/';
+        return \ElementsKit_Lite::widget_dir() . 'accordion/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'accordion/';
+        return \ElementsKit_Lite::widget_url() . 'accordion/';
     }
 }

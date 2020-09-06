@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 
@@ -18,7 +18,7 @@ class Widget_Writer {
 	private $class_name_prefix = 'Ekit_Wb_';
 	private $widget_obj;
 	private $prepared_content = '';
-	public $text_domain = 'elementskit';
+	public $text_domain = 'elementskit-lite';
 
 	const TAB_CONTENT = 'Controls_Manager::TAB_CONTENT';
 	const TAB_STYLE = 'Controls_Manager::TAB_STYLE';
@@ -29,7 +29,7 @@ class Widget_Writer {
 	const CONTROL_GROUP_TYPE_GROUPED = 'group';
 
 
-	public function __construct($widget, $widget_id, $txt_domain = 'elementskit') {
+	public function __construct($widget, $widget_id, $txt_domain = 'elementskit-lite') {
 
 		$this->widget_obj  = $widget;
 		$this->file_name   = '';
@@ -393,7 +393,7 @@ class Widget_Writer {
 
 	private function write_render_method($markup = '') {
 
-		$markup = \ElementsKit\Libs\Template\Loader::instance()->replace_tags($markup, $this->control_prefix);
+		$markup = \ElementsKit_Lite\Libs\Template\Loader::instance()->replace_tags($markup, $this->control_prefix);
 
 		$ret = "\n\t" . 'protected function render() {' . PHP_EOL;
 

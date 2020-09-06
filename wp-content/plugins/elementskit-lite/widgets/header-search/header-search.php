@@ -1,15 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Header_Search_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Header_Search_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
-
+defined('ABSPATH') || exit;
 
 class Elementskit_Widget_Header_Search extends Widget_Base
 {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -40,13 +39,13 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->start_controls_section(
             'ekit_header_search',
             [
-                'label' => esc_html__('Header Search', 'elementskit'),
+                'label' => esc_html__('Header Search', 'elementskit-lite'),
             ]
         );
 
         $this->add_control(
             'ekit_search_placeholder_text', [
-                'label' => esc_html__('Placeholder Text', 'elementskit'),
+                'label' => esc_html__('Placeholder Text', 'elementskit-lite'),
                 'type' => Controls_Manager::TEXT,
                 'default'   => 'Search...',
                 'label_block' => true,
@@ -57,7 +56,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_control(
             'ekit_search_icons',
             [
-                'label' => esc_html__('Select Icon', 'elementskit'),
+                'label' => esc_html__('Select Icon', 'elementskit-lite'),
                 'fa4compatibility' => 'ekit_search_icon',
                 'default' => [
                     'value' => 'icon icon-search',
@@ -72,7 +71,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
             'ekit_search_icon_font_size',
             [
-                'label'         => esc_html__('Font Size', 'elementskit'),
+                'label'         => esc_html__('Font Size', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'default' => [
@@ -103,7 +102,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->start_controls_section(
             'ekit_header_search_section_tab_style',
             [
-                'label' => esc_html__('Header Search', 'elementskit'),
+                'label' => esc_html__('Header Search', 'elementskit-lite'),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -112,13 +111,13 @@ class Elementskit_Widget_Header_Search extends Widget_Base
             $this->start_controls_tab(
                 'ekit_search_tab_search_normal',
                 [
-                    'label' =>esc_html__( 'Normal', 'elementskit' ),
+                    'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
                 ]
             );
             $this->add_control(
                 'ekit_searech_icon_color',
                 [
-                    'label' =>esc_html__( 'Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navsearch-button, {{WRAPPER}} .ekit_search-button i' => 'color: {{VALUE}};',
@@ -130,7 +129,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
             $this->add_control(
                 'ekit_seacrh_icon_bg_color',
                 [
-                    'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navsearch-button' => 'background-color: {{VALUE}};',
@@ -142,13 +141,13 @@ class Elementskit_Widget_Header_Search extends Widget_Base
             $this->start_controls_tab(
                 'ekit_search_tab_search_hover',
                 [
-                    'label' =>esc_html__( 'Hover', 'elementskit' ),
+                    'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
                 ]
             );
             $this->add_control(
                 'ekit_searech_icon_hover_color',
                 [
-                    'label' =>esc_html__( 'Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navsearch-button:hover, {{WRAPPER}} .ekit_search-button:hover i' => 'color: {{VALUE}};',
@@ -160,7 +159,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
             $this->add_control(
                 'ekit_seacrh_icon_hover_bg_color',
                 [
-                    'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navsearch-button:hover' => 'background-color: {{VALUE}};',
@@ -188,7 +187,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_control(
             'ekit_header_border_radius',
             [
-                'label' => esc_html__( 'Border radius', 'elementskit' ),
+                'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default' => [
@@ -207,7 +206,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
             'ekit_search_margin',
             [
-                'label'         => esc_html__('Margin', 'elementskit'),
+                'label'         => esc_html__('Margin', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
                 'default' => [
@@ -225,7 +224,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_control(
 			'ekit_search_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default' => [
@@ -244,10 +243,10 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_control(
 			'ekit_search_height_width_socher',
 			[
-				'label' => esc_html__( 'Use Height Width', 'elementskit' ),
+				'label' => esc_html__( 'Use Height Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -256,7 +255,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
             'ekit_search_width',
             [
-                'label'         => esc_html__('Width', 'elementskit'),
+                'label'         => esc_html__('Width', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em', '%'],
                 'default' => [
@@ -274,7 +273,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
             'ekit_search_height',
             [
-                'label'         => esc_html__('Height', 'elementskit'),
+                'label'         => esc_html__('Height', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em', '%'],
                 'default' => [
@@ -292,7 +291,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
             'ekit_search_line_height',
             [
-                'label'         => esc_html__('Line Height', 'elementskit'),
+                'label'         => esc_html__('Line Height', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em', '%'],
                 'default' => [
@@ -310,19 +309,19 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
             'ekit_search_icon_text_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -338,7 +337,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->start_controls_section(
 			'ekit_search_container_style_tabs',
 			[
-				'label' => __( 'Search Container', 'elementskit' ),
+				'label' => __( 'Search Container', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -347,7 +346,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_search_backdrop_background',
-				'label' => __( 'Background', 'elementskit' ),
+				'label' => __( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .ekit-wid-con .mfp-wrap.ekit-promo-popup:before',
 			]
@@ -356,7 +355,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
 			'ekit_search_content_title_color',
 			[
-				'label' => __( 'Color', 'elementskit' ),
+				'label' => __( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ekit_modal-searchPanel .ekit-search-group input:not([type=submit]), {{WRAPPER}} button.mfp-close' => 'border-color: {{VALUE}}',
@@ -368,7 +367,7 @@ class Elementskit_Widget_Header_Search extends Widget_Base
         $this->add_responsive_control(
 			'ekit_search_placeholder_title_color',
 			[
-				'label' => __( 'Placeholder Color', 'elementskit' ),
+				'label' => __( 'Placeholder Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ekit_search-field::-webkit-input-placeholder' => 'color: {{VALUE}}',

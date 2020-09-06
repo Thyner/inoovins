@@ -1,14 +1,14 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Countdown_Timer_Handler extends Core\Handler_Widget{
+class Elementskit_Widget_Countdown_Timer_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-countdown-timer';
     }
 
     static function get_title() {
-        return esc_html__( 'Countdown Timer', 'elementskit' );
+        return esc_html__( 'Countdown Timer', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +16,14 @@ class Elementskit_Widget_Countdown_Timer_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'countdown-timer/';
+        return \ElementsKit_Lite::widget_dir() . 'countdown-timer/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'countdown-timer/';
+        return \ElementsKit_Lite::widget_url() . 'countdown-timer/';
     }
 }

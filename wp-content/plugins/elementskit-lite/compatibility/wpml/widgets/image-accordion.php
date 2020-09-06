@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -49,11 +49,11 @@ class Ekit_Image_Accordion extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_img_accordion_title':
-				return esc_html__( 'Title (Image Accordion)', 'elementskit' );
+				return esc_html__( 'Title (Image Accordion)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_img_accordion_button_label':
-				return esc_html__( 'Button Label (Image Accordion)', 'elementskit' );
+				return esc_html__( 'Button Label (Image Accordion)', 'elementskit-lite' );
 				break;
 
 			default:

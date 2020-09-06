@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -49,11 +49,11 @@ class Ekit_Page_List extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'text':
-				return esc_html__( 'Title (Page List)', 'elementskit' );
+				return esc_html__( 'Title (Page List)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_menu_widget_sub_title':
-				return esc_html__( 'Sub-Title (Page List)', 'elementskit' );
+				return esc_html__( 'Sub-Title (Page List)', 'elementskit-lite' );
 				break;
 
 			default:

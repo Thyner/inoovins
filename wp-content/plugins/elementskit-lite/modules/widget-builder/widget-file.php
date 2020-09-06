@@ -1,15 +1,15 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder;
+namespace ElementsKit_Lite\Modules\Widget_Builder;
 
-use ElementsKit\Modules\Widget_Builder\Controls\Widget_Writer;
+use ElementsKit_Lite\Modules\Widget_Builder\Controls\Widget_Writer;
 
 defined('ABSPATH') || exit;
 
 
 class Widget_File {
 
-	private static $instance = null;
+	private static $instance;
 
 
 	public function get_file_path() {
@@ -38,7 +38,7 @@ class Widget_File {
 
 		global $wp_filesystem;
 
-		$writer = new Widget_Writer($wObj, $id, 'elementskit');
+		$writer = new Widget_Writer($wObj, $id, 'elementskit-lite');
 
 		$writer->start_backing($wp_filesystem);
 		$writer->finish_backing($wp_filesystem);

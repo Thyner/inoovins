@@ -1,14 +1,17 @@
 <?php
-namespace ElementsKit;
-use ElementsKit\Libs\Framework\Attr;
-class Elementskit_Widget_Mail_Chimp_Handler extends Core\Handler_Widget{
+namespace Elementor;
+
+use ElementsKit_Lite\ElementsKit_Widget_Mail_Chimp_Api;
+use ElementsKit_Lite\Libs\Framework\Attr;
+
+class Elementskit_Widget_Mail_Chimp_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-mail-chimp';
     }
 
     static function get_title() {
-        return esc_html__( 'Mail Chimp', 'elementskit' );
+        return esc_html__( 'Mail Chimp', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,26 +19,25 @@ class Elementskit_Widget_Mail_Chimp_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'mail-chimp/';
+        return \ElementsKit_Lite::widget_dir() . 'mail-chimp/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'mail-chimp/';
+        return \ElementsKit_Lite::widget_url() . 'mail-chimp/';
     }
 
-    public function register_api(){
-        return $this->get_dir() . 'mail-chimp-api.php';
+    public function wp_init() {
+
+	    require_once $this->get_dir() . 'mail-chimp-api.php';
+
+	    new ElementsKit_Widget_Mail_Chimp_Api();
     }
 
-    public function scripts(){
-		wp_enqueue_script( 'mail-chimp-script', self::get_url().'assets/js/mail-chimp.js', array( 'jquery' ), '1.0', true );
-		wp_localize_script('mail-chimp-script', 'ekit_site_url', array( 'siteurl' => get_option('siteurl') ));
-    }
-    
+
 	static function get_data(){
 		$data = Attr::instance()->utils->get_option('user_data', []);
 

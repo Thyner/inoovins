@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 
@@ -9,7 +9,7 @@ defined('ABSPATH') || exit;
  *
  * @see https://developers.elementor.com/elementor-controls/slider-control/
  *
- * @package ElementsKit\Modules\Widget_Builder\Controls
+ * @package ElementsKit_Lite\Modules\Widget_Builder\Controls
  */
 class Control_Type_Slider extends CT_Base {
 
@@ -77,6 +77,18 @@ class Control_Type_Slider extends CT_Base {
 			$ret .= "\t\t\t\t" . ')' . PHP_EOL;
 		}
 
+		if(!empty($conf->selectors)) {
+
+			$selectors = (array) $conf->selectors;
+			$ret .= "\t\t\t\t" . '\'selectors\' => array(' . PHP_EOL;
+
+			foreach($selectors as $selectorName => $selectorValue) {
+				$selectorProperty = str_replace(',', ', {{WRAPPER}} ', $selectorName);
+				$ret .= "\t\t\t\t\t" . '\'{{WRAPPER}} '. $selectorProperty .'\' => \'' . esc_html($selectorValue) . '\',' . PHP_EOL;
+			}
+
+			$ret .= "\t\t\t\t" . '),' . PHP_EOL;
+		}
 
 		return $ret;
 	}

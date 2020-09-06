@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -48,7 +48,7 @@ class Ekit_Table extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'table_header_content':
-				return esc_html__( 'Text (Table)', 'elementskit' );
+				return esc_html__( 'Text (Table)', 'elementskit-lite' );
 				break;
 
 			default:

@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -49,11 +49,11 @@ class Ekit_Hotspot extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_hotspot_title':
-				return esc_html__( 'Title (Hotspot)', 'elementskit' );
+				return esc_html__( 'Title (Hotspot)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_hotspot_address':
-				return esc_html__( 'Address (Hotspot)', 'elementskit' );
+				return esc_html__( 'Address (Hotspot)', 'elementskit-lite' );
 				break;
 
 			default:

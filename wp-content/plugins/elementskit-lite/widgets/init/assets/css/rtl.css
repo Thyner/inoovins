@@ -24,47 +24,57 @@ body {
   padding-left: 10px;
   padding-right: 0;
 }
+
 .elementskit-accordion .ekit_accordion_icon_group {
   left: 0;
   right: auto;
   margin-left: 30px;
   margin-right: 0;
 }
+
 .elementskit-accordion .elementskit-card > .elementskit-card-header > .elementskit-btn-link > .ekit_accordion_icon_left_group {
   padding-left: 26px;
   padding-right: 0;
 }
+
 .elementskit-accordion.curve-shape .svg-shape {
   -webkit-transform: scale(-1, 1);
       -ms-transform: scale(-1, 1);
           transform: scale(-1, 1);
 }
+
 .elementskit-accordion.side-curve .elementskit-card > .elementskit-card-header > .elementskit-btn-link {
   padding-left: 30px;
   padding-right: 70px;
 }
+
 .elementskit-accordion.side-curve .elementskit-card > .elementskit-card-header > .elementskit-btn-link:before {
   left: auto;
   right: 0;
 }
+
 .elementskit-accordion.side-curve .elementskit-card > .elementskit-card-header > .elementskit-btn-link:after {
   left: auto;
   right: 35px;
   border-left-color: transparent;
   border-right-color: rgba(255, 255, 255, 0.2);
 }
+
 .elementskit-accordion.accordion-4 .elementskit-card > .elementskit-card-header > .elementskit-btn-link {
   padding-left: 30px;
   padding-right: 85px;
 }
+
 .elementskit-accordion.accordion-4 .elementskit-card > .elementskit-card-header > .elementskit-btn-link:before {
   left: auto;
   right: -1px;
 }
+
 .elementskit-accordion.accordion-4 .elementskit-card > .elementskit-card-header > .elementskit-btn-link > .ekit_accordion_icon_left_group {
   left: auto;
   right: 20px;
 }
+
 .elementskit-accordion .elementskit-card .elementskit-card-body {
   padding-left: 85px;
   padding-right: 65px;
@@ -76,6 +86,7 @@ body {
   display: block;
   clear: both;
 }
+
 .elementskit-section-title-wraper.text_left .ekit_heading_separetor_wraper > div {
   float: left;
 }
@@ -98,47 +109,60 @@ body {
   padding-left: 0;
   padding-right: 30px;
 }
+
 .style-switch > .single-skill-bar > .content-group > .skill-bar > .skill-track:before {
   left: 0;
   right: auto;
 }
+
 .style-switch > .single-skill-bar > .content-group > .skill-bar > .skill-track:after {
   left: 8px;
   right: auto;
 }
+
 .elementor-widget-elementskit-progressbar .style-switch > .single-skill-bar > .number-percentage-wraper {
   float: left;
 }
-.inner-content > .single-skill-bar > .skill-bar > .skill-track .skill-track-icon, .inner-content > .single-skill-bar > .skill-bar > .skill-track .skill-track-icon > .icon {
+
+.inner-content > .single-skill-bar > .skill-bar > .skill-track .skill-track-icon,
+.inner-content > .single-skill-bar > .skill-bar > .skill-track .skill-track-icon > .icon {
   left: 19px;
   right: auto;
 }
+
 .single-skill-bar > .skill-bar > .skill-track .skill-track-icon + .number-percentage-wraper {
   padding-left: 57px;
   padding-right: 0;
 }
+
 .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper {
   left: 0;
   right: auto;
 }
+
 .tooltip-style .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper {
   left: -22px;
 }
+
 .tooltip-style2 .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper {
   left: -19px;
 }
+
 .tooltip-style3 > .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 4.32px;
 }
+
 .tooltip-style3 > .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper:before {
   left: 0;
   right: auto;
   border-color: currentColor transparent transparent currentColor;
 }
+
 .pin-style > .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper {
   left: -15px;
 }
+
 .style-ribbon > .single-skill-bar > .skill-bar > .skill-track .number-percentage-wraper:before {
   left: auto;
   right: -10px;
@@ -149,6 +173,7 @@ body {
 .elementor-widget-elementskit-team .xs-modal-content {
   text-align: right;
 }
+
 .elementor-widget-elementskit-team .xs-modal-footer > ul > li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -156,6 +181,7 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+
 .elementor-widget-elementskit-team .xs-modal-footer > ul > li > strong {
   padding-left: 18px;
   padding-right: 0;
@@ -192,12 +218,14 @@ body {
 .elementskit-navbar-nav-default .elementskit-dropdown-has > a .elementskit-submenu-indicator {
   float: left;
 }
+
 .elementskit-navbar-nav-default .elementskit-dropdown-has > a .elementskit-submenu-indicator:before {
   display: inline-block;
   -webkit-transform: scale(-1, 1);
       -ms-transform: scale(-1, 1);
           transform: scale(-1, 1);
 }
+
 @media (min-width: 1025px) {
   .elementskit-navbar-nav-default .elementskit-dropdown {
     left: auto;
@@ -212,6 +240,7 @@ body {
 .elementskit-infobox.icon-lef-right-aligin > .box-body {
   text-align: right;
 }
+
 .elementskit-infobox.icon-lef-right-aligin.elementskit-icon-right > .box-body {
   text-align: left;
 }
@@ -221,6 +250,7 @@ body {
   margin-left: auto;
   margin-right: 0;
 }
+
 .ekit-business-hours-inner > .ekit-single-day > .ekit-business-time {
   margin-left: 0;
   margin-right: auto;

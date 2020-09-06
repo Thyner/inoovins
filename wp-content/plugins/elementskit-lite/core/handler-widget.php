@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Core;
+namespace ElementsKit_Lite\Core;
 
 class Handler_Widget{
 
@@ -48,6 +48,9 @@ class Handler_Widget{
     }
 
     public function scripts(){
+        return false;
+    }
+    public function styles(){
         return false;
     }
 }

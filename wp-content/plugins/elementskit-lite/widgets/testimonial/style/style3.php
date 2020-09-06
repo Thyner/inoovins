@@ -1,4 +1,4 @@
-<div class="elementskit-testimonial-slider" <?php echo \ElementsKit\Utils::render($wrapper_data); ?>>
+<div class="elementskit-testimonial-slider" <?php echo $this->get_render_attribute_string('wrapper'); ?>>
 <?php
 	foreach ($testimonials as $testimonial):
 		if (isset($testimonial['client_photo']) &&  sizeof($testimonial['client_photo']) > 0) {
@@ -22,7 +22,7 @@
 				<?php endif; ?>
 
 				<?php if ( isset($testimonial['review']) && !empty($testimonial['review'])) : ?>
-					<p class="elementskit-commentor-coment"><em><?php echo isset($testimonial['review']) ? \ElementsKit\Utils::kses($testimonial['review']) : ''; ?></em></p>
+					<p class="elementskit-commentor-coment"><em><?php echo isset($testimonial['review']) ? \ElementsKit_Lite\Utils::kses($testimonial['review']) : ''; ?></em></p>
 				<?php endif;  ?>
 
 				<?php if ( isset($testimonial['review_youtube_link']) && !empty($testimonial['review_youtube_link'])) : ?>
@@ -33,7 +33,7 @@
 
 				<span class="elementskit-profile-info">
 					<strong class="elementskit-author-name"><?php echo isset($testimonial['client_name']) ? esc_html($testimonial['client_name']) : ''; ?></strong>
-					<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit\Utils::kspan($testimonial['designation']) : ''; ?></span>
+					<span class="elementskit-author-des"><?php echo isset($testimonial['designation']) ? \ElementsKit_Lite\Utils::kspan($testimonial['designation']) : ''; ?></span>
 				</span>
 				<div class="xs-overlay elementor-repeater-item-<?php echo esc_attr( $testimonial[ '_id' ] ); ?>"></div>
 			</div><!-- .testimonial_card END -->

@@ -1,7 +1,7 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Header_Offcanvas_Handler extends Core\Handler_Widget{
+class Elementskit_Widget_Header_Offcanvas_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name()
     {
@@ -10,7 +10,7 @@ class Elementskit_Widget_Header_Offcanvas_Handler extends Core\Handler_Widget{
 
     static function get_title()
     {
-        return esc_html__('Header Offcanvas', 'elementskit');
+        return esc_html__('Header Offcanvas', 'elementskit-lite');
     }
 
     static function get_icon()
@@ -24,11 +24,11 @@ class Elementskit_Widget_Header_Offcanvas_Handler extends Core\Handler_Widget{
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'header-offcanvas/';
+        return \ElementsKit_Lite::widget_dir() . 'header-offcanvas/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'header-offcanvas/';
+        return \ElementsKit_Lite::widget_url() . 'header-offcanvas/';
     }
 
 }

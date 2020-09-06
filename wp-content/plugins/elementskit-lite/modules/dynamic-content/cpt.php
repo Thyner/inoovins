@@ -1,44 +1,46 @@
 <?php 
-namespace ElementsKit\Modules\Dynamic_Content;
+namespace ElementsKit_Lite\Modules\Dynamic_Content;
 
 defined( 'ABSPATH' ) || exit;
 
 class Cpt{
 
     public function __construct() {
-        $this->post_type();  
+        $this->post_type();
+        register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+        register_activation_hook( __FILE__, [$this, 'flush_rewrites'] );   
     }
 
     public function post_type() {
         
         $labels = array(
-            'name'                  => _x( 'Elementskit items', 'Post Type General Name', 'elementskit' ),
-            'singular_name'         => _x( 'Elementskit item', 'Post Type Singular Name', 'elementskit' ),
-            'menu_name'             => esc_html__( 'Elementskit item', 'elementskit' ),
-            'name_admin_bar'        => esc_html__( 'Elementskit item', 'elementskit' ),
-            'archives'              => esc_html__( 'Item Archives', 'elementskit' ),
-            'attributes'            => esc_html__( 'Item Attributes', 'elementskit' ),
-            'parent_item_colon'     => esc_html__( 'Parent Item:', 'elementskit' ),
-            'all_items'             => esc_html__( 'All Items', 'elementskit' ),
-            'add_new_item'          => esc_html__( 'Add New Item', 'elementskit' ),
-            'add_new'               => esc_html__( 'Add New', 'elementskit' ),
-            'new_item'              => esc_html__( 'New Item', 'elementskit' ),
-            'edit_item'             => esc_html__( 'Edit Item', 'elementskit' ),
-            'update_item'           => esc_html__( 'Update Item', 'elementskit' ),
-            'view_item'             => esc_html__( 'View Item', 'elementskit' ),
-            'view_items'            => esc_html__( 'View Items', 'elementskit' ),
-            'search_items'          => esc_html__( 'Search Item', 'elementskit' ),
-            'not_found'             => esc_html__( 'Not found', 'elementskit' ),
-            'not_found_in_trash'    => esc_html__( 'Not found in Trash', 'elementskit' ),
-            'featured_image'        => esc_html__( 'Featured Image', 'elementskit' ),
-            'set_featured_image'    => esc_html__( 'Set featured image', 'elementskit' ),
-            'remove_featured_image' => esc_html__( 'Remove featured image', 'elementskit' ),
-            'use_featured_image'    => esc_html__( 'Use as featured image', 'elementskit' ),
-            'insert_into_item'      => esc_html__( 'Insert into item', 'elementskit' ),
-            'uploaded_to_this_item' => esc_html__( 'Uploaded to this item', 'elementskit' ),
-            'items_list'            => esc_html__( 'Items list', 'elementskit' ),
-            'items_list_navigation' => esc_html__( 'Items list navigation', 'elementskit' ),
-            'filter_items_list'     => esc_html__( 'Filter items list', 'elementskit' ),
+            'name'                  => _x( 'Elementskit items', 'Post Type General Name', 'elementskit-lite' ),
+            'singular_name'         => _x( 'Elementskit item', 'Post Type Singular Name', 'elementskit-lite' ),
+            'menu_name'             => esc_html__( 'Elementskit item', 'elementskit-lite' ),
+            'name_admin_bar'        => esc_html__( 'Elementskit item', 'elementskit-lite' ),
+            'archives'              => esc_html__( 'Item Archives', 'elementskit-lite' ),
+            'attributes'            => esc_html__( 'Item Attributes', 'elementskit-lite' ),
+            'parent_item_colon'     => esc_html__( 'Parent Item:', 'elementskit-lite' ),
+            'all_items'             => esc_html__( 'All Items', 'elementskit-lite' ),
+            'add_new_item'          => esc_html__( 'Add New Item', 'elementskit-lite' ),
+            'add_new'               => esc_html__( 'Add New', 'elementskit-lite' ),
+            'new_item'              => esc_html__( 'New Item', 'elementskit-lite' ),
+            'edit_item'             => esc_html__( 'Edit Item', 'elementskit-lite' ),
+            'update_item'           => esc_html__( 'Update Item', 'elementskit-lite' ),
+            'view_item'             => esc_html__( 'View Item', 'elementskit-lite' ),
+            'view_items'            => esc_html__( 'View Items', 'elementskit-lite' ),
+            'search_items'          => esc_html__( 'Search Item', 'elementskit-lite' ),
+            'not_found'             => esc_html__( 'Not found', 'elementskit-lite' ),
+            'not_found_in_trash'    => esc_html__( 'Not found in Trash', 'elementskit-lite' ),
+            'featured_image'        => esc_html__( 'Featured Image', 'elementskit-lite' ),
+            'set_featured_image'    => esc_html__( 'Set featured image', 'elementskit-lite' ),
+            'remove_featured_image' => esc_html__( 'Remove featured image', 'elementskit-lite' ),
+            'use_featured_image'    => esc_html__( 'Use as featured image', 'elementskit-lite' ),
+            'insert_into_item'      => esc_html__( 'Insert into item', 'elementskit-lite' ),
+            'uploaded_to_this_item' => esc_html__( 'Uploaded to this item', 'elementskit-lite' ),
+            'items_list'            => esc_html__( 'Items list', 'elementskit-lite' ),
+            'items_list_navigation' => esc_html__( 'Items list navigation', 'elementskit-lite' ),
+            'filter_items_list'     => esc_html__( 'Filter items list', 'elementskit-lite' ),
         );
         $rewrite = array(
             'slug'                  => 'elementskit-content',
@@ -47,8 +49,8 @@ class Cpt{
             'feeds'                 => false,
         );
         $args = array(
-            'label'                 => esc_html__( 'Elementskit item', 'elementskit' ),
-            'description'           => esc_html__( 'elementskit_content', 'elementskit' ),
+            'label'                 => esc_html__( 'Elementskit item', 'elementskit-lite' ),
+            'description'           => esc_html__( 'elementskit_content', 'elementskit-lite' ),
             'labels'                => $labels,
             'supports'              => array( 'title', 'editor', 'elementor', 'permalink' ),
             'hierarchical'          => true,
@@ -77,3 +79,5 @@ class Cpt{
         flush_rewrite_rules();
     }
 }
+
+new Cpt();

@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\ElementsKit_Widget_Blog_Posts_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\ElementsKit_Widget_Blog_Posts_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Blog_Posts extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -37,18 +37,18 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->start_controls_section(
            'ekit_blog_posts_general',
            [
-               'label' => esc_html__( 'Layout', 'elementskit' ),
+               'label' => esc_html__( 'Layout', 'elementskit-lite' ),
            ]
        );
        $this->add_control(
            'ekit_blog_posts_layout_style',
            [
-               'label'     => esc_html__( 'Layout Style', 'elementskit' ),
+               'label'     => esc_html__( 'Layout Style', 'elementskit-lite' ),
                'type'      => Controls_Manager::SELECT,
                'options'   => [
-                   'elementskit-blog-block-post' => esc_html__( 'Block', 'elementskit' ),
-                   'elementskit-post-image-card' => esc_html__( 'Grid With Thumb', 'elementskit' ),
-                   'elementskit-post-card'       => esc_html__( 'Grid Without Thumb', 'elementskit' ),
+                   'elementskit-blog-block-post' => esc_html__( 'Block', 'elementskit-lite' ),
+                   'elementskit-post-image-card' => esc_html__( 'Grid With Thumb', 'elementskit-lite' ),
+                   'elementskit-post-card'       => esc_html__( 'Grid Without Thumb', 'elementskit-lite' ),
                ],
                'default'   => 'elementskit-blog-block-post',
            ]
@@ -57,10 +57,10 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_feature_img',
            [
-               'label'     => esc_html__( 'Show Featured Image', 'elementskit' ),
+               'label'     => esc_html__( 'Show Featured Image', 'elementskit-lite' ),
                'type'      => Controls_Manager::SWITCHER,
-               'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-               'label_off' => esc_html__( 'No', 'elementskit' ),
+               'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+               'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                'default'   => 'yes',
                'condition' => [
                    'ekit_blog_posts_layout_style!' => 'elementskit-post-card',
@@ -70,15 +70,15 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_feature_img_float',
            [
-               'label'     => esc_html__( 'Featured image alignment', 'elementskit' ),
+               'label'     => esc_html__( 'Featured image alignment', 'elementskit-lite' ),
                'type'      => Controls_Manager::CHOOSE,
                'options'   => [
                    'left'  => [
-                       'title' => esc_html__( 'Left', 'elementskit' ),
+                       'title' => esc_html__( 'Left', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-left',
                    ],
                    'right' => [
-                       'title' => esc_html__( 'Right', 'elementskit' ),
+                       'title' => esc_html__( 'Right', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-right',
                    ],
                ],
@@ -92,14 +92,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_column',
            [
-               'label'     => esc_html__( 'Show Posts Per Row', 'elementskit' ),
+               'label'     => esc_html__( 'Show Posts Per Row', 'elementskit-lite' ),
                'type'      => Controls_Manager::SELECT,
                'options'   => [
-                   'ekit-lg-12 ekit-md-12'   => esc_html__( '1', 'elementskit' ),
-                   'ekit-lg-6 ekit-md-6'     => esc_html__( '2', 'elementskit' ),
-                   'ekit-lg-4 ekit-md-6'     => esc_html__( '3', 'elementskit' ),
-                   'ekit-lg-3 ekit-md-6'     => esc_html__( '4', 'elementskit' ),
-                   'ekit-lg-2 ekit-md-6'     => esc_html__( '6', 'elementskit' ),
+                   'ekit-lg-12 ekit-md-12'   => esc_html__( '1', 'elementskit-lite' ),
+                   'ekit-lg-6 ekit-md-6'     => esc_html__( '2', 'elementskit-lite' ),
+                   'ekit-lg-4 ekit-md-6'     => esc_html__( '3', 'elementskit-lite' ),
+                   'ekit-lg-3 ekit-md-6'     => esc_html__( '4', 'elementskit-lite' ),
+                   'ekit-lg-2 ekit-md-6'     => esc_html__( '6', 'elementskit-lite' ),
                ],
                'condition' => [
                    'ekit_blog_posts_layout_style' => ['elementskit-post-image-card', 'elementskit-post-card'],
@@ -110,17 +110,17 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_title',
            [
-               'label'     => esc_html__( 'Show Title', 'elementskit' ),
+               'label'     => esc_html__( 'Show Title', 'elementskit-lite' ),
                'type'      => Controls_Manager::SWITCHER,
-               'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-               'label_off' => esc_html__( 'No', 'elementskit' ),
+               'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+               'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                'default'   => 'yes',
            ]
        );
        $this->add_control(
             'ekit_blog_posts_title_trim',
             [
-                'label'     => esc_html__( 'Crop title by word', 'elementskit' ),
+                'label'     => esc_html__( 'Crop title by word', 'elementskit-lite' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => '',
                 'condition' => [
@@ -131,17 +131,17 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content',
            [
-               'label'     => esc_html__( 'Show Content', 'elementskit' ),
+               'label'     => esc_html__( 'Show Content', 'elementskit-lite' ),
                'type'      => Controls_Manager::SWITCHER,
-               'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-               'label_off' => esc_html__( 'No', 'elementskit' ),
+               'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+               'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                'default'   => 'yes',
            ]
        );
        $this->add_control(
             'ekit_blog_posts_content_trim',
             [
-                'label'     => esc_html__( 'Crop content by word', 'elementskit' ),
+                'label'     => esc_html__( 'Crop content by word', 'elementskit-lite' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => '',
                 'condition' => [
@@ -153,10 +153,10 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_read_more',
            [
-               'label'     => esc_html__( 'Show Read More', 'elementskit' ),
+               'label'     => esc_html__( 'Show Read More', 'elementskit-lite' ),
                'type'      => Controls_Manager::SWITCHER,
-               'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-               'label_off' => esc_html__( 'No', 'elementskit' ),
+               'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+               'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                'default'   => 'yes',
                'condition' => ['ekit_blog_posts_layout_style!' => 'elementskit-blog-block-post'],
            ]
@@ -167,14 +167,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_content_section',
            [
-               'label' => esc_html__( 'Query', 'elementskit' ),
+               'label' => esc_html__( 'Query', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_num',
            [
-               'label'     => esc_html__( 'Posts Count', 'elementskit' ),
+               'label'     => esc_html__( 'Posts Count', 'elementskit-lite' ),
                'type'      => Controls_Manager::NUMBER,
                'min'       => 1,
                'max'       => 100,
@@ -185,13 +185,13 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
         'ekit_blog_posts_is_manual_selection',
         [
-            'label' => esc_html__( 'Select posts by:', 'elementskit' ),
+            'label' => esc_html__( 'Select posts by:', 'elementskit-lite' ),
             'type' => Controls_Manager::SELECT,
             'default' => '',
             'options' => [
-                'recent'    => esc_html__( 'Recent Post', 'elementskit' ),
-                'yes'       => esc_html__( 'Selected Post', 'elementskit' ),
-                ''        => esc_html__( 'Category Post', 'elementskit' ),
+                'recent'    => esc_html__( 'Recent Post', 'elementskit-lite' ),
+                'yes'       => esc_html__( 'Selected Post', 'elementskit-lite' ),
+                ''        => esc_html__( 'Category Post', 'elementskit-lite' ),
             ],
 
         ]
@@ -200,7 +200,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_manual_selection',
            [
-               'label' =>esc_html__('Search & Select', 'elementskit'),
+               'label' =>esc_html__('Search & Select', 'elementskit-lite'),
                'type'      => ElementsKit_Controls_Manager::AJAXSELECT2,
                'options'   =>'ajaxselect2/post_list',
                'label_block' => true,
@@ -211,7 +211,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_cats',
            [
-               'label' =>esc_html__('Select Categories', 'elementskit'),
+               'label' =>esc_html__('Select Categories', 'elementskit-lite'),
                'type'      => ElementsKit_Controls_Manager::AJAXSELECT2,
                'options'   =>'ajaxselect2/category',
                'label_block' => true,
@@ -223,7 +223,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_offset',
            [
-               'label'     => esc_html__( 'Offset', 'elementskit' ),
+               'label'     => esc_html__( 'Offset', 'elementskit-lite' ),
                'type'      => Controls_Manager::NUMBER,
                'min'       => 0,
                'max'       => 20,
@@ -234,14 +234,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_order_by',
            [
-               'label'   => esc_html__( 'Order by', 'elementskit' ),
+               'label'   => esc_html__( 'Order by', 'elementskit-lite' ),
                'type'    => Controls_Manager::SELECT,
                'options' => [
-                   'date'          => esc_html__( 'Date', 'elementskit' ),
-                   'title'         => esc_html__( 'Title', 'elementskit' ),
-                   'author'        => esc_html__( 'Author', 'elementskit' ),
-                   'modified'      => esc_html__( 'Modified', 'elementskit' ),
-                   'comment_count' => esc_html__( 'Comments', 'elementskit' ),
+                   'date'          => esc_html__( 'Date', 'elementskit-lite' ),
+                   'title'         => esc_html__( 'Title', 'elementskit-lite' ),
+                   'author'        => esc_html__( 'Author', 'elementskit-lite' ),
+                   'modified'      => esc_html__( 'Modified', 'elementskit-lite' ),
+                   'comment_count' => esc_html__( 'Comments', 'elementskit-lite' ),
                ],
                'default' => 'date',
            ]
@@ -250,11 +250,11 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_sort',
            [
-               'label'   => esc_html__( 'Order', 'elementskit' ),
+               'label'   => esc_html__( 'Order', 'elementskit-lite' ),
                'type'    => Controls_Manager::SELECT,
                'options' => [
-                   'ASC'  => esc_html__( 'ASC', 'elementskit' ),
-                   'DESC' => esc_html__( 'DESC', 'elementskit' ),
+                   'ASC'  => esc_html__( 'ASC', 'elementskit-lite' ),
+                   'DESC' => esc_html__( 'DESC', 'elementskit-lite' ),
                ],
                'default' => 'DESC',
            ]
@@ -266,7 +266,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_blog_posts_meta_data_tab',
 			[
-				'label' => esc_html__( 'Meta Data', 'elementskit' ),
+				'label' => esc_html__( 'Meta Data', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -274,10 +274,10 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 		$this->add_control(
             'ekit_blog_posts_floating_date',
             [
-                'label'     => esc_html__( 'Show Floating Date', 'elementskit' ),
+                'label'     => esc_html__( 'Show Floating Date', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SWITCHER,
-                'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'default'   => 'no',
                 'condition' => [
                     'ekit_blog_posts_layout_style' => 'elementskit-post-image-card',
@@ -287,18 +287,18 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_floating_date_style',
             [
-                'label' => esc_html__('Choose Style', 'elementskit'),
+                'label' => esc_html__('Choose Style', 'elementskit-lite'),
                 'type' => ElementsKit_Controls_Manager::IMAGECHOOSE,
                 'default' => 'style1',
                 'options' => [
                     'style1' => [
-                        'title' => esc_html__( 'Image style 1', 'elementskit' ),
+                        'title' => esc_html__( 'Image style 1', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/floating-date-1.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/floating-date-1.png',
                         'width' => '50%',
                     ],
                     'style2' => [
-                        'title' => esc_html__( 'Image style 2', 'elementskit' ),
+                        'title' => esc_html__( 'Image style 2', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/floating-date-2.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/floating-date-2.png',
                         'width' => '50%',
@@ -312,22 +312,22 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta',
             [
-                'label'     => esc_html__( 'Show Meta Data', 'elementskit' ),
+                'label'     => esc_html__( 'Show Meta Data', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SWITCHER,
-                'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'default'   => 'yes',
             ]
         );
         $this->add_control(
          'ekit_blog_posts_title_position',
              [
-                 'label' => esc_html__( 'Meta Position', 'elementskit' ),
+                 'label' => esc_html__( 'Meta Position', 'elementskit-lite' ),
                  'type'  => Controls_Manager::SELECT,
                  'options' => [
-                    'after_meta'  => esc_html__( 'Before Title', 'elementskit' ),
-                     'before_meta' => esc_html__( 'After Title', 'elementskit' ),
-                     'after_content'  => esc_html__( 'After Content', 'elementskit' ),
+                    'after_meta'  => esc_html__( 'Before Title', 'elementskit-lite' ),
+                     'before_meta' => esc_html__( 'After Title', 'elementskit-lite' ),
+                     'after_content'  => esc_html__( 'After Content', 'elementskit-lite' ),
                  ],
                  'default' => 'after_meta',
                  'condition' => [
@@ -338,13 +338,13 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_select',
             [
-                'label'     => esc_html__( 'Meta Data', 'elementskit' ),
+                'label'     => esc_html__( 'Meta Data', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SELECT2,
                 'options'   => [
-                    'author'     => esc_html__( 'Author', 'elementskit' ),
-                    'date'   => esc_html__( 'Date', 'elementskit' ),
-                    'category'     => esc_html__( 'Category', 'elementskit' ),
-                    'comment'     => esc_html__( 'Comment', 'elementskit' ),
+                    'author'     => esc_html__( 'Author', 'elementskit-lite' ),
+                    'date'   => esc_html__( 'Date', 'elementskit-lite' ),
+                    'category'     => esc_html__( 'Category', 'elementskit-lite' ),
+                    'comment'     => esc_html__( 'Comment', 'elementskit-lite' ),
                 ],
                 'multiple' => true,
                 // 'default'   => [
@@ -359,10 +359,10 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_author_image',
             [
-                'label'     => esc_html__( 'Show Author Image', 'elementskit' ),
+                'label'     => esc_html__( 'Show Author Image', 'elementskit-lite' ),
                 'type'      => Controls_Manager::SWITCHER,
-                'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'default'   => 'no',
                 'condition' => [
                     'ekit_blog_posts_meta' => 'yes',
@@ -373,7 +373,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_author_icons',
             [
-                'label' => esc_html__( 'Author Icon', 'elementskit' ),
+                'label' => esc_html__( 'Author Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_blog_posts_meta_author_icon',
                 'default' => [
@@ -390,7 +390,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_date_icons',
             [
-                'label' => esc_html__( 'Date Icon', 'elementskit' ),
+                'label' => esc_html__( 'Date Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_blog_posts_meta_date_icon',
                 'default' => [
@@ -406,7 +406,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_category_icons',
             [
-                'label' => esc_html__( 'Category Icon', 'elementskit' ),
+                'label' => esc_html__( 'Category Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_blog_posts_meta_category_icon',
                 'default' => [
@@ -422,7 +422,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_comment_icons',
             [
-                'label' => esc_html__( 'Comment Icon', 'elementskit' ),
+                'label' => esc_html__( 'Comment Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_blog_posts_meta_comment_icon',
                 'default' => [
@@ -443,7 +443,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_more_section',
            [
-               'label' => esc_html__( 'Read More Button', 'elementskit' ),
+               'label' => esc_html__( 'Read More Button', 'elementskit-lite' ),
                'condition' => ['ekit_blog_posts_read_more' => 'yes', 'ekit_blog_posts_layout_style!' => 'elementskit-blog-block-post'],
            ]
        );
@@ -451,28 +451,28 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_btn_text',
            [
-               'label' =>esc_html__( 'Label', 'elementskit' ),
+               'label' =>esc_html__( 'Label', 'elementskit-lite' ),
                'type' => Controls_Manager::TEXT,
-               'default' =>esc_html__( 'Learn more ', 'elementskit' ),
-               'placeholder' =>esc_html__( 'Learn more ', 'elementskit' ),
+               'default' =>esc_html__( 'Learn more ', 'elementskit-lite' ),
+               'placeholder' =>esc_html__( 'Learn more ', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
         'ekit_blog_posts_btn_icons__switch',
         [
-            'label' => esc_html__('Add icon? ', 'elementskit'),
+            'label' => esc_html__('Add icon? ', 'elementskit-lite'),
             'type' => Controls_Manager::SWITCHER,
             'default' => 'yes',
-            'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-            'label_off' =>esc_html__( 'No', 'elementskit' ),
+            'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+            'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
         ]
     );
 
        $this->add_control(
            'ekit_blog_posts_btn_icons',
            [
-               'label' =>esc_html__( 'Icon', 'elementskit' ),
+               'label' =>esc_html__( 'Icon', 'elementskit-lite' ),
                'type' => Controls_Manager::ICONS,
                'fa4compatibility' => 'ekit_blog_posts_btn_icon',
                 'default' => [
@@ -487,12 +487,12 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
         'ekit_blog_posts_btn_icon_align',
         [
-            'label' =>esc_html__( 'Icon Position', 'elementskit' ),
+            'label' =>esc_html__( 'Icon Position', 'elementskit-lite' ),
             'type' => Controls_Manager::SELECT,
             'default' => 'left',
             'options' => [
-                'left' =>esc_html__( 'Before', 'elementskit' ),
-                'right' =>esc_html__( 'After', 'elementskit' ),
+                'left' =>esc_html__( 'Before', 'elementskit-lite' ),
+                'right' =>esc_html__( 'After', 'elementskit-lite' ),
             ],
             'condition'  => [
                  'ekit_blog_posts_btn_icons__switch'  => 'yes'
@@ -502,19 +502,19 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_btn_align',
            [
-               'label' =>esc_html__( 'Alignment', 'elementskit' ),
+               'label' =>esc_html__( 'Alignment', 'elementskit-lite' ),
                'type' => Controls_Manager::CHOOSE,
                'options' => [
                    'left'    => [
-                       'title' =>esc_html__( 'Left', 'elementskit' ),
+                       'title' =>esc_html__( 'Left', 'elementskit-lite' ),
                        'icon' => 'fa fa-align-left',
                    ],
                    'center' => [
-                       'title' =>esc_html__( 'Center', 'elementskit' ),
+                       'title' =>esc_html__( 'Center', 'elementskit-lite' ),
                        'icon' => 'fa fa-align-center',
                    ],
                    'right' => [
-                       'title' =>esc_html__( 'Right', 'elementskit' ),
+                       'title' =>esc_html__( 'Right', 'elementskit-lite' ),
                        'icon' => 'fa fa-align-right',
                    ],
                ],
@@ -528,18 +528,18 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_btn_class',
            [
-               'label' => esc_html__( 'Class', 'elementskit' ),
+               'label' => esc_html__( 'Class', 'elementskit-lite' ),
                'type' => Controls_Manager::TEXT,
-               'placeholder' => esc_html__( 'Class Name', 'elementskit' ),
+               'placeholder' => esc_html__( 'Class Name', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_btn_id',
            [
-               'label' => esc_html__( 'id', 'elementskit' ),
+               'label' => esc_html__( 'id', 'elementskit-lite' ),
                'type' => Controls_Manager::TEXT,
-               'placeholder' => esc_html__( 'ID', 'elementskit' ),
+               'placeholder' => esc_html__( 'ID', 'elementskit-lite' ),
            ]
        );
        
@@ -551,7 +551,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_style',
            [
-               'label' => esc_html__( 'Wrapper', 'elementskit' ),
+               'label' => esc_html__( 'Wrapper', 'elementskit-lite' ),
                'tab'   => Controls_Manager::TAB_STYLE,
            ]
        );
@@ -560,7 +560,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Background::get_type(),
            [
                'name'     => 'ekit_blog_posts_background',
-               'label'    => esc_html__( 'Background', 'elementskit' ),
+               'label'    => esc_html__( 'Background', 'elementskit-lite' ),
                'types'    => [ 'classic', 'gradient' ],
                'selector' => '{{WRAPPER}} .elementskit-blog-block-post, {{WRAPPER}} .elementskit-post-image-card, {{WRAPPER}} .elementskit-post-card',
            ]
@@ -576,19 +576,19 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_vertical_alignment',
            [
-               'label'   => esc_html__( 'Vertical Alignment', 'elementskit' ),
+               'label'   => esc_html__( 'Vertical Alignment', 'elementskit-lite' ),
                'type'    => Controls_Manager::CHOOSE,
                'options' => [
                    'd-flex align-items-start'  => [
-                       'title' => esc_html__( 'Top', 'elementskit' ),
+                       'title' => esc_html__( 'Top', 'elementskit-lite' ),
                        'icon'  => 'eicon-v-align-top',
                    ],
                    'd-flex align-items-center' => [
-                       'title' => esc_html__( 'Middle', 'elementskit' ),
+                       'title' => esc_html__( 'Middle', 'elementskit-lite' ),
                        'icon'  => 'eicon-v-align-middle',
                    ],
                    'd-flex align-items-end'    => [
-                       'title' => esc_html__( 'Bottom', 'elementskit' ),
+                       'title' => esc_html__( 'Bottom', 'elementskit-lite' ),
                        'icon'  => 'eicon-v-align-bottom',
                    ],
                ],
@@ -602,7 +602,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
         'ekit_blog_posts_radius',
         [
-            'label'      => esc_html__( 'Container Border radius', 'elementskit' ),
+            'label'      => esc_html__( 'Container Border radius', 'elementskit-lite' ),
             'type'       => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%', 'em' ],
             'selectors'  => [
@@ -614,7 +614,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
     $this->add_responsive_control(
         'ekit_blog_posts_padding',
         [
-            'label'      => esc_html__( 'Container Padding', 'elementskit' ),
+            'label'      => esc_html__( 'Container Padding', 'elementskit-lite' ),
             'type'       => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%', 'em' ],
             'selectors'  => [
@@ -626,7 +626,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
     $this->add_responsive_control(
         'ekit_blog_posts_margin',
         [
-            'label'      => esc_html__( 'Container Margin', 'elementskit' ),
+            'label'      => esc_html__( 'Container Margin', 'elementskit-lite' ),
             'type'       => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%', 'em' ],
             'tablet_default' => [
@@ -654,7 +654,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
     $this->add_responsive_control(
         'ekit_blog_posts_text_content_wraper_padding',
         [
-            'label' => esc_html__( 'Content Padding', 'elementskit' ),
+            'label' => esc_html__( 'Content Padding', 'elementskit-lite' ),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%' ],
             'selectors' => [
@@ -667,7 +667,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_container_border_title',
             [
-                'label' => esc_html__( 'Container Border', 'elementskit' ),
+                'label' => esc_html__( 'Container Border', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -677,7 +677,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Border::get_type(),
            [
                'name'     => 'ekit_blog_posts_border',
-               'label'    => esc_html__( 'Container Border', 'elementskit' ),
+               'label'    => esc_html__( 'Container Border', 'elementskit-lite' ),
                'selector' => '{{WRAPPER}} .elementskit-blog-block-post, {{WRAPPER}} .elementskit-post-image-card, {{WRAPPER}} .elementskit-post-card',
            ]
        );
@@ -685,7 +685,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_border_title',
            [
-               'label' => esc_html__( 'Content Border', 'elementskit' ),
+               'label' => esc_html__( 'Content Border', 'elementskit-lite' ),
                'type' => Controls_Manager::HEADING,
                'separator' => 'before',
                'condition' => [
@@ -698,15 +698,15 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_border_style',
            [
-               'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::SELECT,
                'options' => [
-                   '' => esc_html__( 'None', 'elementskit' ),
-                   'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-                   'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-                   'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-                   'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-                   'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+                   '' => esc_html__( 'None', 'elementskit-lite' ),
+                   'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+                   'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+                   'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+                   'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+                   'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
                ],
                'selectors' => [
                    '{{WRAPPER}} .elementskit-post-body' => 'border-style: {{VALUE}};',
@@ -720,7 +720,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_border_dimensions',
            [
-               'label' => esc_html_x( 'Width', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Width', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'selectors' => [
                    '{{WRAPPER}} .elementskit-post-body' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -740,14 +740,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_content_border_normal',
            [
-               'label' =>esc_html__( 'Normal', 'elementskit' ),
+               'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_content_border_color_normal',
            [
-               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'default' => '',
                'selectors' => [
@@ -760,13 +760,13 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_content_border_color_hover_style',
            [
-               'label' =>esc_html__( 'Hover', 'elementskit' ),
+               'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
            ]
        );
        $this->add_control(
            'ekit_blog_posts_content_border_color_hover',
            [
-               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'default' => '',
                'selectors' => [
@@ -784,7 +784,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_feature_img_style',
            [
-               'label'     => esc_html__( 'Featured Image', 'elementskit' ),
+               'label'     => esc_html__( 'Featured Image', 'elementskit-lite' ),
                'tab'       => Controls_Manager::TAB_STYLE,
                'condition' => [
                    'ekit_blog_posts_layout_style!' => 'elementskit-post-card',
@@ -804,7 +804,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Border::get_type(),
            [
                'name'      => 'ekit_blog_posts_feature_img_border',
-               'label'     => esc_html__( 'Border', 'elementskit' ),
+               'label'     => esc_html__( 'Border', 'elementskit-lite' ),
                'selector'  => '{{WRAPPER}} .elementskit-entry-thumb',
            ]
        );
@@ -812,7 +812,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_feature_img_radius',
            [
-               'label'     => esc_html__( 'Border radius', 'elementskit' ),
+               'label'     => esc_html__( 'Border radius', 'elementskit-lite' ),
                'type'      => Controls_Manager::DIMENSIONS,
                'size_units'=> [ 'px', '%', 'em' ],
                'selectors' => [
@@ -824,7 +824,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_feature_img_margin',
            [
-               'label'      => esc_html__( 'Margin', 'elementskit' ),
+               'label'      => esc_html__( 'Margin', 'elementskit-lite' ),
                'type'       => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', '%', 'em' ],
                'selectors'  => [
@@ -836,7 +836,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_feature_img_padding',
            [
-               'label'      => esc_html__( 'Padding', 'elementskit' ),
+               'label'      => esc_html__( 'Padding', 'elementskit-lite' ),
                'type'       => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', '%', 'em' ],
                'selectors'  => [
@@ -852,7 +852,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_meta_style',
            [
-               'label'     => esc_html__( 'Meta', 'elementskit' ),
+               'label'     => esc_html__( 'Meta', 'elementskit-lite' ),
                'tab'       => Controls_Manager::TAB_STYLE,
                'condition' => [
                    'ekit_blog_posts_meta' => 'yes',
@@ -870,19 +870,19 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_meta_alignment',
            [
-               'label'    => esc_html__( 'Alignment', 'elementskit' ),
+               'label'    => esc_html__( 'Alignment', 'elementskit-lite' ),
                'type'     => Controls_Manager::CHOOSE,
                'options'  => [
                    'left'   => [
-                       'title' => esc_html__( 'Left', 'elementskit' ),
+                       'title' => esc_html__( 'Left', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-left',
                    ],
                    'center' => [
-                       'title' => esc_html__( 'Center', 'elementskit' ),
+                       'title' => esc_html__( 'Center', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-center',
                    ],
                    'right'  => [
-                       'title' => esc_html__( 'Right', 'elementskit' ),
+                       'title' => esc_html__( 'Right', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-right',
                    ],
                ],
@@ -896,7 +896,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
             'ekit_blog_posts_meta_margin',
             [
-                'label'     => esc_html__( 'Container Margin', 'elementskit' ),
+                'label'     => esc_html__( 'Container Margin', 'elementskit-lite' ),
                 'type'      => Controls_Manager::DIMENSIONS,
                 'size_units'=> [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -908,7 +908,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_meta_item_margin',
            [
-               'label'     => esc_html__( 'Item Margin', 'elementskit' ),
+               'label'     => esc_html__( 'Item Margin', 'elementskit-lite' ),
                'type'      => Controls_Manager::DIMENSIONS,
                'size_units'=> [ 'px', '%', 'em' ],
                'selectors' => [
@@ -920,7 +920,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
             'ekit_blog_posts_meta_padding',
             [
-                'label' => esc_html__( 'Item Padding', 'elementskit' ),
+                'label' => esc_html__( 'Item Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -932,7 +932,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
             'ekit_blog_posts_meta_icon_padding',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -944,7 +944,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_responsive_control(
             'ekit_blog_posts_meta_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -965,14 +965,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->start_controls_tab(
             'ekit_blog_posts_meta_background_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
         $this->add_control(
             'ekit_blog_posts_meta_color_normal',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .post-meta-list > span' => 'color: {{VALUE}};',
@@ -985,7 +985,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_blog_posts_meta_background_normal',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient', ],
                 'selector' => '{{WRAPPER}} .post-meta-list > span',
                 'exclude' => [
@@ -998,7 +998,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_blog_posts_meta_border_normal',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .post-meta-list > span',
 			]
 		);
@@ -1006,7 +1006,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_border_radius_normal',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -1019,7 +1019,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_blog_posts_meta_box_shadow_normal',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .post-meta-list > span',
 			]
         );
@@ -1036,14 +1036,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->start_controls_tab(
             'ekit_blog_posts_meta_background_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_blog_posts_meta_color_hover',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .post-meta-list > span:hover' => 'color: {{VALUE}};',
@@ -1056,7 +1056,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_blog_posts_meta_background_hover',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient', ],
                 'selector' => '{{WRAPPER}} .post-meta-list > span:hover',
                 'exclude' => [
@@ -1069,7 +1069,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_blog_posts_meta_border_hover',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .post-meta-list > span:hover',
 			]
 		);
@@ -1077,7 +1077,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         $this->add_control(
             'ekit_blog_posts_meta_border_radius_hover',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -1090,7 +1090,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_blog_posts_meta_box_shadow_hover',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .post-meta-list > span:hover',
 			]
         );
@@ -1112,7 +1112,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_floating_date_style_area',
            [
-               'label'     => esc_html__( 'Floating Date', 'elementskit' ),
+               'label'     => esc_html__( 'Floating Date', 'elementskit-lite' ),
                'tab'       => Controls_Manager::TAB_STYLE,
                'condition' => [
                    'ekit_blog_posts_floating_date' => 'yes',
@@ -1122,7 +1122,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_height', [
-               'label'			 =>esc_html__( 'Height', 'elementskit' ),
+               'label'			 =>esc_html__( 'Height', 'elementskit-lite' ),
                'type'			 => Controls_Manager::SLIDER,
                'default'		 => [
                    'size' => '',
@@ -1145,7 +1145,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        );
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_width', [
-               'label'			 =>esc_html__( 'Width', 'elementskit' ),
+               'label'			 =>esc_html__( 'Width', 'elementskit-lite' ),
                'type'			 => Controls_Manager::SLIDER,
                'default'		 => [
                    'size' => '',
@@ -1167,7 +1167,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        );
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_left_pos', [
-               'label'			 =>esc_html__( 'Left', 'elementskit' ),
+               'label'			 =>esc_html__( 'Left', 'elementskit-lite' ),
                'type'			 => Controls_Manager::SLIDER,
                'default'		 => [
                    'size' => '',
@@ -1195,7 +1195,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        );
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_top_pos', [
-               'label'			 =>esc_html__( 'Top', 'elementskit' ),
+               'label'			 =>esc_html__( 'Top', 'elementskit-lite' ),
                'type'			 => Controls_Manager::SLIDER,
                'default'		 => [
                    'size' => '',
@@ -1223,7 +1223,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        );
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_bottom_pos', [
-               'label'			 =>esc_html__( 'Bottom', 'elementskit' ),
+               'label'			 =>esc_html__( 'Bottom', 'elementskit-lite' ),
                'type'			 => Controls_Manager::SLIDER,
                'default'		 => [
                    'size' => '',
@@ -1251,7 +1251,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        );
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_style2_left_pos', [
-               'label'			 =>esc_html__( 'Left', 'elementskit' ),
+               'label'			 =>esc_html__( 'Left', 'elementskit-lite' ),
                'type'			 => Controls_Manager::SLIDER,
                'default'		 => [
                    'size' => '-10',
@@ -1281,7 +1281,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_heading',
            [
-               'label' => esc_html__( 'Date Typography', 'elementskit' ),
+               'label' => esc_html__( 'Date Typography', 'elementskit-lite' ),
                'type' => Controls_Manager::HEADING,
                'separator' => 'before',
            ]
@@ -1296,7 +1296,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_color',
            [
-               'label'      => esc_html__( 'Color', 'elementskit' ),
+               'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                'type'       => Controls_Manager::COLOR,
                'selectors'  => [
                    '{{WRAPPER}} .elementskit-meta-lists .elementskit-single-meta .elementskit-meta-wraper strong' => 'color: {{VALUE}};'
@@ -1306,7 +1306,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_month_heading',
            [
-               'label' => esc_html__( 'Month Typography', 'elementskit' ),
+               'label' => esc_html__( 'Month Typography', 'elementskit-lite' ),
                'type' => Controls_Manager::HEADING,
                'separator' => 'before',
            ]
@@ -1321,7 +1321,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_month_color',
            [
-               'label'      => esc_html__( 'Color', 'elementskit' ),
+               'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                'type'       => Controls_Manager::COLOR,
                'selectors'  => [
                    '{{WRAPPER}} .elementskit-meta-lists .elementskit-single-meta .elementskit-meta-wraper' => 'color: {{VALUE}};'
@@ -1341,7 +1341,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_padding',
            [
-               'label' =>esc_html__( 'Padding', 'elementskit' ),
+               'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', 'em', '%' ],
                'selectors' => [
@@ -1356,7 +1356,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Border::get_type(),
            [
                'name'     => 'ekit_blog_posts_floating_date_border_group',
-               'label'    => esc_html__( 'Border', 'elementskit' ),
+               'label'    => esc_html__( 'Border', 'elementskit-lite' ),
                'selector' => '{{WRAPPER}} .elementskit-meta-lists .elementskit-single-meta',
                'condition' => [
                    'ekit_blog_posts_floating_date_style' => 'style1',
@@ -1366,7 +1366,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_floating_date_border_radius',
            [
-               'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+               'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px'],
                'default' => [
@@ -1395,7 +1395,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_triangle_title',
            [
-               'label' => esc_html__( 'Triangle', 'elementskit' ),
+               'label' => esc_html__( 'Triangle', 'elementskit-lite' ),
                'type' => Controls_Manager::HEADING,
                'separator' => 'before',
                'condition' => [
@@ -1406,7 +1406,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_triangle_color',
            [
-               'label' => esc_html__( 'Triangle Background', 'elementskit' ),
+               'label' => esc_html__( 'Triangle Background', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'scheme' => [
                    'type' => Scheme_Color::get_type(),
@@ -1423,7 +1423,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_triangle_size',
            [
-               'label' => esc_html__( 'Triangle Size', 'elementskit' ),
+               'label' => esc_html__( 'Triangle Size', 'elementskit-lite' ),
                'condition' => [
                    'ekit_blog_posts_floating_date_style' => 'style2',
                ],
@@ -1451,7 +1451,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_triangle_position_left',
            [
-               'label' => esc_html__( 'Triangle Position Left', 'elementskit' ),
+               'label' => esc_html__( 'Triangle Position Left', 'elementskit-lite' ),
                'condition' => [
                    'ekit_blog_posts_floating_date_style' => 'style2',
                ],
@@ -1479,7 +1479,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_triangle_position_top',
            [
-               'label' => esc_html__( 'Triangle Position Top', 'elementskit' ),
+               'label' => esc_html__( 'Triangle Position Top', 'elementskit-lite' ),
                'condition' => [
                    'ekit_blog_posts_floating_date_style' => 'style2',
                ],
@@ -1508,15 +1508,15 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_floating_date_triangle_position_alignment',
            [
-               'label' => esc_html__( 'Triangle Direction', 'elementskit' ),
+               'label' => esc_html__( 'Triangle Direction', 'elementskit-lite' ),
                'type' =>   Controls_Manager::CHOOSE,
                'options' => [
                    'triangle_left' => [
-                       'title' => esc_html__( 'From Left', 'elementskit' ),
+                       'title' => esc_html__( 'From Left', 'elementskit-lite' ),
                        'icon' => 'fa fa-caret-right',
                    ],
                    'triangle_right' => [
-                       'title' => esc_html__( 'From Right', 'elementskit' ),
+                       'title' => esc_html__( 'From Right', 'elementskit-lite' ),
                        'icon' => 'fa fa-caret-left',
                    ],
                ],
@@ -1545,7 +1545,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_title_style',
            [
-               'label'     => esc_html__( 'Title', 'elementskit' ),
+               'label'     => esc_html__( 'Title', 'elementskit-lite' ),
                'tab'       => Controls_Manager::TAB_STYLE,
                'condition' => [
                    'ekit_blog_posts_title' => 'yes',
@@ -1567,14 +1567,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_title_normal',
            [
-               'label' => esc_html__( 'Normal', 'elementskit' ),
+               'label' => esc_html__( 'Normal', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_title_color',
            [
-               'label'      => esc_html__( 'Color', 'elementskit' ),
+               'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                'type'       => Controls_Manager::COLOR,
                'selectors'  => [
                    '{{WRAPPER}} .elementskit-post-body .entry-title a' => 'color: {{VALUE}};',
@@ -1595,14 +1595,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_title_hover',
            [
-               'label' => esc_html__( 'Hover', 'elementskit' ),
+               'label' => esc_html__( 'Hover', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_title_hover_color',
            [
-               'label'      => esc_html__( 'Color', 'elementskit' ),
+               'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                'type'       => Controls_Manager::COLOR,
                'selectors'  => [
                    '{{WRAPPER}} .elementskit-post-body .entry-title a:hover' => 'color: {{VALUE}};',
@@ -1635,23 +1635,23 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_title_alignment',
            [
-               'label'   => esc_html__( 'Alignment', 'elementskit' ),
+               'label'   => esc_html__( 'Alignment', 'elementskit-lite' ),
                'type'    => Controls_Manager::CHOOSE,
                'options' => [
                    'left'   => [
-                       'title' => esc_html__( 'Left', 'elementskit' ),
+                       'title' => esc_html__( 'Left', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-left',
                    ],
                    'center'  => [
-                       'title' => esc_html__( 'Center', 'elementskit' ),
+                       'title' => esc_html__( 'Center', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-center',
                    ],
                    'right'   => [
-                       'title' => esc_html__( 'Right', 'elementskit' ),
+                       'title' => esc_html__( 'Right', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-right',
                    ],
                    'justify' => [
-                       'title' => esc_html__( 'justify', 'elementskit' ),
+                       'title' => esc_html__( 'justify', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-justify',
                    ],
                ],
@@ -1667,7 +1667,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_title_margin',
            [
-               'label'      => esc_html__( 'Margin', 'elementskit' ),
+               'label'      => esc_html__( 'Margin', 'elementskit-lite' ),
                'type'       => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', '%', 'em' ],
                'selectors'  => [
@@ -1691,10 +1691,10 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_title_separator',
            [
-               'label'     => esc_html__( 'Show Separator', 'elementskit' ),
+               'label'     => esc_html__( 'Show Separator', 'elementskit-lite' ),
                'type'      => Controls_Manager::SWITCHER,
-               'label_on'  => esc_html__( 'Yes', 'elementskit' ),
-               'label_off' => esc_html__( 'No', 'elementskit' ),
+               'label_on'  => esc_html__( 'Yes', 'elementskit-lite' ),
+               'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                'default'   => 'yes',
                'condition' => [
                    'ekit_blog_posts_layout_style' => 'elementskit-post-card',
@@ -1705,7 +1705,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_title_separator_color',
            [
-               'label'      => esc_html__( 'Separator Color', 'elementskit' ),
+               'label'      => esc_html__( 'Separator Color', 'elementskit-lite' ),
                'type'       => Controls_Manager::COLOR,
                'condition' => [
                    'ekit_blog_posts_title_separator' => 'yes',
@@ -1720,7 +1720,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_title_separator_width',
            [
-               'label' => esc_html__( 'Width', 'elementskit' ),
+               'label' => esc_html__( 'Width', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ '%' ],
                'range' => [
@@ -1746,7 +1746,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_title_separator_height',
            [
-               'label' => esc_html__( 'Height', 'elementskit' ),
+               'label' => esc_html__( 'Height', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ 'px' ],
                'range' => [
@@ -1773,7 +1773,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_title_separator_margin',
            [
-               'label' => esc_html__( 'Margin', 'elementskit' ),
+               'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px' ],
                'selectors' => [
@@ -1793,7 +1793,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_content_style',
            [
-               'label' => esc_html__( 'Content', 'elementskit' ),
+               'label' => esc_html__( 'Content', 'elementskit-lite' ),
                'tab'   => Controls_Manager::TAB_STYLE,
                'condition' => [
                    'ekit_blog_posts_content' => 'yes',
@@ -1804,7 +1804,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_color',
            [
-               'label'      => esc_html__( 'Color', 'elementskit' ),
+               'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                'type'       => Controls_Manager::COLOR,
                'selectors'  => [
                    '{{WRAPPER}} .elementskit-post-footer > p' => 'color: {{VALUE}};',
@@ -1830,23 +1830,23 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_content_alignment',
            [
-               'label'   => esc_html__( 'Alignment', 'elementskit' ),
+               'label'   => esc_html__( 'Alignment', 'elementskit-lite' ),
                'type'    => Controls_Manager::CHOOSE,
                'options' => [
                    'left'    => [
-                       'title' => esc_html__( 'Left', 'elementskit' ),
+                       'title' => esc_html__( 'Left', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-left',
                    ],
                    'center'  => [
-                       'title' => esc_html__( 'Center', 'elementskit' ),
+                       'title' => esc_html__( 'Center', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-center',
                    ],
                    'right'   => [
-                       'title' => esc_html__( 'Right', 'elementskit' ),
+                       'title' => esc_html__( 'Right', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-right',
                    ],
                    'justify' => [
-                       'title' => esc_html__( 'justify', 'elementskit' ),
+                       'title' => esc_html__( 'justify', 'elementskit-lite' ),
                        'icon'  => 'fa fa-align-justify',
                    ],
                ],
@@ -1862,7 +1862,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_content_margin',
            [
-               'label'      => esc_html__( 'Margin', 'elementskit' ),
+               'label'      => esc_html__( 'Margin', 'elementskit-lite' ),
                'type'       => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', '%', 'em' ],
                'selectors'  => [
@@ -1878,10 +1878,10 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_highlight_border',
            [
-               'label' => esc_html__( 'Show Highlight  Border', 'elementskit' ),
+               'label' => esc_html__( 'Show Highlight  Border', 'elementskit-lite' ),
                'type' => Controls_Manager::SWITCHER,
-               'label_on' => esc_html__( 'Show', 'elementskit' ),
-               'label_off' => esc_html__( 'Hide', 'elementskit' ),
+               'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+               'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
                'return_value' => 'yes',
                'default' => '',
                'separator' => 'before'
@@ -1891,7 +1891,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_highlight_border_height',
            [
-               'label' => esc_html__( 'Hight', 'elementskit' ),
+               'label' => esc_html__( 'Hight', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ 'px', '%' ],
                'range' => [
@@ -1918,7 +1918,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_highlight_border_width',
            [
-               'label' => esc_html__( 'Width', 'elementskit' ),
+               'label' => esc_html__( 'Width', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ 'px', '%' ],
                'range' => [
@@ -1945,7 +1945,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_highlight_border_top_bottom_pos',
            [
-               'label' => esc_html__( 'Top Bottom Position', 'elementskit' ),
+               'label' => esc_html__( 'Top Bottom Position', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ '%' ],
                'range' => [
@@ -1973,7 +1973,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_highlight_border_left_right_pos',
            [
-               'label' => esc_html__( 'Left Right Position', 'elementskit' ),
+               'label' => esc_html__( 'Left Right Position', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ '%' ],
                'range' => [
@@ -2006,7 +2006,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_border_highlight_color_normal_tab',
            [
-               'label' => esc_html__( 'Normal', 'elementskit' ),
+               'label' => esc_html__( 'Normal', 'elementskit-lite' ),
            ]
        );
 
@@ -2014,7 +2014,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Background::get_type(),
            [
                'name' => 'ekit_blog_posts_border_highlight_bg_color',
-               'label' => esc_html__( 'Separator Color', 'elementskit' ),
+               'label' => esc_html__( 'Separator Color', 'elementskit-lite' ),
                'types' => [ 'classic', 'gradient' ],
                'selector' => '{{WRAPPER}} .elementskit-post-body.ekit-highlight-border:before',
            ]
@@ -2025,7 +2025,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_border_highlight_color_hover_tab',
            [
-               'label' => esc_html__( 'Hover', 'elementskit' ),
+               'label' => esc_html__( 'Hover', 'elementskit-lite' ),
            ]
        );
 
@@ -2033,7 +2033,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Background::get_type(),
            [
                'name' => 'ekit_blog_posts_border_highlight_bg_color_hover',
-               'label' => esc_html__( 'Separator Color', 'elementskit' ),
+               'label' => esc_html__( 'Separator Color', 'elementskit-lite' ),
                'types' => [ 'classic', 'gradient' ],
                'selector' => '{{WRAPPER}} .elementskit-post-body.ekit-highlight-border:hover:before',
            ]
@@ -2042,7 +2042,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_content_highlight_border_transition',
            [
-               'label' => esc_html__( 'Transition', 'elementskit' ),
+               'label' => esc_html__( 'Transition', 'elementskit-lite' ),
                'type' => Controls_Manager::SLIDER,
                'size_units' => [ 's' ],
                'range' => [
@@ -2076,7 +2076,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_author_img_style',
            [
-               'label'     => esc_html__( 'Author Image', 'elementskit' ),
+               'label'     => esc_html__( 'Author Image', 'elementskit-lite' ),
                'tab'       => Controls_Manager::TAB_STYLE,
                'condition' => [
                    'ekit_blog_posts_author_image' => 'yes',
@@ -2087,7 +2087,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
         'ekit_blog_posts_author_img_size_width',
         [
-            'label' => esc_html__( 'Image Width', 'elementskit' ),
+            'label' => esc_html__( 'Image Width', 'elementskit-lite' ),
             'type' => Controls_Manager::SLIDER,
             'size_units' => [ 'px', '%' ],
             'range' => [
@@ -2114,7 +2114,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
         'ekit_blog_posts_author_img_size_height',
         [
-            'label' => esc_html__( 'Image Height', 'elementskit' ),
+            'label' => esc_html__( 'Image Height', 'elementskit-lite' ),
             'type' => Controls_Manager::SLIDER,
             'size_units' => [ 'px', '%' ],
             'range' => [
@@ -2149,7 +2149,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Border::get_type(),
            [
                'name'     => 'ekit_blog_posts_author_img_border',
-               'label'    => esc_html__( 'Border', 'elementskit' ),
+               'label'    => esc_html__( 'Border', 'elementskit-lite' ),
                'selector' => '{{WRAPPER}} .elementskit-post-body .author-img',
            ]
        );
@@ -2157,7 +2157,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_author_img_margin',
            [
-               'label' => esc_html__( 'Margin', 'elementskit' ),
+               'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', '%', 'em' ],
                'default' => [
@@ -2176,7 +2176,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_author_img_radius',
            [
-               'label'     => esc_html__( 'Radius', 'elementskit' ),
+               'label'     => esc_html__( 'Radius', 'elementskit-lite' ),
                'type'      => Controls_Manager::DIMENSIONS,
                'size_units'=> [ 'px', '%', 'em' ],
                'separator' => 'after',
@@ -2195,7 +2195,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_section(
            'ekit_blog_posts_btn_section_style',
            [
-               'label' =>esc_html__( 'Button', 'elementskit' ),
+               'label' =>esc_html__( 'Button', 'elementskit-lite' ),
                'tab' => Controls_Manager::TAB_STYLE,
                'condition' => ['ekit_blog_posts_read_more' => 'yes', 'ekit_blog_posts_layout_style!' => 'elementskit-blog-block-post']
            ]
@@ -2204,7 +2204,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_btn_text_padding',
            [
-               'label' =>esc_html__( 'Padding', 'elementskit' ),
+               'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', 'em', '%' ],
                'selectors' => [
@@ -2216,7 +2216,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
             'ekit_blog_posts_btn_normal_icon_font_size',
             array(
-                'label'      => esc_html__( 'Font Size', 'elementskit' ),
+                'label'      => esc_html__( 'Font Size', 'elementskit-lite' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array(
                     'px', 'em', 'rem',
@@ -2238,7 +2238,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
            Group_Control_Typography::get_type(),
            [
                'name' => 'ekit_blog_posts_btn_typography',
-               'label' =>esc_html__( 'Typography', 'elementskit' ),
+               'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
                'selector' => '{{WRAPPER}} .elementskit-btn',
            ]
        );
@@ -2248,14 +2248,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_btn_tabnormal',
            [
-               'label' =>esc_html__( 'Normal', 'elementskit' ),
+               'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_btn_text_color',
            [
-               'label' =>esc_html__( 'Text Color', 'elementskit' ),
+               'label' =>esc_html__( 'Text Color', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'default' => '',
                'selectors' => [
@@ -2278,14 +2278,14 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_btn_tab_button_hover',
            [
-               'label' =>esc_html__( 'Hover', 'elementskit' ),
+               'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
            ]
        );
 
        $this->add_control(
            'ekit_blog_posts_btn_hover_color',
            [
-               'label' =>esc_html__( 'Text Color', 'elementskit' ),
+               'label' =>esc_html__( 'Text Color', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'default' => '#ffffff',
                'selectors' => [
@@ -2310,15 +2310,15 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_btn_border_style',
            [
-               'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::SELECT,
                'options' => [
-                   '' => esc_html__( 'None', 'elementskit' ),
-                   'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-                   'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-                   'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-                   'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-                   'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+                   '' => esc_html__( 'None', 'elementskit-lite' ),
+                   'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+                   'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+                   'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+                   'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+                   'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
                ],
                'selectors' => [
                    '{{WRAPPER}} .elementskit-btn' => 'border-style: {{VALUE}};',
@@ -2328,7 +2328,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_btn_border_dimensions',
            [
-               'label' => esc_html_x( 'Width', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Width', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'selectors' => [
                    '{{WRAPPER}} .elementskit-btn' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -2342,7 +2342,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_btn_tab_border_normal',
            [
-               'label' =>esc_html__( 'Normal', 'elementskit' ),
+               'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
                'condition'  => [
                    'ekit_blog_posts_btn_border_style!' => ''
                ]
@@ -2352,7 +2352,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_btn_border_color',
            [
-               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'default' => '',
                'selectors' => [
@@ -2368,7 +2368,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->start_controls_tab(
            'ekit_blog_posts_btn_tab_button_border_hover',
            [
-               'label' =>esc_html__( 'Hover', 'elementskit' ),
+               'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
                'condition'  => [
                    'ekit_blog_posts_btn_border_style!' => ''
                ]
@@ -2377,7 +2377,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_control(
            'ekit_blog_posts_btn_hover_border_color',
            [
-               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+               'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
                'type' => Controls_Manager::COLOR,
                'default' => '',
                'selectors' => [
@@ -2393,7 +2393,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        $this->add_responsive_control(
            'ekit_blog_posts_btn_border_radius',
            [
-               'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+               'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
                'type' => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px'],
                'default' => [
@@ -2441,13 +2441,13 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
        ];
 
         if($ekit_blog_posts_is_manual_selection === 'yes'){
-            $default = \ElementsKit\Utils::array_push_assoc(
+            $default = \ElementsKit_Lite\Utils::array_push_assoc(
                 $default, 'post__in', (!empty($ekit_blog_posts_manual_selection  && count($ekit_blog_posts_manual_selection) > 0 )) ? $ekit_blog_posts_manual_selection : [-1]
             );
         }
 
         if($ekit_blog_posts_is_manual_selection == '' && $ekit_blog_posts_cats != ''){
-            $default = \ElementsKit\Utils::array_push_assoc(
+            $default = \ElementsKit_Lite\Utils::array_push_assoc(
                 $default, 'category__in', $ekit_blog_posts_cats
             );
         }
@@ -2482,7 +2482,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                 <h2 class="entry-title">
                     <a href="<?php the_permalink(); ?>">
                             <?php if($ekit_blog_posts_title_trim !='' || $ekit_blog_posts_title_trim > 0):
-                                echo \ElementsKit\Utils::trim_words(get_the_title(), $ekit_blog_posts_title_trim);
+                                echo \ElementsKit_Lite\Utils::trim_words(get_the_title(), $ekit_blog_posts_title_trim);
                             else:
                                 the_title();
                             endif; ?>
@@ -2615,7 +2615,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                                 <div class="elementskit-post-body <?php echo esc_attr($highlight_border); ?>">
                                     <div class="elementskit-entry-header">
                                         <?php if ( 'yes' == $ekit_blog_posts_title && 'before_meta' == $ekit_blog_posts_title_position ): ?>
-                                                <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                                <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
                                         <?php endif; ?>
 
                                             <?php if ('after_content' != $ekit_blog_posts_title_position ): ?>
@@ -2623,18 +2623,18 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                                             <?php endif; ?>
 
                                             <?php if ('yes' == $ekit_blog_posts_title && 'after_content' == $ekit_blog_posts_title_position ): ?>
-                                                <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                                <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
                                             <?php endif; ?>
 
                                             <?php if ( 'yes' == $ekit_blog_posts_title && 'after_meta' == $ekit_blog_posts_title_position ): ?>
-                                                <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                                <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
                                             <?php endif; ?>
                                     </div><!-- .elementskit-entry-header END -->
 
                                     <?php if ( 'yes' == $ekit_blog_posts_content ): ?>
                                         <div class="elementskit-post-footer">
                                             <?php if($ekit_blog_posts_content_trim !='' || $ekit_blog_posts_content_trim > 0): ?>
-                                                <p><?php echo \ElementsKit\Utils::trim_words(get_the_excerpt(), $ekit_blog_posts_content_trim); ?></p>
+                                                <p><?php echo \ElementsKit_Lite\Utils::trim_words(get_the_excerpt(), $ekit_blog_posts_content_trim); ?></p>
                                             <?php else: ?>
                                                 <?php echo the_excerpt(); ?>
                                             <?php endif; ?>
@@ -2669,7 +2669,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
 
                             <?php if ( 'elementskit-post-card' == $ekit_blog_posts_layout_style):
                                     if('yes' == $ekit_blog_posts_title && 'before_meta' == $ekit_blog_posts_title_position ): ?>
-                                        <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                        <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
 
                                         <?php if ( 'yes' == $ekit_blog_posts_title_separator ): ?>
                                             <span class="elementskit-border-hr"></span>
@@ -2681,7 +2681,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                                     <?php endif; ?>
 
                                     <?php if ( 'yes' == $ekit_blog_posts_title && 'after_content' == $ekit_blog_posts_title_position ): ?>
-                                        <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                        <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
 
                                         <?php if ( 'yes' == $ekit_blog_posts_title_separator ): ?>
                                             <span class="elementskit-border-hr"></span>
@@ -2689,7 +2689,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                                     <?php endif; ?>
 
                                     <?php if ( 'yes' == $ekit_blog_posts_title && 'after_meta' == $ekit_blog_posts_title_position ): ?>
-                                        <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                        <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
 
                                         <?php if ( 'yes' == $ekit_blog_posts_title_separator ): ?>
                                             <span class="elementskit-border-hr"></span>
@@ -2701,7 +2701,7 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                         <div class="elementskit-post-body <?php echo esc_attr($highlight_border); ?>">
                             <?php if ( 'elementskit-post-image-card' == $ekit_blog_posts_layout_style):
                                         if ('yes' == $ekit_blog_posts_title && 'before_meta' == $ekit_blog_posts_title_position ): ?>
-                                        <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                        <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
                                         <?php endif; ?>
 
                                         <?php if ( 'after_content' != $ekit_blog_posts_title_position ): ?>
@@ -2709,16 +2709,16 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
                                         <?php endif; ?>
 
                                         <?php if ( 'yes' == $ekit_blog_posts_title && 'after_content' == $ekit_blog_posts_title_position ): ?>
-                                        <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                        <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
                                         <?php endif; ?>
 
                                         <?php if ( 'yes' == $ekit_blog_posts_title && 'after_meta' == $ekit_blog_posts_title_position ): ?>
-                                        <?php echo \ElementsKit\Utils::kses($title_html);  ?>
+                                        <?php echo \ElementsKit_Lite\Utils::kses($title_html);  ?>
                                         <?php endif; ?>
                                 <?php endif; ?>
                             <?php if ( 'yes' == $ekit_blog_posts_content ): ?>
                                 <?php if($ekit_blog_posts_content_trim !='' || $ekit_blog_posts_content_trim > 0): ?>
-                                        <p><?php echo \ElementsKit\Utils::trim_words(get_the_excerpt(), $ekit_blog_posts_content_trim); ?></p>
+                                        <p><?php echo \ElementsKit_Lite\Utils::trim_words(get_the_excerpt(), $ekit_blog_posts_content_trim); ?></p>
                                     <?php else: ?>
                                         <?php echo the_excerpt(); ?>
                                     <?php endif; ?>

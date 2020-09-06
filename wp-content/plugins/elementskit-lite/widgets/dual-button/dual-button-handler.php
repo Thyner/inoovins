@@ -1,14 +1,14 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Dual_Button_Handler extends Core\Handler_Widget{
+class Elementskit_Widget_Dual_Button_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-dual-button';
     }
 
     static function get_title() {
-        return esc_html__( 'Dual Button', 'elementskit' );
+        return esc_html__( 'Dual Button', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +16,14 @@ class Elementskit_Widget_Dual_Button_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'dual-button/';
+        return \ElementsKit_Lite::widget_dir() . 'dual-button/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'dual-button/';
+        return \ElementsKit_Lite::widget_url() . 'dual-button/';
     }
 }

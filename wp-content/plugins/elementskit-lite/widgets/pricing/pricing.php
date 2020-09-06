@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Pricing_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Pricing_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Pricing extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -32,7 +32,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
             'ekit_pricing_pricing_plan',
             [
-                'label' => esc_html__('Header', 'elementskit'),
+                'label' => esc_html__('Header', 'elementskit-lite'),
             ]
         );
 
@@ -40,15 +40,15 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
 			'ekit_pricing_table_title', [
 				'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Table Title', 'elementskit'),
-                'default'   =>  esc_html__('Starter','elementskit'),
+                'label' => esc_html__('Table Title', 'elementskit-lite'),
+                'default'   =>  esc_html__('Starter','elementskit-lite'),
 				'label_block' => true,
 			]
 		);
 		$this->add_control(
             'ekit_pricing_title_size',
             [
-                'label' => esc_html__( 'Title HTML Tag', 'elementskit' ),
+                'label' => esc_html__( 'Title HTML Tag', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'h1' => 'H1',
@@ -68,27 +68,27 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
 			'ekit_pricing_table_subtitle', [
 				'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Table Subtitle', 'elementskit'),
-                'default'   =>  esc_html__('A small river named Duden flows by their place and supplies','elementskit'),
+                'label' => esc_html__('Table Subtitle', 'elementskit-lite'),
+                'default'   =>  esc_html__('A small river named Duden flows by their place and supplies','elementskit-lite'),
 				'label_block' => true,
 			]
 		);
 		$this->add_control(
             'ekit_pricing_icon_type',
             [
-                'label' => esc_html__( 'Header Icon or Image? ', 'elementskit' ),
+                'label' => esc_html__( 'Header Icon or Image? ', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'none' => [
-                        'title' => esc_html__( 'None', 'elementskit' ),
+                        'title' => esc_html__( 'None', 'elementskit-lite' ),
                         'icon' => 'fa fa-stop-circle',
 					],
 					'icon' => [
-                        'title' => esc_html__( 'Icon', 'elementskit' ),
+                        'title' => esc_html__( 'Icon', 'elementskit-lite' ),
                         'icon' => 'fa fa-star',
                     ],
                     'image' => [
-                        'title' => esc_html__( 'Image', 'elementskit' ),
+                        'title' => esc_html__( 'Image', 'elementskit-lite' ),
                         'icon' => 'fa fa-image',
                     ],
                 ],
@@ -101,11 +101,11 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
             'ekit_pricing_icons__switch',
             [
-                'label' => esc_html__('Add icon? ', 'elementskit'),
+                'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-				'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
 				'condition' => [
                     'ekit_pricing_icon_type' => 'icon',
                 ]
@@ -115,7 +115,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_pricing_icon',
                 'default' => [
@@ -132,7 +132,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_image',
             [
-                'label' => esc_html__( 'Choose Image', 'elementskit' ),
+                'label' => esc_html__( 'Choose Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -158,47 +158,47 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
             'ekit_pricing_pricing_tag',
             [
-                'label' => esc_html__('Price Tag', 'elementskit'),
+                'label' => esc_html__('Price Tag', 'elementskit-lite'),
             ]
         );
 
 	    $this->add_control(
 			'ekit_pricing_currency_icon', [
 				'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Currency', 'elementskit'),
+                'label' => esc_html__('Currency', 'elementskit-lite'),
 				'default'   => '$',
 			]
 		);
         $this->add_control(
 			'ekit_pricing_table_price', [
 				'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Price', 'elementskit'),
-				'default'   => esc_html__('5.99', 'elementskit'),
+                'label' => esc_html__('Price', 'elementskit-lite'),
+				'default'   => esc_html__('5.99', 'elementskit-lite'),
 			]
 		);
         $this->add_control(
 			'ekit_pricing_table_duration', [
 				'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Duration', 'elementskit'),
-				'default'   => esc_html__('Month', 'elementskit'),
+                'label' => esc_html__('Duration', 'elementskit-lite'),
+				'default'   => esc_html__('Month', 'elementskit-lite'),
 			]
 		);
 		$this->end_controls_section();
         $this->start_controls_section(
             'ekit_pricing_features_tab',
             [
-                'label' =>esc_html__('Features', 'elementskit'),
+                'label' =>esc_html__('Features', 'elementskit-lite'),
             ]
         );
         $this->add_control(
             'ekit_pricing_content_style',
             [
-                'label' => esc_html__( 'Features style', 'elementskit' ),
+                'label' => esc_html__( 'Features style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'paragraph',
                 'options' => [
-                    'paragraph'  => esc_html__( 'Paragraph', 'elementskit' ),
-                    'list' => esc_html__( 'List', 'elementskit' ),
+                    'paragraph'  => esc_html__( 'Paragraph', 'elementskit-lite' ),
+                    'list' => esc_html__( 'List', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -206,9 +206,9 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
 			'ekit_pricing_table_content', [
                 'type' => Controls_Manager::TEXTAREA,
-                'label' => esc_html__('Table Content', 'elementskit'),
+                'label' => esc_html__('Table Content', 'elementskit-lite'),
 				'label_block' => true,
-				'default' => esc_html__('Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam','elementskit'),
+				'default' => esc_html__('Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam','elementskit-lite'),
                 'condition' => [
                     'ekit_pricing_content_style' => 'paragraph',
 				],
@@ -218,16 +218,16 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 
         $repeater->add_control(
             'ekit_pricing_list', [
-                'label' => esc_html__('List text', 'elementskit'),
+                'label' => esc_html__('List text', 'elementskit-lite'),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( '15 Email Account' , 'elementskit' ),
+				'default' => esc_html__( '15 Email Account' , 'elementskit-lite' ),
 				'label_block' => true,
             ]
         );
 
         $repeater->add_control(
             'ekit_pricing_check_icons', [
-				'label' =>esc_html__( 'Icon', 'elementskit' ),
+				'label' =>esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_pricing_check_icon',
                 'default' => [
@@ -239,7 +239,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 
         $repeater->add_control(
             'ekit_pricing_list_icon_color', [
-				'label' =>esc_html__( 'Icon Color', 'elementskit' ),
+				'label' =>esc_html__( 'Icon Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -252,7 +252,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$repeater->add_responsive_control(
             'ekit_pricing_list_content_typography_group',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -277,28 +277,28 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		// 	Group_Control_Typography::get_type(),
 		// 	[
 		// 		'name' => 'ekit_pricing_list_content_typography_group',
-		// 		'label' =>esc_html__( 'Icon Typography', 'elementskit' ),
+		// 		'label' =>esc_html__( 'Icon Typography', 'elementskit-lite' ),
 		// 		'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-lists {{CURRENT_ITEM}} i',
 		// 	]
 		// );
         $this->add_control(
             'ekit_pricing_table_content_repeater',
             [
-                'label' => esc_html__( 'Pricing Content List', 'elementskit' ),
+                'label' => esc_html__( 'Pricing Content List', 'elementskit-lite' ),
                 'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'title_field' => '{{ekit_pricing_list}}',
                 'default' => [
                     [
-                        'item' => esc_html__( '15 Email Account', 'elementskit' ),
+                        'item' => esc_html__( '15 Email Account', 'elementskit-lite' ),
                         'check_icon' => 'icon icon-tick',
                     ],
                     [
-						'item' => esc_html__( '100 GB Space', 'elementskit' ),
+						'item' => esc_html__( '100 GB Space', 'elementskit-lite' ),
 						'check_icon' => 'icon icon-tick',
                     ],
                     [
-						'item' => esc_html__( '1 Domain Name', 'elementskit' ),
+						'item' => esc_html__( '1 Domain Name', 'elementskit-lite' ),
 						'check_icon' => 'icon icon-tick',
                     ],
                 ],
@@ -313,23 +313,23 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
             'ekit_pricing_button_style_tab',
             [
-                'label' =>esc_html__('Button', 'elementskit'),
+                'label' =>esc_html__('Button', 'elementskit-lite'),
             ]
         );
         $this->add_control(
 			'ekit_pricing_btn_text',
 			[
-				'label' =>esc_html__( 'Label', 'elementskit' ),
+				'label' =>esc_html__( 'Label', 'elementskit-lite' ),
 				'type' => Controls_Manager::TEXT,
-				'default' =>esc_html__( 'Learn more ', 'elementskit' ),
-				'placeholder' =>esc_html__( 'Learn more ', 'elementskit' ),
+				'default' =>esc_html__( 'Learn more ', 'elementskit-lite' ),
+				'placeholder' =>esc_html__( 'Learn more ', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_pricing_btn_link',
 			[
-				'label' =>esc_html__( 'Link', 'elementskit' ),
+				'label' =>esc_html__( 'Link', 'elementskit-lite' ),
 				'type' => Controls_Manager::URL,
 				'placeholder' =>esc_url('http://your-link.com'),
 				'default' => [
@@ -341,18 +341,18 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
             'ekit_pricing_btn_icons__switch',
             [
-                'label' => esc_html__('Add icon? ', 'elementskit'),
+                'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_control(
 			'ekit_pricing_btn_icons',
 			[
-				'label' =>esc_html__( 'Icon', 'elementskit' ),
+				'label' =>esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_pricing_btn_icon',
                 'default' => [
@@ -368,12 +368,12 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_icon_align',
 			[
-				'label' =>esc_html__( 'Icon Position', 'elementskit' ),
+				'label' =>esc_html__( 'Icon Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'left' =>esc_html__( 'Before', 'elementskit' ),
-					'right' =>esc_html__( 'After', 'elementskit' ),
+					'left' =>esc_html__( 'Before', 'elementskit-lite' ),
+					'right' =>esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_pricing_btn_icons__switch'	=> 'yes'
@@ -384,7 +384,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_pricing_icon_spacing',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -412,18 +412,18 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 	    $this->add_control(
 		    'ekit_pricing_button_class',
 		    [
-			    'label' => esc_html__( 'Class', 'elementskit' ),
+			    'label' => esc_html__( 'Class', 'elementskit-lite' ),
 			    'type' => Controls_Manager::TEXT,
-			    'placeholder' => esc_html__( 'Class Name', 'elementskit' ),
+			    'placeholder' => esc_html__( 'Class Name', 'elementskit-lite' ),
 		    ]
 	    );
 
 	    $this->add_control(
 		    'ekit_pricing_button_id',
 		    [
-			    'label' => esc_html__( 'id', 'elementskit' ),
+			    'label' => esc_html__( 'id', 'elementskit-lite' ),
 			    'type' => Controls_Manager::TEXT,
-			    'placeholder' => esc_html__( 'ID', 'elementskit' ),
+			    'placeholder' => esc_html__( 'ID', 'elementskit-lite' ),
 		    ]
 	    );
 
@@ -436,26 +436,26 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
 			'sekit_pricing_ection_title_style',
 			[
-				'label' =>esc_html__( 'Table Title', 'elementskit' ),
+				'label' =>esc_html__( 'Table Title', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_responsive_control(
 			'ekit_pricing_title_align',
 			[
-				'label' =>esc_html__( 'Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' =>esc_html__( 'Left', 'elementskit' ),
+						'title' =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' =>esc_html__( 'Right', 'elementskit' ),
+						'title' =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -470,13 +470,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_tab_title_normal',
             [
-                'label' =>esc_html__( 'Normal', 'elementskit' ),
+                'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_pricing_title_text_color',
             [
-                'label' =>esc_html__( 'Title Color', 'elementskit' ),
+                'label' =>esc_html__( 'Title Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -488,13 +488,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_tab_title_hover',
             [
-                'label' =>esc_html__( 'Hover', 'elementskit' ),
+                'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_pricing_title_hover_color',
             [
-                'label' =>esc_html__( 'Color', 'elementskit' ),
+                'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}:hover .elementskit-pricing-header .elementskit-pricing-title' => 'color: {{VALUE}};',
@@ -507,14 +507,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_pricing_title_typography_group',
-                'label' =>esc_html__( 'Title Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Title Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-title',
             ]
         );
 		$this->add_responsive_control(
 			'ekit_pricing_title_text_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -526,7 +526,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_title_wraper_margin',
 			[
-				'label' =>esc_html__( 'Margin', 'elementskit' ),
+				'label' =>esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -545,15 +545,15 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_title_border_style',
 			[
-				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'None', 'elementskit' ),
-					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+					'' => esc_html__( 'None', 'elementskit-lite' ),
+					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-title' => 'border-style: {{VALUE}};',
@@ -563,7 +563,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_title_border_dimensions',
 			[
-				'label' => esc_html_x( 'Border Width', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Width', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-title' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -578,7 +578,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_title_border_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_pricing_title_border_style!' => '',
                 ],
@@ -588,7 +588,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_title_border_color',
 			[
-				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -605,7 +605,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_title_tab_border_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_pricing_title_border_style!' => '',
                 ],
@@ -615,7 +615,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_title_hover_border_color',
 			[
-				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -632,7 +632,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_title_border_radius',
 			[
-				'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+				'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'default' => [
@@ -661,7 +661,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
 			'ekit_pricing_section_subtitle_style',
 			[
-				'label' =>esc_html__( 'Table Subtitle', 'elementskit' ),
+				'label' =>esc_html__( 'Table Subtitle', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_pricing_table_subtitle!' => '',
@@ -671,19 +671,19 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_subtitle_align',
 			[
-				'label' =>esc_html__( 'Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' =>esc_html__( 'Left', 'elementskit' ),
+						'title' =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' =>esc_html__( 'Right', 'elementskit' ),
+						'title' =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -707,13 +707,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_tab_subtitle_normal',
             [
-                'label' =>esc_html__( 'Normal', 'elementskit' ),
+                'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_pricing_subtitle_text_color',
             [
-                'label' =>esc_html__( 'Color', 'elementskit' ),
+                'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -725,13 +725,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_tab_subtitle_hover',
             [
-                'label' =>esc_html__( 'Hover', 'elementskit' ),
+                'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_pricing_subtitle_hover_color',
             [
-                'label' =>esc_html__( 'Color', 'elementskit' ),
+                'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}:hover .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-subtitle' => 'color: {{VALUE}};',
@@ -744,14 +744,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_pricing_subtitle_typography_group',
-                'label' =>esc_html__( 'Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-subtitle',
             ]
         );
 		$this->add_responsive_control(
 			'ekit_pricing_subtitle_text_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -772,15 +772,15 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_subtitle_border_style',
 			[
-				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'None', 'elementskit' ),
-					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+					'' => esc_html__( 'None', 'elementskit-lite' ),
+					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-subtitle' => 'border-style: {{VALUE}};',
@@ -790,7 +790,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_subtitle_border_dimensions',
 			[
-				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-header .elementskit-pricing-subtitle' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -804,7 +804,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_subtitle_border_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_pricing_subtitle_border_style!' => '',
                 ],
@@ -814,7 +814,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_subtitle_border_color',
 			[
-				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -830,7 +830,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_subtitle_tab_border_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_pricing_subtitle_border_style!' => '',
                 ],
@@ -839,7 +839,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_subtitle_hover_border_color',
 			[
-				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -865,7 +865,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_subtitle_border_radius',
 			[
-				'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+				'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'default' => [
@@ -892,7 +892,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
             'ekit_pricing_style_image',
             [
-                'label' => esc_html__( 'Header Image', 'elementskit' ),
+                'label' => esc_html__( 'Header Image', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_pricing_icon_type' => 'image',
@@ -903,7 +903,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_image_space',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -927,21 +927,21 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_style_img_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_pricing_imge_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementor-pricing-img img',
             ]
         );
         $this->add_responsive_control(
             'ekit_pricing_image_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -953,7 +953,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_pricing_iamge_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementor-pricing-img img',
             ]
         );
@@ -963,7 +963,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_style_img_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -971,14 +971,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_pricing_imge_border_hover_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}}:hover .elementor-pricing-img img',
             ]
         );
         $this->add_responsive_control(
             'ekit_pricing_image_hover_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -990,7 +990,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_pricing_iamge_box_shadow_hv_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}}:hover .elementor-pricing-img img',
             ]
         );
@@ -998,7 +998,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_image_hover_animation',
             [
-                'label' => esc_html__( 'Animation', 'elementskit' ),
+                'label' => esc_html__( 'Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -1014,7 +1014,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
             'ekit_pricing_section_style_icon',
             [
-                'label' => esc_html__( 'Header Icon', 'elementskit' ),
+                'label' => esc_html__( 'Header Icon', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
 					'ekit_pricing_icons__switch'	=> 'yes',
@@ -1029,14 +1029,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_icon_colors_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_pricing_icon_primary_color',
             [
-                'label' => esc_html__( 'Color', 'elementskit' ),
+                'label' => esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -1049,7 +1049,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_icon_secondary_color_normal',
             [
-                'label' => esc_html__( 'BG Color', 'elementskit' ),
+                'label' => esc_html__( 'BG Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -1062,7 +1062,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_pricing_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-pricing-icon, {{WRAPPER}} .elementskit-pricing-header svg',
             ]
         );
@@ -1070,7 +1070,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_icon_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1084,14 +1084,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_icon_colors_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_pricing_hover_primary_color',
             [
-                'label' => esc_html__( 'Primary Color', 'elementskit' ),
+                'label' => esc_html__( 'Primary Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -1104,7 +1104,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_hover_secondary_color',
             [
-                'label' => esc_html__( 'Secondary Color', 'elementskit' ),
+                'label' => esc_html__( 'Secondary Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -1117,7 +1117,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_pricing_border_icon_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}}:hover .elementkit-pricing-icon, {{WRAPPER}}:hover .elementskit-pricing-header svg',
                 'condition' => [
                     'view!' => 'Stacked',
@@ -1127,7 +1127,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_icon_hover_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1138,7 +1138,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_icons_hover_animation',
             [
-                'label' => esc_html__( 'Hover Animation', 'elementskit' ),
+                'label' => esc_html__( 'Hover Animation', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -1149,7 +1149,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_icon_size',
             [
-                'label' => esc_html__( 'Size', 'elementskit' ),
+                'label' => esc_html__( 'Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1171,7 +1171,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_icon_space',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1192,7 +1192,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_icon_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1212,7 +1212,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
             'ekit_pricing_rotate',
             [
-                'label' => esc_html__( 'Rotate', 'elementskit' ),
+                'label' => esc_html__( 'Rotate', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -1238,7 +1238,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
 			'ekit_pricing_section_tag_style',
 			[
-				'label' =>esc_html__( 'Price Tag', 'elementskit' ),
+				'label' =>esc_html__( 'Price Tag', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1246,7 +1246,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_tag_right',
 			[
-				'label' => esc_html__( 'Right', 'elementskit' ),
+				'label' => esc_html__( 'Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1273,7 +1273,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_tag_width_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1296,7 +1296,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_tag_text_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => 	[
@@ -1314,7 +1314,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_tag_text_margin',
 			[
-				'label' =>esc_html__( 'Margin', 'elementskit' ),
+				'label' =>esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => 	[
@@ -1334,14 +1334,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_pricing_price_typography_group',
-				'label' =>esc_html__( 'Typography', 'elementskit' ),
+				'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-price-wraper.has-tag .elementskit-pricing-price span',
 			]
 		);
 		$this->add_control(
 			'ekit_pricing_heading_period_style',
 			[
-				'label' => esc_html__( 'Period Options', 'elementskit' ),
+				'label' => esc_html__( 'Period Options', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1349,7 +1349,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_period_text_color',
 			[
-				'label' =>esc_html__( 'Period Color', 'elementskit' ),
+				'label' =>esc_html__( 'Period Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1360,7 +1360,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_period_text_color_hover',
 			[
-				'label' =>esc_html__( 'Period Hover Color', 'elementskit' ),
+				'label' =>esc_html__( 'Period Hover Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1373,27 +1373,27 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_pricing_period_typography_group',
-                'label' =>esc_html__( 'Period Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Period Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-price-wraper.has-tag .elementskit-pricing-price sub.period',
             ]
         );
 		$this->add_responsive_control(
 			'ekit_pricing_period_vertical_position',
 			[
-				'label' => esc_html__( 'Vertical Position', 'elementskit' ),
+				'label' => esc_html__( 'Vertical Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'top' => [
-						'title' => esc_html__( 'Top', 'elementskit' ),
+						'title' => esc_html__( 'Top', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => esc_html__( 'Middle', 'elementskit' ),
+						'title' => esc_html__( 'Middle', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => esc_html__( 'Bottom', 'elementskit' ),
+						'title' => esc_html__( 'Bottom', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -1412,7 +1412,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_heading_currency_style',
 			[
-				'label' => esc_html__( 'Currency Symbol Options', 'elementskit' ),
+				'label' => esc_html__( 'Currency Symbol Options', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1422,7 +1422,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_pricing_currency_size',
-                'label' =>esc_html__( 'Period Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Period Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-price-wraper.has-tag .elementskit-pricing-price sup.currency',
             ]
         );
@@ -1430,17 +1430,17 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_currency_position',
 			[
-				'label' => esc_html__( 'Position', 'elementskit' ),
+				'label' => esc_html__( 'Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'default' => 'before',
 				'options' => [
 					'before' => [
-						'title' => esc_html__( 'Before', 'elementskit' ),
+						'title' => esc_html__( 'Before', 'elementskit-lite' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'after' => [
-						'title' => esc_html__( 'After', 'elementskit' ),
+						'title' => esc_html__( 'After', 'elementskit-lite' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -1450,20 +1450,20 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_currency_vertical_position',
 			[
-				'label' => esc_html__( 'Vertical Position', 'elementskit' ),
+				'label' => esc_html__( 'Vertical Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'top' => [
-						'title' => esc_html__( 'Top', 'elementskit' ),
+						'title' => esc_html__( 'Top', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => esc_html__( 'Middle', 'elementskit' ),
+						'title' => esc_html__( 'Middle', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => esc_html__( 'Bottom', 'elementskit' ),
+						'title' => esc_html__( 'Bottom', 'elementskit-lite' ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -1491,14 +1491,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tab_tag_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_pricing_tag_text_color',
 			[
-				'label' =>esc_html__( 'Color', 'elementskit' ),
+				'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1520,14 +1520,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tag_tab_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_pricing_tag_hover_color',
 			[
-				'label' =>esc_html__( 'Color', 'elementskit' ),
+				'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}}:hover .elementskit-pricing-price-wraper.has-tag .elementskit-pricing-price' => 'color: {{VALUE}};',
@@ -1559,15 +1559,15 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_tag_border_style',
 			[
-				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'None', 'elementskit' ),
-					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+					'' => esc_html__( 'None', 'elementskit-lite' ),
+					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-price-wraper.has-tag .elementskit-pricing-tag' => 'border-style: {{VALUE}};',
@@ -1577,7 +1577,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_tag_border_dimensions',
 			[
-				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-price-wraper.has-tag .elementskit-pricing-tag' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -1588,14 +1588,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tag_border_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
 		$this->add_control(
 			'ekit_pricing_tag_border_color',
 			[
-				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1608,13 +1608,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tag_tab_border_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
 		$this->add_control(
 			'ekit_pricing_tag_hover_border_color',
 			[
-				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1637,7 +1637,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_tag_border_radius',
 			[
-				'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+				'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'default' => [
@@ -1668,7 +1668,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
 			'ekit_pricing_section_content_style',
 			[
-				'label' =>esc_html__( 'Features', 'elementskit' ),
+				'label' =>esc_html__( 'Features', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1676,19 +1676,19 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_btn_align',
 			[
-				'label' =>esc_html__( 'Content Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Content Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' =>esc_html__( 'Left', 'elementskit' ),
+						'title' =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' =>esc_html__( 'Right', 'elementskit' ),
+						'title' =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -1703,7 +1703,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_pricing_content_typography_group',
-				'label' =>esc_html__( 'List Typography', 'elementskit' ),
+				'label' =>esc_html__( 'List Typography', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-content p,  {{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-lists > li',
 			]
 		);
@@ -1711,15 +1711,15 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_control(
             'ekit_pricing_content_li_type',
             [
-                'label'     => esc_html__( 'List Type', 'elementskit' ),
+                'label'     => esc_html__( 'List Type', 'elementskit-lite' ),
                 'type'      => \Elementor\Controls_Manager::SELECT,
                 'default'   => 'none',
                 'options'   => [
-                    'none'          => esc_html__( 'None', 'elementskit' ),
-                    'disc'          => esc_html__( 'Disc', 'elementskit' ),
-                    'decimal'       => esc_html__( 'Number', 'elementskit' ),
-                    'lower-alpha'   => esc_html__( 'Alphabet', 'elementskit' ),
-                    'lower-roman'   => esc_html__( 'Roman', 'elementskit' ),
+                    'none'          => esc_html__( 'None', 'elementskit-lite' ),
+                    'disc'          => esc_html__( 'Disc', 'elementskit-lite' ),
+                    'decimal'       => esc_html__( 'Number', 'elementskit-lite' ),
+                    'lower-alpha'   => esc_html__( 'Alphabet', 'elementskit-lite' ),
+                    'lower-roman'   => esc_html__( 'Roman', 'elementskit-lite' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-single-pricing .elementskit-pricing-lists > li' => 'list-style: {{VALUE}};',
@@ -1742,13 +1742,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_content_tab',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 			$this->add_control(
 				'ekit_pricing_content_text_color',
 				[
-					'label' =>esc_html__( 'Color', 'elementskit' ),
+					'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -1768,13 +1768,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_content_tab_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
         $this->add_control(
             'ekit_pricing_content_hover_color',
             [
-                'label' =>esc_html__( 'Color', 'elementskit' ),
+                'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}:hover .elementskit-pricing-content p' => 'color: {{VALUE}};',
@@ -1796,7 +1796,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_list_divider',
 			[
-				'label' => esc_html__( 'Divider', 'elementskit' ),
+				'label' => esc_html__( 'Divider', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'separator' => 'before',
@@ -1809,13 +1809,13 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_divider_style',
 			[
-				'label' => esc_html__( 'Style', 'elementskit' ),
+				'label' => esc_html__( 'Style', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'solid' => esc_html__( 'Solid', 'elementskit' ),
-					'double' => esc_html__( 'Double', 'elementskit' ),
-					'dotted' => esc_html__( 'Dotted', 'elementskit' ),
-					'dashed' => esc_html__( 'Dashed', 'elementskit' ),
+					'solid' => esc_html__( 'Solid', 'elementskit-lite' ),
+					'double' => esc_html__( 'Double', 'elementskit-lite' ),
+					'dotted' => esc_html__( 'Dotted', 'elementskit-lite' ),
+					'dashed' => esc_html__( 'Dashed', 'elementskit-lite' ),
 				],
 				'default' => 'solid',
 				'condition' => [
@@ -1830,7 +1830,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_divider_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ddd',
 				'condition' => [
@@ -1845,7 +1845,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_divider_weight',
 			[
-				'label' => esc_html__( 'Weight', 'elementskit' ),
+				'label' => esc_html__( 'Weight', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 2,
@@ -1869,7 +1869,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_divider_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'condition' => [
 					'ekit_pricing_list_divider' => 'yes',
@@ -1883,7 +1883,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_divider_gap',
 			[
-				'label' => esc_html__( 'List Gap', 'elementskit' ),
+				'label' => esc_html__( 'List Gap', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -1914,7 +1914,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_features_body_margin',
 			[
-				'label' =>esc_html__( 'Margin', 'elementskit' ),
+				'label' =>esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => [
@@ -1932,7 +1932,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_features_body_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1948,7 +1948,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
 			'ekit_pricing_section_btn_style',
 			[
-				'label' =>esc_html__( 'Button', 'elementskit' ),
+				'label' =>esc_html__( 'Button', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1956,14 +1956,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_pricing_btn_typography_group',
-                'label' =>esc_html__( 'Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-single-pricing a.elementskit-pricing-btn',
             ]
 		);
 		$this->add_responsive_control(
             'ekit_pricing_btn_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1996,14 +1996,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_tab_button_normal',
             [
-                'label' =>esc_html__( 'Normal', 'elementskit' ),
+                'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_pricing_btn_text_color',
             [
-                'label' =>esc_html__( 'Text Color', 'elementskit' ),
+                'label' =>esc_html__( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000',
                 'selectors' => [
@@ -2026,14 +2026,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_tab(
             'ekit_pricing_btn_tab_button_hover',
             [
-                'label' =>esc_html__( 'Hover', 'elementskit' ),
+                'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_pricing_btn_hover_color',
             [
-                'label' =>esc_html__( 'Text Color', 'elementskit' ),
+                'label' =>esc_html__( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
 					'{{WRAPPER}}:hover a.elementskit-pricing-btn' => 'color: {{VALUE}};',
@@ -2057,7 +2057,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_text_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -2077,15 +2077,15 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_btn_border_style',
 			[
-				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Type', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'None', 'elementskit' ),
-					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit' ),
-					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit' ),
-					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit' ),
-					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit' ),
-					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit' ),
+					'' => esc_html__( 'None', 'elementskit-lite' ),
+					'solid' => esc_html_x( 'Solid', 'Border Control', 'elementskit-lite' ),
+					'double' => esc_html_x( 'Double', 'Border Control', 'elementskit-lite' ),
+					'dotted' => esc_html_x( 'Dotted', 'Border Control', 'elementskit-lite' ),
+					'dashed' => esc_html_x( 'Dashed', 'Border Control', 'elementskit-lite' ),
+					'groove' => esc_html_x( 'Groove', 'Border Control', 'elementskit-lite' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing a.elementskit-pricing-btn' => 'border-style: {{VALUE}};',
@@ -2095,7 +2095,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_btn_border_dimensions',
 			[
-				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Width', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing a.elementskit-pricing-btn' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -2109,7 +2109,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tab_button_border_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_pricing_btn_border_style!' => '',
                 ]
@@ -2119,7 +2119,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_btn_border_color',
 			[
-				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -2135,7 +2135,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_btn_tab_button_border_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_pricing_btn_border_style!' => '',
                 ]
@@ -2144,7 +2144,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_btn_hover_border_color',
 			[
-				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit' ),
+				'label' => esc_html_x( 'Border Color', 'Border Control', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -2170,7 +2170,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_pricing_btn_border_radius',
 			[
-				'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+				'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'default' => [
@@ -2191,7 +2191,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tab_button_box_shadow_normal',
 			[
-				'label' =>esc_html__( 'Normal', 'elementskit' ),
+				'label' =>esc_html__( 'Normal', 'elementskit-lite' ),
 
 			]
 		);
@@ -2208,7 +2208,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_pricing_tab_button_box_shadow_hover',
 			[
-				'label' =>esc_html__( 'Hover', 'elementskit' ),
+				'label' =>esc_html__( 'Hover', 'elementskit-lite' ),
 
 			]
 		);
@@ -2230,7 +2230,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
         $this->start_controls_section(
 			'ekit_pricing_section_body_style',
 			[
-				'label' =>esc_html__( 'Pricing Body', 'elementskit' ),
+				'label' =>esc_html__( 'Pricing Body', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -2238,7 +2238,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_control(
 			'ekit_pricing_pricing_body_bg_sp', [
 				'type' => Controls_Manager::COLOR,
-                'label' => esc_html__('Background Color', 'elementskit'),
+                'label' => esc_html__('Background Color', 'elementskit-lite'),
 				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-single-pricing' => 'background-color: {{VALUE}};',
@@ -2249,19 +2249,19 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_pricing_pricing_content_align',
 			[
-				'label' =>esc_html__( 'Alignment', 'elementskit' ),
+				'label' =>esc_html__( 'Alignment', 'elementskit-lite' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' =>esc_html__( 'Left', 'elementskit' ),
+						'title' =>esc_html__( 'Left', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' =>esc_html__( 'Center', 'elementskit' ),
+						'title' =>esc_html__( 'Center', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' =>esc_html__( 'Right', 'elementskit' ),
+						'title' =>esc_html__( 'Right', 'elementskit-lite' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -2278,14 +2278,14 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_pricing_order',
 			[
-				'label' =>esc_html__( 'Custom Ordering', 'elementskit' ),
+				'label' =>esc_html__( 'Custom Ordering', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 			$this->add_control(
 				'ekit_pricing_order_enable',
 				[
-					'label' 		=> esc_html__( 'Enable Ordering', 'elementskit' ),
+					'label' 		=> esc_html__( 'Enable Ordering', 'elementskit-lite' ),
 					'type' 			=> Controls_Manager::SWITCHER,
 					'label_block'	=> false,
 					'return_value' 	=> 'yes',
@@ -2296,7 +2296,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 			$this->add_control(
 				'ekit_pricing_order_header',
 				[
-					'label' 		=> esc_html__( 'Header', 'elementskit' ),
+					'label' 		=> esc_html__( 'Header', 'elementskit-lite' ),
 					'type' 			=> Controls_Manager::SLIDER,
 					'label_block'	=> false,
 					'condition'		=> [
@@ -2308,7 +2308,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 			$this->add_control(
 				'ekit_pricing_order_price',
 				[
-					'label' 		=> esc_html__( 'Price Tag', 'elementskit' ),
+					'label' 		=> esc_html__( 'Price Tag', 'elementskit-lite' ),
 					'type' 			=> Controls_Manager::SLIDER,
 					'label_block'	=> false,
 					'condition'		=> [
@@ -2320,7 +2320,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 			$this->add_control(
 				'ekit_pricing_order_features',
 				[
-					'label' 		=> esc_html__( 'Features', 'elementskit' ),
+					'label' 		=> esc_html__( 'Features', 'elementskit-lite' ),
 					'type' 			=> Controls_Manager::SLIDER,
 					'label_block'	=> false,
 					'condition'		=> [
@@ -2332,7 +2332,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 			$this->add_control(
 				'ekit_pricing_order_button',
 				[
-					'label' 		=> esc_html__( 'Button', 'elementskit' ),
+					'label' 		=> esc_html__( 'Button', 'elementskit-lite' ),
 					'type' 			=> Controls_Manager::SLIDER,
 					'label_block'	=> false,
 					'condition'		=> [
@@ -2353,7 +2353,8 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 
     protected function render_raw( ) {
 
-        $settings = $this->get_settings_for_display();
+		$settings = $this->get_settings_for_display();
+		extract($settings);
 
         $table_title = $settings[ 'ekit_pricing_table_title' ];
         $table_subtitle = $settings[ 'ekit_pricing_table_subtitle' ];
@@ -2389,17 +2390,17 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 
 
 		// Custom Orders
-		$header_order = $settings['ekit_pricing_order_header']['size'];
-		$price_order = $settings['ekit_pricing_order_price']['size'];
-		$features_order = $settings['ekit_pricing_order_features']['size'];
-		$button_order = $settings['ekit_pricing_order_button']['size'];
+		$header_order = !empty($ekit_pricing_order_header) ? $ekit_pricing_order_header['size'] : '';
+		$price_order = !empty($ekit_pricing_order_price) ? $ekit_pricing_order_price['size']: '';
+		$features_order = !empty($ekit_pricing_order_features) ? $ekit_pricing_order_features['size'] : '';
+		$button_order = !empty($ekit_pricing_order_button) ? $ekit_pricing_order_button['size'] : '';
 		?>
 
 
         <div class="elementskit-single-pricing <?php echo esc_attr($settings['ekit_pricing_order_enable'] == 'yes' ? 'd-flex flex-column' : ''); ?>" >
             <div class="elementskit-pricing-header <?php echo esc_attr($header_order ? 'order-'. $header_order : ''); ?>">
 				<?php if($settings['ekit_pricing_icon_type'] == 'image') : ?>
-                    <?php echo \ElementsKit\Utils::render($image); ?>
+                    <?php echo \ElementsKit_Lite\Utils::render($image); ?>
                 <?php endif; ?>
 				<?php if($settings['ekit_pricing_icon_type'] == 'icon') : ?>					
 					<?php
@@ -2423,9 +2424,9 @@ class Elementskit_Widget_Pricing extends Widget_Base {
 				<?php endif; ?>
 
 				<?php if($table_title != ''): ?>
-                	<<?php echo \ElementsKit\Utils::render($settings['ekit_pricing_title_size']); ?>
+                	<<?php echo \ElementsKit_Lite\Utils::render($settings['ekit_pricing_title_size']); ?>
 					class=" elementskit-pricing-title"><?php echo esc_html($table_title); ?>
-					</<?php echo \ElementsKit\Utils::render($settings['ekit_pricing_title_size']); ?>>
+					</<?php echo \ElementsKit_Lite\Utils::render($settings['ekit_pricing_title_size']); ?>>
 				<?php endif; ?>
 				<?php if($table_subtitle != ''): ?>
                 	<p class=" elementskit-pricing-subtitle"><?php echo esc_html($table_subtitle); ?></p>
@@ -2449,7 +2450,7 @@ class Elementskit_Widget_Pricing extends Widget_Base {
             <div class="elementskit-pricing-content <?php echo esc_attr($features_order ? 'order-'. $features_order : ''); ?>">
 
                 <?php if($content_style == 'paragraph'){ ?>
-                    <p> <?php echo \ElementsKit\Utils::kses($table_content); ?></p>
+                    <p> <?php echo \ElementsKit_Lite\Utils::kses($table_content); ?></p>
                 <?php } ?>
                 <?php if($content_style == 'list'){ ?>
                     <ul class="elementskit-pricing-lists">

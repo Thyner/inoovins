@@ -24,86 +24,121 @@
 				'ekit-nav-menu.default': Elementskit.Nav_Menu,
 				'elementskit-woo-mini-cart.default': Elementskit.Mini_Cart,
 				'elementskit-team.default': Elementskit.Team,
-				'elementskit-image-accordion.default': Elementskit.Image_Accordion,
 				'elementskit-woo-product-carousel.default': Elementskit.Woo_Product_slider,
 				'elementskit-hotspot.default': Elementskit.Hotspot,
 				'ekit-vertical-menu.default': Elementskit.Vertical_Menu,
 				'elementskit-advanced-toggle.default': Elementskit.Advanced_Toggle,
+				'elementskit-video-gallery.default': Elementskit.Video_Gallery,
+				'elementskit-facebook-review.default': Elementskit.Facebook_Review,
+				'elementskit-zoom.default': Elementskit.Zoom
 			};
 			$.each(widgets, function (widget, callback) {
 				elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
 			});
-
-			elementor.hooks.addAction('frontend/element_ready/global', Elementskit.GlobalCallback);
 		},
 
-		GlobalCallback: function ($scope) {
-			// $('img').imagesLoaded().done(function (instance) {
-			// 	console.log('all images successfully loaded');
-			// });
+		Social_Review_Slider: function ($sliders) {
+			$sliders.each(function () {
+				let prevArrow = '<span type="button" class="slick-prev"></span>';
+				let nextArrow = '<span type="button" class="slick-next"></span>';
+				let arrow = $(this).data('showarrow') === 'yes' ? true : false;
+				let dot = $(this).data('showdot') === 'yes' ? true : false;
+				let autoplay = ($(this).data('autoplay') && $(this).data('autoplay') === 'yes') ? true : false;
+
+				let config = {
+					autoplay, prevArrow, nextArrow,
+					slidesToShow: ($(this).data('slidestoshow') !== 'undefined') ? $(this).data('slidestoshow') : 1,
+					slidesToScroll: ($(this).data('slidestoscroll') !== 'undefined') ? $(this).data('slidestoscroll') : 1,
+					autoplaySpeed: ($(this).data('speed') !== 'undefined') ? $(this).data('speed') : 1000,
+					arrows: ($(this).data('showarrow') !== 'undefined') ? arrow : true,
+					dots: ($(this).data('showdot') !== 'undefined') ? dot : true,
+					pauseOnHover: ($(this).data('pauseonhover') == 'yes') ? true : false,
+					infinite: ($(this).data('autoplay') !== 'undefined') ? autoplay : true,
+				}
+				$(this).slick(config);
+			})
 		},
+		
+		Facebook_Review: function ($scope) {
+			Elementskit.Social_Review_Slider($scope.find('.ekit-review-slider-wrapper-facebook'))
 
-		AnimationFix: function ($scope) {
-			function init($scope) {
-				$scope.find('.elementskit-invisible').each(function () {
-					var el = $(this);
-					var settings = JSON.parse(el.attr('data-settings'));
-
-					var isVisible = Elementskit.IsElementInView(el, false),
-						animationClass = settings._animation,
-						animationDelay = settings._animation_delay || 300;
-
-					if (isVisible == true) {
-						setTimeout(function () {
-							el.removeClass('elementskit-invisible').addClass('animated ' + animationClass);
-						}, animationDelay);
+			$($scope).find('.more').each(function () {
+				$(this).click(() => {
+					let span = $($(this).parent().get(0)).find('span').first()
+					if ($(this).data('collapsed') === true) {
+						$(span).text($(this).data('text'))
+						$(this).text('...Collapse')
 					}
-				});
-			}
-
-			init($scope);
-			$(window).on('scroll', function () {
-				init($scope);
-			});
+					else {
+						$(span).text($(this).data('text').substr(0, 120))
+						$(this).text('...More')
+					}
+					$(this).data('collapsed', !$(this).data('collapsed'))
+				})
+			})
 		},
+		
+		Zoom: function( $scope ){
+			var el = $scope.find('.ekit-zoom-counter'),
+				custom_settings = $scope.find('.ekit-zoom-wrapper').data('settings');
 
-		IsElementInView: function (element, fullyInView) {
-			var pageTop = $(window).scrollTop();
-			var pageBottom = pageTop + $(window).height();
-			var elementTop = element.offset().top;
-			var elementBottom = elementTop + element.height();
+			if(!el.length){ return false; }
+			var dateText = el.data('date');
+			// Set the date we're counting down to
+			var countDownDate = new Date(dateText).getTime();
+			if(!countDownDate){ countDownDate = 0; }
 
-			if (fullyInView === true) {
-				return ((pageTop < elementTop) && (pageBottom > elementBottom));
-			} else {
-				return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			// Get today's date and time
+			var now = new Date().getTime();
+				
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+				
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			var output = "<ul><li><span class='number'>"+ days +"</span><span class='text'>"+ custom_settings.days +"</span></li><li><span class='number'>"+ hours +"</span><span class='text'>"+ custom_settings.hours +"</span></li><li><span class='number'>"+ minutes +"</span><span class='text'>"+ custom_settings.minutes +"</span></li><li><span class='number'>"+ seconds +"</span><span class='text'>"+ custom_settings.seconds +"</span></li></ul>";
+			// Output the result in an element with id="demo"
+			el.html( output );
+				
+			// If the count down is over, write some text 
+			if (distance < 0) {
+				clearInterval(x);
+				el.html( "EXPIRED" );
 			}
+			}, 1000);
 		},
 
 		Nav_Menu: function ($scope) {
-			if ($scope.find('.elementskit-menu-container').length > 0) {
+			if($scope.find('.elementskit-menu-container').length > 0) {
 				let icon_container = $scope.find('.ekit-wid-con'),
 					icon = icon_container.data('hamburger-icon'),
 					hamburger_type = icon_container.data('hamburger-icon-type');
 
 				$scope.find('.elementskit-menu-container').each(function () {
 					let menu_container = $(this);
-					if (menu_container.attr('ekit-dom-added') == 'yes') {
+					if(menu_container.attr('ekit-dom-added') == 'yes') {
 						return;
 					}
 					let iconmarkup = [];
-					if (icon === '' || icon === undefined) {
+					if(icon === '' || icon === undefined) {
 						iconmarkup += '<span class="elementskit-menu-hamburger-icon"></span><span class="elementskit-menu-hamburger-icon"></span><span class="elementskit-menu-hamburger-icon"></span>';
 					} else {
-						if (hamburger_type === 'url') {
-							iconmarkup += '<img src="'+icon+'" alt="hamburger icon" />'
+						if(hamburger_type === 'url') {
+							iconmarkup += '<img src="' + icon + '" alt="hamburger icon" />'
 						} else {
-							iconmarkup += '<div class="ekit-menu-icon '+icon+'"></div>'
+							iconmarkup += '<div class="ekit-menu-icon ' + icon + '"></div>'
 						}
 					}
 					menu_container
 						.before(
-							'<button class="elementskit-menu-hamburger elementskit-menu-toggler">'+iconmarkup+'</button>'
+							'<button class="elementskit-menu-hamburger elementskit-menu-toggler">' + iconmarkup + '</button>'
 						)
 						.after('<div class="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler"></div>')
 						.attr('ekit-dom-added', 'yes');
@@ -111,8 +146,8 @@
 			}
 
 
-			if ($scope.find('.elementskit-megamenu-has').length > 0) {
-				let data_breakpoint = $scope.find('.ekit-wid-con').data('responsive-breakpoint');
+			if($scope.find('.elementskit-megamenu-has').length > 0) {
+				let date_breakpoint = $scope.find('.ekit-wid-con').data('responsive-breakpoint');
 				let target = $scope.find('.elementskit-megamenu-has');
 				let menu_height = $scope.find('.elementskit-menu-container').outerHeight();
 
@@ -122,11 +157,11 @@
 					})
 				}).trigger('resize');
 
-					target.each(function () {
-						let data_width   = $(this).data('vertical-menu'),
-							megamenu_panel = $(this).children('.elementskit-megamenu-panel');
+				target.each(function () {
+					let data_width = $(this).data('vertical-menu'),
+						megamenu_panel = $(this).children('.elementskit-megamenu-panel');
 
-					if ($(this).hasClass('elementskit-dropdown-menu-full_width') && $(this).hasClass('top_position')) {
+					if($(this).hasClass('elementskit-dropdown-menu-full_width') && $(this).hasClass('top_position')) {
 						let left_pos = Math.floor($(this).position().left - $(this).offset().left);
 						let $this = $(this);
 						$(window).on('resize', function () {
@@ -136,45 +171,41 @@
 						}).trigger('resize');
 					}
 
-					if (!$(this).hasClass('elementskit-dropdown-menu-full_width') && $(this).hasClass('top_position')) {
-						$(this).on({
-							mouseenter: function() {
-								if ($('.default_menu_position').length === 0) {
-									$(this).parents('.elementor-section-wrap').addClass('default_menu_position');
-								}
-							},
-							mouseleave: function() {
-								if ($('.default_menu_position').length !== 0) {
-									$(this).parents('.elementor-section-wrap').removeClass('default_menu_position');
-								}
-							}
-						})
-						}
-
-					function menu_width_tigger_on_resize() {
-						$(window).on('resize', function () {
-							if (!($(window).width() > Number(data_breakpoint))) {
-								megamenu_panel.removeAttr('style');
+					if(data_width && data_width !== undefined) {
+						if(typeof data_width === 'string') {
+							if(/^[0-9]/.test(data_width)) {
+								$(window).on('resize', function () {
+									megamenu_panel.css({
+										width: data_width
+									})
+									if(!($(document).width() > Number(date_breakpoint))) {
+										megamenu_panel.removeAttr('style');
+									}
+								}).trigger('resize');
 							} else {
-								megamenu_panel.css({
-									width: data_width
-								})
-							}
-						}).trigger('resize');
-					}
-
-					if (data_width && data_width !== undefined) {
-						if (typeof data_width === 'string') {
-							if (/^[0-9]/.test(data_width)) {
-								menu_width_tigger_on_resize();
-							} else {
-								menu_width_tigger_on_resize();
+								$(window).on('resize', function () {
+									megamenu_panel.css({
+										width: data_width + 'px'
+									})
+									if(!($(document).width() > Number(date_breakpoint))) {
+										megamenu_panel.removeAttr('style');
+									}
+								}).trigger('resize');
 							}
 						} else {
-							menu_width_tigger_on_resize();
+							megamenu_panel.css({
+								width: data_width + 'px'
+							})
 						}
 					} else {
-						menu_width_tigger_on_resize();
+						$(window).on('resize', function () {
+							megamenu_panel.css({
+								width: data_width + 'px'
+							})
+							if(!($(document).width() > Number(date_breakpoint))) {
+								megamenu_panel.removeAttr('style');
+							}
+						}).trigger('resize');
 					}
 				})
 			}
@@ -188,11 +219,11 @@
 					body = self.find('.ekit-mini-cart-container');
 
 
-				if (e.type === 'click' && enableClick && !$(e.target).parents('div').hasClass('ekit-mini-cart-container')) {
+				if(e.type === 'click' && enableClick && !$(e.target).parents('div').hasClass('ekit-mini-cart-container')) {
 					body.fadeToggle();
-				} else if (e.type === 'mouseenter' && enableHover) {
+				} else if(e.type === 'mouseenter' && enableHover) {
 					body.fadeIn();
-				} else if (e.type === 'mouseleave' && enableHover) {
+				} else if(e.type === 'mouseleave' && enableHover) {
 					body.fadeOut();
 				}
 
@@ -200,595 +231,355 @@
 		},
 
 		Progressbar: function ($scope) {
-			var barElement = $scope.find(".single-skill-bar");
-			var percentElement = $scope.find(".number-percentage");
-			var value = percentElement.attr("data-value");
-			var duration = percentElement.attr("data-animation-duration");
-			duration = parseInt((duration != '' ? duration : 300), 10);
+			var $skillBar = $scope.find('.single-skill-bar'),
+				$track = $skillBar.find('.skill-track'),
+				$number = $skillBar.find('.number-percentage'),
+				value = $number.data('value'),
+				duration = $number.data('animation-duration') || 300;
 
-			barElement.elementorWaypoint({
-				handler: function () {
-					percentElement.animateNumbers(value, true, duration);
-					barElement.find('.skill-track').animate({
-						width: value + '%'
-					}, 3500);
-				},
-				offset: '100%'
-			})
+			$skillBar.elementorWaypoint(function () {
+				$number.animateNumbers(value, true, duration);
+
+				$track.animate({
+					width: value + '%'
+				}, 3500);
+			}, { offset: '100%' });
 		},
+
 		Funfact: function ($scope) {
-			var barElement = $scope.find(".elementskit-funfact");
-			var percentElement = $scope.find(".number-percentage");
-			var value = percentElement.attr("data-value");
-			var duration = percentElement.attr("data-animation-duration");
-			duration = parseInt((duration != '' ? duration : 300), 10);
+			var $funfact = $scope.find('.elementskit-funfact'),
+				$number = $funfact.find(".number-percentage"),
+				value = $number.data('value'),
+				duration = $number.data('animation-duration') || 300;
 
-			barElement.elementorWaypoint({
-				handler: function () {
-					percentElement.animateNumbers(value, true, duration);
-				},
-				offset: '100%'
-			})
+			$funfact.elementorWaypoint(function () {
+				$number.animateNumbers(value, true, duration);
+			}, { offset: '100%' });
 		},
+
 		Countdown_Timer: function ($scope) {
+			var $el = $scope.find('.ekit-countdown'),
+				config = $el.data();
+			
+			if ($el.length) {
+				switch ($el[0].classList[0]) {
+					case 'elementskit-countdown-timer':
+						config.markup = '<div class="elementskit-timer-container elementskit-days"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + config.dateEkitDay + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-hours"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + config.dateEkitHour + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-minutes"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + config.dateEkitMinute + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-seconds"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + config.dateEkitSecond + '</span></div></div></div>';
+						break;
+				
+					case 'elementskit-countdown-timer-3':
+						config.markup = '<div class="elementskit-timer-container elementskit-days"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + config.dateEkitDay + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-hours"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + config.dateEkitHour + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-minutes"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + config.dateEkitMinute + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-seconds"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + config.dateEkitSecond + '</span></div></div></div>';
+						break;
+				
+					default:
+						config.markup = '<div class="elementskit-timer-container elementskit-days"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + config.dateEkitDay + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-hours"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + config.dateEkitHour + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-minutes"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + config.dateEkitMinute + '</span></div></div></div>'
+							+	'<div class="elementskit-timer-container elementskit-seconds"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + config.dateEkitSecond + '</span></div></div></div>';
+						break;
+				}
 
-			var $container1 = $scope.find('.elementskit-countdown-timer[data-ekit-countdown]');
-			var $container2 = $scope.find('.elementskit-countdown-timer-2[data-ekit-countdown]');
-			var $container3 = $scope.find('.elementskit-countdown-timer-3[data-ekit-countdown]');
-			var $container4 = $scope.find('.elementskit-countdown-timer-4[data-ekit-countdown]');
-			var $container5 = $scope.find('.elementskit-flip-clock');
+				$el.theFinalCountdown(config.ekitCountdown, function (e) {
+					this.innerHTML = e.strftime(config.markup);
+				}).on('finish.countdown', function () {
+					this.innerHTML = config.finishTitle + '<br />' + config.finishContent;
 
-			$container1.each(function () {
-				var $this = $(this),
-					finalDate = $(this).data('ekit-countdown');
-				var hour = $(this).data('date-ekit-hour'),
-					minute = $(this).data('date-ekit-minute'),
-					second = $(this).data('date-ekit-second'),
-					day = $(this).data('date-ekit-day'),
-					week = $(this).data('date-ekit-week'),
-					finish_title = $(this).data('finish-title'),
-					finish_content = $(this).data('finish-content');
-
-				$this.theFinalCountdown(finalDate, function (event) {
-						var $this = $(this).html(event.strftime(' ' +
-							'<div class="elementskit-timer-container elementskit-days"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + day + '</span></div></div></div>' +
-							'<div class="elementskit-timer-container elementskit-hours"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + hour + '</span></div></div></div>' +
-							'<div class="elementskit-timer-container elementskit-minutes"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + minute + '</span></div></div></div>' +
-							'<div class="elementskit-timer-container elementskit-seconds"><div class="elementskit-inner-container"><div class="elementskit-timer-content"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + second + '</span></div></div></div>'
-						));
-					})
-					.on('finish.countdown', function () {
-						$(this).html(
-							finish_title + "<br/>" + finish_content
-						);
-					});
-			});
-
-			$container2.each(function () {
-				var $this = $(this),
-					finalDate = $(this).data('ekit-countdown');
-				var hour = $(this).data('date-ekit-hour'),
-					minute = $(this).data('date-ekit-minute'),
-					second = $(this).data('date-ekit-second'),
-					day = $(this).data('date-ekit-day'),
-					week = $(this).data('date-ekit-week'),
-					finish_title = $(this).data('finish-title'),
-					finish_content = $(this).data('finish-content');
-
-				$this.theFinalCountdown(finalDate, function (event) {
-
-						var $this = $(this).html(event.strftime(' ' +
-							'<div class="elementskit-timer-container elementskit-days"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + day + '</span></div>' +
-							'<div class="elementskit-timer-container elementskit-hours"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + hour + '</span></div>' +
-							'<div class="elementskit-timer-container elementskit-minutes"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + minute + '</span></div>' +
-							'<div class="elementskit-timer-container elementskit-seconds"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + second + '</span></div>'));
-					})
-					.on('finish.countdown', function () {
-						$(this).html(
-							finish_title + "<br/>" + finish_content
-						);
-					});
-			});
-
-			$container3.each(function () {
-				var $this = $(this),
-					finalDate = $(this).data('ekit-countdown');
-				var hour = $(this).data('date-ekit-hour'),
-					minute = $(this).data('date-ekit-minute'),
-					second = $(this).data('date-ekit-second'),
-					day = $(this).data('date-ekit-day'),
-					week = $(this).data('date-ekit-week'),
-					finish_title = $(this).data('finish-title'),
-					finish_content = $(this).data('finish-content');
-
-				$this.theFinalCountdown(finalDate, function (event) {
-						var $this = $(this).html(event.strftime(' ' +
-							'<div class="elementskit-timer-container elementskit-days"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + day + '</span></div></div></div>' +
-							'<div class="elementskit-timer-container elementskit-hours"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + hour + '</span></div></div></div>' +
-							'<div class="elementskit-timer-container elementskit-minutes"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + minute + '</span></div></div></div>' +
-							'<div class="elementskit-timer-container elementskit-seconds"><div class="elementskit-timer-content"><div class="elementskit-inner-container"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + second + '</span></div></div></div>'));
-
-					})
-					.on('finish.countdown', function () {
-						$(this).html(
-							finish_title + "<br/>" + finish_content
-						);
-					});
-			});
-
-			$container4.each(function () {
-				var $this = $(this),
-					finalDate = $(this).data('ekit-countdown');
-				var hour = $(this).data('date-ekit-hour'),
-					minute = $(this).data('date-ekit-minute'),
-					second = $(this).data('date-ekit-second'),
-					day = $(this).data('date-ekit-day'),
-					week = $(this).data('date-ekit-week'),
-					finish_title = $(this).data('finish-title'),
-					finish_content = $(this).data('finish-content');
-
-				$this.theFinalCountdown(finalDate, function (event) {
-
-						var $this = $(this).html(event.strftime(' ' +
-							'<div class="elementskit-timer-container elementskit-days"><span class="elementskit-timer-count">%-D </span><span class="elementskit-timer-title">' + day + '</span></div>' +
-							'<div class="elementskit-timer-container elementskit-hours"><span class="elementskit-timer-count">%H </span><span class="elementskit-timer-title">' + hour + '</span></div>' +
-							'<div class="elementskit-timer-container elementskit-minutes"><span class="elementskit-timer-count">%M </span><span class="elementskit-timer-title">' + minute + '</span></div>' +
-							'<div class="elementskit-timer-container elementskit-seconds"><span class="elementskit-timer-count">%S </span><span class="elementskit-timer-title">' + second + '</span></div>'));
-
-					})
-					.on('finish.countdown', function () {
-						$(this).html(
-							finish_title + "<br/>" + finish_content
-						);
+					if (this.classList[0] === 'elementskit-countdown-timer-4') {
 						$(this).addClass('elementskit-coundown-finish');
-					});
-			});
+					}
+				});
+			}
 
-			$container5.each(function () {
-				var hour = $(this).data('date-ekit-hour'),
-					minute = $(this).data('date-ekit-minute'),
-					second = $(this).data('date-ekit-second'),
-					day = $(this).data('date-ekit-day'),
-					week = $(this).data('date-ekit-week'),
-					finalDate = $(this).data('ekit-countdown'),
-					finish_title = $(this).data('finish-title'),
-					finish_content = $(this).data('finish-content');
+			var $flip = $scope.find('.elementskit-flip-clock'),
+				flipConfig = $flip.data();
 
-				var labelsData = {
-					'elementskit-wks': week,
-					'elementskit-days': day,
-					'elementskit-hrs': hour,
-					'elementskit-mins': minute,
-					'elementskit-secs': second
+			if ($flip.length) {
+				var labels = [flipConfig.dateEkitWeek, flipConfig.dateEkitDay, flipConfig.dateEkitHour, flipConfig.dateEkitMinute, flipConfig.dateEkitSecond],
+					labelsClass = ['elementskit-wks', 'elementskit-days', 'elementskit-hrs', 'elementskit-mins', 'elementskit-secs'],
+					markup = '';
+
+				labels.forEach(function (label, i) {
+					markup += '<div class="elementskit-time ' + labelsClass[i] + '">'
+						+ '<span class="elementskit-count elementskit-curr elementskit-top"></span>'
+						+ '<span class="elementskit-count elementskit-next elementskit-top"></span>'
+						+ '<span class="elementskit-count elementskit-next elementskit-bottom"></span>'
+						+ '<span class="elementskit-count elementskit-curr elementskit-bottom"></span>'
+						+ '<span class="elementskit-label">'+ label +'</span>'
+						+ '</div>';
+				});
+
+				$flip.html(markup);
+				
+				var $min = $flip.children('.elementskit-mins'),
+					$sec = $flip.children('.elementskit-secs'),
+					$hrs = $flip.children('.elementskit-hrs'),
+					$days = $flip.children('.elementskit-days'),
+					$wks = $flip.children('.elementskit-wks'),
+					timer = {
+						s: '',
+						m: '',
+						h: '',
+						d: '',
+						w: ''
+					};
+
+				var updater = function (before, current, $target) {
+					if (before === current) return;
+
+					before = before.toString().length === 1 ? '0' + before : before;
+					current = current.toString().length === 1 ? '0' + current : current;
+					
+					$target.removeClass('elementskit-flip');
+
+					$target.children('.elementskit-curr').text(before);
+					$target.children('.elementskit-next').text(current);
+
+					setTimeout(function ($target) {
+						$target.addClass('elementskit-flip');
+					}, 50, $target);
 				};
 
-				var labels = ['elementskit-wks', 'elementskit-days', 'elementskit-hrs', 'elementskit-mins', 'elementskit-secs'],
+				$flip.theFinalCountdown(flipConfig.ekitCountdown, function (e) {
+					updater(timer.s, e.offset.seconds, $sec);
+					updater(timer.m, e.offset.minutes, $min);
+					updater(timer.h, e.offset.hours, $hrs);
+					updater(timer.d, e.offset.days, $days);
+					updater(timer.w, e.offset.weeks, $wks);
 
-					nextYear = (new Date(finalDate)),
-					// template = _.template('<div class="elementskit-time <%= label %>"><span class="elementskit-count elementskit-curr elementskit-top"><%= curr %></span><span class="elementskit-count elementskit-next elementskit-top"><%= next %></span><span class="elementskit-count elementskit-next elementskit-bottom"><%= next %></span><span class="elementskit-count elementskit-curr elementskit-bottom"><%= curr %></span><span class="elementskit-label"><%= labelD.length < 6 ? labelD : labelD.substr(0, 3)  %></span></div>'),
-					currDate = '00:00:00:00:00',
-					nextDate = '00:00:00:00:00',
-					parser = /([0-9]{2})/gi,
-					$example = $container5;
-				// Parse countdown string to an object
-				function strfobj(str) {
-					var parsed = str.match(parser),
-						obj = {};
-					labels.forEach(function (label, i) {
-						obj[label] = parsed[i]
-					});
-					return obj;
-				}
-				// Return the time components that diffs
-				function diff(obj1, obj2) {
-					var diff = [];
-					labels.forEach(function (key) {
-						if (obj1[key] !== obj2[key]) {
-							diff.push(key);
-						}
-					});
-					return diff;
-				}
-				// Build the layout
-				var initData = strfobj(currDate);
-				labels.forEach(function (label, i) {
-					// $example.append(template({
-					// 	curr: initData[label],
-					// 	next: initData[label],
-					// 	label: label,
-					// 	labelD: labelsData[label]
-					// }));
-
-					// $example.append(`<div class="elementskit-time ${label}">
-					// 	<span class="elementskit-count elementskit-curr elementskit-top">${initData[label]}</span>
-					// 	<span class="elementskit-count elementskit-next elementskit-top">${initData[label]}</span>
-					// 	<span class="elementskit-count elementskit-next elementskit-bottom">${initData[label]}</span>
-					// 	<span class="elementskit-count elementskit-curr elementskit-bottom">${initData[label]}</span>
-					// 	<span class="elementskit-label">${labelsData[label].length < 6 ? labelsData[label] : labelsData[label].substr(0, 3)}</span>
-					// </div>`);
-
-					$example.append('' +
-						'<span class="elementskit-count elementskit-curr elementskit-top">' + initData[label] + '</span>' +
-						'<span class="elementskit-count elementskit-next elementskit-top">' + initData[label] + '</span>' +
-						'<span class="elementskit-count elementskit-next elementskit-bottom">' + initData[label] + '</span>' +
-						'<span class="elementskit-count elementskit-curr elementskit-bottom">' + initData[label] + '</span>' +
-						'<span class="elementskit-label">' + labelsData[label].length < 6 ? labelsData[label] : labelsData[label].substr(0, 3) + ' </span>'
-					);
+					timer.s = e.offset.seconds;
+					timer.m = e.offset.minutes;
+					timer.h = e.offset.hours;
+					timer.d = e.offset.days;
+					timer.w = e.offset.weeks;
+				}).on('finish.countdown', function () {
+					this.innerHTML = flipConfig.finishTitle + '<br/>' + flipConfig.finishContent;
 				});
-				// Starts the countdown
-				$example.theFinalCountdown(nextYear, function (event) {
-						var newDate = event.strftime('%w:%d:%H:%M:%S'),
-							data;
-						if (newDate !== nextDate) {
-							currDate = nextDate;
-							nextDate = newDate;
-							// Setup the data
-							data = {
-								'curr': strfobj(currDate),
-								'next': strfobj(nextDate)
-							};
-							// Apply the new values to each node that changed
-							diff(data.curr, data.next).forEach(function (label) {
-								var selector = '.%s'.replace(/%s/, label),
-									$node = $example.find(selector);
-								// Update the node
-								$node.removeClass('elementskit-flip');
-								$node.find('.elementskit-curr').text(data.curr[label]);
-								$node.find('.elementskit-next').text(data.next[label]);
-								// Wait for a repaint to then flip
-								setTimeout(function ($node) {
-									$node.addClass('elementskit-flip');
-								}, 50, $node);
-							});
-						}
-					})
-					.on('finish.countdown', function () {
-						$(this).html(
-							finish_title + "<br/>" + finish_content
-						);
-					});
-			});
-
+			}
 		},
 
 		Client_Logo: function ($scope) {
-			var $log_carosel = $scope.find('.elementskit-clients-slider');
-			$log_carosel.each(function () {
-				// //console.log($(this).data('right_icon'));
-				var leftArrow = '<button type="button" class="slick-prev"><i class="icon icon-left-arrow2"></i></button>';
+			var $el = $scope.find('.elementskit-clients-slider'),
+				config = $el.data('config');
 
-				var rightArrow = '<button type="button" class="slick-next"><i class="icon icon-right-arrow2"></i></button>';
+			// Arrows
+			config.prevArrow = '<button type="button" class="slick-prev"><i class="' + (config.prevArrow || 'icon icon-left-arrow2') + '"></i></button>';
+			config.nextArrow = '<button type="button" class="slick-next"><i class="' + (config.nextArrow || 'icon icon-right-arrow2') + '"></i></button>';
 
-				var slidestoshowtablet = $(this).data('slidestoshowtablet');
-				var slidestoscroll_tablet = $(this).data('slidestoscroll_tablet');
-				var slidestoshowmobile = $(this).data('slidestoshowmobile');
-				var slidestoscroll_mobile = $(this).data('slidestoscroll_mobile');
-				var arrow = $(this).data('show_arrow') === 'yes' ? true : false;
-				var dot = $(this).data('show_dot') === 'yes' ? true : false;
-				var autoPlay = $(this).data('autoplay') === 'yes' ? true : false;
-				var centerMode = $(this).data('data-center_mode') === 'yes' ? true : false;
-
-				$(this).not('.slick-initialized').slick({
-					rtl: $(this).data('rtl') ? true : false,
-					slidesToShow: ($(this).data('slidestoshow') !== 'undefined') ? $(this).data('slidestoshow') : 4,
-					slidesToScroll: ($(this).data('slidestoscroll') !== 'undefined') ? $(this).data('slidestoscroll') : 4,
-					autoplay: ($(this).data('autoplay') !== 'undefined') ? autoPlay : true,
-					autoplaySpeed: ($(this).data('speed') !== 'undefined') ? $(this).data('speed') : 1000,
-					arrows: ($(this).data('show_arrow') !== 'undefined') ? arrow : true,
-					dots: ($(this).data('show_dot') !== 'undefined') ? dot : true,
-					pauseOnHover: ($(this).data('pause_on_hover') == 'yes') ? true : false,
-					prevArrow: ($(this).data('left_icon') !== 'undefined') ? '<button type="button" class="slick-prev"><i class="' + $(this).data('left_icon') + '"></i></button>' : leftArrow,
-					nextArrow: ($(this).data('right_icon') !== 'undefined') ? '<button type="button" class="slick-next"><i class="' + $(this).data('right_icon') + '"></i></button>' : rightArrow,
-					rows: ($(this).data('rows') !== 'undefined') ? $(this).data('rows') : 1,
-					vertical: ($(this).data('vertical_style') == 'yes') ? true : false,
-					infinite: ($(this).data('autoplay') !== 'undefined') ? autoPlay : true,
-					responsive: [{
-							breakpoint: 1024,
-							settings: {
-								slidesToShow: slidestoshowtablet,
-								slidesToScroll: slidestoscroll_tablet,
-							}
-						},
-						{
-							breakpoint: 600,
-							settings: {
-								slidesToShow: slidestoshowtablet,
-								slidesToScroll: slidestoscroll_tablet
-							}
-						},
-						{
-							breakpoint: 480,
-							settings: {
-								arrows: false,
-								slidesToShow: slidestoshowmobile,
-								slidesToScroll: slidestoscroll_mobile
-							}
-						}
-					]
-
-				});
-
-			});
+			// Slick
+			$el.slick(config);
 		},
 
 		Testimonial_Slider: function ($scope) {
-			var $testimonial_slider = $scope.find('.elementskit-testimonial-slider');
-			$testimonial_slider.each(function () {
-				var leftArrow = '<button type="button" class="slick-prev"><i class="icon icon-left-arrow2"></i></button>';
-				var rightArrow = '<button type="button" class="slick-next"><i class="icon icon-right-arrow2"></i></button>';
+			var $el = $scope.find('.elementskit-testimonial-slider'),
+				config = $el.data('config');
+			
+			// Arrows
+			config.prevArrow = '<button type="button" class="slick-prev"><i class="'+ (config.prevArrow || 'icon icon-left-arrow2') +'"></i></button>';
+			config.nextArrow = '<button type="button" class="slick-next"><i class="'+ (config.nextArrow || 'icon icon-right-arrow2') +'"></i></button>';
 
-				var slidestoshowtablet = $(this).data('slidestoshowtablet');
-				var slidestoscroll_tablet = $(this).data('slidestoscroll_tablet');
-				var slidestoshowmobile = $(this).data('slidestoshowmobile');
-				var slidestoscroll_mobile = $(this).data('slidestoscroll_mobile');
-				var arrow = $(this).data('show_arrow') === 'yes' ? true : false;
-				var dot = $(this).data('show_dot') === 'yes' ? true : false;
-				var autoPlay = $(this).data('autoplay') === 'yes' ? true : false;
-				// var centerMode = $(this).data('data-center_mode') === 'yes' ? true : false;
-
-
-				$(this).not('.slick-initialized').slick({
-					rtl: ($(this).data('rtl') !== 'undefined') ? $(this).data('rtl') : false,
-					slidesToShow: ($(this).data('slidestoshow') !== 'undefined') ? $(this).data('slidestoshow') : 1,
-					slidesToScroll: ($(this).data('slidestoscroll') !== 'undefined') ? $(this).data('slidestoscroll') : 1,
-					autoplay: ($(this).data('autoplay') !== 'undefined') ? autoPlay : true,
-					autoplaySpeed: ($(this).data('speed') !== 'undefined') ? $(this).data('speed') : 1000,
-					arrows: ($(this).data('show_arrow') !== 'undefined') ? arrow : true,
-					dots: ($(this).data('show_dot') !== 'undefined') ? dot : true,
-					pauseOnHover: ($(this).data('pause_on_hover') == 'yes') ? true : false,
-					prevArrow: ($(this).data('left_icon') !== 'undefined') ? '<button type="button" class="slick-prev"><i class="' + $(this).data('left_icon') + '"></i></button>' : leftArrow,
-					nextArrow: ($(this).data('right_icon') !== 'undefined') ? '<button type="button" class="slick-next"><i class="' + $(this).data('right_icon') + '"></i></button>' : rightArrow,
-					// rows: ($(this).data('rows') !== 'undefined') ? $(this).data('rows') : 1,
-					vertical: ($(this).data('vertical_style') == 'yes') ? true : false,
-					infinite: ($(this).data('autoplay') !== 'undefined') ? autoPlay : true,
-					responsive: [{
-							breakpoint: 1024,
-							settings: {
-								slidesToShow: slidestoshowtablet,
-								slidesToScroll: slidestoscroll_tablet,
-							}
-						},
-						{
-							breakpoint: 600,
-							settings: {
-								slidesToShow: slidestoshowtablet,
-								slidesToScroll: slidestoscroll_tablet
-							}
-						},
-						{
-							breakpoint: 480,
-							settings: {
-								arrows: false,
-								slidesToShow: slidestoshowmobile,
-								slidesToScroll: slidestoscroll_mobile
-							}
-						}
-					]
-				});
-
-			});
+			// Slick
+			$el.slick(config);
 		},
 
 		Image_Comparison: function ($scope) {
-			var $ekit_img_comparison = $scope.find('.elementskit-image-comparison');
+			var $el = $scope.find('.elementskit-image-comparison');
 
-			$ekit_img_comparison.imagesLoaded(function (e) {
-				var $el = $(e.elements[0]),
-					config = {
-						orientation: $el.hasClass('image-comparison-container-vertical') ? 'vertical' : 'horizontal',
-						before_label: $el.data('label_before'),
-						after_label: $el.data('label_after'),
-						default_offset_pct: $el.data('offset'),
-						no_overlay: $el.data('overlay'),
-						move_slider_on_hover: $el.data('move_slider_on_hover'),
-						click_to_move: $el.data('click_to_move')
-					};
+			$el.imagesLoaded(function () {
+				var config = {
+					orientation: $el.hasClass('image-comparison-container-vertical') ? 'vertical' : 'horizontal',
+					before_label: $el.data('label_before'),
+					after_label: $el.data('label_after'),
+					default_offset_pct: $el.data('offset'),
+					no_overlay: $el.data('overlay'),
+					move_slider_on_hover: $el.data('move_slider_on_hover'),
+					click_to_move: $el.data('click_to_move')
+				};
 
 				$el.twentytwenty(config);
 			});
 		},
+
 		Piechart: function ($scope) {
-			var colorfulchart = $scope.find('.colorful-chart');
-
-			//console.log(colorfulchart);
-
-			if (colorfulchart.length > 0) {
-
-				colorfulchart.each(function (__, e) {
-					var myColors = $(e).data('color');
-					var datalineWidth = $(e).data('linewidth');
-					var color_type = $(e).data('pie_color_style');
-					var gradentColor1 = $(e).data('gradientcolor1');
-					var gradentColor2 = $(e).data('gradientcolor2');
-					var barbg = $(e).data('barbg');
-
-					var obj;
-
-					if (color_type === 'gradient') {
-
-						obj = {
-							gradientChart: true,
-							barColor: gradentColor1,
-							gradientColor1: gradentColor2,
-							gradientColor2: gradentColor1,
-							lineWidth: datalineWidth,
-							trackColor: barbg,
-						};
-
-					} else {
-						obj = {
-							lineWidth: datalineWidth,
-							barColor: myColors,
-							trackColor: barbg,
-						};
-					}
-
-					$(e).myChart(obj);
-				})
+			var $el = $scope.find('.colorful-chart'),
+				data = $el.data(),
+				config = {
+					barColor: data.color,
+					lineWidth: data.linewidth,
+					trackColor: data.barbg
+				};
+			
+			if ('pie_color_style' in data) {
+				config = {
+					gradientChart: true,
+					barColor: data.gradientcolor1,
+					gradientColor1: data.gradientcolor2,
+					gradientColor2: data.gradientcolor1,
+					lineWidth: data.linewidth,
+					trackColor: data.barbg
+				};
 			}
 
+			$el.myChart(config);
 		},
-		Gallery: function ($scope) {
-			var $container = $scope.find('.ekit_gallery_grid');
-			var column = $container.data('gallerycol');
-			// console.log((parseInt(column.tablet, 10)));
-			if ($container.length > 0) {
-				var colWidth = function colWidth() {
-						var w = $container.width(),
-							windowWidth = $(window).width(),
-							columnNum,
-							columnWidth = 0;
-						if (windowWidth > 1024) {
-							columnNum = parseInt(column.desktop, 10);
-						} else if (windowWidth >= 768) {
-							columnNum = parseInt(column.tablet, 10);
-						}
-						columnWidth = Math.floor(w / columnNum);
-						$container.find('.ekit_gallery_grid_item').each(function () {
-							var $item = $(this),
-								multiplier_w = $item.attr('class').match(/ekit_gallery_grid_item-w(\d)/),
-								width = multiplier_w ? columnWidth * multiplier_w[1] : columnWidth;
-							$item.css({
-								width: width,
-							});
-						});
-						return columnWidth;
-					},
-					isotope = function isotope() {
-						$container.isotope({
-							resizable: false,
-							itemSelector: '.ekit_gallery_grid_item',
-							masonry: {
-								columnWidth: colWidth(),
-								gutterWidth: 0
-							}
-						});
-					};
-				isotope();
-				$(window).on('resize load', isotope);
-				var $optionSets = $scope.find('.filter-button-wraper .option-set'),
-					$optionLinks = $optionSets.find('a');
-				$optionLinks.on('click', function () {
-					var $this = $(this);
-					var $optionSet = $this.parents('.option-set');
-					$optionSet.find('.selected').removeClass('selected');
-					$this.addClass('selected');
-					// make option object dynamically, i.e. { filter: '.my-filter-class' }
-					var options = {},
-						key = $optionSet.attr('data-option-key'),
-						value = $this.attr('data-option-value');
 
-					// parse 'false' as false boolean
-					value = value === 'false' ? false : value;
-					options[key] = value;
-					if (key === 'layoutMode' && typeof changeLayoutMode === 'function') {
-						// changes in layout modes need extra logic
-						changeLayoutMode($this, options);
-					} else {
-						// creativewise, apply new options
-						$container.isotope(options);
-					}
-					return false;
+		Gallery: function ($scope) {
+			var $galleryGrid = $scope.find('.ekit_gallery_grid'),
+				masonryConfig = $galleryGrid.data('masonry-config');
+			
+			if (typeof masonryConfig !== 'undefined') {
+				new elementor.modules.Masonry($galleryGrid[0], {
+					itemSelector: '.ekit_gallery_grid_item'
 				});
 			}
-			// tilt
-			var tiltContainer = $scope.find('.ekit-gallery-portfolio-tilt'),
-				glare = $(tiltContainer).data('tilt-glare') === 'yes' ? true : false;
-			$(tiltContainer).tilt({
-				easing: "cubic-bezier(.03,.98,.52,.99)",
-				transition: true,
-				glare: glare,
-			})
-
-			$container.imagesLoaded(function () {
-				$container.isotope();
-			});
-
-			$(window).on('scroll', function () {
-				$container.isotope('layout');
-			});
-		},
-		MotionText: function ($scope) {
-			var texts = $scope.find('.ekit_char_based .ekit_motion_text');
-			var motionTitle = $scope.find('.ekit_motion_text_title');
-
-			// split content
-			texts.each(function () {
-				var text = $(this);
-				for (let i = 0; i < text.length; i++) {
-					var $this = text[i];
-					var content = $this.innerHTML;
-					content = content.trim();
-					var str = '';
-					var delay = parseInt(text.attr('data-ekit-animation-delay')),
-						delayIncrement = delay;
-
-					//console.log(delay);
-
-					for (let l = 0; l < content.length; l++) {
-						if (content[l] != '') {
-							// str += `<span class="ekit-letter" style="animation-delay:${delay}ms; -moz-animation-delay:${delay}ms; -webkit-animation-delay:${delay}ms;">${content[l]}</span>`;
-							str += '<span class="ekit-letter" style="animation-delay:' + delay + 'ms; -moz-animation-delay:' + delay + 'ms; -webkit-animation-delay:' + delay + 'ms;">' + content[l] + '</span>';
-							delay += delayIncrement;
-						} else {
-							str += content[i];
-						}
+			
+			/*,
+				column = $galleryGrid.data(); gallerycol */
+			
+			// console.log( 'Test 1!' );
+			
+			/*
+			var colWidth = function () {
+					console.log('Test 3!');
+					var w = $galleryGrid.width(),
+						windowWidth = $(window).width(),
+						columnNum,
+						columnWidth = 0;
+					if(windowWidth > 1024) {
+						columnNum = parseInt(column.desktop, 10);
+					} else if(windowWidth >= 768) {
+						columnNum = parseInt(column.tablet, 10);
 					}
-					$this.innerHTML = str;
-				}
+					columnWidth = Math.floor(w / columnNum);
+					$galleryGrid.find('.ekit_gallery_grid_item').each(function () {
+						var $item = $(this),
+							multiplier_w = $item.attr('class').match(/ekit_gallery_grid_item-w(\d)/),
+							width = multiplier_w ? columnWidth * multiplier_w[1] : columnWidth;
+						$item.css({
+							width: width,
+						});
+					});
+					return columnWidth;
+				};
+			*/
+
+			// 	isotopeInit = function () {
+			// 		$galleryGrid.isotope({
+			// 			resizable: false,
+			// 			itemSelector: '.ekit_gallery_grid_item',
+			// 			masonry: {
+			// 				columnWidth: colWidth(),
+			// 				gutterWidth: 0
+			// 			}
+			// 		});
+			// 	};
+			// isotopeInit();
+			// $(window).on('resize load', isotopeInit);
+			
+
+			// Filter List
+			var $filterList = $scope.find('.filter-button-wraper'),
+				$filterLinks = $filterList.find('a');
+			
+			$filterLinks.on('click', function (e) {
+				e.preventDefault();
+
+				var $this = $(this);
+				
+				$this.parents('.option-set').find('.selected').removeClass('selected');
+				$this.addClass('selected');
+				
+				$galleryGrid.isotope({
+					filter: $this.data('option-value')
+				});
 			});
+			
 
-			// motion title on scroll
-			var animationClass = motionTitle.attr("data-animate-class");
-			motionTitle.elementorWaypoint({
-				handler: function () {
-					motionTitle.addClass(animationClass).css('opacity', 1);
-				},
-				offset: '100%'
-			});
+			// Tilt Effect
+			var $tiltTargets = $scope.find('.ekit-gallery-portfolio-tilt'),
+				tiltConfig = $galleryGrid.data('tilt-config');
+			
+			$tiltTargets.tilt(tiltConfig);
+			
 
+			// Isotope
+			// $galleryGrid.imagesLoaded(function () {
+			//     $galleryGrid.isotope();
+			// });
 
+			// $(window).on('scroll', function () {
+			// 	console.log( 'Test 2!' );
+			//     $galleryGrid.isotope('layout');
+			// });
+		},
+
+		MotionText: function ($scope) {
+			var $title = $scope.find('.ekit_motion_text_title');
+
+			if ($title.hasClass('ekit_char_based')) {
+				var $text = $title.children('.ekit_motion_text'),
+					text = $text.text().split(''),
+					delay = $title.data('ekit-animation-delay-s'),
+					delayCache = delay,
+					markup = '';
+
+				$.each(text, function (i, char) {
+					markup += (char === ' ') ? char : '<span class="ekit-letter" style="animation-delay: ' + delay + 'ms; -moz-animation-delay: ' + delay + 'ms; -webkit-animation-delay: ' + delay + 'ms;">' + char + '</span>';
+					delay += delayCache;
+				});
+
+				$text.html(markup);
+			}
+
+			$title.elementorWaypoint(function () {
+				var animateClass = this.adapter.$element.data('animate-class');
+
+				this.adapter.$element.addClass(animateClass).css('opacity', 1);
+				this.destroy();
+			}, { offset: '100%' });
 		},
 
 		TimeLine: function ($scope) {
+			var $el = $scope.find('.elementskit-invisible'),
+				doAnimate = function () {
+					if (this.adapter.$element.hasClass('animated')) {
+						this.destroy();
+						return;
+					}
 
-			Elementskit.AnimationFix($scope);
+					var animationClass = 'animated ' + this.adapter.$element.data('settings')._animation;
+					this.adapter.$element.removeClass('elementskit-invisible').addClass(animationClass);
+				};
 
-			var horizantalTimeline = $scope.find('.horizantal-timeline');
+			$el.elementorWaypoint(doAnimate, { continuous: false });
+			$el.elementorWaypoint(doAnimate, { offset: 'bottom-in-view', continuous: false });
 
-			if (horizantalTimeline.length > 0) {
-				horizantalTimeline.find('.content-group').each(function (__, e) {
-					$(e).on('mouseenter', function () {
-						if ($(e).parents('.single-timeline').hasClass('hover')) {
-							$(e).parents('.single-timeline').removeClass('hover')
-						} else {
-							$(e).parents('.single-timeline').addClass('hover')
-							$(e).parents('.single-timeline').nextAll().removeClass('hover')
-							$(e).parents('.single-timeline').prevAll().removeClass('hover')
-						}
-					})
-				})
-			}
+			$scope.on('mouseenter', '.horizantal-timeline > .single-timeline', function () {
+				$(this).addClass('hover').siblings().removeClass('hover');
+			}).on('mouseleave', '.horizantal-timeline > .single-timeline', function () {
+				$(this).removeClass('hover');
+			});
 		},
 
 		PostTab: function ($scope) {
-			var tab = $scope.find('.post--tab');
+			var evt = $scope.hasClass('is-click-yes') ? 'click' : 'mouseenter',
+				$listItem = $scope.find('.tab__list__item'),
+				$tabItem = $scope.find('.tabItem');
 
-			if (tab.length < 1) {
-				return;
-			}
+			$scope.on(evt, '.tab__list__item', function () {
+				var $el = $(this),
+					$curTabItem = $tabItem.eq( $el.index() );
 
-			var event_type = tab.attr('data-post-tab-event');
-
-			tab.find('.tabHeader > .tab__list > .tab__list__item').on(event_type, function () {
-				$(tab).find('.tabHeader > .tab__list > .tab__list__item').removeClass('active');
-				$(this).addClass('active');
-				$(tab).find('.tabContent > .tabItem').removeClass('active');
-				$(tab).find('.tabContent > .tabItem').eq($(this).index()).addClass('active');
-				$(tab).find('.tabContent > .tabItem').hide();
-				$(tab).find('.tabContent > .tabItem').eq($(this).index()).show();
+				$listItem.add($tabItem).removeClass('active');
+				$el.add( $curTabItem ).addClass('active');
 			});
 		},
+
 		Hotspot: function ($scope) {
 			if ($scope.find('.ekit-location-on-click').length > 0) {
 				$scope.find('.ekit-location-on-click .ekit-location_indicator').on('click', function () {
@@ -796,31 +587,35 @@
 				})
 			}
 		},
+
 		Header_Search: function ($scope) {
-			if ($scope.find('.ekit-modal-popup').length > 0) {
-				$scope.find('.ekit-modal-popup').magnificPopup({
-					type: 'inline',
-					fixedContentPos: true,
-					fixedBgPos: true,
-					overflowY: 'auto',
-					closeBtnInside: false,
-					prependTo: $scope.find('.ekit-wid-con'),
-					callbacks: {
-						beforeOpen: function () {
-							this.st.mainClass = "my-mfp-slide-bottom ekit-promo-popup";
-						},
-						open: function() {
-							jQuery('body').css('overflow', 'hidden');
-						},
-						close: function() {
-							jQuery('body').css('overflow', 'auto');
-						}
+			var $btn = $scope.find('.ekit_navsearch-button'),
+				$body = $('body');
+			
+			$btn.magnificPopup({
+				type: 'inline',
+				fixedContentPos: true,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: false,
+				prependTo: $btn.parent('.ekit-wid-con'),
+				callbacks: {
+					beforeOpen: function () {
+						this.st.mainClass = "my-mfp-slide-bottom ekit-promo-popup";
+					},
+					open: function() {
+						$body.css('overflow', 'hidden');
+					},
+					close: function() {
+						$body.css('overflow', 'auto');
 					}
-				});
-			}
+				}
+			});
 		},
+
 		Team: function ($scope) {
 			var el = $scope.find('.ekit-team-popup');
+
 			el.magnificPopup({
 				type: 'inline',
 				fixedContentPos: true,
@@ -836,12 +631,13 @@
 				}
 			});
 
-			$($scope).find('.ekit-modal-close').on('click', function () {
+			$scope.find('.ekit-modal-close').on('click', function () {
 				el.magnificPopup('close');
 			});
 		},
+
 		Table: function ($scope) {
-			if ($scope.find('.ekit_table').length > 0) {
+			if($scope.find('.ekit_table').length > 0) {
 				var settings = $scope.find('.ekit_table').data('settings'),
 					prevText = (settings.nav_style.trim() === 'text' || settings.nav_style.trim() === 'both') ? '<span class="ekit-tbl-pagi-nav ekit-tbl-pagi-prev">' + settings.prev_text + '</span>' : '',
 					nextText = (settings.nav_style.trim() === 'text' || settings.nav_style.trim() === 'both') ? '<span class="ekit-tbl-pagi-nav ekit-tbl-pagi-next">' + settings.next_text + '</span>' : '',
@@ -870,7 +666,7 @@
 					}
 				}
 
-				if (settings.entries === false) {
+				if(settings.entries === false) {
 					tableConfig.dom = 'Bfrtip';
 				}
 
@@ -879,52 +675,32 @@
 		},
 
 		Header_Off_Canvas: function ($scope) {
-			if ($scope.find('.ekit-sidebar-group').length > 0) {
-				$scope.find('.ekit_offcanvas-sidebar').on('click', function (e) {
-					e.preventDefault();
-					$scope.find('.ekit-sidebar-group').addClass('ekit_isActive');
-				});
-				$scope.find('.ekit_close-side-widget').on('click', function (e) {
-					e.preventDefault();
-					$scope.find('.ekit-sidebar-group').removeClass('ekit_isActive');
-				});
-				$scope.find('.ekit-overlay').on('click', function (e) {
-					$scope.find('.ekit-sidebar-group').removeClass('ekit_isActive');
-				});
-			}
+			var $sidebar = $scope.find('.ekit-sidebar-group'),
+				$btns = $scope.find('.ekit_offcanvas-sidebar, .ekit_close-side-widget, .ekit-overlay');
+
+			$btns.on('click', function (e) {
+				e.preventDefault();
+
+				$sidebar.toggleClass('ekit_isActive');
+			});
 		},
 
 		Creative_Button: function ($scope) {
-			if ($scope.find('.ekit_position_aware').length > 0) {
-				$scope.find('.ekit_position_aware').on('mouseenter', function (e) {
-					var parentOffset = $(this).offset(),
-						relX = e.pageX - parentOffset.left,
-						relY = e.pageY - parentOffset.top;
-					$(this).find('.ekit_position_aware_bg').css({
-						top: relY,
-						left: relX
-					});
-				}).on('mouseout', function (e) {
-					var parentOffset = $(this).offset(),
-						relX = e.pageX - parentOffset.left,
-						relY = e.pageY - parentOffset.top;
-					$(this).find('.ekit_position_aware_bg').css({
-						top: relY,
-						left: relX
-					});
+			var $btnBg = $scope.find('.ekit_position_aware_bg');
+
+			$scope.on('mouseenter mouseleave', '.ekit_position_aware', function (e) {
+				var parentOffset = $(this).offset(),
+					relX = e.pageX - parentOffset.left,
+					relY = e.pageY - parentOffset.top;
+
+				$btnBg.css({
+					top: relY,
+					left: relX
 				});
-			}
+			});
 		},
 
-		Image_Accordion: function ($scope) {
-			if ($scope.find('.elementskit-single-image-accordion').length > 0) {
-				$scope.find('.elementskit-single-image-accordion').on('click', function () {
-					$(this).siblings().removeClass('active').end().addClass('active');
-				})
-			}
-		},
-
-		Woo_Product_slider: function($scope) {
+		Woo_Product_slider: function ($scope) {
 			let target = $scope.find('.ekit-swiper-container'),
 				autoplay = target.data('autoplay'),
 				loop = target.data('loop'),
@@ -939,108 +715,92 @@
 					prevEl: $scope.find('.ekit-navigation-prev'),
 				},
 				pagination: {
-				  el        : $scope.find('.ekit-swiper-pagination'),
-				  type      : 'bullets',
-				  clickable : true,
+					el: $scope.find('.ekit-swiper-pagination'),
+					type: 'bullets',
+					clickable: true,
 				},
-				"autoplay"      : autoplay && autoplay,
-				"loop"          : loop && Boolean(loop),
-				"speed"         : speed && Number(speed),
-				"slidesPerView" : Number(respoonsive_seetings['ekit_columns_mobile']),
+				"autoplay": autoplay && autoplay,
+				"loop": loop && Boolean(loop),
+				"speed": speed && Number(speed),
+				"slidesPerView": Number(respoonsive_seetings['ekit_columns_mobile']),
 				"spaceBetween": spaceBetween && Number(spaceBetween),
 				breakpointsInverse: true,
-				"breakpoints"   : {
-					640 : {
-						"slidesPerView" : Number(respoonsive_seetings['ekit_columns_mobile']),
-						"spaceBetween"  : spaceBetween && Number(spaceBetween),
+				"breakpoints": {
+					640: {
+						"slidesPerView": Number(respoonsive_seetings['ekit_columns_mobile']),
+						"spaceBetween": spaceBetween && Number(spaceBetween),
 					},
-					768 : {
-						"slidesPerView" : Number(respoonsive_seetings['ekit_columns_tablet']),
-						"spaceBetween"  : spaceBetween && Number(spaceBetween),
+					768: {
+						"slidesPerView": Number(respoonsive_seetings['ekit_columns_tablet']),
+						"spaceBetween": spaceBetween && Number(spaceBetween),
 					},
-					1024 : {
-						"slidesPerView" : Number(respoonsive_seetings['ekit_columns_desktop']),
-						"spaceBetween"  : spaceBetween && Number(spaceBetween),
+					1024: {
+						"slidesPerView": Number(respoonsive_seetings['ekit_columns_desktop']),
+						"spaceBetween": spaceBetween && Number(spaceBetween),
 					},
 				}
 			});
 		},
 
 		Vertical_Menu: function ($scope) {
-			if ($scope.find('.ekit-vertical-main-menu-on-click').length > 0) {
-				let	menu_container = $scope.find('.ekit-vertical-main-menu-on-click'),
+			if($scope.find('.ekit-vertical-main-menu-on-click').length > 0) {
+				let menu_container = $scope.find('.ekit-vertical-main-menu-on-click'),
 					target = $scope.find('.ekit-vertical-menu-tigger');
 
 				target.on('click', function (e) {
 					e.preventDefault();
 					menu_container.toggleClass('vertical-menu-active');
-					if (!$('body').hasClass('is-vertical-menu-active')) {
-						$('body').addClass('is-vertical-menu-active');
-					} else {
-						$('body').removeClass('is-vertical-menu-active');
-					}
-				})
-
-				$scope.find('.xs-vertical-menu-backdrop').on('click', function () {
-					if ($(this).parents('.ekit-vertical-main-menu-wraper').hasClass('vertical-menu-active')) {
-						$(this).parents('.ekit-vertical-main-menu-wraper').removeClass('vertical-menu-active')
-					}
-					if ($('body').hasClass('is-vertical-menu-active')) {
-						$('body').removeClass('is-vertical-menu-active');
-					}
 				})
 			}
 
-			if ($scope.find('.elementskit-megamenu-has').length > 0) {
+			if($scope.find('.elementskit-megamenu-has').length > 0) {
 				let target = $scope.find('.elementskit-megamenu-has'),
 					parents_container = $scope.parents('.elementor-container'),
 					vertical_menu_wraper = $scope.find('.ekit-vertical-main-menu-wraper'),
 					final_width = Math.floor((parents_container.width() - vertical_menu_wraper.width())) + 'px';
 
-				function calculate_menu_width($this) {
-					let data_width = $this.data('vertical-menu'),
-						megamenu_panel = $this.children('.elementskit-megamenu-panel');
+				target.each(function () {
+					let data_width = $(this).data('vertical-menu'),
+						megamenu_panel = $(this).children('.elementskit-megamenu-panel');
 
-					if (typeof data_width === 'string') {
-						if (/^[0-9]/.test(data_width)) {
-							megamenu_panel.css({
-								width: data_width
-							})
+					if(data_width && data_width !== undefined && !(final_width <= data_width)) {
+						if(typeof data_width === 'string') {
+							if(/^[0-9]/.test(data_width)) {
+								megamenu_panel.css({
+									width: data_width
+								})
+							} else {
+								$(window).bind('resize', function () {
+									if($(document).width() > 1024) {
+										megamenu_panel.css({
+											width: Math.floor((parents_container.width() - vertical_menu_wraper.width()) - 10) + 'px'
+										})
+									} else {
+										megamenu_panel.removeAttr('style');
+									}
+								}).trigger('resize');
+							}
 						} else {
 							megamenu_panel.css({
-								width: Math.floor((parents_container.width() - vertical_menu_wraper.width()) - 10) + 'px'
+								width: data_width + 'px'
 							})
-							$(window).bind('resize', function () {
-								if (!$(window).width() > 1024) {
-									megamenu_panel.removeAttr('style');
-								}
-							}).trigger('resize');
 						}
 					} else {
-						megamenu_panel.css({
-							width: data_width + 'px'
-						})
 						$(window).bind('resize', function () {
-							if (!$(window).width() > 1024) {
+							if($(document).width() > 1024) {
+								megamenu_panel.css({
+									width: Math.floor((parents_container.width() - vertical_menu_wraper.width()) - 10) + 'px'
+								})
+							} else {
 								megamenu_panel.removeAttr('style');
 							}
 						}).trigger('resize');
-					}
-				}
-
-				target.each(function () {
-					let data_width = $(this).data('vertical-menu');
-
-					if (data_width && data_width !== undefined && !(final_width <= data_width)) {
-						calculate_menu_width($(this));
-					} else {
-						calculate_menu_width($(this));
 					}
 				})
 			}
 		},
 		Advanced_Toggle: function ($scope) {
-			if ($scope.find('.elemenetskit-toggle-indicator').length > 0) {
+			if($scope.find('.elemenetskit-toggle-indicator').length > 0) {
 				let target = $scope.find('.elemenetskit-toggle-indicator'),
 					active_item = $scope.find('.elementskit-toggle-nav-link.active');
 
@@ -1068,14 +828,14 @@
 			}
 
 			function toggleSwitch(type, current, checked) {
-				if (type === 'click') {
+				if(type === 'click') {
 					current.parents('.ekit-slide-toggle').find('input[type="checkbox"]').prop("checked", checked);
 				}
-				if (type === 'change') {
+				if(type === 'change') {
 					let target_link = current.parents('.ekit-slide-toggle').find('.elementskit-switch-nav-link')
 					$scope.find('.ekit-toggle-switch-content').removeClass('active show');
 					$scope.find('.elementskit-switch-nav-link').removeClass('active');
-					if (current.context.checked) {
+					if(current.context.checked) {
 						$(target_link[1].hash).addClass('active show')
 						target_link.eq(1).addClass('active');
 					} else {
@@ -1084,7 +844,8 @@
 					}
 				}
 			}
-			if ($scope.find('.ekit-slide-toggle-wraper').length > 0) {
+
+			if($scope.find('.ekit-slide-toggle-wraper').length > 0) {
 				$scope.find('.elementskit-switch-nav-link').eq(0).on('click', function (e) {
 					toggleSwitch(e.type, $(this), false);
 				})
@@ -1096,11 +857,68 @@
 				});
 				$scope.find('.ekit-cehckbox-forcefully-checked').parents('.ekit-slide-toggle').find('input[type="checkbox"]').prop("checked", true);
 			}
+		},
+		Video_Gallery: function ($scope) {
+			var popup = $scope.find('.video-link.popup'),
+				inline = $scope.find('.video-link.inline'),
+				isotopeEl = $scope.find('.ekit-video-gallery-wrapper.ekit-masonry'),
+				filterEl = $scope.find('.elementskit-main-filter>li>a'),
+				carouselEl = $scope.find('.ekit-video-gallery.ekit-carousel'),
+				config = carouselEl.data('config');
+
+			if(popup.length > 0) {
+				popup.magnificPopup({
+					type: 'iframe',
+					mainClass: 'mfp-fade',
+					removalDelay: 160,
+					preloader: true,
+					fixedContentPos: false,
+					iframe: {
+						markup: '<div class="mfp-iframe-scaler">' +
+						'<div class="mfp-close"></div>' +
+						'<iframe class="mfp-iframe" frameborder="0" allow="autoplay"></iframe>' +
+						'</div>',
+						patterns: {
+							youtube: {
+								index: 'youtube.com/',
+								id: 'v=',
+								src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
+							}
+						}
+					}
+				});
+			}
+
+			inline.on('click', function (e) {
+				e.preventDefault();
+				var url = $(this).data('url');
+				$(this).addClass('video-added').append('<iframe src="' + url + '" width="643" height="360" allow="autoplay" frameborder="0"></iframe>');
+			});
+
+			filterEl.on('click', function (e) {
+				e.preventDefault();
+				var slug = $(this).data('value') ? '.' + $(this).data('value') : '';
+				$scope.find('a').removeClass('selected');
+				$(this).addClass('selected');
+				$scope.find('.ekit-video-item').hide();
+				$scope.find('.ekit-video-item' + slug).fadeIn();
+			});
+
+			// Slick
+			if(carouselEl.length) {
+				config.prevArrow = '<button type="button" class="slick-prev"><i class="' + (config.prevArrow || 'icon icon-left-arrow2') + '"></i></button>';
+				config.nextArrow = '<button type="button" class="slick-next"><i class="' + (config.nextArrow || 'icon icon-right-arrow2') + '"></i></button>';
+				carouselEl.slick(config);
+			}
+
+			jQuery('.ekit-video-gallery.ekit-masonry').isotope({
+				percentPosition: true,
+				itemSelector: '.ekit-video-item ',
+			});
 		}
 	};
 	$(window).on('elementor/frontend/init', Elementskit.init);
 }(jQuery, window.elementorFrontend));
-
 
 
 (function ($) {
@@ -1119,14 +937,14 @@
 				easing: ease == undefined ? "swing" : ease,
 				step: function () {
 					$this.text(Math.floor(this.value));
-					if (commas) {
+					if(commas) {
 						$this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
 					}
 				},
 				complete: function () {
-					if (parseInt($this.text(), 10) !== stop) {
+					if(parseInt($this.text(), 10) !== stop) {
 						$this.text(stop);
-						if (commas) {
+						if(commas) {
 							$this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
 						}
 					}
@@ -1167,7 +985,7 @@
 
 
 	$(document).ready(function () {
-		if ($('.ekit-video-popup').length > 0) {
+		if($('.ekit-video-popup').length > 0) {
 			$('.ekit-video-popup').magnificPopup({
 				type: 'iframe',
 				mainClass: 'mfp-fade',
@@ -1177,15 +995,15 @@
 			});
 		}
 
-		if ($('#wp-admin-bar-elementor_edit_page-default').length > 0) {
+		if($('#wp-admin-bar-elementor_edit_page-default').length > 0) {
 			var elements = $('#wp-admin-bar-elementor_edit_page-default').children('li');
 			$(elements).map(function (__, element) {
 				var target = $(element).find(".elementor-edit-link-title");
-				if (target.text().indexOf('dynamic-content-') !== -1) {
+				if(target.text().indexOf('dynamic-content-') !== -1) {
 					target.parent().parent().remove();
 				}
 			});
 		}
 
 	}); // end ready function
-})(jQuery);
+}(jQuery));

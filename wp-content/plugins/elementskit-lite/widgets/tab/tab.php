@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Tab_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Tab_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Tab extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -30,19 +30,19 @@ class Elementskit_Widget_Tab extends Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'section_tab', [
-                'label' =>esc_html__( 'Tab', 'elementskit' ),
+                'label' =>esc_html__( 'Tab', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_tab_style',
             [
-                'label' =>esc_html__( 'Style', 'elementskit' ),
+                'label' =>esc_html__( 'Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'horizontal',
                 'options' => [
-                    'horizontal' =>esc_html__( 'Horizontal', 'elementskit' ),
-                    'vertical' =>esc_html__( 'Vertical', 'elementskit' ),
+                    'horizontal' =>esc_html__( 'Horizontal', 'elementskit-lite' ),
+                    'vertical' =>esc_html__( 'Vertical', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -50,7 +50,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_width',
             [
-                'label' => esc_html__( 'Vertical Nav Width', 'elementskit' ),
+                'label' => esc_html__( 'Vertical Nav Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%', '' ],
                 'default' => [
@@ -75,10 +75,10 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_caret_style_choose',
             [
-                'label' => esc_html__( 'Show Caret', 'elementskit' ),
+                'label' => esc_html__( 'Show Caret', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'elementskit' ),
-                'label_off' => esc_html__( 'Hide', 'elementskit' ),
+                'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -87,36 +87,36 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_caret_style',
             [
-                'label' => esc_html__('Choose Style', 'elementskit'),
+                'label' => esc_html__('Choose Style', 'elementskit-lite'),
                 'type' => ElementsKit_Controls_Manager::IMAGECHOOSE,
                 'default' => 'elementskit_tab_border_bottm',
                 'options' => [
                     'elementskit_tab_border_bottm' => [
-                        'title' => esc_html__( 'image style 1', 'elementskit' ),
+                        'title' => esc_html__( 'image style 1', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/1.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/1.png',
                         'width' => '100%',
                     ],
                     'elementskit_tooltip_style' => [
-                        'title' => esc_html__( 'image style 2', 'elementskit' ),
+                        'title' => esc_html__( 'image style 2', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/3.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/3.png',
                         'width' => '100%',
                     ],
                     'elementskit_heartbit_style' => [
-                        'title' => esc_html__( 'image style 3', 'elementskit' ),
+                        'title' => esc_html__( 'image style 3', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/5.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/5.png',
                         'width' => '100%',
                     ],
                     'elementskit_pregress_style' => [
-                        'title' => esc_html__( 'image style 4', 'elementskit' ),
+                        'title' => esc_html__( 'image style 4', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/6.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/6.png',
                         'width' => '100%',
                     ],
                     'elementskit_ribbon_style' => [
-                        'title' => esc_html__( 'image style 5', 'elementskit' ),
+                        'title' => esc_html__( 'image style 5', 'elementskit-lite' ),
                         'imagelarge' => Handler::get_url() . 'assets/imagechoose/7.png',
                         'imagesmall' => Handler::get_url() . 'assets/imagechoose/7.png',
                         'width' => '100%',
@@ -131,10 +131,10 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_fill_full_width',
             [
-                'label' => esc_html__( 'Full Width Nav', 'elementskit' ),
+                'label' => esc_html__( 'Full Width Nav', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'elementskit' ),
-                'label_off' => esc_html__( 'Hide', 'elementskit' ),
+                'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -146,21 +146,21 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_header_icon_pos_style',
             [
-                'label' => esc_html__( 'Nav Icon Position', 'elementskit' ),
+                'label' => esc_html__( 'Nav Icon Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left-pos',
                 'options' => [
-                    'right-pos'  => esc_html__( 'Right', 'elementskit' ),
-                    'left-pos' => esc_html__( 'Left', 'elementskit' ),
-                    'top-pos' => esc_html__( 'Top', 'elementskit' ),
-                    'bottom-pos' => esc_html__( 'Bottom', 'elementskit' ),
+                    'right-pos'  => esc_html__( 'Right', 'elementskit-lite' ),
+                    'left-pos' => esc_html__( 'Left', 'elementskit-lite' ),
+                    'top-pos' => esc_html__( 'Top', 'elementskit-lite' ),
+                    'bottom-pos' => esc_html__( 'Bottom', 'elementskit-lite' ),
                 ],
             ]
         );
         $this->add_responsive_control(
             'ekit_tab_icon_margin_left',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -185,7 +185,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_icon_margin_right',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -210,7 +210,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_icon_margin_top',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -235,7 +235,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_icon_margin_bottom',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -261,19 +261,19 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_wraper_position',
             [
-                'label' =>esc_html__( 'Nav Alignment', 'elementskit' ),
+                'label' =>esc_html__( 'Nav Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left'    => [
-                        'title' =>esc_html__( 'Left', 'elementskit' ),
+                        'title' =>esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' =>esc_html__( 'Center', 'elementskit' ),
+                        'title' =>esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' =>esc_html__( 'Right', 'elementskit' ),
+                        'title' =>esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -291,19 +291,19 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_content_position',
             [
-                'label' =>esc_html__( 'Nav Item Alignment', 'elementskit' ),
+                'label' =>esc_html__( 'Nav Item Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'flex-start'    => [
-                        'title' =>esc_html__( 'Left', 'elementskit' ),
+                        'title' =>esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' =>esc_html__( 'Center', 'elementskit' ),
+                        'title' =>esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'flex-end' => [
-                        'title' =>esc_html__( 'Right', 'elementskit' ),
+                        'title' =>esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -317,7 +317,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $repeater = new Repeater();
         $repeater->add_control(
             'ekit_tab_title', [
-                'label' => esc_html__('Title', 'elementskit'),
+                'label' => esc_html__('Title', 'elementskit-lite'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -326,30 +326,30 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $repeater->add_control(
             'ekit_tab_title_is_active',
             [
-                'label' => esc_html__('Keep this tab open? ', 'elementskit'),
+                'label' => esc_html__('Keep this tab open? ', 'elementskit-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                'label_off' =>esc_html__( 'No', 'elementskit' ),
+                'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
             ]
         );
 
         $repeater->add_control(
             'ekit_tab_title_icon_type', [
-                'label'       => esc_html__( 'Icon Type', 'elementskit' ),
+                'label'       => esc_html__( 'Icon Type', 'elementskit-lite' ),
                 'type'        => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options'     => [
                     'none' => [
-                        'title' => esc_html__( 'None', 'elementskit' ),
+                        'title' => esc_html__( 'None', 'elementskit-lite' ),
                         'icon'  => 'fa fa-ban',
                     ],
                     'icon' => [
-                        'title' => esc_html__( 'Icon', 'elementskit' ),
+                        'title' => esc_html__( 'Icon', 'elementskit-lite' ),
                         'icon'  => 'fa fa-paint-brush',
                     ],
                     'image' => [
-                        'title' => esc_html__( 'Image', 'elementskit' ),
+                        'title' => esc_html__( 'Image', 'elementskit-lite' ),
                         'icon'  => 'fa fa-image',
                     ],
                 ],
@@ -358,7 +358,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         );
         $repeater->add_control(
             'ekit_tab_title_icons', [
-                'label' => esc_html__('Title Icon', 'elementskit'),
+                'label' => esc_html__('Title Icon', 'elementskit-lite'),
                 'type' => Controls_Manager::ICONS,
                 'label_block' => true,
                 'fa4compatibility' => 'ekit_tab_title_icon',
@@ -375,7 +375,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $repeater->add_control(
             'ekit_tab_title_image',
             [
-                'label' => esc_html__( 'Choose Image', 'elementskit' ),
+                'label' => esc_html__( 'Choose Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -387,7 +387,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         );
         $repeater->add_control(
             'ekit_tab_content', [
-                'label' => esc_html__('Content', 'elementskit'),
+                'label' => esc_html__('Content', 'elementskit-lite'),
                 'type' => Controls_Manager::WYSIWYG,
                 'label_block' => true,
             ]
@@ -402,7 +402,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $repeater->add_responsive_control(
             'ekit_tab_title_border_radius_group',
             [
-                'label' => esc_html__( 'Title Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Title Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -413,7 +413,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_items',
             [
-                'label' => esc_html__('Tab content', 'elementskit'),
+                'label' => esc_html__('Tab content', 'elementskit-lite'),
                 'type' => Controls_Manager::REPEATER,
                 'separator' => 'before',
                 'title_field' => '{{ ekit_tab_title }}',
@@ -441,14 +441,14 @@ class Elementskit_Widget_Tab extends Widget_Base {
 
         $this->start_controls_section(
             'ekit_tab_section_wrapper_style', [
-                'label'	 =>esc_html__( 'Wrapper', 'elementskit' ),
+                'label'	 =>esc_html__( 'Wrapper', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_responsive_control(
             'ekit_tab_wrapper_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -468,14 +468,14 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_wrapper_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-wraper',
             ]
         );
         $this->add_responsive_control(
             'ekit_tab_wrapper_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -487,7 +487,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_tab_wrapper_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-wraper',
             ]
         );
@@ -497,7 +497,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         // Header setting
         $this->start_controls_section(
             'ekit_tab_header_section_setting', [
-                'label' =>esc_html__( 'Nav Wrapper  ', 'elementskit' ),
+                'label' =>esc_html__( 'Nav Wrapper  ', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -505,10 +505,10 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_nav_wrapper_width',
             [
-                'label' => esc_html__( 'Make Fluid', 'elementskit' ),
+                'label' => esc_html__( 'Make Fluid', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -519,7 +519,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_nav_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav',
             ]
@@ -527,7 +527,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_header_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -546,7 +546,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_header_margin',
             [
-                'label' => esc_html__( 'Margin', 'elementskit' ),
+                'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -566,7 +566,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_nav_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav',
 
             ]
@@ -574,7 +574,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_border_radius_group',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -586,7 +586,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_tab_nav_header_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav',
             ]
         );
@@ -595,7 +595,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         // Header Items
         $this->start_controls_section(
             'ekit_tab_nav_items_section_setting', [
-                'label' =>esc_html__( 'Nav Items  ', 'elementskit' ),
+                'label' =>esc_html__( 'Nav Items  ', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -603,7 +603,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_tab_header_title_typography_group',
-                'label' =>esc_html__( 'Typography', 'elementskit' ),
+                'label' =>esc_html__( 'Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-item .elementkit-nav-link',
             ]
         );
@@ -611,7 +611,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_simple_tab_title_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -636,7 +636,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_spacing_right',
             [
-                'label' => esc_html__( 'Margin Right', 'elementskit' ),
+                'label' => esc_html__( 'Margin Right', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,
@@ -658,7 +658,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_spacing_bottom',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,
@@ -679,7 +679,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -702,13 +702,13 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->start_controls_tab(
             'style_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_tab_title_color',
             [
-                'label' =>esc_html__( 'Title Color', 'elementskit' ),
+                'label' =>esc_html__( 'Title Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#2575fc',
                 'selectors' => [
@@ -720,7 +720,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_icon_color',
             [
-                'label' =>esc_html__( 'Icon Color', 'elementskit' ),
+                'label' =>esc_html__( 'Icon Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link span.elementskit-tab-icon' => 'color: {{VALUE}};',
@@ -733,7 +733,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_title_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link',
             ]
@@ -742,7 +742,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_title_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link',
                 'fields_options' => [
                     'border' => [
@@ -767,7 +767,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_tab_tab_title_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-item .elementkit-nav-link',
             ]
         );
@@ -776,13 +776,13 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->start_controls_tab(
             'ekit_tab_header_style_tabs_active',
             [
-                'label' => esc_html__( 'Active', 'elementskit' ),
+                'label' => esc_html__( 'Active', 'elementskit-lite' ),
             ]
         );
         $this->add_control(
             'ekit_tab_active_title_color',
             [
-                'label' =>esc_html__( 'Title Color', 'elementskit' ),
+                'label' =>esc_html__( 'Title Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000',
                 'selectors' => [
@@ -793,7 +793,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_control(
             'ekit_tab_icon_color_active',
             [
-                'label' =>esc_html__( 'Icon Color', 'elementskit' ),
+                'label' =>esc_html__( 'Icon Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link.active span.elementskit-tab-icon' => 'color: {{VALUE}} !important;',
@@ -805,7 +805,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_title_active_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link.active',
             ]
@@ -814,7 +814,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_title_border_active_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link.active',
             ]
         );
@@ -822,7 +822,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_tab_tab_title_box_shadow_active_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav .elementkit-nav-link.active',
             ]
         );
@@ -832,7 +832,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_item_border_radious',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -846,7 +846,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_nav_item_first_child',
             [
-                'label' => esc_html__( 'First and Last Child Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'First and Last Child Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -855,7 +855,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_item_first_child_border_radious',
             [
-                'label' => esc_html__( 'First Child Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'First Child Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -867,7 +867,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_item_first_child_border',
             [
-                'label' => esc_html__( 'First Child Border Width', 'elementskit' ),
+                'label' => esc_html__( 'First Child Border Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
                 'selectors' => [
@@ -879,7 +879,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_item_last_child_border_radious',
             [
-                'label' => esc_html__( 'Last Child Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Last Child Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -891,7 +891,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_nav_item_last_child_border',
             [
-                'label' => esc_html__( 'Last Child Border Width', 'elementskit' ),
+                'label' => esc_html__( 'Last Child Border Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
                 'selectors' => [
@@ -907,7 +907,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         // Caret setting
         $this->start_controls_section(
             'ekit_tab_header_caret_section_setting', [
-                'label' =>esc_html__( 'Caret  ', 'elementskit' ),
+                'label' =>esc_html__( 'Caret  ', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_tab_caret_style_choose' => 'yes'
@@ -919,7 +919,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tab_border_bottm_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -949,7 +949,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tab_border_bottm_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -980,7 +980,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_tab_border_bottm_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient', 'video' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_tab_border_bottm .elementkit-nav-item .elementkit-nav-link::before',
                 'condition' => [
@@ -992,7 +992,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tab_border_bottm_bottom',
             [
-                'label' => esc_html__( 'Bottom Icon Position', 'elementskit' ),
+                'label' => esc_html__( 'Bottom Icon Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1022,7 +1022,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tab_border_bottm_left',
             [
-                'label' => esc_html__( 'Left', 'elementskit' ),
+                'label' => esc_html__( 'Left', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1048,7 +1048,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tooltip_style_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1074,7 +1074,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tooltip_style_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1101,7 +1101,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_tooltip_style_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit_tooltip_style.elementkit-tab-nav .elementkit-nav-item .elementkit-nav-link::before',
                 'condition' => [
@@ -1113,7 +1113,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tooltip_style_bottom',
             [
-                'label' => esc_html__( 'Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1143,7 +1143,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_tooltip_style_left',
             [
-                'label' => esc_html__( 'Left', 'elementskit' ),
+                'label' => esc_html__( 'Left', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1169,7 +1169,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_heartbit_style_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1199,7 +1199,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_heartbit_style_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1229,7 +1229,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_bottom_heartbit_style_line',
             [
-                'label' => esc_html__( 'Bottom Line', 'elementskit' ),
+                'label' => esc_html__( 'Bottom Line', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1261,7 +1261,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_heartbit_style_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_heartbit_style .elementkit-nav-item .elementkit-nav-link::before',
                 'condition' => [
@@ -1285,7 +1285,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_background_heartbit_style_heart_symbol',
-                'label' => esc_html__( 'Hear Symbol Background', 'elementskit' ),
+                'label' => esc_html__( 'Hear Symbol Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_heartbit_style .elementkit-nav-item .elementkit-nav-link::after',
                 'condition' => [
@@ -1298,7 +1298,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_heartbit_style_border_heart_symbol',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_heartbit_style .elementkit-nav-item .elementkit-nav-link::after',
                 'condition' => [
                     'ekit_tab_caret_style' => ['elementskit_heartbit_style']
@@ -1309,7 +1309,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_heartbit_style_heartbeat_width',
             [
-                'label' => esc_html__( 'Caret Width', 'elementskit' ),
+                'label' => esc_html__( 'Caret Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1335,7 +1335,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_heartbit_style_heartbeat_height',
             [
-                'label' => esc_html__( 'Caret Height', 'elementskit' ),
+                'label' => esc_html__( 'Caret Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1361,7 +1361,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_heartbit_style_bottom',
             [
-                'label' => esc_html__( 'Bottom Position', 'elementskit' ),
+                'label' => esc_html__( 'Bottom Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1391,7 +1391,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_heartbit_style_left',
             [
-                'label' => esc_html__( 'Left Position', 'elementskit' ),
+                'label' => esc_html__( 'Left Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1422,7 +1422,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_line_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1452,7 +1452,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_line_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1482,7 +1482,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_bottom_line',
             [
-                'label' => esc_html__( 'Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1513,7 +1513,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_left_line',
             [
-                'label' => esc_html__( 'Left', 'elementskit' ),
+                'label' => esc_html__( 'Left', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1545,7 +1545,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_pregress_style_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_pregress_style .elementkit-nav-item .elementkit-nav-link::before',
                 'condition' => [
@@ -1569,7 +1569,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_background_pregress_style_symbol',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'default' => '#ffffff',
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_pregress_style .elementkit-nav-item .elementkit-nav-link::after',
@@ -1583,7 +1583,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_border_pregress_style_symbol',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '.elementkit-tab-nav.elementskit_pregress_style .elementkit-nav-item .elementkit-nav-link::after',
                 'condition' => [
                     'ekit_tab_caret_style' => ['elementskit_pregress_style']
@@ -1594,7 +1594,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_width',
             [
-                'label' => esc_html__( 'Caret Width', 'elementskit' ),
+                'label' => esc_html__( 'Caret Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1620,7 +1620,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_height',
             [
-                'label' => esc_html__( 'Caret Height', 'elementskit' ),
+                'label' => esc_html__( 'Caret Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1646,7 +1646,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_bottom',
             [
-                'label' => esc_html__( 'Bottom Icon Position', 'elementskit' ),
+                'label' => esc_html__( 'Bottom Icon Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1676,7 +1676,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_pregress_style_left',
             [
-                'label' => esc_html__( 'Left Position', 'elementskit' ),
+                'label' => esc_html__( 'Left Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1706,7 +1706,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_border_pregress_style_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1732,7 +1732,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_ribbon_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1758,7 +1758,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_ribbon_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1785,7 +1785,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_ribbon_style_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_ribbon_style .elementkit-nav-item .elementkit-nav-link::before',
                 'condition' => [
@@ -1809,7 +1809,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_tab_header_caret_background_heart_symbol',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementkit-tab-nav.elementskit_ribbon_style .elementkit-nav-item .elementkit-nav-link::after',
                 'condition' => [
@@ -1821,7 +1821,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_ribbon_style_width',
             [
-                'label' => esc_html__( 'Caret Width', 'elementskit' ),
+                'label' => esc_html__( 'Caret Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1847,7 +1847,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_ribbon_style_height',
             [
-                'label' => esc_html__( 'Caret Height', 'elementskit' ),
+                'label' => esc_html__( 'Caret Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1873,7 +1873,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_ribbon_style_bottom',
             [
-                'label' => esc_html__( 'Bottom Position', 'elementskit' ),
+                'label' => esc_html__( 'Bottom Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1903,7 +1903,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_header_caret_ribbon_style_left',
             [
-                'label' => esc_html__( 'Left Position', 'elementskit' ),
+                'label' => esc_html__( 'Left Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1936,14 +1936,14 @@ class Elementskit_Widget_Tab extends Widget_Base {
 
         $this->start_controls_section(
             'ekit_tab_section_body_style', [
-                'label'	 =>esc_html__( 'Body', 'elementskit' ),
+                'label'	 =>esc_html__( 'Body', 'elementskit-lite' ),
                 'tab'	 => Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'ekit_tab_body_color',
             [
-                'label' => esc_html__( 'Body Color', 'elementskit' ),
+                'label' => esc_html__( 'Body Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#656565',
                 'selectors' => [
@@ -1954,7 +1954,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
         $this->add_responsive_control(
             'ekit_tab_body_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -1982,14 +1982,14 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_tab_body_content_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .tab-content .tab-pane',
             ]
         );
         $this->add_responsive_control(
             'ekit_tab_body_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -2001,7 +2001,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_tab_body_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .tab-content .tab-pane',
             ]
         );
@@ -2068,7 +2068,7 @@ class Elementskit_Widget_Tab extends Widget_Base {
                             Icons_Manager::render_icon( $tab['ekit_tab_title_icons'], [ 'aria-hidden' => 'true' ] );
                         $rendered_icon = ob_get_clean();
 
-                        $icon_html = $tab['ekit_tab_title_icons']['library'] === 'svg' ? '<span class="elementskit-tab-icon">'. $rendered_icon .'</span>' : '<span class="'.  $tab['ekit_tab_title_icons']['value'] .' elementskit-tab-icon"></span>';
+                        $icon_html = !empty($tab['ekit_tab_title_icons']) ? ($tab['ekit_tab_title_icons']['library'] === 'svg' ? '<span class="elementskit-tab-icon">'. $rendered_icon .'</span>' : '<span class="'.  $tab['ekit_tab_title_icons']['value'] .' elementskit-tab-icon"></span>') : '';
                     } else {
                         $icon_html = '<span class="'.  $tab['ekit_tab_title_icon'] .' elementskit-tab-icon"></span>';
                     }

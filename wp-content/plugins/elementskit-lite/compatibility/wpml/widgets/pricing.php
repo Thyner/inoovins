@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -48,7 +48,7 @@ class Ekit_Pricing extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_pricing_list':
-				return esc_html__( 'List text (Pricing Table)', 'elementskit' );
+				return esc_html__( 'List text (Pricing Table)', 'elementskit-lite' );
 				break;
 
 			default:

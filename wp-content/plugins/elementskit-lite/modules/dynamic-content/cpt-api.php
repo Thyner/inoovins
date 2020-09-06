@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit;
+namespace ElementsKit_Lite;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -13,7 +13,6 @@ class ElementsKit_Cpt_Api extends Core\Handler_Api {
     public function get_content_editor(){
         $content_key = $this->request['key'];
         $content_type = $this->request['type'];
-        // return $content_key;
         
         $builder_post_title = 'dynamic-content-' . $content_type . '-' . $content_key;
         $builder_post_id = get_page_by_title($builder_post_title, OBJECT, 'elementskit_content');

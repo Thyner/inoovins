@@ -1,9 +1,9 @@
 <?php
-namespace ElementsKit;
+namespace ElementsKit_Lite;
 
 if ( ! defined( 'ABSPATH' ) ) die( 'Forbidden' );
 /**
- * ElementsKit notice class.
+ * ElementsKit_Lite notice class.
  * Handles dynamically notices for lazy developers.
  *
  * @author XpeedStudo team: alpha omega sigma
@@ -32,9 +32,9 @@ class Notice {
 	 */
 	public function dismiss() {
 
-		$id   = ( isset( $_POST['id'] ) ) ? sanitize_text_field($_POST['id']) : '';
-		$time = ( isset( $_POST['time'] ) ) ? sanitize_text_field($_POST['time']) : '';
-		$meta = ( isset( $_POST['meta'] ) ) ? sanitize_text_field($_POST['meta']) : '';
+		$id   = ( isset( $_POST['id'] ) ) ? $_POST['id'] : '';
+		$time = ( isset( $_POST['time'] ) ) ? $_POST['time'] : '';
+		$meta = ( isset( $_POST['meta'] ) ) ? $_POST['meta'] : '';
 
 		// Valid inputs?
 		if ( ! empty( $id ) ) {
@@ -63,7 +63,7 @@ class Notice {
 			jQuery(document).ready(function ($) {
 				$( '.elementskit-notice.is-dismissible' ).on( 'click', '.notice-dismiss', function() {
 					//console.log('test');
-					_this 		= $( this ).parents( '.elementskit-notice' );
+					_this 		= $( this ).parents( '.elementskit-active-notice' );
 					var id 	= _this.attr( 'id' ) || '';
 					var time 	= _this.attr( 'dismissible-time' ) || '';
 					var meta 	= _this.attr( 'dismissible-meta' ) || '';
@@ -99,7 +99,7 @@ class Notice {
 			'type'             => 'info',
 			'show_if'          => true,
 			'message'          => '',
-			'class'            => 'elementskit-notice',
+			'class'            => 'elementskit-active-notice',
 			'dismissible'      => false,
 			'btn'			   => [],
 			'dismissible-meta' => 'user',
@@ -167,9 +167,9 @@ class Notice {
 	 */
 	public static function markup( $notice = [] ) {
 		?>
-		<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" <?php echo \ElementsKit\Utils::render($notice['data']); ?>>
+		<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" <?php echo \ElementsKit_Lite\Utils::render($notice['data']); ?>>
 			<p>
-				<?php echo \ElementsKit\Utils::kses($notice['message']); ?>
+				<?php echo \ElementsKit_Lite\Utils::kses($notice['message']); ?>
 			</p>
 
 			<?php if(!empty($notice['btn'])):?>

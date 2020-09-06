@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Header_Info_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Header_Info_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined('ABSPATH') || exit;
 
 class Elementskit_Widget_Header_Info extends Widget_Base
 {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -34,7 +34,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->start_controls_section(
             'ekit_header_info',
             [
-                'label' => esc_html__('Header Info', 'elementskit'),
+                'label' => esc_html__('Header Info', 'elementskit-lite'),
             ]
         );
 
@@ -42,7 +42,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $headerinfogroup->add_control(
             'ekit_headerinfo_icons',
             [
-                'label' => esc_html__('Icon', 'elementskit'),
+                'label' => esc_html__('Icon', 'elementskit-lite'),
                 'label_block' => true,
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_headerinfo_icon',
@@ -57,7 +57,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $headerinfogroup->add_control(
             'ekit_headerinfo_text',
             [
-                'label' => esc_html__('Text', 'elementskit'),
+                'label' => esc_html__('Text', 'elementskit-lite'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
                 'default' => '463 7th Ave, NY 10018, USA',
@@ -69,9 +69,9 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $headerinfogroup->add_control(
             'ekit_headerinfo_link',
             [
-                'label' => esc_html__( 'Link', 'elementskit' ),
+                'label' => esc_html__( 'Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'elementskit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'elementskit-lite' ),
                 'show_external' => true,
                 'default' => [
                     'url' => '',
@@ -87,12 +87,12 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_control(
             'ekit_headerinfo_group',
             [
-                'label' => esc_html__( 'Header Info', 'elementskit' ),
+                'label' => esc_html__( 'Header Info', 'elementskit-lite' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $headerinfogroup->get_controls(),
                 'default' => [
                     [
-                        'ekit_headerinfo_text' => esc_html__( '463 7th Ave, NY 10018, USA', 'elementskit' ),
+                        'ekit_headerinfo_text' => esc_html__( '463 7th Ave, NY 10018, USA', 'elementskit-lite' ),
 
                     ],
 
@@ -105,7 +105,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->start_controls_section(
             'ekit_header_icon_style',
             [
-                'label' => esc_html__( 'Header Info', 'elementskit' ),
+                'label' => esc_html__( 'Header Info', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -113,7 +113,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_responsive_control(
 			'ekit_info_item_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -125,7 +125,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_responsive_control(
 			'ekit_info_item_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -137,7 +137,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_control(
             'ekit_info_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'elementskit' ),
+                'label' => esc_html__( 'Text Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -150,7 +150,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'elementskit_content_typography',
-                'label' => esc_html__( 'Typography', 'elementskit' ),
+                'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                 'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .ekit-header-info > li > a',
             ]
@@ -159,7 +159,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_control(
             'ekit_info_icon_color',
             [
-                'label' => esc_html__( 'Icon Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -172,7 +172,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_responsive_control(
             'ekit_simple_tab_title_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -191,7 +191,7 @@ class Elementskit_Widget_Header_Info extends Widget_Base
         $this->add_responsive_control(
             'ekit_info_icon_spacing',
             [
-                'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,

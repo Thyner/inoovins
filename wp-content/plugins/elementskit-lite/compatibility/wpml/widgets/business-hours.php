@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -49,11 +49,11 @@ class Ekit_Business_Hours extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_business_day':
-				return esc_html__( 'Day (Business Hours)', 'elementskit' );
+				return esc_html__( 'Day (Business Hours)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_business_time':
-				return esc_html__( 'Time (Business Hours)', 'elementskit' );
+				return esc_html__( 'Time (Business Hours)', 'elementskit-lite' );
 				break;
 
 			default:

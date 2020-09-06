@@ -1,20 +1,20 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Client_Logo_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Client_Logo_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Client_Logo extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
     public function __construct( $data = [], $args = null ) {
 		parent::__construct( $data, $args );
-		$this->add_script_depends('slick');
+		$this->add_script_depends('jquery-slick');
 	}
 
 	public function get_name() {
@@ -38,19 +38,19 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_section(
             'ekit_client_logo_section_client',
             [
-                'label' => esc_html__( 'Logo', 'elementskit' ),
+                'label' => esc_html__( 'Logo', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
 			'ekit_client_logo_slide_style',
 			[
-				'label' => esc_html__( 'Slide Style ', 'elementskit' ),
+				'label' => esc_html__( 'Slide Style ', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'simple_logo_image',
 				'options' => [
-					'simple_logo_image'  => esc_html__( 'Simple', 'elementskit' ),
-					'banner_logo_image' => esc_html__( 'Banner', 'elementskit' ),
+					'simple_logo_image'  => esc_html__( 'Simple', 'elementskit-lite' ),
+					'banner_logo_image' => esc_html__( 'Banner', 'elementskit-lite' ),
 				],
 			]
 		);
@@ -59,9 +59,9 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 
         $repeater->add_control(
             'ekit_client_logo_list_title', [
-                'label' => esc_html__( 'Client Name', 'elementskit' ),
+                'label' => esc_html__( 'Client Name', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'List Title' , 'elementskit' ),
+                'default' => esc_html__( 'List Title' , 'elementskit-lite' ),
                 'label_block' => true,
             ]
         );
@@ -69,7 +69,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $repeater->add_control(
             'ekit_client_logo_image_normal',
             [
-                'label' => esc_html__( 'Client Logo', 'elementskit' ),
+                'label' => esc_html__( 'Client Logo', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -80,10 +80,10 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $repeater->add_control(
             'ekit_client_logo_enable_hover_logo',
             [
-                'label' => esc_html__( 'Enable Hover Logo', 'elementskit' ),
+                'label' => esc_html__( 'Enable Hover Logo', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -92,7 +92,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $repeater->add_control(
             'ekit_client_logo_image_hover',
             [
-                'label' => esc_html__( 'Hover Logo', 'elementskit' ),
+                'label' => esc_html__( 'Hover Logo', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -106,10 +106,10 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $repeater->add_control(
             'ekit_client_logo_enable_link',
             [
-                'label' => esc_html__( 'Enable Link', 'elementskit' ),
+                'label' => esc_html__( 'Enable Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
             ]
         );
@@ -117,9 +117,9 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $repeater->add_control(
             'ekit_client_logo_website_link',
             [
-                'label' => esc_html__( 'Link', 'elementskit' ),
+                'label' => esc_html__( 'Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'elementskit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'elementskit-lite' ),
                 'show_external' => true,
                 'condition' => [
                     'ekit_client_logo_enable_link' => 'yes'
@@ -131,24 +131,24 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_repiter',
             [
-                'label' => esc_html__( 'Repeater List', 'elementskit' ),
+                'label' => esc_html__( 'Repeater List', 'elementskit-lite' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'ekit_client_logo_list_title' => esc_html__( 'Title #1', 'elementskit' ),
+                        'ekit_client_logo_list_title' => esc_html__( 'Title #1', 'elementskit-lite' ),
                     ],
                     [
-                        'ekit_client_logo_list_title' => esc_html__( 'Title #2', 'elementskit' ),
+                        'ekit_client_logo_list_title' => esc_html__( 'Title #2', 'elementskit-lite' ),
 					],
 					[
-                        'ekit_client_logo_list_title' => esc_html__( 'Title #3', 'elementskit' ),
+                        'ekit_client_logo_list_title' => esc_html__( 'Title #3', 'elementskit-lite' ),
                     ],
 					[
-                        'ekit_client_logo_list_title' => esc_html__( 'Title #4', 'elementskit' ),
+                        'ekit_client_logo_list_title' => esc_html__( 'Title #4', 'elementskit-lite' ),
                     ],
 					[
-                        'ekit_client_logo_list_title' => esc_html__( 'Title #5', 'elementskit' ),
+                        'ekit_client_logo_list_title' => esc_html__( 'Title #5', 'elementskit-lite' ),
                     ],
                 ],
                 'title_field' => '{{{ ekit_client_logo_list_title }}}',
@@ -162,14 +162,14 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_section(
             'ekit_client_logo_slider_settings',
             [
-                'label' => esc_html__( 'Settings', 'elementskit' ),
+                'label' => esc_html__( 'Settings', 'elementskit-lite' ),
             ]
         );
 
 		$this->add_responsive_control(
 			'ekit_client_logo_left_right_spacing',
 			[
-				'label' => esc_html__( 'Spacing Left Right', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Left Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -205,7 +205,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_top_bottom_spacing',
 			[
-				'label' => esc_html__( 'Spacing Top Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Top Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -241,7 +241,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_slidetosho',
 			[
-				'label' => esc_html__( 'Slides To Show', 'elementskit' ),
+				'label' => esc_html__( 'Slides To Show', 'elementskit-lite' ),
                 'type' =>  Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
 				'range' => [
@@ -274,7 +274,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_slidesToScroll',
 			[
-				'label' => esc_html__( 'Slides To Scroll', 'elementskit' ),
+				'label' => esc_html__( 'Slides To Scroll', 'elementskit-lite' ),
                 'type' =>  Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
 				'range' => [
@@ -309,10 +309,10 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_control(
 			'ekit_client_logo_autoplay',
 			[
-				'label' => esc_html__( 'Autoplay', 'elementskit' ),
+				'label' => esc_html__( 'Autoplay', 'elementskit-lite' ),
 				'type' =>  Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -320,7 +320,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_speed',
             [
-                'label' => esc_html__( 'Speed (ms)', 'elementskit' ),
+                'label' => esc_html__( 'Speed (ms)', 'elementskit-lite' ),
                 'type' =>  Controls_Manager::NUMBER,
                 'min' => 1000,
                 'max' => 15000,
@@ -334,10 +334,10 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_pause_on_hover',
             [
-                'label' => esc_html__( 'Pause on Hover', 'elementskit' ),
+                'label' => esc_html__( 'Pause on Hover', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -348,10 +348,10 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
 			'ekit_client_logo_show_arrow',
 			[
-				'label' => esc_html__( 'Show arrow', 'elementskit' ),
+				'label' => esc_html__( 'Show arrow', 'elementskit-lite' ),
 				'type' =>   Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => '',
 			]
@@ -359,7 +359,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_left_arrow_icon',
             [
-                'label' => esc_html__( 'Left arrow Icon', 'elementskit' ),
+                'label' => esc_html__( 'Left arrow Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_client_logo_left_arrow',
                 'default' => [
@@ -375,7 +375,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_right_arrow_icon',
             [
-                'label' => esc_html__( 'Right arrow Icon', 'elementskit' ),
+                'label' => esc_html__( 'Right arrow Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_client_logo_right_arrow',
                 'default' => [
@@ -390,10 +390,10 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
 			'ekit_client_logo_show_dot',
 			[
-				'label' => esc_html__( 'Show dots', 'elementskit' ),
+				'label' => esc_html__( 'Show dots', 'elementskit-lite' ),
 				'type' =>   Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementskit' ),
-				'label_off' => esc_html__( 'No', 'elementskit' ),
+				'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'No', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => '',
 			]
@@ -402,7 +402,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_additional_option_heading',
             [
-                'label' => esc_html__( 'Additional Options', 'elementskit' ),
+                'label' => esc_html__( 'Additional Options', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -411,25 +411,25 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_control(
 			'ekit_client_logo_rows',
 			[
-				'label' => esc_html__( 'Rows', 'elementskit' ),
+				'label' => esc_html__( 'Rows', 'elementskit-lite' ),
 				'description' => esc_html__( 'Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.
-				', 'elementskit' ) ,
+				', 'elementskit-lite' ) ,
                 'type' => Controls_Manager::SELECT,
 				'default' => 1,
                 'options' => [
-                    '1'  => esc_html__( 'One row', 'elementskit' ),
-                    '2' => esc_html__( 'Two row', 'elementskit' ),
-                    '3' => esc_html__( 'Three row', 'elementskit' ),
+                    '1'  => esc_html__( 'One row', 'elementskit-lite' ),
+                    '2' => esc_html__( 'Two row', 'elementskit-lite' ),
+                    '3' => esc_html__( 'Three row', 'elementskit-lite' ),
                 ],
 			]
 		);
         $this->add_control(
             'ekit_client_logo_separator',
             [
-                'label' => esc_html__( 'Show Separator', 'elementskit' ),
+                'label' => esc_html__( 'Show Separator', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'elementskit' ),
-                'label_off' => esc_html__( 'Hide', 'elementskit' ),
+                'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -448,7 +448,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_client_logo_container_bg_color',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider .slick-list'
 			]
@@ -457,7 +457,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_container_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -468,7 +468,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_container_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -480,7 +480,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_container_min_height',
 			[
-				'label' => esc_html__( 'Min Height', 'elementskit' ),
+				'label' => esc_html__( 'Min Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -503,7 +503,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_section(
             'ekit_client_logo_image_style',
             [
-                'label' => esc_html__( 'Logo', 'elementskit' ),
+                'label' => esc_html__( 'Logo', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     // 'ekit_client_logo_slide_style' => 'simple_logo_image',
@@ -516,7 +516,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_client_logo_image_style_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'elementskit' ),
+				'label' => esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
@@ -524,7 +524,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_client_logo_client_logo_background_group',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider .single-client',
 			]
@@ -537,7 +537,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->start_controls_tab(
 			'ekit_client_logo_image_style_hover_tab',
 			[
-				'label' => esc_html__( 'Hover', 'elementskit' ),
+				'label' => esc_html__( 'Hover', 'elementskit-lite' ),
 			]
 		);
 
@@ -545,7 +545,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_client_logo_background_hover_group',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider.banner_logo_image .single-client:before, {{WRAPPER}} .elementskit-clients-slider.hover-bg-gradient .single-client:before',
 				'condition' => [
@@ -558,7 +558,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_client_logo_background_simple_hover_group',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider .single-client:hover',
 				'condition' => [
@@ -573,7 +573,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_image_style_border_radious',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -585,23 +585,23 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_hover_animation_driction',
             [
-                'label' => esc_html__( 'Direction', 'elementskit' ),
+                'label' => esc_html__( 'Direction', 'elementskit-lite' ),
                 'type' =>   Controls_Manager::CHOOSE,
                 'options' => [
                     'hover_from_left' => [
-                        'title' => esc_html__( 'From Left', 'elementskit' ),
+                        'title' => esc_html__( 'From Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-right',
                     ],
                     'hover_from_top' => [
-                        'title' => esc_html__( 'From Top', 'elementskit' ),
+                        'title' => esc_html__( 'From Top', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-down',
                     ],
                     'hover_from_bottom' => [
-                        'title' => esc_html__( 'From Bottom', 'elementskit' ),
+                        'title' => esc_html__( 'From Bottom', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-up',
                     ],
                     'hover_from_right' => [
-                        'title' => esc_html__( 'From Right', 'elementskit' ),
+                        'title' => esc_html__( 'From Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-left',
                     ],
 
@@ -619,7 +619,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         Group_Control_Background::get_type(),
             array(
                 'name'     => 'ekit_client_logo_hover_animation_color',
-				'label' => esc_html__( 'Hover Background', 'elementskit' ),
+				'label' => esc_html__( 'Hover Background', 'elementskit-lite' ),
                 'default' => '',
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider.banner_logo_image .single-client:before',
 				'condition'  => [
@@ -631,7 +631,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_margin',
             [
-                'label' => esc_html__( 'Margin', 'elementskit' ),
+                'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -644,7 +644,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -661,7 +661,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
             'ekit_client_logo_border_style_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -669,7 +669,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_client_logo_image_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider .single-client',
             ]
         );
@@ -678,7 +678,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_client_logo_image_style_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider .single-client',
             ]
         );
@@ -688,7 +688,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
             'ekit_client_logo_border_style_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -696,7 +696,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_client_logo_image_box_shadow_hover_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider.simple_logo_image .single-client:hover',
             ]
         );
@@ -705,7 +705,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_client_logo_image_style_hover_border_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider .single-client:hover',
             ]
         );
@@ -718,14 +718,14 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
             'ekit_client_logo_style_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_responsive_control(
             'ekit_client_logo_opacity',
             [
-                'label' => esc_html__( 'Opacity', 'elementskit' ),
+                'label' => esc_html__( 'Opacity', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ ''],
                 'range' => [
@@ -754,14 +754,14 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
             'ekit_client_logo_style_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_responsive_control(
             'ekit_client_logo_opacity_hover',
             [
-                'label' => esc_html__( 'Opacity', 'elementskit' ),
+                'label' => esc_html__( 'Opacity', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ ''],
                 'range' => [
@@ -784,7 +784,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_hover_opacity',
             [
-                'label' => esc_html__( 'Opacity Hover', 'elementskit' ),
+                'label' => esc_html__( 'Opacity Hover', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ ''],
                 'range' => [
@@ -813,7 +813,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_section(
 			'ekit_client_logo_section_navigation',
 			[
-				'label' => esc_html__( 'Arrows', 'elementskit' ),
+				'label' => esc_html__( 'Arrows', 'elementskit-lite' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                         'ekit_client_logo_show_arrow' => 'yes'
@@ -824,12 +824,12 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
 			'ekit_client_logo_arrow_pos',
 			[
-				'label' => esc_html__( 'Position', 'elementskit' ),
+				'label' => esc_html__( 'Position', 'elementskit-lite' ),
 				'type' =>   Controls_Manager::SELECT,
 				'default' => 'arrow_inside',
 				'options' => [
-					'arrow_outside'  => esc_html__( 'Outside', 'elementskit' ),
-					'arrow_inside' => esc_html__( 'Inside', 'elementskit' ),
+					'arrow_outside'  => esc_html__( 'Outside', 'elementskit-lite' ),
+					'arrow_inside' => esc_html__( 'Inside', 'elementskit-lite' ),
 				],
 			]
 		);
@@ -837,7 +837,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_arrow_size',
 			[
-				'label' => esc_html__( 'Size', 'elementskit' ),
+				'label' => esc_html__( 'Size', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -865,7 +865,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_client_logo_arrow_icon_typography',
-                'label' => esc_html__( 'Typography', 'elementskit' ),
+                'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider .slick-arrow i',
             ]
         );
@@ -873,7 +873,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_arrow_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -886,7 +886,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_client_logo_arrow_border_group',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider .slick-arrow',
 			]
         );
@@ -894,7 +894,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_arrow_border_radious',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -913,7 +913,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_arrow_left_pos',
 			[
-				'label' => esc_html__( 'Left Arrow Position', 'elementskit' ),
+				'label' => esc_html__( 'Left Arrow Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -937,7 +937,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_client_logo_arrow_right_pos',
 			[
-				'label' => esc_html__( 'Right Arrow Position', 'elementskit' ),
+				'label' => esc_html__( 'Right Arrow Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -963,14 +963,14 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
 			'ekit_logo_arrow_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'elementskit' ),
+				'label' => esc_html__( 'Normal', 'elementskit-lite' ),
 			]
 		);
 
         $this->add_control(
 			'ekit_client_logo_arrow_color',
 			[
-				'label' => esc_html__( 'Arrow Color', 'elementskit' ),
+				'label' => esc_html__( 'Arrow Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-clients-slider .slick-arrow' => 'color: {{VALUE}}',
@@ -981,7 +981,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
 			'ekit_client_logo_arrow_background',
 			[
-				'label' => esc_html__( 'Arrow Background', 'elementskit' ),
+				'label' => esc_html__( 'Arrow Background', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-clients-slider .slick-arrow' => 'background: {{VALUE}}',
@@ -996,14 +996,14 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
 			'ekit_client_logo_arrow_hover_tab',
 			[
-				'label' => esc_html__( 'Hover', 'elementskit' ),
+				'label' => esc_html__( 'Hover', 'elementskit-lite' ),
 			]
         );
 
         $this->add_control(
 			'ekit_client_logo_arrow_hv_color',
 			[
-				'label' => esc_html__( 'Arrow Color', 'elementskit' ),
+				'label' => esc_html__( 'Arrow Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-clients-slider .slick-arrow:hover' => 'color: {{VALUE}}',
@@ -1014,7 +1014,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
 			'ekit_client_logo_arrow_hover_background',
 			[
-				'label' => esc_html__( 'Arrow Background', 'elementskit' ),
+				'label' => esc_html__( 'Arrow Background', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementskit-clients-slider .slick-arrow:hover' => 'background: {{VALUE}}',
@@ -1033,7 +1033,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_section(
             'ekit_client_logo_navigation_dot',
             [
-                'label' => esc_html__( 'Dots', 'elementskit' ),
+                'label' => esc_html__( 'Dots', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                         'ekit_client_logo_show_dot' => 'yes'
@@ -1044,14 +1044,14 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_control(
             'ekit_client_logo_client_logo_dot_style',
             [
-                'label' => esc_html__( 'Dot Style', 'elementskit' ),
+                'label' => esc_html__( 'Dot Style', 'elementskit-lite' ),
                 'type' =>  Controls_Manager::SELECT,
                 'default' => 'dot_dotted',
                 'options' => [
-                    'dot_default'  => esc_html__( 'Default', 'elementskit' ),
-                    'dot_dashed' => esc_html__( 'Dashed', 'elementskit' ),
-                    'dot_dotted' => esc_html__( 'Dotted', 'elementskit' ),
-                    'dot_paginated' => esc_html__( 'Paginate', 'elementskit' ),
+                    'dot_default'  => esc_html__( 'Default', 'elementskit-lite' ),
+                    'dot_dashed' => esc_html__( 'Dashed', 'elementskit-lite' ),
+                    'dot_dotted' => esc_html__( 'Dotted', 'elementskit-lite' ),
+                    'dot_paginated' => esc_html__( 'Paginate', 'elementskit-lite' ),
                 ],
             ]
 		);
@@ -1059,7 +1059,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_dots_left_right_spacing',
 			[
-				'label' => esc_html__( 'Spacing Left Right', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Left Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1095,7 +1095,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_dots_top_to_bottom',
             [
-                'label' => esc_html__( 'Spacing Top To Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Spacing Top To Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px'],
                 'range' => [
@@ -1119,7 +1119,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_control(
             'ekit_client_logo_dot_color',
             [
-                'label' => esc_html__( 'Dot Color', 'elementskit' ),
+                'label' => esc_html__( 'Dot Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-clients-slider.dot_paginated .slick-dots li' => 'color: {{VALUE}}',
@@ -1133,7 +1133,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_dot_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1156,7 +1156,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_dot_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1179,7 +1179,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_dot_border_radius',
 			[
-				'label' => esc_html__( 'Border radius', 'elementskit' ),
+				'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1192,7 +1192,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_client_logo_dot_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider .slick-dots li button',
 			]
@@ -1201,7 +1201,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_control(
 			'ekit_client_logo_dot_active_heading',
 			[
-				'label' => esc_html__( 'Active', 'elementskit' ),
+				'label' => esc_html__( 'Active', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1211,7 +1211,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_client_logo_dot_active_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit-clients-slider .slick-dots li.slick-active button',
 			]
@@ -1220,7 +1220,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_dot_active_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1246,7 +1246,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_client_logo_dot_active_scale',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1275,7 +1275,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_section(
             'ekit_client_logo_separator_section',
             [
-                'label' => esc_html__( 'Separator', 'elementskit' ),
+                'label' => esc_html__( 'Separator', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_client_logo_separator' => 'yes'
@@ -1285,7 +1285,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_separator_height',
             [
-                'label' => esc_html__( 'Hight', 'elementskit' ),
+                'label' => esc_html__( 'Hight', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1309,7 +1309,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_separator_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1333,7 +1333,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_separator_top_bottom_position',
             [
-                'label' => esc_html__( 'Top Bottom Position', 'elementskit' ),
+                'label' => esc_html__( 'Top Bottom Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1357,7 +1357,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->add_responsive_control(
             'ekit_client_logo_separator_left_right_position',
             [
-                'label' => esc_html__( 'Left Right Position', 'elementskit' ),
+                'label' => esc_html__( 'Left Right Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range' => [
@@ -1383,7 +1383,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
             'ekit_client_logo_seperator_color_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -1391,7 +1391,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_client_logo_seperator_bg_color',
-                'label' => esc_html__( 'Separator Color', 'elementskit' ),
+                'label' => esc_html__( 'Separator Color', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider .elementskit-client-slider-item.log-separator:after',
             ]
@@ -1402,7 +1402,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
         $this->start_controls_tab(
             'ekit_client_logo_seperator_color_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -1410,7 +1410,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_client_logo_seperator_bg_color_hover',
-                'label' => esc_html__( 'Separator Color', 'elementskit' ),
+                'label' => esc_html__( 'Separator Color', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-clients-slider:hover .elementskit-client-slider-item.log-separator:after',
             ]
@@ -1432,67 +1432,69 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
     protected function render_raw( ) {
 
         $settings = $this->get_settings_for_display();
+        extract($settings);
         $logos = $settings['ekit_client_logo_repiter'];
+        
+		// Left Arrow Icon
+        $migrated = isset( $settings['__fa4_migrated']['ekit_client_logo_left_arrow_icon'] );
+        // - Check if its a new widget without previously selected icon using the old Icon control
+        $is_new = empty( $settings['ekit_client_logo_left_arrow'] );
+        $prevArrowIcon = ($is_new || $migrated) ? (!empty($ekit_client_logo_left_arrow_icon) && $ekit_client_logo_left_arrow_icon['library'] != 'svg' ? $ekit_client_logo_left_arrow_icon['value'] : '') : $ekit_client_logo_left_arrow;
 
+		// Right Arrow Icon
+        $migrated = isset( $settings['__fa4_migrated']['ekit_client_logo_right_arrow_icon'] );
+        // - Check if its a new widget without previously selected icon using the old Icon control
+        $is_new = empty( $settings['ekit_client_logo_right_arrow'] );
+        $nextArrowIcon = ($is_new || $migrated) ? (!empty($ekit_client_logo_right_arrow_icon) && $ekit_client_logo_right_arrow_icon['library'] != 'svg' ? $ekit_client_logo_right_arrow_icon['value'] : '') : $ekit_client_logo_right_arrow;
+
+        // Config
+        $config = [
+            'rtl'				=> is_rtl(),
+            'arrows'			=> !empty($settings['ekit_client_logo_show_arrow']),
+            'dots'				=> !empty($settings['ekit_client_logo_show_dot']),
+            'pauseOnHover'		=> !empty($settings['ekit_client_logo_pause_on_hover']),
+			'prevArrow'			=> $prevArrowIcon,
+			'nextArrow'			=> $nextArrowIcon,
+            'autoplay'			=> !empty($settings['ekit_client_logo_autoplay']),
+            'autoplaySpeed'		=> !empty($settings['ekit_client_logo_speed']) ? $settings['ekit_client_logo_speed'] : 1000,
+            'infinite'			=> !empty($settings['ekit_client_logo_autoplay']),
+            'slidesToShow'		=> !empty($settings['ekit_client_logo_slidetosho']['size']) ? $settings['ekit_client_logo_slidetosho']['size'] : 4,
+            'slidesToScroll'	=> !empty($settings['ekit_client_logo_slidesToScroll']['size']) ? $settings['ekit_client_logo_slidesToScroll']['size'] : 1,
+            'pauseOnHover'	    => !empty($settings['ekit_client_logo_pause_on_hover']),
+            'rows'	            => (int) $settings['ekit_client_logo_rows'],
+            'responsive'		=> [
+                [
+                    'breakpoint'    => 1024,
+                    'settings'      => [
+                        'slidesToShow'      => !empty($settings['ekit_client_logo_slidetosho_tablet']['size']) ? $settings['ekit_client_logo_slidetosho_tablet']['size'] : 2,
+                        'slidesToScroll'    => !empty($settings['ekit_client_logo_slidesToScroll_tablet']['size']) ? $settings['ekit_client_logo_slidesToScroll_tablet']['size'] : 1,
+                    ],
+                ],
+                [
+                    'breakpoint'    => 480,
+                    'settings'      => [
+                        'slidesToShow'      => !empty($settings['ekit_client_logo_slidetosho_mobile']['size']) ? $settings['ekit_client_logo_slidetosho_mobile']['size'] : 1,
+                        'slidesToScroll'    => !empty($settings['ekit_client_logo_slidesToScroll_mobile']['size']) ? $settings['ekit_client_logo_slidesToScroll_mobile']['size'] : 1,
+                    ],
+                    'arrows'		=> false,
+                ]
+            ],
+        ];
 
         $this->add_render_attribute( 'wrapper', 'class', 'elementskit-clients-slider');
         $this->add_render_attribute( 'wrapper', 'class', $settings['ekit_client_logo_arrow_pos']);
         $this->add_render_attribute( 'wrapper', 'class', $settings['ekit_client_logo_client_logo_dot_style']);
 		$this->add_render_attribute( 'wrapper', 'class', $settings['ekit_client_logo_hover_animation_driction']);
 		$this->add_render_attribute( 'wrapper', 'class', $settings['ekit_client_logo_slide_style']);
-		$this->add_render_attribute( 'wrapper', 'data-slidestoshow', $settings['ekit_client_logo_slidetosho']['size']);
 
+        $this->add_render_attribute( 'wrapper', 'data-config', wp_json_encode($config) );
 
-		if($settings['ekit_client_logo_slidetosho_tablet']['size'] != '') {
-			$this->add_render_attribute( 'wrapper', 'data-slidestoshowtablet', $settings['ekit_client_logo_slidetosho_tablet']['size']);
-		}
-
-		if($settings['ekit_client_logo_slidetosho_mobile']['size'] != '') {
-			$this->add_render_attribute( 'wrapper', 'data-slidestoshowmobile', $settings['ekit_client_logo_slidetosho_mobile']['size']);
-		}
-
-		$this->add_render_attribute( 'wrapper', 'data-slidestoscroll', $settings['ekit_client_logo_slidesToScroll']['size']);
-
-		if($settings['ekit_client_logo_slidesToScroll_tablet']['size'] != '') {
-			$this->add_render_attribute( 'wrapper', 'data-slidesToScroll_tablet', $settings['ekit_client_logo_slidesToScroll_tablet']['size']);
-		}
-
-		if($settings['ekit_client_logo_slidesToScroll_mobile']['size'] != '') {
-			$this->add_render_attribute( 'wrapper', 'data-slidesToScroll_mobile', $settings['ekit_client_logo_slidesToScroll_mobile']['size']);
-        }
-        
-
-        
-
-        $this->add_render_attribute( 'wrapper', 'data-speed', $settings['ekit_client_logo_speed']);
-        $this->add_render_attribute( 'wrapper', 'data-autoplay', $settings['ekit_client_logo_autoplay']);
-        $this->add_render_attribute( 'wrapper', 'data-show_arrow', $settings['ekit_client_logo_show_arrow']);
-        $this->add_render_attribute( 'wrapper', 'data-show_dot', $settings['ekit_client_logo_show_dot']);
-
-        // new icon
-        $migrated = isset( $settings['__fa4_migrated']['ekit_client_logo_left_arrow_icon'] );
-        // Check if its a new widget without previously selected icon using the old Icon control
-        $is_new = empty( $settings['ekit_client_logo_left_arrow'] );
-        $this->add_render_attribute( 'wrapper', 'data-left_icon', ($is_new || $migrated) ? $settings['ekit_client_logo_left_arrow_icon']['library'] != 'svg' ? $settings['ekit_client_logo_left_arrow_icon']['value'] : '' : $settings['ekit_client_logo_left_arrow']);
-
-        // new icon
-        $migrated = isset( $settings['__fa4_migrated']['ekit_client_logo_right_arrow_icon'] );
-        // Check if its a new widget without previously selected icon using the old Icon control
-        $is_new = empty( $settings['ekit_client_logo_right_arrow'] );
-        $this->add_render_attribute( 'wrapper', 'data-right_icon', ($is_new || $migrated) ? $settings['ekit_client_logo_left_arrow_icon']['library'] != 'svg' ? $settings['ekit_client_logo_right_arrow_icon']['value'] : '' : $settings['ekit_client_logo_right_arrow']);
-
-		$this->add_render_attribute( 'wrapper', 'data-pause_on_hover', $settings['ekit_client_logo_pause_on_hover']);
-
-
-		$this->add_render_attribute( 'wrapper', 'data-rows', $settings['ekit_client_logo_rows']);
 		$this->add_render_attribute( 'wrapper', 'data-direction', $settings['ekit_client_logo_hover_animation_driction']);
-		$this->add_render_attribute( 'wrapper', 'data-rtl', is_rtl());
 
         $seperotor_enable = $settings['ekit_client_logo_separator'] == 'yes' ? 'log-separator' : '';
-
         ?>
-
-        <div <?php echo \ElementsKit\Utils::render($this->get_render_attribute_string( 'wrapper' )); ?>>
+        
+        <div <?php echo \ElementsKit_Lite\Utils::render($this->get_render_attribute_string( 'wrapper' )); ?>>
 
             <?php
 
@@ -1508,7 +1510,7 @@ class Elementskit_Widget_Client_Logo extends Widget_Base {
                         <?php if($logo['ekit_client_logo_enable_link'] == 'yes') :  ?>
 
 
-                            <a <?php echo $this->get_render_attribute_string( 'button-' . $count ); ?> <?php echo \ElementsKit\Utils::render($this->get_render_attribute_string( 'link_'.$count )); ?>>
+                            <a <?php echo $this->get_render_attribute_string( 'button-' . $count ); ?> <?php echo \ElementsKit_Lite\Utils::render($this->get_render_attribute_string( 'link_'.$count )); ?>>
                                 <span class="content-image">
 
                                     <img src="<?php echo esc_url($logo['ekit_client_logo_image_normal']['url']); ?>" alt="<?php echo esc_attr(Control_Media::get_image_alt($logo['ekit_client_logo_image_normal'])); ?>" class="<?php echo esc_attr(($logo['ekit_client_logo_enable_hover_logo'] == 'yes') ? 'main-image' :  ''); ?>">

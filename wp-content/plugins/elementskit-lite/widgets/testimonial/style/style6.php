@@ -1,4 +1,4 @@
-<div  class="elementskit-testimonial-slider ekit_testimonial_style_6" <?php echo \ElementsKit\Utils::render($wrapper_data); ?>>
+<div  class="elementskit-testimonial-slider ekit_testimonial_style_6" <?php echo $this->get_render_attribute_string('wrapper'); ?>>
 	<?php foreach ($testimonials as $testimonial): ?>
     <div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style elementskit-testimonial-slider-block-style-three elementor-repeater-item-<?php echo esc_attr( $testimonial[ '_id' ] ); ?>">
         <?php if(isset($ekit_testimonial_wartermark_enable) && ($ekit_testimonial_wartermark_enable == 'yes')):?>
@@ -50,7 +50,7 @@
                     <?php }?>
 				</ul>
 				<?php endif; ?>
-                <p><?php echo isset($testimonial['review']) ? \ElementsKit\Utils::kses($testimonial['review']) : ''; ?></p>
+                <p><?php echo isset($testimonial['review']) ? \ElementsKit_Lite\Utils::kses($testimonial['review']) : ''; ?></p>
             </div>
 		<?php endif;  ?>
 
@@ -60,7 +60,7 @@
 			<strong class="elementskit-author-name"><?php echo esc_html($testimonial['client_name']); ?></strong>
 			<?php }; ?>
 			<?php if (!empty($testimonial['designation'])) { ?>
-			<span class="elementskit-author-des"><?php echo \ElementsKit\Utils::kspan($testimonial['designation']); ?></span>
+			<span class="elementskit-author-des"><?php echo \ElementsKit_Lite\Utils::kspan($testimonial['designation']); ?></span>
 			<?php }; ?>
 		</div>
 		<?php }; ?>

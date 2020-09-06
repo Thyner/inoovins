@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -50,15 +50,15 @@ class Ekit_Testimonial extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'client_name':
-				return esc_html__( 'Client Name (Testimonial)', 'elementskit' );
+				return esc_html__( 'Client Name (Testimonial)', 'elementskit-lite' );
 				break;
 
 			case 'designation':
-				return esc_html__( 'Designation (Testimonial)', 'elementskit' );
+				return esc_html__( 'Designation (Testimonial)', 'elementskit-lite' );
 				break;
 
 			case 'review':
-				return esc_html__( 'Testimonial Review (Testimonial)', 'elementskit' );
+				return esc_html__( 'Testimonial Review (Testimonial)', 'elementskit-lite' );
 				break;
 
 			default:

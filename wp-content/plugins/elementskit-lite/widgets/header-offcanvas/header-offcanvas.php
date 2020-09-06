@@ -1,15 +1,15 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Header_Offcanvas_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
-use \ElementsKit\Modules\Controls\Widget_Area_Utils as Widget_Area_Utils;
+use \Elementor\Elementskit_Widget_Header_Offcanvas_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \ElementsKit_Lite\Modules\Controls\Widget_Area_Utils as Widget_Area_Utils;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Header_Offcanvas extends Widget_Base
 {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -35,13 +35,13 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
         $this->start_controls_section(
             'ekit_header_search',
             [
-                'label' => esc_html__('Header Offcanvas', 'elementskit'),
+                'label' => esc_html__('Header Offcanvas', 'elementskit-lite'),
             ]
         );
 
         $this->add_control(
             'ekit_offcanvas_content', [
-                'label' => esc_html__('Content', 'elementskit'),
+                'label' => esc_html__('Content', 'elementskit-lite'),
                 'type' => ElementsKit_Controls_Manager::WIDGETAREA,
                 'label_block' => true,
             ]
@@ -50,7 +50,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
         $this->add_control(
             'ekit__offcanvas_seacrh_overlay_bg_color',
             [
-                'label' =>esc_html__( 'Overlay color', 'elementskit' ),
+                'label' =>esc_html__( 'Overlay color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ekit-bg-black' => 'background-color: {{VALUE}};',
@@ -64,13 +64,13 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->start_controls_tab(
 				'ekit_offcanvas_hamburger_tab',
 				[
-					'label' => esc_html__( 'Hamburger', 'elementskit' ),
+					'label' => esc_html__( 'Hamburger', 'elementskit-lite' ),
 				]
 			);
             $this->add_control(
                 'ekit_offcanvas_menu_icons',
                 [
-                    'label' => esc_html__('Icon', 'elementskit'),
+                    'label' => esc_html__('Icon', 'elementskit-lite'),
                     'label_block' => true,
                     'type' => Controls_Manager::ICONS,
                     'fa4compatibility' => 'ekit_offcanvas_menu_icon',
@@ -88,14 +88,14 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->start_controls_tab(
                 'ekit_offcanvas_close_tab',
                 [
-                    'label' => esc_html__( 'Closed', 'elementskit' )
+                    'label' => esc_html__( 'Closed', 'elementskit-lite' )
                 ]
             );
 
             $this->add_control(
                 'ekit_offcanvas_menu_close_icons',
                 [
-                    'label' => esc_html__('Close Icon', 'elementskit'),
+                    'label' => esc_html__('Close Icon', 'elementskit-lite'),
                     'label_block' => true,
                     'type' => Controls_Manager::ICONS,
                     'fa4compatibility' => 'ekit_offcanvas_menu_close_icon',
@@ -117,7 +117,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
         $this->start_controls_section(
             'ekit_header_offcanvas_section_tab_style',
             [
-                'label' => esc_html__('Offcanvas', 'elementskit'),
+                'label' => esc_html__('Offcanvas', 'elementskit-lite'),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -126,14 +126,14 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->start_controls_tab(
                 'ekit_header_offcanvas_style_hamburger_tab',
                 [
-                    'label' => esc_html__( 'Hamburger', 'elementskit' )
+                    'label' => esc_html__( 'Hamburger', 'elementskit-lite' )
                 ]
             );
 
             $this->add_responsive_control(
                 'ekit_offcanvas_icon_color',
                 [
-                    'label' =>esc_html__( 'Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'default' => '#333',
                     'selectors' => [
@@ -146,7 +146,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_icon_bg_color',
                 [
-                    'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navSidebar-button' => 'background-color: {{VALUE}};',
@@ -157,7 +157,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_control(
                 'ekit_offcanvas_icon_hover_title',
                 [
-                    'label' => __( 'Hover', 'elementskit' ),
+                    'label' => __( 'Hover', 'elementskit-lite' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -166,7 +166,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_icon_color_hover',
                 [
-                    'label' =>esc_html__( 'Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navSidebar-button:hover' => 'color: {{VALUE}};',
@@ -178,7 +178,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_icon_bg_color_hover',
                 [
-                    'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navSidebar-button:hover' => 'background-color: {{VALUE}};',
@@ -189,7 +189,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_icon_border_color_hover',
                 [
-                    'label' =>esc_html__( 'Border Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Border Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_navSidebar-button:hover' => 'border-color: {{VALUE}};',
@@ -201,7 +201,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_icon_font_size',
                 [
-                    'label'         => esc_html__('Font Size', 'elementskit'),
+                    'label'         => esc_html__('Font Size', 'elementskit-lite'),
                     'type'          => Controls_Manager::SLIDER,
                     'size_units'    => ['px', 'em'],
                     'separator' => 'before',
@@ -229,19 +229,19 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_humburger_text_align',
                 [
-                    'label' => __( 'Alignment', 'elementskit' ),
+                    'label' => __( 'Alignment', 'elementskit-lite' ),
                     'type' => Controls_Manager::CHOOSE,
                     'options' => [
                         'left' => [
-                            'title' => __( 'Left', 'elementskit' ),
+                            'title' => __( 'Left', 'elementskit-lite' ),
                             'icon' => 'fa fa-align-left',
                         ],
                         'center' => [
-                            'title' => __( 'Center', 'elementskit' ),
+                            'title' => __( 'Center', 'elementskit-lite' ),
                             'icon' => 'fa fa-align-center',
                         ],
                         'right' => [
-                            'title' => __( 'Right', 'elementskit' ),
+                            'title' => __( 'Right', 'elementskit-lite' ),
                             'icon' => 'fa fa-align-right',
                         ],
                     ],
@@ -264,7 +264,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_control(
                 'ekit_offcanvas_border_radius',
                 [
-                    'label' => esc_html__( 'Border radius', 'elementskit' ),
+                    'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'default' => [
@@ -283,7 +283,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_padding',
                 [
-                    'label'         => esc_html__('Padding', 'elementskit'),
+                    'label'         => esc_html__('Padding', 'elementskit-lite'),
                     'type'          => Controls_Manager::DIMENSIONS,
                     'size_units'    => ['px', 'em'],
                     'default' => [
@@ -301,7 +301,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_margin',
                 [
-                    'label'         => esc_html__('Margin', 'elementskit'),
+                    'label'         => esc_html__('Margin', 'elementskit-lite'),
                     'type'          => Controls_Manager::DIMENSIONS,
                     'size_units'    => ['px', 'em'],
                     'default' => [
@@ -321,14 +321,14 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->start_controls_tab(
                 'ekit_header_offcanvas_style_close_tab',
                 [
-                    'label' => esc_html__( 'Closed', 'elementskit' )
+                    'label' => esc_html__( 'Closed', 'elementskit-lite' )
                 ]
             );
 
             $this->add_responsive_control(
                 'ekit_offcanvas_close_icon_color',
                 [
-                    'label' =>esc_html__( 'Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'default' => '#333',
                     'selectors' => [
@@ -341,7 +341,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_icon_bg_color',
                 [
-                    'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_close-side-widget' => 'background-color: {{VALUE}};',
@@ -352,7 +352,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_control(
                 'ekit_offcanvas_close_icon_hover_title',
                 [
-                    'label' => __( 'Hover', 'elementskit' ),
+                    'label' => __( 'Hover', 'elementskit-lite' ),
                     'type' => Controls_Manager::HEADING,
                     'separator' => 'before',
                 ]
@@ -361,7 +361,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_icon_color_hover',
                 [
-                    'label' =>esc_html__( 'Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_close-side-widget:hover' => 'color: {{VALUE}};',
@@ -373,7 +373,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_icon_bg_color_hover',
                 [
-                    'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_close-side-widget:hover' => 'background-color: {{VALUE}};',
@@ -384,7 +384,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_icon_border_color_hover',
                 [
-                    'label' =>esc_html__( 'Border Color', 'elementskit' ),
+                    'label' =>esc_html__( 'Border Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .ekit_close-side-widget:hover' => 'border-color: {{VALUE}};',
@@ -396,7 +396,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_icon_font_size',
                 [
-                    'label'         => esc_html__('Font Size', 'elementskit'),
+                    'label'         => esc_html__('Font Size', 'elementskit-lite'),
                     'type'          => Controls_Manager::SLIDER,
                     'size_units'    => ['px', 'em'],
                     'separator' => 'before',
@@ -433,7 +433,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_control(
                 'ekit_offcanvas_close_border_radius',
                 [
-                    'label' => esc_html__( 'Border radius', 'elementskit' ),
+                    'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'default' => [
@@ -452,7 +452,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_padding',
                 [
-                    'label'         => esc_html__('Padding', 'elementskit'),
+                    'label'         => esc_html__('Padding', 'elementskit-lite'),
                     'type'          => Controls_Manager::DIMENSIONS,
                     'size_units'    => ['px', 'em'],
                     'default' => [
@@ -470,7 +470,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
             $this->add_responsive_control(
                 'ekit_offcanvas_close_margin',
                 [
-                    'label'         => esc_html__('Margin', 'elementskit'),
+                    'label'         => esc_html__('Margin', 'elementskit-lite'),
                     'type'          => Controls_Manager::DIMENSIONS,
                     'size_units'    => ['px', 'em'],
                     'default' => [
@@ -495,7 +495,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
         $this->start_controls_section(
 			'ekit_offcanvas_panel_style_tab',
 			[
-				'label' => __( 'Offcanvas Panel', 'elementskit' ),
+				'label' => __( 'Offcanvas Panel', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -503,7 +503,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
 		$this->add_responsive_control(
 			'eit_offcanvas_width',
 			[
-				'label' => __( 'Width', 'elementskit' ),
+				'label' => __( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -516,7 +516,7 @@ class Elementskit_Widget_Header_Offcanvas extends Widget_Base
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_offcanvas_background',
-				'label' => __( 'Background', 'elementskit' ),
+				'label' => __( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .ekit-wid-con .ekit-sidebar-widget',
 			]

@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 

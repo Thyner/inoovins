@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 
@@ -9,7 +9,7 @@ defined('ABSPATH') || exit;
  *
  * @see https://developers.elementor.com/elementor-controls/wysiwyg-control/
  *
- * @package ElementsKit\Modules\Widget_Builder\Controls
+ * @package ElementsKit_Lite\Modules\Widget_Builder\Controls
  */
 class Control_Type_Wys extends CT_Base {
 

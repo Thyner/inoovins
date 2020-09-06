@@ -43,3 +43,47 @@
 .elementor-editor-dark-mode .elementor-element-wrapper:hover .ekit-widget-icon:after {
     color: #71d7f7;
 }
+
+/* Zoom Widget */
+.elementor-control-create-meeting.elementor-control-type-button .elementor-button {
+    padding: 10px 20px;
+    height: auto;
+}
+.elementor-control-create-meeting.elementor-control-type-button .elementor-control-input-wrapper {
+    margin: auto;
+    text-align: center;
+}
+.elementor-control-create-meeting.elementor-control-type-button.open .elementor-state-icon{
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    color: #fff;
+}
+.elementor-control-create-meeting.elementor-control-type-button.open .elementor-button {
+    color: #39b54a;
+}
+.elementor-control-create-meeting.elementor-control-type-button .alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-top: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.elementor-control-create-meeting.elementor-control-type-button .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.elementor-control-create-meeting.elementor-control-type-button .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.ekit-zoom-host-icon {
+    font-size: 20px;
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}

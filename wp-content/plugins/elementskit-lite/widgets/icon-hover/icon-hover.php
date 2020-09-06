@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Icon_Hover_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Icon_Hover_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Icon_Hover extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -31,7 +31,7 @@ class Elementskit_Widget_Icon_Hover extends Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'section_tab', [
-                'label' =>esc_html__( 'Icon Hover', 'elementskit' ),
+                'label' =>esc_html__( 'Icon Hover', 'elementskit-lite' ),
             ]
         );
 

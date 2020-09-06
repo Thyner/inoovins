@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Modules\Controls;
+namespace ElementsKit_Lite\Modules\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -12,7 +12,7 @@ class Icons{
 	public function __add_font( $font){
         $font_new['ekiticons'] = [
 			'name' => 'ekiticons',
-			'label' => __( 'ElementsKit - Icons', 'elementskit' ),
+			'label' => __( 'ElementsKit_Lite - Icons', 'elementskit-lite' ),
 			'url' => Init::get_url() . 'assets/css/ekiticons.css',
 			'prefix' => 'icon-',
 			'displayPrefix' => 'icon',

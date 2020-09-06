@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Piechart_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Piechart_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Piechart extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -41,7 +41,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_section(
             'ekit_piechart_content_section',
             [
-                'label' => esc_html__( 'Content', 'elementskit' ),
+                'label' => esc_html__( 'Content', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -49,12 +49,12 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_style',
             [
-                'label' => esc_html__( 'Pie Chart Style', 'elementskit' ),
+                'label' => esc_html__( 'Pie Chart Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'simple',
                 'options' => [
-                    'simple'  => esc_html__( 'Simple', 'elementskit' ),
-                    'withcontent' => esc_html__( 'With Content', 'elementskit' ),
+                    'simple'  => esc_html__( 'Simple', 'elementskit-lite' ),
+                    'withcontent' => esc_html__( 'With Content', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -62,12 +62,12 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_content',
             [
-                'label' => esc_html__( 'Chart Content', 'elementskit' ),
+                'label' => esc_html__( 'Chart Content', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'ekit_piechart_percentage',
                 'options' => [
-                    'ekit_piechart_percentage'  => esc_html__( 'Percentage', 'elementskit' ),
-                    'icon' => esc_html__( 'Icon', 'elementskit' ),
+                    'ekit_piechart_percentage'  => esc_html__( 'Percentage', 'elementskit-lite' ),
+                    'icon' => esc_html__( 'Icon', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -75,7 +75,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_percentage',
             [
-                'label' => esc_html__( 'Percentage', 'elementskit' ),
+                'label' => esc_html__( 'Percentage', 'elementskit-lite' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 100,
@@ -87,12 +87,12 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_icon_type',
             [
-                'label' => esc_html__( 'Icon type', 'elementskit' ),
+                'label' => esc_html__( 'Icon type', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'icon',
                 'options' => [
-                    'icon'  => esc_html__( 'Icon', 'elementskit' ),
-                    'image' => esc_html__( 'Image', 'elementskit' ),
+                    'icon'  => esc_html__( 'Icon', 'elementskit-lite' ),
+                    'image' => esc_html__( 'Image', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_piechart_content' => 'icon'
@@ -103,7 +103,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_piechart_icon',
                 'default' => [
@@ -176,12 +176,12 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_content_type',
             [
-                'label' => esc_html__( 'Content type', 'elementskit' ),
+                'label' => esc_html__( 'Content type', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'simple',
                 'options' => [
-                    'simple'  => esc_html__( 'Static', 'elementskit' ),
-                    'flip-card' => esc_html__( 'Flip Card', 'elementskit' ),
+                    'simple'  => esc_html__( 'Static', 'elementskit-lite' ),
+                    'flip-card' => esc_html__( 'Flip Card', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_piechart_style' => 'withcontent'
@@ -198,7 +198,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_section(
             'ekit_piechart_section_content',
             [
-                'label' => esc_html__( 'Title ', 'elementskit' ),
+                'label' => esc_html__( 'Title ', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_piechart_style' => 'withcontent'
@@ -209,7 +209,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_title_color',
             [
-                'label' => esc_html__( 'Title Color', 'elementskit' ),
+                'label' => esc_html__( 'Title Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ekit-piechart-title' => 'color: {{VALUE}}',
@@ -225,7 +225,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_piechart_title_typography_group',
-                'label' => esc_html__( 'Title Typography', 'elementskit' ),
+                'label' => esc_html__( 'Title Typography', 'elementskit-lite' ),
                 'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .ekit-piechart-title',
                 'condition' => [
@@ -236,7 +236,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_piechart_title_margin',
 			[
-				'label' =>esc_html__( 'Ttitle margin', 'elementskit' ),
+				'label' =>esc_html__( 'Ttitle margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => 	[
@@ -259,7 +259,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_section(
             'ekit_piechart_general_settings',
             [
-                'label' => esc_html__( 'Content', 'elementskit' ),
+                'label' => esc_html__( 'Content', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_piechart_style' => 'withcontent'
@@ -270,7 +270,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_content_color',
             [
-                'label' => esc_html__( 'Content Color', 'elementskit' ),
+                'label' => esc_html__( 'Content Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ekit-single-piechart p' => 'color: {{VALUE}}',
@@ -286,7 +286,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'ekit_piechart_content_typography_group',
-                'label' => esc_html__( 'Typography', 'elementskit' ),
+                'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                 'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .withcontent p',
                 'condition' => [
@@ -298,7 +298,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
 			'ekit_piechart_content_margin',
 			[
-				'label' => __( 'Margin', 'elementskit' ),
+				'label' => __( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -310,19 +310,19 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_content_align',
             [
-                'label' =>esc_html__( 'Content Alignment', 'elementskit' ),
+                'label' =>esc_html__( 'Content Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left'    => [
-                        'title' =>esc_html__( 'Left', 'elementskit' ),
+                        'title' =>esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' =>esc_html__( 'Center', 'elementskit' ),
+                        'title' =>esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' =>esc_html__( 'Right', 'elementskit' ),
+                        'title' =>esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -340,7 +340,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_section(
             'ekit_piechart_section_flip_card',
             [
-                'label' => esc_html__( 'Flip Card ', 'elementskit' ),
+                'label' => esc_html__( 'Flip Card ', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_piechart_style' => 'withcontent',
@@ -353,7 +353,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_piechart_flip_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => ['gradient'],
                 'selector' => '{{WRAPPER}} .flip-card .back',
             ]
@@ -362,7 +362,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_piechart_flip_back_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -379,7 +379,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_section(
             'ekit_piechart_section_piechart',
             [
-                'label' => esc_html__( 'Chart', 'elementskit' ),
+                'label' => esc_html__( 'Chart', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
             ]
         );
@@ -387,7 +387,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_size',
             [
-                'label' => esc_html__( 'Piechart Size', 'elementskit' ),
+                'label' => esc_html__( 'Piechart Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -405,7 +405,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_border_size',
             [
-                'label' => esc_html__( 'Border Size', 'elementskit' ),
+                'label' => esc_html__( 'Border Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -425,12 +425,12 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_color_style',
             [
-                'label' => esc_html__( 'Color Type', 'elementskit' ),
+                'label' => esc_html__( 'Color Type', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'normal',
                 'options' => [
-                    'normal'  => esc_html__( 'Normal', 'elementskit' ),
-                    'gradient' => esc_html__( 'Gradient', 'elementskit' ),
+                    'normal'  => esc_html__( 'Normal', 'elementskit-lite' ),
+                    'gradient' => esc_html__( 'Gradient', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -438,7 +438,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_line_color',
             [
-                'label' => esc_html__( 'Bar Color', 'elementskit' ),
+                'label' => esc_html__( 'Bar Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_piechart_color_style' => 'normal'
@@ -449,7 +449,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_bar_color_bg',
             [
-                'label' => esc_html__( 'Bar Background Color', 'elementskit' ),
+                'label' => esc_html__( 'Bar Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
             ]
         );
@@ -457,7 +457,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_gradientColor1',
             [
-                'label' => esc_html__( 'Gradient Color1', 'elementskit' ),
+                'label' => esc_html__( 'Gradient Color1', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_piechart_color_style' => 'gradient'
@@ -468,7 +468,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_gradientColor2',
             [
-                'label' => esc_html__( 'Gradient Color2', 'elementskit' ),
+                'label' => esc_html__( 'Gradient Color2', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'ekit_piechart_color_style' => 'gradient'
@@ -479,7 +479,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_iocn_color',
             [
-                'label' => esc_html__( ' Icon Color', 'elementskit' ),
+                'label' => esc_html__( ' Icon Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .ekit-chart-content i' => 'color: {{VALUE}};',
@@ -495,7 +495,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_content_color_number',
             [
-                'label' => esc_html__( ' Number Color', 'elementskit' ),
+                'label' => esc_html__( ' Number Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000000',
                 'selectors' => [
@@ -513,7 +513,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_section(
             'ekit_piechart_background',
             [
-                'label' => esc_html__( 'Background ', 'elementskit' ),
+                'label' => esc_html__( 'Background ', 'elementskit-lite' ),
                 'tab' => controls_Manager::TAB_STYLE,
             ]
         );
@@ -521,7 +521,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_responsive_control(
             'ekit_piechart_wrapper_padding',
             [
-                'label' =>esc_html__( 'Wrapper Padding', 'elementskit' ),
+                'label' =>esc_html__( 'Wrapper Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'default' => [
@@ -541,10 +541,10 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'ekit_piechart_wrapper_box_shadow_group',
-                'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .ekit-single-piechart',
                 'separator' => 'before',
-                'description' => esc_html__('Eg: 0px 28px 40px 0px rgba(0, 0, 0, .1)', 'elementskit'),
+                'description' => esc_html__('Eg: 0px 28px 40px 0px rgba(0, 0, 0, .1)', 'elementskit-lite'),
             ]
         );
 
@@ -553,7 +553,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_tab(
             'ekit_piechart_wrapper_bg_style_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -562,7 +562,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_piechart_background_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient', 'video' ],
                 'selector' => '{{WRAPPER}} .ekit-single-piechart',
             ]
@@ -573,7 +573,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->start_controls_tab(
             'ekit_piechart_bg_style_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -581,7 +581,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_piechart_background_hover_group',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient', 'video' ],
                 'selector' => '{{WRAPPER}} .ekit-single-piechart:hover',
             ]
@@ -590,7 +590,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         $this->add_control(
             'ekit_piechart_bg_hover_animation',
             [
-                'label' => esc_html__( 'Hover Animation', 'elementskit' ),
+                'label' => esc_html__( 'Hover Animation', 'elementskit-lite' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
                 'prefix_class' => 'elementor-animation-',
             ]
@@ -659,7 +659,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
 
         $line_size = $settings['ekit_piechart_border_size']['size'] != '' ? $settings['ekit_piechart_border_size']['size'] : 5;
 
-        $this->add_render_attribute( 'pieechartscreen', 'data-lineWidth', $line_size );
+        $this->add_render_attribute( 'pieechartscreen', 'data-linewidth', $line_size );
 
 
         if($settings['ekit_piechart_percentage'] != '') {
@@ -690,11 +690,11 @@ class Elementskit_Widget_Piechart extends Widget_Base {
         }
 
         ?>
-        <div <?php echo \ElementsKit\Utils::render($this->get_render_attribute_string( 'pieechart' )); ?>>
+        <div <?php echo \ElementsKit_Lite\Utils::render($this->get_render_attribute_string( 'pieechart' )); ?>>
 
-            <?php echo \ElementsKit\Utils::kses($flip_front_start); ?>
+            <?php echo \ElementsKit_Lite\Utils::kses($flip_front_start); ?>
 
-            <div <?php echo \ElementsKit\Utils::render($this->get_render_attribute_string( 'pieechartscreen' )); ?>>
+            <div <?php echo \ElementsKit_Lite\Utils::render($this->get_render_attribute_string( 'pieechartscreen' )); ?>>
 
                 <?php if($settings['ekit_piechart_percentage'] != '' && $settings['ekit_piechart_content'] == 'ekit_piechart_percentage') { ?>
 
@@ -705,7 +705,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
                 <?php if($settings['ekit_piechart_content'] == 'icon' && $settings['ekit_piechart_icon_type'] == 'image') { ?>
 
                     <span class="ekit-chart-content">
-                        <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                        <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                     </span>
 
                 <?php } ?>
@@ -736,7 +736,7 @@ class Elementskit_Widget_Piechart extends Widget_Base {
             </div>
             <?php
 
-             echo \ElementsKit\Utils::kses($flip_front_end.$flip_back_start);
+             echo \ElementsKit_Lite\Utils::kses($flip_front_end.$flip_back_start);
 
              if($settings['ekit_piechart_style'] == 'withcontent' && $settings['ekit_piechart_title'] != '') {  ?>
              <h2 class="ekit-piechart-title"><?php echo esc_html($settings['ekit_piechart_title']); ?></h2>
@@ -744,11 +744,11 @@ class Elementskit_Widget_Piechart extends Widget_Base {
 
             if($settings['ekit_piechart_style'] == 'withcontent' && $settings['ekit_piechart_item_description'] != '') { ?>
 
-            <p><?php echo \ElementsKit\Utils::kses($settings['ekit_piechart_item_description']); ?></p>
+            <p><?php echo \ElementsKit_Lite\Utils::kses($settings['ekit_piechart_item_description']); ?></p>
 
             <?php }
 
-            echo \ElementsKit\Utils::kses($flip_back_end);
+            echo \ElementsKit_Lite\Utils::kses($flip_back_end);
 
             ?>
         </div>

@@ -1,14 +1,14 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Heading_Handler extends Core\Handler_Widget{
+class Elementskit_Widget_Heading_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-heading';
     }
 
     static function get_title() {
-        return esc_html__( 'Heading', 'elementskit' );
+        return esc_html__( 'Heading', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +16,14 @@ class Elementskit_Widget_Heading_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'heading/';
+        return \ElementsKit_Lite::widget_dir() . 'heading/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'heading/';
+        return \ElementsKit_Lite::widget_url() . 'heading/';
     }
 }

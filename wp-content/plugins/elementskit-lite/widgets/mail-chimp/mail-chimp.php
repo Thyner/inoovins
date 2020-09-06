@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Mail_Chimp_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Mail_Chimp_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Mail_Chimp extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -61,14 +61,14 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
         //start content Mail form design
         $this->start_controls_section(
             'ekit_mail_chimp_section_form', [
-                'label' => esc_html__( 'Form ', 'elementskit' ),
+                'label' => esc_html__( 'Form ', 'elementskit-lite' ),
             ]
         );
 
 		$this->add_control(
             'ekit_mail_chimp_select_check_api',
             [
-                'raw' => '<strong>' . esc_html__( 'Please note!', 'elementskit' ) . '</strong> ' . esc_html__( 'Please set API Key in ElementsKit Dashboard - User Data - MailChimp and Create Campaign..', 'elementskit' ),
+                'raw' => '<strong>' . esc_html__( 'Please note!', 'elementskit-lite' ) . '</strong> ' . esc_html__( 'Please set API Key in ElementsKit_Lite Dashboard - User Data - MailChimp and Create Campaign..', 'elementskit-lite' ),
                 'type' => Controls_Manager::RAW_HTML,
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
                 'render_type' => 'ui',
@@ -80,11 +80,11 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_select_listed_id',
 			[
-				'label' => esc_html__( 'Select List', 'elementskit' ),
+				'label' => esc_html__( 'Select List', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => $this->__get_lists(),
-				'description' => esc_html__('Create a campaign in mailchimp account <a href="https://mailchimp.com/help/create-a-regular-email-campaign/#Create_a_campaign" target="_blank"> Create Campaign</a>', 'elementskit'),
+				'description' => esc_html__('Create a campaign in mailchimp account <a href="https://mailchimp.com/help/create-a-regular-email-campaign/#Create_a_campaign" target="_blank"> Create Campaign</a>', 'elementskit-lite'),
 			]
 		);	
 
@@ -92,7 +92,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_section_form_name_show',
 			[
-				'label' => esc_html__( 'Show Name', 'elementskit' ),
+				'label' => esc_html__( 'Show Name', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 			]
@@ -101,7 +101,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_first_heading_title',
 			[
-				'label' => esc_html__( 'First Name ', 'elementskit' ),
+				'label' => esc_html__( 'First Name ', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'condition' => [
 					'ekit_mail_chimp_section_form_name_show' => 'yes',
@@ -111,9 +111,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_first_name_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'First name', 'elementskit' ),
+				'placeholder' => esc_html__( 'First name', 'elementskit-lite' ),
 				'label_block'	 => false,
 				'condition' => [
 					'ekit_mail_chimp_section_form_name_show' => 'yes'
@@ -123,9 +123,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_first_name_placeholder',
             [
-                'label' => esc_html__( 'Placeholder', 'elementskit' ),
+                'label' => esc_html__( 'Placeholder', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your frist name', 'elementskit' ),
+				'placeholder' => esc_html__( 'Your frist name', 'elementskit-lite' ),
 				'label_block'	 => false,
 				'condition' => [
 					'ekit_mail_chimp_section_form_name_show' => 'yes'
@@ -135,10 +135,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_first_name_icon_show',
 			[
-				'label' => esc_html__( 'Show Input Group Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Input Group Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 				'condition' => [
@@ -149,7 +149,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_first_name_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_mail_chimp_first_name_icon',
                 'default' => [
@@ -165,12 +165,12 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_first_name_icon_before_after',
 			[
-				'label' => esc_html__( 'Before After', 'elementskit' ),
+				'label' => esc_html__( 'Before After', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_mail_chimp_first_name_icon_show' => 'yes',
@@ -194,7 +194,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_last_heading_title',
 			[
-				'label' => esc_html__( 'Last Name : ', 'elementskit' ),
+				'label' => esc_html__( 'Last Name : ', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'condition' => [
 					'ekit_mail_chimp_section_form_name_show' => 'yes',
@@ -204,9 +204,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_last_name_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Last name:', 'elementskit' ),
+				'placeholder' => esc_html__( 'Last name:', 'elementskit-lite' ),
 				'label_block'	 => false,
 				'condition' => [
 					'ekit_mail_chimp_section_form_name_show' => 'yes'
@@ -216,9 +216,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_last_name_placeholder',
             [
-                'label' => esc_html__( 'Placeholder', 'elementskit' ),
+                'label' => esc_html__( 'Placeholder', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your last name', 'elementskit' ),
+				'placeholder' => esc_html__( 'Your last name', 'elementskit-lite' ),
 				'label_block'	 => false,
 				'condition' => [
 					'ekit_mail_chimp_section_form_name_show' => 'yes'
@@ -229,10 +229,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_last_name_icon_show',
 			[
-				'label' => esc_html__( 'Show Input Group Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Input Group Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 				'condition' => [
@@ -243,7 +243,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_last_name_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_mail_chimp_last_name_icon',
                 'default' => [
@@ -259,12 +259,12 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_last_name_icon_before_after',
 			[
-				'label' => esc_html__( 'Before After', 'elementskit' ),
+				'label' => esc_html__( 'Before After', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_mail_chimp_last_name_icon_show' => 'yes',
@@ -278,7 +278,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_section_form_phone_show',
 			[
-				'label' => esc_html__( 'Show Phone :', 'elementskit' ),
+				'label' => esc_html__( 'Show Phone :', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'separator' => 'before'
@@ -287,7 +287,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_phone_heading_title',
 			[
-				'label' => esc_html__( 'Phone : ', 'elementskit' ),
+				'label' => esc_html__( 'Phone : ', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'condition' => [
 					'ekit_mail_chimp_section_form_phone_show' => 'yes',
@@ -297,9 +297,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_phone_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Phone', 'elementskit' ),
+				'placeholder' => esc_html__( 'Phone', 'elementskit-lite' ),
 				'label_block'	 => false,
 				'condition' => [
 					'ekit_mail_chimp_section_form_phone_show' => 'yes'
@@ -309,9 +309,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_phone_placeholder',
             [
-                'label' => esc_html__( 'Placeholder', 'elementskit' ),
+                'label' => esc_html__( 'Placeholder', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your phone No', 'elementskit' ),
+				'placeholder' => esc_html__( 'Your phone No', 'elementskit-lite' ),
 				'label_block'	 => false,
 				'condition' => [
 					'ekit_mail_chimp_section_form_phone_show' => 'yes'
@@ -321,10 +321,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_phone_icon_show',
 			[
-				'label' => esc_html__( 'Show Input Group Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Input Group Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 				'condition' => [
@@ -335,7 +335,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_phone_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_mail_chimp_phone_icon',
                 'default' => [
@@ -351,12 +351,12 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_phone_icon_before_after',
 			[
-				'label' => esc_html__( 'Before After', 'elementskit' ),
+				'label' => esc_html__( 'Before After', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_mail_chimp_phone_icon_show' => 'yes',
@@ -370,7 +370,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_email_address_heading_title',
 			[
-				'label' => esc_html__( 'Email Address : ', 'elementskit' ),
+				'label' => esc_html__( 'Email Address : ', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -378,9 +378,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_email_address_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Email address', 'elementskit' ),
+				'placeholder' => esc_html__( 'Email address', 'elementskit-lite' ),
 				'label_block'	 => false,
 
             ]
@@ -388,9 +388,9 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_email_address_placeholder',
             [
-                'label' => esc_html__( 'Placeholder', 'elementskit' ),
+                'label' => esc_html__( 'Placeholder', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-				'placeholder' 	 => esc_html__( 'Your email address', 'elementskit' ),
+				'placeholder' 	 => esc_html__( 'Your email address', 'elementskit-lite' ),
 				'label_block'	 => false,
             ]
 		);
@@ -398,10 +398,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_email_icon_show',
 			[
-				'label' => esc_html__( 'Show Input Group Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Input Group Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -409,7 +409,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_email_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_mail_chimp_email_icon',
                 'default' => [
@@ -424,12 +424,12 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_email_icon_before_after',
 			[
-				'label' => esc_html__( 'Before After', 'elementskit' ),
+				'label' => esc_html__( 'Before After', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_mail_chimp_email_icon_show' => 'yes',
@@ -449,26 +449,26 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_submit',
             [
-                'label' => esc_html__( 'Submit Button Text', 'elementskit' ),
+                'label' => esc_html__( 'Submit Button Text', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Sign Up', 'elementskit' ),
+                'default' => esc_html__( 'Sign Up', 'elementskit-lite' ),
 				'label_block'	 => false,
             ]
         );
 		$this->add_control(
 			'ekit_mail_chimp_submit_button_heading',
 			[
-				'label' => esc_html__( 'Submit Button : ', 'elementskit' ),
+				'label' => esc_html__( 'Submit Button : ', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 			]
 		);
 		$this->add_control(
 			'ekit_mail_chimp_submit_icon_show',
 			[
-				'label' => esc_html__( 'Show Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -476,7 +476,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_submit_icons',
 			[
-				'label' => esc_html__( 'Button Icons', 'elementskit' ),
+				'label' => esc_html__( 'Button Icons', 'elementskit-lite' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_mail_chimp_submit_icon',
                 'default' => [
@@ -491,12 +491,12 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_submit_icon_position',
 			[
-				'label' => esc_html__( 'Icon Position', 'elementskit' ),
+				'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
 				],
 				'condition' => [
 					'ekit_mail_chimp_submit_icon_show' => 'yes',
@@ -508,12 +508,12 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_form_style_switcher',
             [
-                'label' =>esc_html__( 'Form Style', 'elementskit' ),
+                'label' =>esc_html__( 'Form Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'yes',
                 'options' => [
-                    'yes' =>esc_html__( 'Inline', 'elementskit' ),
-                    'no' =>esc_html__( 'Full Width', 'elementskit' ),
+                    'yes' =>esc_html__( 'Inline', 'elementskit-lite' ),
+                    'no' =>esc_html__( 'Full Width', 'elementskit-lite' ),
                 ],
             ]
 		);
@@ -521,10 +521,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_success_message',
 			[
-				'label' => __( 'Success Message', 'elementskit' ),
+				'label' => __( 'Success Message', 'elementskit-lite' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Successfully listed this email', 'elementskit' ),
-				'placeholder' => __( 'Type your title here', 'elementskit' ),
+				'default' => __( 'Successfully listed this email', 'elementskit-lite' ),
+				'placeholder' => __( 'Type your title here', 'elementskit-lite' ),
 			]
 		);
 
@@ -535,7 +535,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_mail_chimp_input_label_style',
 			[
-				'label' => esc_html__( 'Label', 'elementskit' ),
+				'label' => esc_html__( 'Label', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -544,7 +544,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_label_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementskit_input_label',
 			]
@@ -553,7 +553,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_label_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000000',
 				'selectors' => [
@@ -565,7 +565,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_label_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -580,7 +580,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_mail_chimp_input_style',
 			[
-				'label' => esc_html__( 'Input', 'elementskit' ),
+				'label' => esc_html__( 'Input', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -589,7 +589,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit_form_control',
 			]
 		);
@@ -598,7 +598,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_style_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .ekit_form_control',
 				'exclude' => [
@@ -610,7 +610,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -623,7 +623,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_style_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit_form_control',
 			]
 		);
@@ -632,7 +632,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_style_box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit_form_control, {{WRAPPER}} .ekit_form_control:focus',
 			]
 		);
@@ -640,7 +640,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'		=> [
@@ -658,10 +658,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_input_style_width__switch',
 			[
-				'label' => esc_html__( 'Use Width', 'elementskit' ),
+				'label' => esc_html__( 'Use Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -670,7 +670,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'default'	=> [
@@ -700,7 +700,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_margin_bottom',
 			[
-				'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+				'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -726,7 +726,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_margin_right',
 			[
-				'label' => esc_html__( 'Margin Right', 'elementskit' ),
+				'label' => esc_html__( 'Margin Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', ],
 				'range' => [
@@ -752,7 +752,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_input_style_placeholder_heading',
 			[
-				'label' => esc_html__( 'Placeholder', 'elementskit' ),
+				'label' => esc_html__( 'Placeholder', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -761,7 +761,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_placeholder_color',
 			[
-				'label' => esc_html__( 'Placeholder Color', 'elementskit' ),
+				'label' => esc_html__( 'Placeholder Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000000',
 				'selectors' => [
@@ -776,7 +776,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_style_placeholder_font_size',
 			[
-				'label' => esc_html__( 'Font Size', 'elementskit' ),
+				'label' => esc_html__( 'Font Size', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -804,7 +804,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_mail_chimp_button_style_holder',
 			[
-				'label' => esc_html__( 'Button', 'elementskit' ),
+				'label' => esc_html__( 'Button', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -813,7 +813,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_button_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ekit-mail-submit',
 			]
@@ -822,7 +822,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -834,7 +834,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_border_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'	=> [
@@ -853,7 +853,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_button_box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-mail-submit',
 			]
 		);
@@ -862,7 +862,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_button_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-mail-submit',
 			]
 		);
@@ -878,10 +878,10 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_button_style_use_width_height',
 			[
-				'label' => esc_html__( 'Use Width', 'elementskit' ),
+				'label' => esc_html__( 'Use Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -890,7 +890,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -921,7 +921,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_style_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -936,14 +936,14 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
         $this->start_controls_tab(
             'ekit_mail_chimp_button_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
@@ -957,7 +957,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_button_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient', ],
 				'selector' => '{{WRAPPER}} .ekit-mail-submit',
 				'exclude' => [
@@ -970,14 +970,14 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
         $this->start_controls_tab(
             'ekit_mail_chimp_button_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
 		);
 
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_color_hover',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
@@ -991,7 +991,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_button_background_hover',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient', ],
 				'selector' => '{{WRAPPER}} .ekit-mail-submit:before',
 				'exclude' => [
@@ -1007,7 +1007,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_button_icon_heading',
 			[
-				'label' => esc_html__( 'Icon', 'elementskit' ),
+				'label' => esc_html__( 'Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1016,7 +1016,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_icon_padding_right',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+				'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1042,7 +1042,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_button_icon_padding_left',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+				'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1068,7 +1068,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_simple_tab_title_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1094,7 +1094,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_mail_chimp_input_icon_style_holder',
 			[
-				'label' => esc_html__( 'Input Icon', 'elementskit' ),
+				'label' => esc_html__( 'Input Icon', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1103,7 +1103,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_icon_background',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .elementskit_input_group_text',
 				'exclude' => [
@@ -1122,7 +1122,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_icon_color',
 			[
-				'label' => esc_html__( 'Color', 'elementskit' ),
+				'label' => esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000000',
 				'selectors' => [
@@ -1135,7 +1135,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_icon_font_size',
 			[
-				'label' => esc_html__( 'Font Size', 'elementskit' ),
+				'label' => esc_html__( 'Font Size', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1161,7 +1161,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_input_icon_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .elementskit_input_group_text',
 			]
 		);
@@ -1169,7 +1169,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_icon_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1181,7 +1181,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_input_icon_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1195,7 +1195,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->start_controls_section(
 			'ekit_mail_chimp_success_error',
 			[
-				'label' => esc_html__( 'Sucess & Error message', 'elementskit' ),
+				'label' => esc_html__( 'Sucess & Error message', 'elementskit-lite' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1203,7 +1203,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_success_error_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -1215,7 +1215,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_responsive_control(
 			'ekit_mail_chimp_success_error_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -1227,7 +1227,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
 			'ekit_mail_chimp_success_error_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'elementskit' ),
+				'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1246,14 +1246,14 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_success_heading',
             [
-                'label' => esc_html__( 'Success:', 'elementskit' ),
+                'label' => esc_html__( 'Success:', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
             ]
 		);
 		
 		$this->add_responsive_control(
 			'ekit_mail_chimp_success_color', [
-				'label'		 =>esc_html__( 'Color', 'elementskit' ),
+				'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type'		 => Controls_Manager::COLOR,
 				'selectors'	 => [
 					'{{WRAPPER}} .ekit-mail-message.success' => 'color: {{VALUE}};',
@@ -1265,7 +1265,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
             Group_Control_Background::get_type(),
             array(
 				'name'     => 'ekit_mail_chimp_success_bg_color',
-				'label'		 => esc_html__( 'Background Color', 'elementskit' ),
+				'label'		 => esc_html__( 'Background Color', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-mail-message.success',
             )
 		);
@@ -1274,7 +1274,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_success_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-mail-message.success',
 			]
 		);
@@ -1282,14 +1282,14 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 		$this->add_control(
             'ekit_mail_chimp_error_heading',
             [
-                'label' => esc_html__( 'Error:', 'elementskit' ),
+                'label' => esc_html__( 'Error:', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
             ]
 		);
 		
 		$this->add_responsive_control(
 			'ekit_mail_chimp_error_color', [
-				'label'		 =>esc_html__( 'Color', 'elementskit' ),
+				'label'		 =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type'		 => Controls_Manager::COLOR,
 				'selectors'	 => [
 					'{{WRAPPER}} .ekit-mail-message.error' => 'color: {{VALUE}};',
@@ -1301,7 +1301,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
             Group_Control_Background::get_type(),
             array(
 				'name'     => 'ekit_mail_chimp_error_bg_color',
-				'label'		 => esc_html__( 'Background Color', 'elementskit' ),
+				'label'		 => esc_html__( 'Background Color', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-mail-message.error',
             )
 		);
@@ -1310,7 +1310,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_mail_chimp_error_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} .ekit-mail-message.error',
 			]
 		);
@@ -1475,7 +1475,7 @@ class Elementskit_Widget_Mail_Chimp extends Widget_Base {
 									</div>
 								</div>
 								<?php endif; ?>
-								<input type="phone" class="ekit_mail_phone ekit_form_control <?php if(($ekit_mail_chimp_phone_icon_show == 'yes') && ($ekit_mail_chimp_phone_icons != '') && ($ekit_mail_chimp_phone_icon_before_after == 'after')) : ?> ekit_append_input <?php endif; ?>" name="phone" placeholder="<?php esc_html_e($ekit_mail_chimp_phone_placeholder);?>" required />
+								<input type="tel" class="ekit_mail_phone ekit_form_control <?php if(($ekit_mail_chimp_phone_icon_show == 'yes') && ($ekit_mail_chimp_phone_icons != '') && ($ekit_mail_chimp_phone_icon_before_after == 'after')) : ?> ekit_append_input <?php endif; ?>" name="phone" placeholder="<?php esc_html_e($ekit_mail_chimp_phone_placeholder);?>" required />
 
 								<?php if(($ekit_mail_chimp_phone_icon_show == 'yes') && ($ekit_mail_chimp_phone_icons != '') && ($ekit_mail_chimp_phone_icon_before_after == 'after')) : ?>
 								<div class="elementskit_input_group_append">

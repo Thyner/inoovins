@@ -1,14 +1,14 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Nav_Menu_Handler extends Core\Handler_Widget{
+class Elementskit_Widget_Nav_Menu_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'ekit-nav-menu';
     }
 
     static function get_title() {
-        return esc_html__( 'Nav menu', 'elementskit' );
+        return esc_html__( 'Nav menu', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -20,15 +20,11 @@ class Elementskit_Widget_Nav_Menu_Handler extends Core\Handler_Widget{
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'nav-menu/';
+        return \ElementsKit_Lite::widget_dir() . 'nav-menu/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'nav-menu/';
-    }
-
-    public function register_api(){
-        
+        return \ElementsKit_Lite::widget_url() . 'nav-menu/';
     }
 
 }

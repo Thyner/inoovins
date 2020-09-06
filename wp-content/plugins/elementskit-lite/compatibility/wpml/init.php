@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\Wpml;
+namespace ElementsKit_Lite\Compatibility\Wpml;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -34,7 +34,7 @@ class Init {
 	public static function instance() {
         if ( is_null( self::$instance ) ) {
 
-            // Fire when ElementsKit instance.
+            // Fire when ElementsKit_Lite instance.
             self::$instance = new self();
         }
 
@@ -123,12 +123,12 @@ class Init {
 
 		$widgets['elementskit-image-accordion'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-image-accordion' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Image_Accordion',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Image_Accordion',
 		];
 
 		$widgets['elementskit-accordion'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-accordion' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Accordion',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Accordion',
 		];
 
 		$widgets['elementskit-button'] = [
@@ -136,7 +136,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_btn_text',
-					'type'        => esc_html__( 'Label (Button)', 'elementskit' ),
+					'type'        => esc_html__( 'Label (Button)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -147,17 +147,17 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_heading_title',
-					'type'        => esc_html__( 'Title (Heading)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Heading)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_heading_sub_title',
-					'type'        => esc_html__( 'Sub Title (Heading)', 'elementskit' ),
+					'type'        => esc_html__( 'Sub Title (Heading)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_heading_extra_title',
-					'type'        => esc_html__( 'Description (Heading)', 'elementskit' ),
+					'type'        => esc_html__( 'Description (Heading)', 'elementskit-lite' ),
 					'editor_type' => 'VISUAL',
 				],
 			],
@@ -168,22 +168,22 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_icon_box_title_text',
-					'type'        => esc_html__( 'Title (Icon Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Icon Box)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_icon_box_description_text',
-					'type'        => esc_html__( 'Content (Icon Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Content (Icon Box)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_icon_box_btn_text',
-					'type'        => esc_html__( 'Button Label (Icon Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Button Label (Icon Box)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_icon_box_badge_title',
-					'type'        => esc_html__( 'Badge Text (Icon Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Badge Text (Icon Box)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -194,17 +194,17 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_image_box_title_text',
-					'type'        => esc_html__( 'Title (Image Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Image Box)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_image_box_description_text',
-					'type'        => esc_html__( 'Description (Image Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Description (Image Box)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_image_box_btn_text',
-					'type'        => esc_html__( 'Button Label (Image Box)', 'elementskit' ),
+					'type'        => esc_html__( 'Button Label (Image Box)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -215,37 +215,37 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_countdown_timer_weeks_label',
-					'type'        => esc_html__( 'Weeks (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'Weeks (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_countdown_timer_days_label',
-					'type'        => esc_html__( 'Days (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'Days (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_countdown_timer_hours_label',
-					'type'        => esc_html__( 'Hours (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'Hours (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_countdown_timer_minutes_hours_label',
-					'type'        => esc_html__( 'Minutes (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'Minutes (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_countdown_timer_seconds_hours_label',
-					'type'        => esc_html__( 'Seconds (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'Seconds (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_countdown_timer_title',
-					'type'        => esc_html__( 'On Expiry Title (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'On Expiry Title (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_countdown_timer_expiry_content',
-					'type'        => esc_html__( 'On Expiry Content (Countdown Timer)', 'elementskit' ),
+					'type'        => esc_html__( 'On Expiry Content (Countdown Timer)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 			],
@@ -253,7 +253,7 @@ class Init {
 
 		$widgets['elementskit-faq'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-faq' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Faq',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Faq',
 		];
 
 		$widgets['elementskit-funfact'] = [
@@ -261,17 +261,17 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_funfact_number_suffix',
-					'type'        => esc_html__( 'Number Suffix (Funfact)', 'elementskit' ),
+					'type'        => esc_html__( 'Number Suffix (Funfact)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_funfact_title_text',
-					'type'        => esc_html__( 'Title (Funfact)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Funfact)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_funfact_super_text',
-					'type'        => esc_html__( 'Super (Funfact)', 'elementskit' ),
+					'type'        => esc_html__( 'Super (Funfact)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -282,12 +282,12 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_img_comparison_label_before',
-					'type'        => esc_html__( 'Before Label (Image Comparison)', 'elementskit' ),
+					'type'        => esc_html__( 'Before Label (Image Comparison)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_img_comparison_label_after',
-					'type'        => esc_html__( 'After Label (Image Comparison)', 'elementskit' ),
+					'type'        => esc_html__( 'After Label (Image Comparison)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -295,7 +295,7 @@ class Init {
 
 		$widgets['elementskit-testimonial'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-testimonial' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Testimonial',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Testimonial',
 		];
 
 		$widgets['elementskit-pricing'] = [
@@ -303,41 +303,41 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_pricing_table_title',
-					'type'        => esc_html__( 'Table Title (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Table Title (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_pricing_table_subtitle',
-					'type'        => esc_html__( 'Table Subtitle (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Table Subtitle (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_pricing_currency_icon',
-					'type'        => esc_html__( 'Currency (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Currency (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_pricing_table_price', // Doesn't work for numbers
-					'type'        => esc_html__( 'Price (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Price (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_pricing_table_duration',
-					'type'        => esc_html__( 'Duration (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Duration (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_pricing_table_content',
-					'type'        => esc_html__( 'Table Content (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Table Content (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_pricing_btn_text',
-					'type'        => esc_html__( 'Button Label (Pricing Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Button Label (Pricing Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Pricing',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Pricing',
 		];
 
 		$widgets['elementskit-team'] = [
@@ -345,32 +345,32 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_team_name',
-					'type'        => esc_html__( 'Member Name (Team)', 'elementskit' ),
+					'type'        => esc_html__( 'Member Name (Team)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_team_position',
-					'type'        => esc_html__( 'Member Position (Team)', 'elementskit' ),
+					'type'        => esc_html__( 'Member Position (Team)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_team_short_description',
-					'type'        => esc_html__( 'Short Description (Team)', 'elementskit' ),
+					'type'        => esc_html__( 'Short Description (Team)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_team_description',
-					'type'        => esc_html__( 'Popup Description (Team)', 'elementskit' ),
+					'type'        => esc_html__( 'Popup Description (Team)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 				[
 					'field'       => 'ekit_team_phone',
-					'type'        => esc_html__( 'Phone (Team)', 'elementskit' ),
+					'type'        => esc_html__( 'Phone (Team)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_team_email',
-					'type'        => esc_html__( 'Email (Team)', 'elementskit' ),
+					'type'        => esc_html__( 'Email (Team)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -378,7 +378,7 @@ class Init {
 
 		$widgets['elementskit-social-media'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-social-media' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Social',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Social',
 		];
 
 		$widgets['elementskit-progressbar'] = [
@@ -386,7 +386,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_progressbar_title',
-					'type'        => esc_html__( 'Title (Progress Bar)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Progress Bar)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -397,52 +397,52 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_mail_chimp_first_name_label',
-					'type'        => esc_html__( 'First Name (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'First Name (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_first_name_placeholder',
-					'type'        => esc_html__( 'First Name Placeholder (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'First Name Placeholder (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_last_name_label',
-					'type'        => esc_html__( 'Last Name (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Last Name (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_last_name_placeholder',
-					'type'        => esc_html__( 'First Name Placeholder (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'First Name Placeholder (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_phone_label',
-					'type'        => esc_html__( 'Phone (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Phone (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_phone_placeholder',
-					'type'        => esc_html__( 'Phone Placeholder (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Phone Placeholder (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_email_address_label',
-					'type'        => esc_html__( 'Email (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Email (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_email_address_placeholder',
-					'type'        => esc_html__( 'Email Placeholder (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Email Placeholder (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_submit',
-					'type'        => esc_html__( 'Submit Button Text (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Submit Button Text (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_mail_chimp_success_message',
-					'type'        => esc_html__( 'Success Message (Mail Chimp)', 'elementskit' ),
+					'type'        => esc_html__( 'Success Message (Mail Chimp)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 			],
@@ -453,12 +453,12 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_piechart_title',
-					'type'        => esc_html__( 'Title (Pie Chart)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Pie Chart)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_piechart_item_description',
-					'type'        => esc_html__( 'Description (Pie Chart)', 'elementskit' ),
+					'type'        => esc_html__( 'Description (Pie Chart)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -466,7 +466,7 @@ class Init {
 
 		$widgets['elementskit-simple-tab'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-simple-tab' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Tab',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Tab',
 		];
 
 		$widgets['elementskit-video'] = [
@@ -474,7 +474,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_video_popup_button_title',
-					'type'        => esc_html__( 'Button Title (Video)', 'elementskit' ),
+					'type'        => esc_html__( 'Button Title (Video)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -482,7 +482,7 @@ class Init {
 
 		$widgets['elementskit-business-hours'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-business-hours' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Business_Hours',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Business_Hours',
 		];
 
 		$widgets['elementskit-drop-caps'] = [
@@ -490,7 +490,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_dropcaps_text',
-					'type'        => esc_html__( 'Content (Drop Caps)', 'elementskit' ),
+					'type'        => esc_html__( 'Content (Drop Caps)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 			],
@@ -498,22 +498,22 @@ class Init {
 
 		$widgets['elementskit-social-share'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-social-share' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Social_Share',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Social_Share',
 		];
 
 		$widgets['elementskit-advance-accordion'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-advance-accordion' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Advanced_Accordion',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Advanced_Accordion',
 		];
 
 		$widgets['elementskit-tab'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-tab' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Advanced_Tab',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Advanced_Tab',
 		];
 
 		$widgets['elementskit-hotspot'] = [
 			'conditions'		=> [ 'widgetType' => 'elementskit-hotspot' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Hotspot',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Hotspot',
 		];
 
 		$widgets['elementskit-motion-text'] = [
@@ -521,7 +521,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_motion_text_content_text',
-					'type'        => esc_html__( 'Title (Motion Text)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Motion Text)', 'elementskit-lite' ),
 					'editor_type' => 'AREA',
 				],
 			],
@@ -532,7 +532,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_twitter_follow_btn_text',
-					'type'        => esc_html__( 'Label (Twitter)', 'elementskit' ),
+					'type'        => esc_html__( 'Label (Twitter)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -543,7 +543,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_instagram_feed_ins_follow_text',
-					'type'        => esc_html__( 'Follow Button Text (Instagram Feed)', 'elementskit' ),
+					'type'        => esc_html__( 'Follow Button Text (Instagram Feed)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -554,11 +554,11 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_gallery_filter_all_label',
-					'type'        => esc_html__( '"All" Filter Label (Gallery)', 'elementskit' ),
+					'type'        => esc_html__( '"All" Filter Label (Gallery)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Gallery',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Gallery',
 		];
 
 		$widgets['elementskit-chart'] = [
@@ -566,11 +566,11 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_charts_title_text',
-					'type'        => esc_html__( 'Title (Chart)', 'elementskit' ),
+					'type'        => esc_html__( 'Title (Chart)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Chart',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Chart',
 		];
 
 		$widgets['elementskit-table'] = [
@@ -578,21 +578,21 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_table_navigation_prev_text',
-					'type'        => esc_html__( 'Prev Text (Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Prev Text (Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_table_navigation_next_text',
-					'type'        => esc_html__( 'Next Text (Table)', 'elementskit' ),
+					'type'        => esc_html__( 'Next Text (Table)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Table',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Table',
 		];
 
 		$widgets['elementskit-timeline'] = [
 			'conditions'	=> [ 'widgetType' => 'elementskit-timeline' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Timeline',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Timeline',
 		];
 
 		$widgets['elementskit-dual-button'] = [
@@ -600,17 +600,17 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_button_middle_text',
-					'type'        => esc_html__( 'Middle Text (Dual Button)', 'elementskit' ),
+					'type'        => esc_html__( 'Middle Text (Dual Button)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_button_one_text',
-					'type'        => esc_html__( 'Button One Text (Dual Button)', 'elementskit' ),
+					'type'        => esc_html__( 'Button One Text (Dual Button)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 				[
 					'field'       => 'ekit_button_two_text',
-					'type'        => esc_html__( 'Button Two Text (Dual Button)', 'elementskit' ),
+					'type'        => esc_html__( 'Button Two Text (Dual Button)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -621,7 +621,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_btn_text',
-					'type'        => esc_html__( 'Label (Creative Button)', 'elementskit' ),
+					'type'        => esc_html__( 'Label (Creative Button)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],
@@ -629,22 +629,22 @@ class Init {
 
 		$widgets['elementskit-category-list'] = [
 			'conditions'	=> [ 'widgetType' => 'elementskit-category-list' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Cat_List',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Cat_List',
 		];
 
 		$widgets['elementskit-page-list'] = [
 			'conditions'	=> [ 'widgetType' => 'elementskit-page-list' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Page_List',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Page_List',
 		];
 
 		$widgets['elementskit-post-list'] = [
 			'conditions'	=> [ 'widgetType' => 'elementskit-post-list' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Post_List',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Post_List',
 		];
 
 		$widgets['elementskit-header-info'] = [
 			'conditions'	=> [ 'widgetType' => 'elementskit-header-info' ],
-			'integration-class'	=> 'ElementsKit\Compatibility\WPML\Widgets\Ekit_Header_Info',
+			'integration-class'	=> 'ElementsKit_Lite\Compatibility\WPML\Widgets\Ekit_Header_Info',
 		];
 
 		$widgets['elementskit-header-search'] = [
@@ -652,7 +652,7 @@ class Init {
 			'fields'		=> [
 				[
 					'field'       => 'ekit_search_placeholder_text',
-					'type'        => esc_html__( 'Placeholder Text (Header Search)', 'elementskit' ),
+					'type'        => esc_html__( 'Placeholder Text (Header Search)', 'elementskit-lite' ),
 					'editor_type' => 'LINE',
 				],
 			],

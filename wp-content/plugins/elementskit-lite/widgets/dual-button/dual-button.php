@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Dual_Button_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Dual_Button_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Dual_Button extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -33,14 +33,14 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'dualbutton_content',
             [
-                'label' => esc_html__( 'Double Button', 'elementskit' ),
+                'label' => esc_html__( 'Double Button', 'elementskit-lite' ),
             ]
         );
 
             $this->add_control(
                 'ekit_show_button_middle_text',
                 [
-                    'label' => esc_html__( 'Middle Text', 'elementskit' ),
+                    'label' => esc_html__( 'Middle Text', 'elementskit-lite' ),
                     'type'  => Controls_Manager::SWITCHER,
                 ]
             );
@@ -48,9 +48,9 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_button_middle_text',
                 [
-                    'label' => esc_html__( 'Text', 'elementskit' ),
+                    'label' => esc_html__( 'Text', 'elementskit-lite' ),
                     'type' => Controls_Manager::TEXT,
-                    'default' => esc_html__( 'Or', 'elementskit' ),
+                    'default' => esc_html__( 'Or', 'elementskit-lite' ),
                     'condition'   => [
                         'ekit_show_button_middle_text' => 'yes',
                     ],
@@ -63,19 +63,19 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_align',
                 [
-                    'label' => esc_html__( 'Alignment', 'elementskit' ),
+                    'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                     'type' => Controls_Manager::CHOOSE,
                     'options' => [
                         'start' => [
-                            'title' => esc_html__( 'Left', 'elementskit' ),
+                            'title' => esc_html__( 'Left', 'elementskit-lite' ),
                             'icon' => 'fa fa-align-left',
                         ],
                         'center' => [
-                            'title' => esc_html__( 'Center', 'elementskit' ),
+                            'title' => esc_html__( 'Center', 'elementskit-lite' ),
                             'icon' => 'fa fa-align-center',
                         ],
                         'end' => [
-                            'title' => esc_html__( 'Right', 'elementskit' ),
+                            'title' => esc_html__( 'Right', 'elementskit-lite' ),
                             'icon' => 'fa fa-align-right',
                         ],
                     ],
@@ -86,7 +86,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_dual_button_width',
                 [
-                    'label' => esc_html__( 'Button Width', 'elementskit' ),
+                    'label' => esc_html__( 'Button Width', 'elementskit-lite' ),
                     'type'  => Controls_Manager::SLIDER,
                     'range' => [
                         '%' => [
@@ -120,7 +120,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_dual_button_gap',
                 [
-                    'label'   => esc_html__( 'Button Gap', 'elementskit' ),
+                    'label'   => esc_html__( 'Button Gap', 'elementskit-lite' ),
                     'type'    => Controls_Manager::SLIDER,
                     'default' => [
                         'size' => 5,
@@ -146,15 +146,15 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'ekit_button_one_content',
             [
-                'label' => esc_html__( 'Button One', 'elementskit' ),
+                'label' => esc_html__( 'Button One', 'elementskit-lite' ),
             ]
         );
             $this->add_control(
                 'ekit_button_one_text',
                 [
-                    'label' => esc_html__( 'Text', 'elementskit' ),
+                    'label' => esc_html__( 'Text', 'elementskit-lite' ),
                     'type' => Controls_Manager::TEXT,
-                    'default' => esc_html__( 'Button', 'elementskit' ),
+                    'default' => esc_html__( 'Button', 'elementskit-lite' ),
                     'dynamic' => [
                         'active' => true,
                     ],
@@ -164,9 +164,9 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_button_one_link',
                 [
-                    'label' => esc_html__( 'Link', 'elementskit' ),
+                    'label' => esc_html__( 'Link', 'elementskit-lite' ),
                     'type' => Controls_Manager::URL,
-                    'placeholder' => esc_html__( 'https://your-link.com', 'elementskit' ),
+                    'placeholder' => esc_html__( 'https://your-link.com', 'elementskit-lite' ),
                     'show_external' => true,
                     'default' => [
                         'url' => '#',
@@ -182,18 +182,18 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_button_one_icons__switch',
                 [
-                    'label' => esc_html__('Add icon? ', 'elementskit'),
+                    'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                     'type' => Controls_Manager::SWITCHER,
                     'default' => 'yes',
-                    'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                    'label_off' =>esc_html__( 'No', 'elementskit' ),
+                    'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                    'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
                 ]
             );
 
             $this->add_control(
                 'ekit_button_one_icons',
                 [
-                    'label' => __( 'Icon', 'elementskit' ),
+                    'label' => __( 'Icon', 'elementskit-lite' ),
                     'type' => Controls_Manager::ICONS,
                     'fa4compatibility' => 'ekit_button_one_icon',
                     'default' => [
@@ -208,12 +208,12 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_double_button_one_icon_position',
                 [
-                    'label' => esc_html__( 'Icon Position', 'elementskit' ),
+                    'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
                     'type' => Controls_Manager::SELECT,
                     'default' => 'before',
                     'options' => [
-                        'before'  => esc_html__( 'Before', 'elementskit' ),
-                        'after' => esc_html__( 'After', 'elementskit' ),
+                        'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+                        'after' => esc_html__( 'After', 'elementskit-lite' ),
                     ],
                     'condition' => [
                         'ekit_button_one_icons__switch' => 'yes'
@@ -224,7 +224,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_one_icon_before_specing',
                 [
-                    'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                    'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                     'type'  => Controls_Manager::SLIDER,
                     'range' => [
                         'px' => [
@@ -248,7 +248,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_one_icon_after_specing',
                 [
-                    'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                    'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                     'type'  => Controls_Manager::SLIDER,
                     'range' => [
                         'px' => [
@@ -275,15 +275,15 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'ekit_button_two_content',
             [
-                'label' => esc_html__( 'Button Two', 'elementskit' ),
+                'label' => esc_html__( 'Button Two', 'elementskit-lite' ),
             ]
         );
             $this->add_control(
                 'ekit_button_two_text',
                 [
-                    'label' => esc_html__( 'Text', 'elementskit' ),
+                    'label' => esc_html__( 'Text', 'elementskit-lite' ),
                     'type' => Controls_Manager::TEXT,
-                    'default' => esc_html__( 'Button', 'elementskit' ),
+                    'default' => esc_html__( 'Button', 'elementskit-lite' ),
                     'dynamic' => [
                         'active' => true,
                     ],
@@ -293,9 +293,9 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_button_two_link',
                 [
-                    'label' => esc_html__( 'Link', 'elementskit' ),
+                    'label' => esc_html__( 'Link', 'elementskit-lite' ),
                     'type' => Controls_Manager::URL,
-                    'placeholder' => esc_html__( 'https://your-link.com', 'elementskit' ),
+                    'placeholder' => esc_html__( 'https://your-link.com', 'elementskit-lite' ),
                     'show_external' => true,
                     'default' => [
                         'url' => '#',
@@ -311,18 +311,18 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_button_two_icons__switch',
                 [
-                    'label' => esc_html__('Add icon? ', 'elementskit'),
+                    'label' => esc_html__('Add icon? ', 'elementskit-lite'),
                     'type' => Controls_Manager::SWITCHER,
                     'default' => 'yes',
-                    'label_on' =>esc_html__( 'Yes', 'elementskit' ),
-                    'label_off' =>esc_html__( 'No', 'elementskit' ),
+                    'label_on' =>esc_html__( 'Yes', 'elementskit-lite' ),
+                    'label_off' =>esc_html__( 'No', 'elementskit-lite' ),
                 ]
             );
 
             $this->add_control(
                 'ekit_button_two_icons',
                 [
-                    'label' => __( 'Icon', 'elementskit' ),
+                    'label' => __( 'Icon', 'elementskit-lite' ),
                     'type' => Controls_Manager::ICONS,
                     'fa4compatibility' => 'ekit_button_two_icon',
                     'default' => [
@@ -337,12 +337,12 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_double_button_two_icon_position',
                 [
-                    'label' => esc_html__( 'Icon Position', 'elementskit' ),
+                    'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
                     'type' => Controls_Manager::SELECT,
                     'default' => 'before',
                     'options' => [
-                        'before'  => esc_html__( 'Before', 'elementskit' ),
-                        'after' => esc_html__( 'After', 'elementskit' ),
+                        'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+                        'after' => esc_html__( 'After', 'elementskit-lite' ),
                     ],
                     'condition' => [
                         'ekit_button_two_icons__switch' => 'yes'
@@ -353,7 +353,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_two_icon_before_specing',
                 [
-                    'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                    'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                     'type'  => Controls_Manager::SLIDER,
                     'range' => [
                         'px' => [
@@ -377,7 +377,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_two_icon_after_specing',
                 [
-                    'label' => esc_html__( 'Icon Spacing', 'elementskit' ),
+                    'label' => esc_html__( 'Icon Spacing', 'elementskit-lite' ),
                     'type'  => Controls_Manager::SLIDER,
                     'range' => [
                         'px' => [
@@ -405,7 +405,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'ekit_double_button_one_style_section',
             [
-                'label' => esc_html__( 'Button One', 'elementskit' ),
+                'label' => esc_html__( 'Button One', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -416,14 +416,14 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 $this->start_controls_tab(
                     'ekit_double_button_one_style_normal_tab',
                     [
-                        'label' => esc_html__( 'Normal', 'elementskit' ),
+                        'label' => esc_html__( 'Normal', 'elementskit-lite' ),
                     ]
                 );
 
                     $this->add_control(
                         'ekit_double_button_one_color',
                         [
-                            'label'     => esc_html__( 'Color', 'elementskit' ),
+                            'label'     => esc_html__( 'Color', 'elementskit-lite' ),
                             'type'      => Controls_Manager::COLOR,
                             'default'   =>'#ffffff',
                             'selectors' => [
@@ -437,7 +437,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Typography::get_type(),
                         [
                             'name' => 'ekit_double_button_one_typography',
-                            'label' => esc_html__( 'Typography', 'elementskit' ),
+                            'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                             'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one',
                         ]
@@ -446,7 +446,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_one_icon_font_size',
                         [
-                            'label' => esc_html__( 'Icon font size', 'elementskit' ),
+                            'label' => esc_html__( 'Icon font size', 'elementskit-lite' ),
                             'type' => Controls_Manager::SLIDER,
                             'size_units' => [ 'px' ],
                             'selectors' => [
@@ -460,7 +460,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Border::get_type(),
                         [
                             'name' => 'ekit_double_button_one_border',
-                            'label' => esc_html__( 'Border', 'elementskit' ),
+                            'label' => esc_html__( 'Border', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one',
                         ]
                     );
@@ -468,7 +468,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_one_border_radius',
                         [
-                            'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                            'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -481,7 +481,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Background::get_type(),
                         [
                             'name' => 'ekit_double_button_one_background',
-                            'label' => esc_html__( 'Background', 'elementskit' ),
+                            'label' => esc_html__( 'Background', 'elementskit-lite' ),
                             'types' => [ 'classic', 'gradient' ],
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one',
                             'separator' => 'before',
@@ -492,7 +492,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Box_Shadow::get_type(),
                         [
                             'name' => 'ekit_double_button_one_box_shadow',
-                            'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                            'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one',
                         ]
                     );
@@ -500,7 +500,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_one_padding',
                         [
-                            'label' => esc_html__( 'Padding', 'elementskit' ),
+                            'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -513,7 +513,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_one_margin',
                         [
-                            'label' => esc_html__( 'Margin', 'elementskit' ),
+                            'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -525,23 +525,23 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_one_align',
                         [
-                            'label' => esc_html__( 'Alignment', 'elementskit' ),
+                            'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                             'type' => Controls_Manager::CHOOSE,
                             'options' => [
                                 'start' => [
-                                    'title' => esc_html__( 'Left', 'elementskit' ),
+                                    'title' => esc_html__( 'Left', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-left',
                                 ],
                                 'center' => [
-                                    'title' => esc_html__( 'Center', 'elementskit' ),
+                                    'title' => esc_html__( 'Center', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-center',
                                 ],
                                 'end' => [
-                                    'title' => esc_html__( 'Right', 'elementskit' ),
+                                    'title' => esc_html__( 'Right', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-right',
                                 ],
                                 'justify' => [
-                                    'title' => esc_html__( 'Justified', 'elementskit' ),
+                                    'title' => esc_html__( 'Justified', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-justify',
                                 ],
                             ],
@@ -558,14 +558,14 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 $this->start_controls_tab(
                     'ekit_double_button_one_style_hover_tab',
                     [
-                        'label' => esc_html__( 'Hover', 'elementskit' ),
+                        'label' => esc_html__( 'Hover', 'elementskit-lite' ),
                     ]
                 );
 
                     $this->add_control(
                         'ekit_double_button_one_hover_color',
                         [
-                            'label'     => esc_html__( 'Color', 'elementskit' ),
+                            'label'     => esc_html__( 'Color', 'elementskit-lite' ),
                             'type'      => Controls_Manager::COLOR,
                             'default'   =>'#ffffff',
                             'selectors' => [
@@ -579,7 +579,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Border::get_type(),
                         [
                             'name' => 'ekit_double_button_one_hover_border',
-                            'label' => esc_html__( 'Border', 'elementskit' ),
+                            'label' => esc_html__( 'Border', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one:hover',
                         ]
                     );
@@ -587,7 +587,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_one_hover_border_radius',
                         [
-                            'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                            'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -600,7 +600,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Background::get_type(),
                         [
                             'name' => 'ekit_double_button_one_hover_background',
-                            'label' => esc_html__( 'Background', 'elementskit' ),
+                            'label' => esc_html__( 'Background', 'elementskit-lite' ),
                             'types' => [ 'classic', 'gradient' ],
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one:before',
                             'separator' => 'before',
@@ -611,7 +611,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Box_Shadow::get_type(),
                         [
                             'name' => 'ekit_double_button_one_hover_box_shadow',
-                            'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                            'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-one:hover',
                         ]
                     );
@@ -626,7 +626,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'ekit_double_button_two_style_section',
             [
-                'label' => esc_html__( 'Button Two', 'elementskit' ),
+                'label' => esc_html__( 'Button Two', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -637,14 +637,14 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 $this->start_controls_tab(
                     'ekit_double_button_two_style_normal_tab',
                     [
-                        'label' => esc_html__( 'Normal', 'elementskit' ),
+                        'label' => esc_html__( 'Normal', 'elementskit-lite' ),
                     ]
                 );
 
                     $this->add_control(
                         'ekit_double_button_two_color',
                         [
-                            'label'     => esc_html__( 'Color', 'elementskit' ),
+                            'label'     => esc_html__( 'Color', 'elementskit-lite' ),
                             'type'      => Controls_Manager::COLOR,
                             'default'   =>'#ffffff',
                             'selectors' => [
@@ -658,7 +658,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Typography::get_type(),
                         [
                             'name' => 'ekit_double_button_two_typography',
-                            'label' => esc_html__( 'Typography', 'elementskit' ),
+                            'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                             'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two',
                         ]
@@ -667,7 +667,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_two_icon_font_size',
                         [
-                            'label' => esc_html__( 'Icon font size', 'elementskit' ),
+                            'label' => esc_html__( 'Icon font size', 'elementskit-lite' ),
                             'type' => Controls_Manager::SLIDER,
                             'size_units' => [ 'px' ],
                             'selectors' => [
@@ -681,7 +681,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Border::get_type(),
                         [
                             'name' => 'ekit_double_button_two_border',
-                            'label' => esc_html__( 'Border', 'elementskit' ),
+                            'label' => esc_html__( 'Border', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two',
                         ]
                     );
@@ -689,7 +689,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_two_border_radius',
                         [
-                            'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                            'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -702,7 +702,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Background::get_type(),
                         [
                             'name' => 'ekit_double_button_two_background',
-                            'label' => esc_html__( 'Background', 'elementskit' ),
+                            'label' => esc_html__( 'Background', 'elementskit-lite' ),
                             'types' => [ 'classic', 'gradient' ],
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two',
                             'separator' => 'before',
@@ -713,7 +713,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Box_Shadow::get_type(),
                         [
                             'name' => 'ekit_double_button_two_box_shadow',
-                            'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                            'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two',
                         ]
                     );
@@ -721,7 +721,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_two_padding',
                         [
-                            'label' => esc_html__( 'Padding', 'elementskit' ),
+                            'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -734,7 +734,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_two_margin',
                         [
-                            'label' => esc_html__( 'Margin', 'elementskit' ),
+                            'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -746,23 +746,23 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_two_align',
                         [
-                            'label' => esc_html__( 'Alignment', 'elementskit' ),
+                            'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                             'type' => Controls_Manager::CHOOSE,
                             'options' => [
                                 'start' => [
-                                    'title' => esc_html__( 'Left', 'elementskit' ),
+                                    'title' => esc_html__( 'Left', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-left',
                                 ],
                                 'center' => [
-                                    'title' => esc_html__( 'Center', 'elementskit' ),
+                                    'title' => esc_html__( 'Center', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-center',
                                 ],
                                 'end' => [
-                                    'title' => esc_html__( 'Right', 'elementskit' ),
+                                    'title' => esc_html__( 'Right', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-right',
                                 ],
                                 'justify' => [
-                                    'title' => esc_html__( 'Justified', 'elementskit' ),
+                                    'title' => esc_html__( 'Justified', 'elementskit-lite' ),
                                     'icon' => 'fa fa-align-justify',
                                 ],
                             ],
@@ -778,13 +778,13 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 $this->start_controls_tab(
                     'ekit_double_button_two_style_hover_tab',
                     [
-                        'label' => esc_html__( 'Hover', 'elementskit' ),
+                        'label' => esc_html__( 'Hover', 'elementskit-lite' ),
                     ]
                 );
                     $this->add_control(
                         'ekit_double_button_two_hover_color',
                         [
-                            'label'     => esc_html__( 'Color', 'elementskit' ),
+                            'label'     => esc_html__( 'Color', 'elementskit-lite' ),
                             'type'      => Controls_Manager::COLOR,
                             'default'   =>'#ffffff',
                             'selectors' => [
@@ -798,7 +798,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Border::get_type(),
                         [
                             'name' => 'ekit_double_button_two_hover_border',
-                            'label' => esc_html__( 'Border', 'elementskit' ),
+                            'label' => esc_html__( 'Border', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two:hover',
                         ]
                     );
@@ -806,7 +806,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                     $this->add_responsive_control(
                         'ekit_double_button_two_hover_border_radius',
                         [
-                            'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                            'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', '%', 'em' ],
                             'selectors' => [
@@ -819,7 +819,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Background::get_type(),
                         [
                             'name' => 'ekit_double_button_two_hover_background',
-                            'label' => esc_html__( 'Background', 'elementskit' ),
+                            'label' => esc_html__( 'Background', 'elementskit-lite' ),
                             'types' => [ 'classic', 'gradient' ],
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two:before',
                             'separator' => 'before',
@@ -830,7 +830,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                         Group_Control_Box_Shadow::get_type(),
                         [
                             'name' => 'ekit_double_button_two_hover_box_shadow',
-                            'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                            'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                             'selector' => '{{WRAPPER}} .ekit-double-btn.ekit-double-btn-two:hover',
                         ]
                     );
@@ -845,7 +845,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'ekit_double_button_middletext_style_section',
             [
-                'label' => esc_html__( 'Middle Text', 'elementskit' ),
+                'label' => esc_html__( 'Middle Text', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition'=>[
                     'ekit_show_button_middle_text'=>'yes',
@@ -856,7 +856,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_control(
                 'ekit_double_button_middletext_color',
                 [
-                    'label'     => esc_html__( 'Color', 'elementskit' ),
+                    'label'     => esc_html__( 'Color', 'elementskit-lite' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   =>'#000000',
                     'selectors' => [
@@ -869,7 +869,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'ekit_double_button_middletext_typography',
-                    'label' => esc_html__( 'Typography', 'elementskit' ),
+                    'label' => esc_html__( 'Typography', 'elementskit-lite' ),
                     'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                     'selector' => '{{WRAPPER}} .ekit-wid-con .ekit_button_middle_text',
                 ]
@@ -879,7 +879,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'ekit_double_button_middletext_border',
-                    'label' => esc_html__( 'Border', 'elementskit' ),
+                    'label' => esc_html__( 'Border', 'elementskit-lite' ),
                     'selector' => '{{WRAPPER}} .ekit-wid-con .ekit_button_middle_text',
                 ]
             );
@@ -887,7 +887,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_middletext_border_radius',
                 [
-                    'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                    'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
@@ -900,7 +900,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 Group_Control_Background::get_type(),
                 [
                     'name' => 'ekit_double_button_middletext_background',
-                    'label' => esc_html__( 'Background', 'elementskit' ),
+                    'label' => esc_html__( 'Background', 'elementskit-lite' ),
                     'types' => [ 'classic', 'gradient' ],
                     'selector' => '{{WRAPPER}} .ekit-wid-con .ekit_button_middle_text',
                     'separator' => 'before',
@@ -911,17 +911,17 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
                 Group_Control_Box_Shadow::get_type(),
                 [
                     'name' => 'ekit_double_button_middletext_box_shadow',
-                    'label' => esc_html__( 'Box Shadow', 'elementskit' ),
+                    'label' => esc_html__( 'Box Shadow', 'elementskit-lite' ),
                     'selector' => '{{WRAPPER}} .ekit-wid-con .ekit_button_middle_text',
                 ]
             );
             $this->add_control(
                 'ekit_double_button_middletext_use_height_width',
                 [
-                    'label' => __( 'Show Title', 'elementskit' ),
+                    'label' => __( 'Show Title', 'elementskit-lite' ),
                     'type' => Controls_Manager::SWITCHER,
-                    'label_on' => __( 'Show', 'elementskit' ),
-                    'label_off' => __( 'Hide', 'elementskit' ),
+                    'label_on' => __( 'Show', 'elementskit-lite' ),
+                    'label_off' => __( 'Hide', 'elementskit-lite' ),
                     'return_value' => 'yes',
                     'default' => 'yes',
                     'separator' => 'before',
@@ -931,7 +931,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_middletext_width',
                 [
-                    'label' => esc_html__( 'Width', 'elementskit' ),
+                    'label' => esc_html__( 'Width', 'elementskit-lite' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px' ],
                     'range' => [
@@ -957,7 +957,7 @@ class Elementskit_Widget_Dual_Button extends Widget_Base {
             $this->add_responsive_control(
                 'ekit_double_button_middletext_height',
                 [
-                    'label' => esc_html__( 'Height', 'elementskit' ),
+                    'label' => esc_html__( 'Height', 'elementskit-lite' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px' ],
                     'range' => [

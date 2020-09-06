@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Controls;
+namespace ElementsKit_Lite\Modules\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -7,10 +7,10 @@ class Init{
 
     // instance of all control's base class
     public static function get_url(){
-        return \ElementsKit::module_url() . 'controls/';
+        return \ElementsKit_Lite::module_url() . 'controls/';
     }
     public static function get_dir(){
-        return \ElementsKit::module_dir() . 'controls/';
+        return \ElementsKit_Lite::module_dir() . 'controls/';
     }
 
     public function __construct() {
@@ -56,27 +56,27 @@ class Init{
 
     public function icon( $controls_manager ) {
         $controls_manager->unregister_control( $controls_manager::ICON );
-        $controls_manager->register_control( $controls_manager::ICON, new \ElementsKit\Modules\Controls\Icon());
+        $controls_manager->register_control( $controls_manager::ICON, new \ElementsKit_Lite\Modules\Controls\Icon());
     }
 
     public function image_choose( $controls_manager ) {
-        $controls_manager->register_control('imagechoose', new \ElementsKit\Modules\Controls\Image_Choose());
+        $controls_manager->register_control('imagechoose', new \ElementsKit_Lite\Modules\Controls\Image_Choose());
     }
 
     public function ajax_select2( $controls_manager ) {
-        $controls_manager->register_control('ajaxselect2', new \ElementsKit\Modules\Controls\Ajax_Select2());
+        $controls_manager->register_control('ajaxselect2', new \ElementsKit_Lite\Modules\Controls\Ajax_Select2());
     }
 
     public function widgetarea( $controls_manager ) {
-        $controls_manager->register_control( 'widgetarea', new \ElementsKit\Modules\Controls\Widget_Area());
+        $controls_manager->register_control( 'widgetarea', new \ElementsKit_Lite\Modules\Controls\Widget_Area());
     }
     
 	public function widgetarea_enqueue_scripts_editor() {
-		wp_enqueue_script( 'elementskit-js-widgetarea-control-editor',  self::get_url() . 'assets/js/widgetarea-editor.js', [], \ElementsKit::VERSION );
+		wp_enqueue_script( 'elementskit-js-widgetarea-control-editor',  self::get_url() . 'assets/js/widgetarea-editor.js', [], \ElementsKit_Lite::version() );
     }
     
 	public function widgetarea_enqueue_styles_editor() {
-		wp_enqueue_style( 'elementskit-css-widgetarea-control-editor',  self::get_url() . 'assets/css/widgetarea-editor.css', [], '1.0.0' );
+        wp_enqueue_style( 'elementskit-css-widgetarea-control-editor',  self::get_url() . 'assets/css/widgetarea-editor.css', [], \ElementsKit_Lite::version() );
     }
 
 }

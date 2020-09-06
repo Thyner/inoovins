@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementsKit\Modules\Widget_Builder\Controls;
+namespace ElementsKit_Lite\Modules\Widget_Builder\Controls;
 
 defined('ABSPATH') || exit;
 
@@ -27,6 +27,9 @@ class CT_Factory {
 				case 'SelectControl':
 					return new Control_Type_Select($domain);
 
+				case 'Select2Control':
+					return new Control_Type_Select2($domain);
+
 				case 'CodeControl':
 					return new Control_Type_Code($domain);
 
@@ -49,7 +52,7 @@ class CT_Factory {
 					return new Control_Type_Date_Time($domain);
 
 				case 'FontControl':
-					return new Control_Type_Date_Time($domain);
+					return new Control_Type_Font($domain);
 
 				case 'GalleryControl':
 					return new Control_Type_Gallery($domain);
@@ -65,6 +68,12 @@ class CT_Factory {
 
 				case 'WysiwygControl':
 					return new Control_Type_Wys($domain);
+               
+				case 'DimensionsControl':
+					return new Control_Type_Dimensions($domain);
+               
+				case 'ImageDimensionsControl':
+					return new Control_Type_Image_Dimensions($domain);
 
 				default:
 					return new Control_Type_Input($domain);
@@ -74,6 +83,9 @@ class CT_Factory {
 
 			switch($type) {
 
+				case 'BackgroundControl':
+					return new Control_Type_Background($domain);
+
 				case 'BorderControl':
 					return new Control_Type_Border($domain);
 
@@ -82,6 +94,9 @@ class CT_Factory {
 
 				case 'BoxShadowControl':
 					return new Control_Type_Box_Shadow($domain);
+
+				case 'TypographyControl':
+					return new Control_Type_Typography($domain);
 
 				case 'ImageSizeControl':
 					return new Control_Type_Image_Size($domain);

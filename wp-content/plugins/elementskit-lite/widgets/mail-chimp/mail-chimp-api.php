@@ -1,8 +1,12 @@
 <?php
-namespace ElementsKit;
-// use \ElementsKit\Elementskit_Widget_Mail_Chimp_Handler as Handler;
+
+namespace ElementsKit_Lite;
+
+use \Elementor\Elementskit_Widget_Mail_Chimp_Handler;
+
 class ElementsKit_Widget_Mail_Chimp_Api extends Core\Handler_Api {
-    public function config(){
+
+	public function config(){
         $this->prefix = 'widget/mailchimp';
 
     }
@@ -32,7 +36,7 @@ class ElementsKit_Widget_Mail_Chimp_Api extends Core\Handler_Api {
 		];
 		$server = explode('-', $token);
 		if( !is_array($server) || empty($token) || !isset($server[1]) ){
-			$return['error'] = esc_html__( 'Please set API Key into Dashboard User Data. ', 'elementskit' );
+			$return['error'] = esc_html__( 'Please set API Key into Dashboard User Data. ', 'elementskit-lite' );
 			return $return;
 		}
 		
@@ -61,5 +65,3 @@ class ElementsKit_Widget_Mail_Chimp_Api extends Core\Handler_Api {
     }
 }
 //https://us20.api.mailchimp.com/3.0/lists?apikey=24550c8cb06076781d51a80274a52878-us20
-
-?>

@@ -1,14 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Funfact_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_Funfact_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-funfact';
     }
 
     static function get_title() {
-        return esc_html__( 'Funfact', 'elementskit' );
+        return esc_html__( 'Funfact', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,14 +17,14 @@ class Elementskit_Widget_Funfact_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'funfact/';
+        return \ElementsKit_Lite::widget_dir() . 'funfact/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'funfact/';
+        return \ElementsKit_Lite::widget_url() . 'funfact/';
     }
 }

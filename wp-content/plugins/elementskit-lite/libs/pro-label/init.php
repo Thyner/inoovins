@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Libs\Pro_Label;
+namespace ElementsKit_Lite\Libs\Pro_Label;
 defined( 'ABSPATH' ) || exit;
 
 class Init{

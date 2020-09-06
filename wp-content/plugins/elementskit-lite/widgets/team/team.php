@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Team_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Team_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 class Elementskit_Widget_Team extends Widget_Base {
-    use \ElementsKit\Widgets\Widget_Notice;
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
     
@@ -39,28 +39,28 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Team Content
         $this->start_controls_section(
             'ekit_team_content', [
-                'label' => esc_html__( 'Team Member Content', 'elementskit' ),
+                'label' => esc_html__( 'Team Member Content', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_style',
             [
-                'label' =>esc_html__( 'Style', 'elementskit' ),
+                'label' =>esc_html__( 'Style', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'default',
                 'options' => [
-                    'default' => esc_html__( 'Default', 'elementskit' ),
-                    'overlay' => esc_html__( 'Overlay', 'elementskit' ),
-                    'centered_style' => esc_html__( 'Centered ', 'elementskit' ),
-                    'hover_info' => esc_html__( 'Hover on social', 'elementskit' ),
-                    'overlay_details' => esc_html__( 'Overlay with details', 'elementskit' ),
-                    'centered_style_details' => esc_html__( 'Centered with details ', 'elementskit' ),
-                    'long_height_hover' => esc_html__( 'Long height with hover ', 'elementskit' ),
-                    'long_height_details' => esc_html__( 'Long height with details ', 'elementskit' ),
-                    'long_height_details_hover' => esc_html__( 'Long height with details & hover', 'elementskit' ),
-                    'overlay_circle' => esc_html__( 'Overlay with circle shape', 'elementskit' ),
-                    'overlay_circle_hover' => esc_html__( 'Overlay with circle shape & hover', 'elementskit' ),
+                    'default' => esc_html__( 'Default', 'elementskit-lite' ),
+                    'overlay' => esc_html__( 'Overlay', 'elementskit-lite' ),
+                    'centered_style' => esc_html__( 'Centered ', 'elementskit-lite' ),
+                    'hover_info' => esc_html__( 'Hover on social', 'elementskit-lite' ),
+                    'overlay_details' => esc_html__( 'Overlay with details', 'elementskit-lite' ),
+                    'centered_style_details' => esc_html__( 'Centered with details ', 'elementskit-lite' ),
+                    'long_height_hover' => esc_html__( 'Long height with hover ', 'elementskit-lite' ),
+                    'long_height_details' => esc_html__( 'Long height with details ', 'elementskit-lite' ),
+                    'long_height_details_hover' => esc_html__( 'Long height with details & hover', 'elementskit-lite' ),
+                    'overlay_circle' => esc_html__( 'Overlay with circle shape', 'elementskit-lite' ),
+                    'overlay_circle_hover' => esc_html__( 'Overlay with circle shape & hover', 'elementskit-lite' ),
                 ],
             ]
         );
@@ -68,7 +68,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_image',
             [
-                'label' => esc_html__( 'Choose Member Image', 'elementskit' ),
+                'label' => esc_html__( 'Choose Member Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -87,20 +87,20 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_name',
             [
-                'label' => esc_html__( 'Member Name', 'elementskit' ),
+                'label' => esc_html__( 'Member Name', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Jane Doe', 'elementskit' ),
-                'placeholder' => esc_html__( 'Member Name', 'elementskit' ),
+                'default' => esc_html__( 'Jane Doe', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'Member Name', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_position',
             [
-                'label' => esc_html__( 'Member Position', 'elementskit' ),
+                'label' => esc_html__( 'Member Position', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Designer', 'elementskit' ),
-                'placeholder' => esc_html__( 'Member Position', 'elementskit' ),
+                'default' => esc_html__( 'Designer', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'Member Position', 'elementskit-lite' ),
 
             ]
         );
@@ -109,10 +109,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_toggle_icon',
 			[
-				'label' => esc_html__( 'Show Icon', 'elementskit' ),
+				'label' => esc_html__( 'Show Icon', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
                 'condition' => [
@@ -123,7 +123,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_top_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_team_top_icon',
                 'default' => [
@@ -141,10 +141,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_show_short_description',
 			[
-				'label' => esc_html__( 'Show Description', 'elementskit' ),
+				'label' => esc_html__( 'Show Description', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -152,10 +152,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_short_description',
             [
-                'label' => esc_html__( 'About Member', 'elementskit' ),
+                'label' => esc_html__( 'About Member', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'A small river named Duden flows by their place and supplies it with the necessary', 'elementskit' ),
-                'placeholder' => esc_html__( 'About Member', 'elementskit' ),
+                'default' => esc_html__( 'A small river named Duden flows by their place and supplies it with the necessary', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'About Member', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_team_show_short_description' => 'yes'
                 ],
@@ -170,7 +170,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 
 	   $this->start_controls_section(
             'ekit_team_section_social', [
-                'label' => esc_html__( 'Social  Profiles', 'elementskit' ),
+                'label' => esc_html__( 'Social  Profiles', 'elementskit-lite' ),
             ]
         );
 
@@ -191,7 +191,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'label_block' => true,
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_team_icon',
@@ -205,7 +205,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Facebook',
             ]
@@ -214,7 +214,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_link',
             [
-                'label' => esc_html__( 'Link', 'elementskit' ),
+                'label' => esc_html__( 'Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::URL,
                 'default' => [
                     'url' => 'https://facebook.com',
@@ -230,7 +230,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->start_controls_tab(
             'ekit_team_socialmedia_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -238,7 +238,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_socialmedia_icon_color',
             [
-                'label' =>esc_html__( 'Color', 'elementskit' ),
+                'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFFFFF',
                 'selectors' => [
@@ -252,7 +252,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_socialmedia_icon_bg_color',
             [
-                'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#a1a1a1',
                 'selectors' => [
@@ -265,7 +265,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_team_socialmedia_border',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a',
             ]
         );
@@ -274,7 +274,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Text_Shadow::get_type(),
             [
                 'name' => 'ekit_team_socialmedia_icon_normal_text_shadow',
-                'label' => esc_html__( 'Text Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Text Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a',
             ]
         );
@@ -293,7 +293,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->start_controls_tab(
             'ekit_team_socialmedia_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -301,7 +301,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_socialmedia_icon_hover_color',
             [
-                'label' =>esc_html__( 'Color', 'elementskit' ),
+                'label' =>esc_html__( 'Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover' => 'color: {{VALUE}};',
@@ -314,7 +314,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $social->add_control(
             'ekit_team_socialmedia_icon_hover_bg_color',
             [
-                'label' =>esc_html__( 'Background Color', 'elementskit' ),
+                'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#3b5998',
                 'selectors' => [
@@ -328,7 +328,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Text_Shadow::get_type(),
             [
                 'name' => 'ekit_team_socialmedia_icon_hover_text_shadow',
-                'label' => esc_html__( 'Text Shadow', 'elementskit' ),
+                'label' => esc_html__( 'Text Shadow', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover',
             ]
         );
@@ -344,7 +344,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_team_socialmedia_border_hover',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover',
             ]
         );
@@ -357,7 +357,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_social_icons',
             [
-                'label' => esc_html__('Add Icon', 'elementskit'),
+                'label' => esc_html__('Add Icon', 'elementskit-lite'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $social->get_controls(),
                 'default' => [
@@ -378,7 +378,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_section(
 			'ekit_team_popup_details',
 			[
-				'label' => esc_html__( 'Pop Up And Sidebar Details', 'elementskit' ),
+				'label' => esc_html__( 'Pop Up And Sidebar Details', 'elementskit-lite' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
 			]
         );
@@ -386,7 +386,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_chose_popup',
 			[
-				'label' => esc_html__( 'Show Popup', 'elementskit' ),
+				'label' => esc_html__( 'Show Popup', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -395,11 +395,11 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_chose_popup_style',
 			[
-				'label' => esc_html__( 'Popup Style', 'elementskit' ),
+				'label' => esc_html__( 'Popup Style', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'popup',
 				'options' => [
-					'popup'  => esc_html__( 'Popup', 'elementskit' ),
+					'popup'  => esc_html__( 'Popup', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_team_chose_popup' => 'yes'
@@ -410,10 +410,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_description',
             [
-                'label' => esc_html__( 'About Member', 'elementskit' ),
+                'label' => esc_html__( 'About Member', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'A small river named Duden flows by their place and supplies it with the necessary', 'elementskit' ),
-                'placeholder' => esc_html__( 'About Member', 'elementskit' ),
+                'default' => esc_html__( 'A small river named Duden flows by their place and supplies it with the necessary', 'elementskit-lite' ),
+                'placeholder' => esc_html__( 'About Member', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_team_chose_popup' => 'yes'
                 ],
@@ -423,10 +423,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_phone',
             [
-                'label' => esc_html__( 'Phone', 'elementskit' ),
+                'label' => esc_html__( 'Phone', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => '+1 (859) 254-6589',
-                'placeholder' => esc_html__( 'Phone Number', 'elementskit' ),
+                'placeholder' => esc_html__( 'Phone Number', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_team_chose_popup' => 'yes'
                 ],
@@ -436,10 +436,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_email',
             [
-                'label' => esc_html__( 'Email', 'elementskit' ),
+                'label' => esc_html__( 'Email', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'info@example.com',
-                'placeholder' => esc_html__( 'Email Address', 'elementskit' ),
+                'placeholder' => esc_html__( 'Email Address', 'elementskit-lite' ),
                 'condition' => [
                     'ekit_team_chose_popup' => 'yes'
                 ],
@@ -450,15 +450,15 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_chose_sidebar_direction',
             [
-                'label' => esc_html__( 'Sidebar Direction', 'elementskit' ),
+                'label' => esc_html__( 'Sidebar Direction', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'elementskit_sidebar_left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-left',
                     ],
                     'elementskit_sidebar_right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-caret-right',
                     ],
                 ],
@@ -475,7 +475,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_close_icon_changes',
             [
-                'label' => esc_html__( 'Close Icon', 'elementskit' ),
+                'label' => esc_html__( 'Close Icon', 'elementskit-lite' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'ekit_team_close_icon_change',
                 'default' => [
@@ -493,19 +493,19 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_close_icon_alignment',
             [
-                'label' => esc_html__( 'Close Icon Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Close Icon Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -526,7 +526,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Team content section style start
         $this->start_controls_section(
             'ekit_team_content_style', [
-                'label' => esc_html__( 'Content', 'elementskit' ),
+                'label' => esc_html__( 'Content', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -540,7 +540,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_content_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -548,7 +548,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_team_background_content_normal',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .profile-card, {{WRAPPER}} .profile-image-card',
 			]
@@ -564,7 +564,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->start_controls_tab(
             'ekit_team_content_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -573,7 +573,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'ekit_team_background_content_hover',
-				'label' => esc_html__( 'Background', 'elementskit' ),
+				'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .profile-card:hover, {{WRAPPER}} .profile-image-card:hover, {{WRAPPER}} .profile-card::before, {{WRAPPER}} .profile-image-card::before, {{WRAPPER}} div .profile-card .profile-body::before, {{WRAPPER}} .image-card-v3 .profile-image-card:after',
 			]
@@ -593,7 +593,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_team_content_max_weight',
 			[
-				'label' => esc_html__( 'Max Height', 'elementskit' ),
+				'label' => esc_html__( 'Max Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -625,19 +625,19 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_content_text_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'text-left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'text-center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'text-right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -649,7 +649,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_team_content_padding',
 			[
-				'label' =>esc_html__( 'Padding', 'elementskit' ),
+				'label' =>esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -661,7 +661,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_content_inner_padding',
             [
-                'label' =>esc_html__( 'Content Padding', 'elementskit' ),
+                'label' =>esc_html__( 'Content Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -674,7 +674,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_team_content_border_color_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .profile-card, {{WRAPPER}} .profile-image-card',
             ]
         );
@@ -682,7 +682,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_team_content_border_radius',
 			[
-				'label' =>esc_html__( 'Border Radius', 'elementskit' ),
+				'label' =>esc_html__( 'Border Radius', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'default' => [
@@ -701,7 +701,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_content_overly_color_heading',
             [
-                'label' => esc_html__( 'Hover Overy Color', 'elementskit' ),
+                'label' => esc_html__( 'Hover Overy Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -714,7 +714,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_team_content_overly_color',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'gradient'],
                 'selector' => '{{WRAPPER}} .image-card-v2 .profile-image-card::before',
                 'condition' => [
@@ -726,10 +726,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_remove_gutters',
             [
-                'label' => esc_html__( 'Remove Gutter?', 'elementskit' ),
+                'label' => esc_html__( 'Remove Gutter?', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'Yes', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'Yes', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -743,7 +743,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Image Styles section
         $this->start_controls_section(
             'ekit_team_image_style', [
-                'label' => esc_html__( 'Image', 'elementskit' ),
+                'label' => esc_html__( 'Image', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -751,7 +751,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_team_image_weight',
             [
-                'label' => esc_html__( 'Image Size', 'elementskit' ),
+                'label' => esc_html__( 'Image Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%', 'em' ],
                 'range'  => [
@@ -772,7 +772,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_image_height',
             [
-                'label'         => esc_html__('Height', 'elementskit'),
+                'label'         => esc_html__('Height', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'range'  => [
@@ -793,7 +793,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_image_height_margin_bottom',
             [
-                'label' => esc_html__( 'Margin', 'elementskit' ),
+                'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -807,7 +807,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_image_width',
             [
-                'label'         => esc_html__('Width', 'elementskit'),
+                'label'         => esc_html__('Width', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em', '%'],
                 'range'  => [
@@ -836,7 +836,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_team_image_border',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .profile-card .profile-header',
             ]
         );
@@ -844,7 +844,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_image_radius',
             [
-                'label' => esc_html__( 'Border radius', 'elementskit' ),
+                'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
 
@@ -864,7 +864,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_image_margin',
             [
-                'label' => esc_html__( 'Margin', 'elementskit' ),
+                'label' => esc_html__( 'Margin', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'condition' => [
@@ -880,7 +880,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_team_image_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .profile-card .profile-header',
             ]
@@ -889,7 +889,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_control(
 			'ekit_team_default_img_overlay_h',
 			[
-				'label' => esc_html__( 'Overlay', 'elementskit' ),
+				'label' => esc_html__( 'Overlay', 'elementskit-lite' ),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
                 'condition' => [
@@ -901,7 +901,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_team_default_img_overlay',
-                'label' => esc_html__( 'Overlay', 'elementskit' ),
+                'label' => esc_html__( 'Overlay', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .profile-header:before',
                 'condition' => [
@@ -917,7 +917,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_section(
             'ekit_team_top_icon_style',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_team_style' => 'default',
@@ -929,19 +929,19 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_top_icon_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'start' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                     'end' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -956,7 +956,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_team_top_icon_margin',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -968,7 +968,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_team_top_icon_padding',
 			[
-				'label' => esc_html__( 'Padding', 'elementskit' ),
+				'label' => esc_html__( 'Padding', 'elementskit-lite' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -980,7 +980,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_top_icon_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1007,7 +1007,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_team_top_icon_fsize',
             [
-                'label' => esc_html__( 'Font Size', 'elementskit' ),
+                'label' => esc_html__( 'Font Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1029,11 +1029,11 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_top_icon_hw',
 			[
-                'label' => esc_html__( 'Use Height Width', 'elementskit' ),
-                'description'   => esc_html__('For svg icon, We don\'t need this. We will use font size and padding for adjusting size.', 'elementskit'),
+                'label' => esc_html__( 'Use Height Width', 'elementskit-lite' ),
+                'description'   => esc_html__('For svg icon, We don\'t need this. We will use font size and padding for adjusting size.', 'elementskit-lite'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -1042,7 +1042,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_team_top_icon_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1067,7 +1067,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_team_top_icon_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1092,7 +1092,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_team_top_icon_lheight',
             [
-                'label' => esc_html__( 'Line Height', 'elementskit' ),
+                'label' => esc_html__( 'Line Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1118,13 +1118,13 @@ class Elementskit_Widget_Team extends Widget_Base {
             $this->start_controls_tab(
                 'ekit_team_top_icon_colors_normal',
                 [
-                    'label' => esc_html__( 'Normal', 'elementskit' ),
+                    'label' => esc_html__( 'Normal', 'elementskit-lite' ),
                 ]
             );
             $this->add_control(
                 'ekit_team_top_icon_n_color',
                 [
-                    'label' => esc_html__( 'Color', 'elementskit' ),
+                    'label' => esc_html__( 'Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'default' => '#fff',
                     'selectors' => [
@@ -1136,7 +1136,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             $this->add_control(
                 'ekit_team_top_icon_n_bgcolor',
                 [
-                    'label' => esc_html__( 'Background Color', 'elementskit' ),
+                    'label' => esc_html__( 'Background Color', 'elementskit-lite' ),
                     'type' => Controls_Manager::COLOR,
                     'default' => '#fc0467',
                     'selectors' => [
@@ -1148,7 +1148,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'ekit_team_top_icon_n_border',
-                    'label' => esc_html__( 'Border', 'elementskit' ),
+                    'label' => esc_html__( 'Border', 'elementskit-lite' ),
                     'selector' => '{{WRAPPER}} .profile-icon > i, {{WRAPPER}} .profile-icon > svg',
                 ]
             );
@@ -1157,13 +1157,13 @@ class Elementskit_Widget_Team extends Widget_Base {
             $this->start_controls_tab(
                 'ekit_team_top_icon_colors_hover',
                 [
-                    'label' => esc_html__( 'Hover', 'elementskit' ),
+                    'label' => esc_html__( 'Hover', 'elementskit-lite' ),
                 ]
             );
                 $this->add_control(
                     'ekit_team_top_icon_h_color',
                     [
-                        'label' => esc_html__( 'Color', 'elementskit' ),
+                        'label' => esc_html__( 'Color', 'elementskit-lite' ),
                         'type' => Controls_Manager::COLOR,
                         'default' => '',
                         'selectors' => [
@@ -1175,7 +1175,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                 $this->add_control(
                     'ekit_team_top_icon_h_bgcolor',
                     [
-                        'label' => esc_html__( 'Background Color', 'elementskit' ),
+                        'label' => esc_html__( 'Background Color', 'elementskit-lite' ),
                         'type' => Controls_Manager::COLOR,
                         'default' => '',
                         'selectors' => [
@@ -1187,7 +1187,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name' => 'ekit_team_top_icon_h_border',
-                        'label' => esc_html__( 'Border', 'elementskit' ),
+                        'label' => esc_html__( 'Border', 'elementskit-lite' ),
                         'selector' => '{{WRAPPER}} .profile-icon > i:hover, {{WRAPPER}} .profile-icon > svg:hover',
                     ]
                 );
@@ -1200,7 +1200,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Name Styles
         $this->start_controls_section(
             'ekit_team_name_style', [
-                'label' => esc_html__( 'Name', 'elementskit' ),
+                'label' => esc_html__( 'Name', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1219,14 +1219,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_name_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_name_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .profile-body .profile-title' => 'color: {{VALUE}};'
@@ -1238,14 +1238,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_name_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_name_hover_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .profile-body:hover .profile-title' => 'color: {{VALUE}};',
@@ -1261,7 +1261,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_name_margin',
             [
-                'label'         => esc_html__('Margin Bottom', 'elementskit'),
+                'label'         => esc_html__('Margin Bottom', 'elementskit-lite'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', 'em'],
                 'separator' => 'before',
@@ -1277,7 +1277,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Position Styles
         $this->start_controls_section(
             'ekit_team_position_style', [
-                'label' => esc_html__( 'Position', 'elementskit' ),
+                'label' => esc_html__( 'Position', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1296,14 +1296,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_position_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_position_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .profile-body .profile-designation' => 'color: {{VALUE}};'
@@ -1316,14 +1316,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_position_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_position_hover_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .profile-card:hover .profile-body .profile-designation,
@@ -1347,7 +1347,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_position_margin_bottom',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1374,7 +1374,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Position Styles
         $this->start_controls_section(
             'ekit_team_text_content_style_tab', [
-                'label' => esc_html__( 'Text Content', 'elementskit' ),
+                'label' => esc_html__( 'Text Content', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1393,14 +1393,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_text_content_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_text_content_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .profile-body .profile-content' => 'color: {{VALUE}};'
@@ -1413,14 +1413,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_text_content_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_text_content_hover_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .profile-card:hover .profile-body .profile-content' => 'color: {{VALUE}};',
@@ -1436,7 +1436,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_team_text_content_margin_bottom',
 			[
-				'label' => esc_html__( 'Margin', 'elementskit' ),
+				'label' => esc_html__( 'Margin', 'elementskit-lite' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -1453,7 +1453,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Social Styles
         $this->start_controls_section(
             'ekit_team_social_style', [
-                'label' => esc_html__( 'Social  Profiles', 'elementskit' ),
+                'label' => esc_html__( 'Social  Profiles', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_team_socail_enable' => 'yes'
@@ -1465,19 +1465,19 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialmedai_list_item_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -1493,12 +1493,12 @@ class Elementskit_Widget_Team extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_display',
             [
-                'label' => esc_html__( 'Display', 'elementskit' ),
+                'label' => esc_html__( 'Display', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'inline-block',
                 'options' => [
-                    'inline-block' => esc_html__( 'Inline Block', 'elementskit' ),
-                    'block' => esc_html__( 'Block', 'elementskit' ),
+                    'inline-block' => esc_html__( 'Inline Block', 'elementskit-lite' ),
+                    'block' => esc_html__( 'Block', 'elementskit-lite' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .ekit-team-social-list > li' => 'display: {{VALUE}};',
@@ -1510,14 +1510,14 @@ class Elementskit_Widget_Team extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_decoration_box',
             [
-                'label' => esc_html__( 'Decoration', 'elementskit' ),
+                'label' => esc_html__( 'Decoration', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
 				'default' => 'none',
                 'options' => [
-                    'none' => esc_html__( 'None', 'elementskit' ),
-                    'underline' => esc_html__( 'Underline', 'elementskit' ),
-                    'overline' => esc_html__( 'Overline', 'elementskit' ),
-                    'line-through' => esc_html__( 'Line Through', 'elementskit' ),
+                    'none' => esc_html__( 'None', 'elementskit-lite' ),
+                    'underline' => esc_html__( 'Underline', 'elementskit-lite' ),
+                    'overline' => esc_html__( 'Overline', 'elementskit-lite' ),
+                    'line-through' => esc_html__( 'Line Through', 'elementskit-lite' ),
 
                 ],
                 'selectors' => ['{{WRAPPER}} .ekit-team-social-list > li > a' => 'text-decoration: {{VALUE}};'],
@@ -1529,7 +1529,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_border_radius',
             [
-                'label' => esc_html__( 'Border radius', 'elementskit' ),
+                'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
@@ -1550,7 +1550,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_padding',
             [
-                'label'         => esc_html__('Padding', 'elementskit'),
+                'label'         => esc_html__('Padding', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
                 'selectors' => [
@@ -1564,7 +1564,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_socialmedai_list_margin',
             [
-                'label'         => esc_html__('Margin', 'elementskit'),
+                'label'         => esc_html__('Margin', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
                 'selectors' => [
@@ -1576,7 +1576,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialmedai_list_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1601,7 +1601,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_socialmedai_list_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ekit-team-social-list > li > a',
 			]
@@ -1610,10 +1610,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_socialmedai_list_style_use_height_and_width',
 			[
-                'label' => esc_html__( 'Use Height Width', 'elementskit' ),
+                'label' => esc_html__( 'Use Height Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -1622,7 +1622,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedai_list_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1652,7 +1652,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedai_list_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1682,7 +1682,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedai_list_line_height',
 			[
-				'label' => esc_html__( 'Line Height', 'elementskit' ),
+				'label' => esc_html__( 'Line Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1715,7 +1715,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Overlay Styles
         $this->start_controls_section(
             'ekit_team_overlay_style', [
-                'label' => esc_html__( 'Overlay', 'elementskit' ),
+                'label' => esc_html__( 'Overlay', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'team_style' => 'overlay',
@@ -1727,7 +1727,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_team_background_overlay',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'gradient' ],
                 'selector' => '{{WRAPPER}} .profile-image-card:before',
             ]
@@ -1739,7 +1739,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         // Modal Styles start here
         $this->start_controls_section(
             'ekit_team_modal_style', [
-                'label' => esc_html__( 'Modal Controls', 'elementskit' ),
+                'label' => esc_html__( 'Modal Controls', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_team_chose_popup' => 'yes'
@@ -1751,7 +1751,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_modal_heading',
 			[
-				'label' => esc_html__( 'Modal', 'elementskit' ),
+				'label' => esc_html__( 'Modal', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1761,7 +1761,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'ekit_team_modal_background',
-                'label' => esc_html__( 'Background', 'elementskit' ),
+                'label' => esc_html__( 'Background', 'elementskit-lite' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .elementskit-team-popup .modal-content, {{WRAPPER}} .elementskit-team-sidebar .elementskit-modal-dialog',
             ]
@@ -1770,7 +1770,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_modal_image_heading',
             [
-                'label' => esc_html__( 'Image', 'elementskit' ),
+                'label' => esc_html__( 'Image', 'elementskit-lite' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1780,7 +1780,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_modal_image_margin',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1808,7 +1808,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_modal_name_heading',
 			[
-				'label' => esc_html__( 'Name', 'elementskit' ),
+				'label' => esc_html__( 'Name', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1817,7 +1817,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_modal_name_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .xs-modal-content .xs-modal-header .person-title' => 'color: {{VALUE}};'
@@ -1835,7 +1835,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_modal_name_margin_bottom',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1860,7 +1860,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'ekit_team_modal_position_heading',
 			[
-				'label' => esc_html__( 'Position', 'elementskit' ),
+				'label' => esc_html__( 'Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1869,7 +1869,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_modal_position_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .xs-modal-content .xs-modal-header .perosn-designation' => 'color: {{VALUE}};'
@@ -1886,7 +1886,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_modal_position_margin_bottom',
             [
-                'label' => esc_html__( 'Margin Bottom', 'elementskit' ),
+                'label' => esc_html__( 'Margin Bottom', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1910,7 +1910,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
 			'more_options',
 			[
-				'label' => esc_html__( 'Phone and Email', 'elementskit' ),
+				'label' => esc_html__( 'Phone and Email', 'elementskit-lite' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1928,7 +1928,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_info_color',
             [
-                'label'      => esc_html__( 'Color', 'elementskit' ),
+                'label'      => esc_html__( 'Color', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .border-lists>li strong,
@@ -1940,7 +1940,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_info_hover_color',
             [
-                'label'      => esc_html__( 'Color Hover', 'elementskit' ),
+                'label'      => esc_html__( 'Color Hover', 'elementskit-lite' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
                     '{{WRAPPER}} .xs-modal-content .border-lists li > a:hover' => 'color: {{VALUE}};'
@@ -1953,7 +1953,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_section(
             'ekit_team_close_icon',
             [
-                'label' => esc_html__( 'Close Icon', 'elementskit' ),
+                'label' => esc_html__( 'Close Icon', 'elementskit-lite' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'ekit_team_chose_popup' => 'yes'
@@ -1966,14 +1966,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_icon_colors_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_icon_primary_color',
             [
-                'label' => esc_html__( 'Icon Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#656565',
                 'selectors' => [
@@ -1986,7 +1986,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_icon_secondary_color_normal',
             [
-                'label' => esc_html__( 'Icon BG Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon BG Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -1999,7 +1999,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_team_border',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} .elementskit-team-popup .modal-content .modal-header span',
             ]
         );
@@ -2009,7 +2009,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_icon_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -2029,14 +2029,14 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->start_controls_tab(
             'ekit_team_icon_colors_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
         $this->add_control(
             'ekit_team_hover_primary_color',
             [
-                'label' => esc_html__( 'Icon Hover Color', 'elementskit' ),
+                'label' => esc_html__( 'Icon Hover Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -2049,7 +2049,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_control(
             'ekit_team_hover_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'elementskit' ),
+                'label' => esc_html__( 'Background Color', 'elementskit-lite' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -2062,7 +2062,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'ekit_team_border_icon_group',
-                'label' => esc_html__( 'Border', 'elementskit' ),
+                'label' => esc_html__( 'Border', 'elementskit-lite' ),
                 'selector' => '{{WRAPPER}} ..elementskit-team-popup .modal-content .modal-header span:hover',
             ]
         );
@@ -2070,7 +2070,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_icon_box_icons_hover_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'elementskit' ),
+                'label' => esc_html__( 'Border Radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -2091,7 +2091,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_size',
             [
-                'label' => esc_html__( 'Size', 'elementskit' ),
+                'label' => esc_html__( 'Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -2114,7 +2114,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_padding',
             [
-                'label' => esc_html__( 'Padding', 'elementskit' ),
+                'label' => esc_html__( 'Padding', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -2126,10 +2126,10 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_enable_height_width',
             [
-                'label' => esc_html__( 'Use height width', 'elementskit' ),
+                'label' => esc_html__( 'Use height width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'elementskit' ),
-                'label_off' => esc_html__( 'No', 'elementskit' ),
+                'label_on' => esc_html__( 'Yes', 'elementskit-lite' ),
+                'label_off' => esc_html__( 'No', 'elementskit-lite' ),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -2138,7 +2138,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_height',
             [
-                'label' => esc_html__( 'Height', 'elementskit' ),
+                'label' => esc_html__( 'Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -2159,7 +2159,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_width',
             [
-                'label' => esc_html__( 'Width', 'elementskit' ),
+                'label' => esc_html__( 'Width', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -2181,7 +2181,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_line_height',
             [
-                'label' => esc_html__( 'Line Height', 'elementskit' ),
+                'label' => esc_html__( 'Line Height', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -2202,7 +2202,7 @@ class Elementskit_Widget_Team extends Widget_Base {
         $this->add_responsive_control(
             'ekit_team_close_icon_vertical_align',
             [
-                'label' => esc_html__( 'Vertical Position ', 'elementskit' ),
+                'label' => esc_html__( 'Vertical Position ', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -2268,7 +2268,7 @@ class Elementskit_Widget_Team extends Widget_Base {
             <?php endif; ?>
             
                 <div class="profile-header <?php echo esc_attr($ekit_team_style == 'default' ? 'ekit-img-overlay' : ''); ?>" <?php if ( (isset($settings['ekit_team_chose_popup']) ? $ekit_team_chose_popup : 'no')  == 'yes') :?> data-toggle="modal" data-target="ekit_team_modal_#<?php echo esc_attr($this->get_id()); ?>" <?php endif; ?>>
-                    <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                    <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                 </div><!-- .profile-header END -->
             <?php if ($settings['ekit_team_chose_popup'] == 'yes') : ?>
                 </a>
@@ -2307,7 +2307,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                     </h2>
                     <p class="profile-designation"><?php echo esc_html( $ekit_team_position ); ?></p>
                     <?php if($ekit_team_show_short_description == 'yes' && $ekit_team_short_description != ''): ?>
-                    <p class="profile-content"><?php echo \ElementsKit\Utils::kses($ekit_team_short_description); ?></p>
+                    <p class="profile-content"><?php echo \ElementsKit_Lite\Utils::kses($ekit_team_short_description); ?></p>
                     <?php endif;?>
                 </div><!-- .profile-body END -->
 
@@ -2331,7 +2331,7 @@ class Elementskit_Widget_Team extends Widget_Base {
 
                                     $getClass = explode('-', ($is_new || $migrated) ? $icon['ekit_team_icons']['library'] != 'svg' ? $icon['ekit_team_icons']['value'] : '' : $icon['ekit_team_icon']);
                                      $iconClass = end($getClass);
-                                  ?> href="<?php echo esc_url( $icon['ekit_team_link']['url'] ); ?>" class="<?php echo esc_attr( $iconClass ); ?>" >
+                                  ?> class="<?php echo esc_attr( $iconClass ); ?>" >
                                     <?php
                                         if ( $is_new || $migrated ) {
                                             // new icon
@@ -2362,13 +2362,13 @@ class Elementskit_Widget_Team extends Widget_Base {
                     <div class="profile-image-card <?php if(isset($ekit_team_content_text_align)) { echo esc_attr($ekit_team_content_text_align);} ?>">
 
                         <?php if($ekit_team_style == 'long_height_hover'){ ?>
-                            <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                            <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                         <?php
                             $modalClass = 'team-sidebar_'.$ekit_team_style.'';
                         }else{
                             $modalClass = 'team-modal_'.$ekit_team_style.'';
                         ?>
-                            <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                            <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                         <?php }?>
                         <div class="hover-area">
                             <div class="profile-body">
@@ -2383,7 +2383,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                                 </h2>
                                 <p class="profile-designation"><?php echo esc_html( $ekit_team_position ); ?></p>
                                 <?php if($ekit_team_show_short_description == 'yes' && $ekit_team_short_description != ''): ?>
-                                <p class="profile-content"><?php echo \ElementsKit\Utils::kses($ekit_team_short_description); ?></p>
+                                <p class="profile-content"><?php echo \ElementsKit_Lite\Utils::kses($ekit_team_short_description); ?></p>
                                 <?php endif;?>
                             </div><!-- .profile-body END -->
                             <?php if(isset($ekit_team_socail_enable) && $ekit_team_socail_enable == 'yes'){?>
@@ -2402,9 +2402,9 @@ class Elementskit_Widget_Team extends Widget_Base {
                                                 // Check if its a new widget without previously selected icon using the old Icon control
                                                 $is_new = empty( $icon['ekit_team_icon'] );
 
-                                                $getClass = explode('-', ($is_new || $migrated) ?  $icon['ekit_team_icons']['library'] != 'svg' ? $icon['ekit_team_icons']['value'] : '' : $icon['ekit_team_icon']);
+                                                $getClass = explode('-', ($is_new || $migrated) ? (!empty($icon['ekit_team_icons']) && $icon['ekit_team_icons']['library'] != 'svg' ? $icon['ekit_team_icons']['value'] : '') : $icon['ekit_team_icon']);
                                                 $iconClass = end($getClass);
-                                              ?> href="<?php echo esc_url( $icon['ekit_team_link']['url'] ); ?>" class="<?php echo esc_attr( $iconClass ); ?>" >
+                                              ?> class="<?php echo esc_attr( $iconClass ); ?>" >
                                                     <?php
                                                         if ( $is_new || $migrated ) {
                                                             // new icon
@@ -2434,7 +2434,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                 <div class="profile-square-v square-v4">
                     <div class="profile-card <?php if(isset($ekit_team_content_text_align)) { echo esc_attr($ekit_team_content_text_align);} ?>">
                         <div class="profile-header" <?php if ($settings['ekit_team_chose_popup'] == 'yes') :?> data-toggle="modal" data-target="#ekit_team_modal_<?php echo esc_attr($this->get_id()); ?>" <?php endif; ?>>
-                            <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                            <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                         </div><!-- .profile-header END -->
                         <div class="profile-body">
                             <h2 class="profile-title">
@@ -2448,7 +2448,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                             </h2>
                             <p class="profile-designation"><?php echo esc_html( $ekit_team_position ); ?></p>
                             <?php if($ekit_team_show_short_description == 'yes' && $ekit_team_short_description != ''): ?>
-                            <p class="profile-content"><?php echo \ElementsKit\Utils::kses($ekit_team_short_description); ?></p>
+                            <p class="profile-content"><?php echo \ElementsKit_Lite\Utils::kses($ekit_team_short_description); ?></p>
                             <?php endif;?>
                             <?php if(isset($ekit_team_socail_enable) AND $ekit_team_socail_enable == 'yes'){?>
                                 <ul class="ekit-team-social-list ">
@@ -2465,9 +2465,9 @@ class Elementskit_Widget_Team extends Widget_Base {
                                             // Check if its a new widget without previously selected icon using the old Icon control
                                             $is_new = empty( $icon['ekit_team_icon'] );
 
-                                            $getClass = explode('-', ($is_new || $migrated) ?  $icon['ekit_team_icons']['library'] != 'svg' ?  $icon['ekit_team_icons']['value'] : '' : $icon['ekit_team_icon']);
+                                            $getClass = explode('-', ($is_new || $migrated) ?  (!empty($icon['ekit_team_icons']) && $icon['ekit_team_icons']['library'] != 'svg' ?  $icon['ekit_team_icons']['value'] : '') : $icon['ekit_team_icon']);
                                              $iconClass = end($getClass);
-                                            ?> href="<?php echo esc_url( $icon['ekit_team_link']['url'] ); ?>" class="<?php echo esc_attr( $iconClass ); ?>" >
+                                            ?> class="<?php echo esc_attr( $iconClass ); ?>" >
                                                 <?php
                                                     if ( $is_new || $migrated ) {
                                                         // new icon
@@ -2528,7 +2528,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                     <div class="modal-body">
                         <div class="modal_image_wraper">
                             <div class="modal-img">
-                            <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                            <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                             </div>
                         </div>
                         <div class="modal_content_wraper">
@@ -2538,17 +2538,17 @@ class Elementskit_Widget_Team extends Widget_Base {
                                     <span class="perosn-designation"><?php echo esc_html( $ekit_team_position ); ?></span>
                                 </div><!-- .xs-modal-header END -->
 								<div class="xs-modal-body">
-                                    <?php echo \ElementsKit\Utils::kses($ekit_team_description); ?>
+                                    <?php echo \ElementsKit_Lite\Utils::kses($ekit_team_description); ?>
                                 </div><!-- .xs-modal-body END -->
                                 <div class="xs-modal-footer">
                                     <?php if ( $ekit_team_phone || $ekit_team_email ): ?>
                                         <ul class="border-lists">
                                             <?php if ( $ekit_team_phone ): ?>
-                                                <li><strong><?php esc_html_e( 'Phone', 'elementskit' ); ?>:</strong><a href="tel:<?php echo esc_attr( $ekit_team_phone ); ?>"><?php echo esc_html( $ekit_team_phone ); ?></a></li>
+                                                <li><strong><?php esc_html_e( 'Phone', 'elementskit-lite' ); ?>:</strong><a href="tel:<?php echo esc_attr( urlencode($ekit_team_phone) ); ?>"><?php echo esc_html( $ekit_team_phone ); ?></a></li>
                                             <?php endif; ?>
 
                                             <?php if ( $ekit_team_email ): ?>
-                                                <li><strong><?php esc_html_e( 'Email', 'elementskit' ); ?>:</strong><a href="mailto:<?php echo esc_attr( $ekit_team_email ); ?>"><?php echo esc_html( $ekit_team_email ); ?></a></li>
+                                                <li><strong><?php esc_html_e( 'Email', 'elementskit-lite' ); ?>:</strong><a href="mailto:<?php echo esc_attr( $ekit_team_email ); ?>"><?php echo esc_html( $ekit_team_email ); ?></a></li>
                                             <?php endif; ?>
                                         </ul>
                                     <?php endif; ?>
@@ -2620,7 +2620,7 @@ class Elementskit_Widget_Team extends Widget_Base {
                     <div class="elementskitmodal-body">
                         <div class="modal_image_wraper">
                             <div class="modal-img">
-                            <?php echo \ElementsKit\Utils::kses($image_html); ?>
+                            <?php echo \ElementsKit_Lite\Utils::kses($image_html); ?>
                             </div>
                         </div>
                         <div class="modal_content_wraper">
@@ -2630,17 +2630,17 @@ class Elementskit_Widget_Team extends Widget_Base {
                                     <span class="perosn-designation"><?php echo esc_html( $ekit_team_position ); ?></span>
                                 </div><!-- .xs-modal-header END -->
                                 <div class="xs-modal-body">
-                                    <?php echo \ElementsKit\Utils::kses($ekit_team_description); ?>
+                                    <?php echo \ElementsKit_Lite\Utils::kses($ekit_team_description); ?>
                                 </div><!-- .xs-modal-body END -->
                                 <div class="xs-modal-footer">
                                     <?php if ( $ekit_team_phone || $ekit_team_email ): ?>
                                         <ul class="border-lists">
                                             <?php if ( $ekit_team_phone ): ?>
-                                                <li><strong><?php esc_html_e( 'Phone', 'elementskit' ); ?>:</strong><a href="tel:<?php echo esc_attr( $ekit_team_phone ); ?>"><?php echo esc_html( $ekit_team_phone ); ?></a></li>
+                                                <li><strong><?php esc_html_e( 'Phone', 'elementskit-lite' ); ?>:</strong><a href="tel:<?php echo esc_attr( urldecode($ekit_team_phone) ); ?>"><?php echo esc_html( $ekit_team_phone ); ?></a></li>
                                             <?php endif; ?>
 
                                             <?php if ( $ekit_team_email ): ?>
-                                                <li><strong><?php esc_html_e( 'Email', 'elementskit' ); ?>:</strong><a href="mailto:<?php echo esc_attr( $ekit_team_email ); ?>"><?php echo esc_html( $ekit_team_email ); ?></a></li>
+                                                <li><strong><?php esc_html_e( 'Email', 'elementskit-lite' ); ?>:</strong><a href="mailto:<?php echo esc_attr( $ekit_team_email ); ?>"><?php echo esc_html( $ekit_team_email ); ?></a></li>
                                             <?php endif; ?>
                                         </ul>
                                     <?php endif; ?>

@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_TablePress_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_TablePress_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_TablePress extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -42,7 +42,7 @@ class Elementskit_Widget_TablePress extends Widget_Base {
 				'type'    => Controls_Manager::SELECT,
                 'label_block' => 'true',
 				'default' => '0',
-				'options' => \ElementsKit\Utils::tablepress_table_list(),
+				'options' => \ElementsKit_Lite\Utils::tablepress_table_list(),
 			]
 		);
 

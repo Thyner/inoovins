@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit\Modules\Controls;
+namespace ElementsKit_Lite\Modules\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -18,7 +18,7 @@ class Widget_Area_Utils{
 			$output = ob_get_contents();
 			ob_end_clean();
 	
-			echo \ElementsKit\Utils::render($output);
+			echo \ElementsKit_Lite\Utils::render($output);
 	}
 
 	public static function parse($content, $widget_key, $index = 1){
@@ -30,7 +30,7 @@ class Widget_Area_Utils{
 		<div class="widgetarea_warper widgetarea_warper_editable" data-elementskit-widgetarea-key="<?php echo esc_attr($extract_key); ?>"  data-elementskit-widgetarea-index="<?php echo esc_attr($index); ?>">
 			<div class="widgetarea_warper_edit" data-elementskit-widgetarea-key="<?php echo esc_attr($extract_key); ?>" data-elementskit-widgetarea-index="<?php echo esc_attr($index); ?>">
 				<i class="eicon-edit" aria-hidden="true"></i>
-				<span class="elementor-screen-only"><?php esc_html_e('Edit', 'elementskit'); ?></span>
+				<span class="elementor-screen-only"><?php esc_html_e('Edit', 'elementskit-lite'); ?></span>
 			</div>
 
 			<div class="elementor-widget-container">
@@ -40,9 +40,9 @@ class Widget_Area_Utils{
 				$elementor = \Elementor\Plugin::instance();
 
 				if(isset($builder_post->ID)){
-					echo str_replace('#elementor', '', \ElementsKit\Utils::render_tab_content($elementor->frontend->get_builder_content_for_display( $builder_post->ID ), $builder_post->ID)); 
+					echo str_replace('#elementor', '', \ElementsKit_Lite\Utils::render_tab_content($elementor->frontend->get_builder_content_for_display( $builder_post->ID ), $builder_post->ID)); 
 				}else{
-					echo esc_html__('no content added yet', 'elementskit');
+					echo esc_html__('no content added yet', 'elementskit-lite');
 				}
  				?>
 			</div>

@@ -1,14 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Piechart_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_Piechart_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-piechart';
     }
 
     static function get_title() {
-        return esc_html__( 'Pie Chart', 'elementskit' );
+        return esc_html__( 'Pie Chart', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -16,15 +17,14 @@ class Elementskit_Widget_Piechart_Handler extends Core\Handler_Widget{
     }
 
     static function get_categories() {
-        return [ 'elementskit' ];
+        return [ 'elementskit-lite' ];
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'piechart/';
+        return \ElementsKit_Lite::widget_dir() . 'piechart/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'piechart/';
+        return \ElementsKit_Lite::widget_url() . 'piechart/';
     }
-
 }

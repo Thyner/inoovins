@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -48,7 +48,7 @@ class Ekit_Header_Info extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_headerinfo_text':
-				return esc_html__( 'Text (Header Info)', 'elementskit' );
+				return esc_html__( 'Text (Header Info)', 'elementskit-lite' );
 				break;
 
 			default:

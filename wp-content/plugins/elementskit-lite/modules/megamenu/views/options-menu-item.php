@@ -2,12 +2,12 @@
     <div class="attr-modal-dialog attr-modal-dialog-centered" role="document">
         <div class="attr-modal-content ekit_menu_modal_content">
             <div class="attr-modal-header">
-                <ul class="tb-nav tb-nav-tabs ekit_menu_control_nav" role="tablist">
+            <ul class="tb-nav tb-nav-tabs ekit_menu_control_nav" role="tablist">
                     <li role="presentation" id="attr_content_nav" class="attr-active"><a class="attr-nav-link" href="#attr_content_tab" aria-controls="attr_content_tab"
                             role="tab" data-attr-toggle="tab"><?php esc_html_e('Content', 'elementskit'); ?></a></li>
-                    <li role="presentation" id="attr_icon_nav"><a class="attr-nav-link ekit-pro-labal" href="#attr_icon_tab" aria-controls="attr_icon_tab" role="tab"
+                    <li role="presentation" id="attr_icon_nav"><a class="attr-nav-link ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal" href="#attr_icon_tab" aria-controls="attr_icon_tab" role="tab"
                             data-attr-toggle="tab"><?php esc_html_e('Icon', 'elementskit'); ?></a></li>
-                    <li role="presentation" id="attr_badge_nav"><a class="attr-nav-link ekit-pro-labal" href="#attr_badge_tab" aria-controls="attr_badge_tab"
+                    <li role="presentation" id="attr_badge_nav"><a class="attr-nav-link ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal" href="#attr_badge_tab" aria-controls="attr_badge_tab"
                             role="tab" data-attr-toggle="tab"><?php esc_html_e('Badge', 'elementskit'); ?></a></li>
                     <li role="presentation" id="attr_badge_nav"><a class="attr-nav-link" href="#attr_vertical_menu_setting_tab" aria-controls="attr_vertical_menu_setting_tab"
                             role="tab" data-attr-toggle="tab"><?php esc_html_e('Settings', 'elementskit'); ?></a></li>
@@ -35,7 +35,7 @@
                                 <?php esc_html_e('Edit megamenu content'); ?>
                             </button>
 
-                            <div id="mobile_submenu_content_type" class="ekit-pro-labal ekit-pro-labal-container">
+                            <div id="mobile_submenu_content_type" class="ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal-container">
                                 <strong><?php esc_html_e('Use mobile submenu as:'); ?></strong>
                                 <span><input type="radio" name="content_type" checked value="builder_content"> <?php esc_html_e('builder content'); ?></span>
                                 <span><input type="radio" name="content_type" value="submenu_list"> <?php esc_html_e('wp submenu list'); ?></span>
@@ -43,28 +43,28 @@
                         </div>
                         <?php else: ?>
                         <p class="no-elementor-notice">
-                            <?php esc_html_e( 'This plugin requires Elementor page builder to edt megamenu items content', 'elementskit' ); ?>
+                            <?php esc_html_e( 'This plugin requires Elementor page builder to edt megamenu items content', 'elementskit-lite' ); ?>
                         </p>
                         <?php endif; ?>
                     </div>
                     <div role="tabpanel" class="attr-tab-pane" id="attr_icon_tab">
-                        <table class="option-table ekit-pro-labal-container">
+                        <table class="option-table ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal-container">
                             <tbody>
                                 <tr>
-                                    <td><strong><?php esc_html_e('Choose icon color', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Choose icon color', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright">
                                         <input type="text" value="#bada55" class="elementskit-menu-wpcolor-picker"
                                             id="elementskit-menu-icon-color-field" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><strong><?php esc_html_e('Select icon', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Select icon', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright">
                                         <select id="elementskit-menu-icon-field" class="elementskit-menu-icon-picker">
-                                            <option value=""><?php esc_html_e('No icon', 'elementskit'); ?></option>
+                                            <option value=""><?php esc_html_e('No icon', 'elementskit-lite'); ?></option>
                                             <?php
                                     foreach( self::get_icons() as $icon_class){
-                                        echo "<option value='$icon_class'></option>";
+                                        echo "<option value='$icon_class'>'$icon_class'</option>";
                                     }
                                 ?>
                                         </select>
@@ -74,27 +74,27 @@
                         </table>
                     </div>
                     <div role="tabpanel" class="attr-tab-pane" id="attr_badge_tab">
-                        <table class="option-table ekit-pro-labal-container">
+                        <table class="option-table ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal ekit-<?php echo ElementsKit_Lite::package_type(); ?>-labal-container">
                             <tbody>
                                 <tr>
-                                    <td><strong><?php esc_html_e('Badge text', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Badge text', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright">
                                         <input type="text"
-                                            placeholder="<?php esc_html_e('Badge Text', 'elementskit'); ?>"
+                                            placeholder="<?php esc_html_e('Badge Text', 'elementskit-lite'); ?>"
                                             id="elementskit-menu-badge-text-field" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td><strong><?php esc_html_e('Choose badge color', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Choose badge color', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright">
-                                        <input type="text" class="elementskit-menu-wpcolor-picker" value="#bada55"
+                                        <input type="text" class="elementskit-menu-wpcolor-picker" value="#ffffff"
                                             id="elementskit-menu-badge-color-field" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td><strong><?php esc_html_e('Choose badge background', 'elementskit'); ?></strong>
+                                    <td><strong><?php esc_html_e('Choose badge background', 'elementskit-lite'); ?></strong>
                                     </td>
                                     <td class="alignright">
                                         <input type="text" class="elementskit-menu-wpcolor-picker" value="#bada55"
@@ -109,29 +109,29 @@
                         <table class="option-table">
                             <tbody class="xs_menu_settings_panel">
                                 <tr id="xs_megamenu_width_type">
-                                    <td><strong><?php esc_html_e('Mega Menu Width as:', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Mega Menu Width as:', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright ekit_width_lists">
                                         <input type="radio" name="width_type" id="width_type_default" value="default_width" checked>
-                                        <label for="width_type_default"><?php esc_html_e('Default Width', 'elementskit'); ?></label>
+                                        <label for="width_type_default"><?php esc_html_e('Default Width', 'elementskit-lite'); ?></label>
                                         <input type="radio" id="width_type_full" name="width_type" value="full_width">
-                                        <label for="width_type_full"><?php esc_html_e('Full Width', 'elementskit'); ?></label>
+                                        <label for="width_type_full"><?php esc_html_e('Full Width', 'elementskit-lite'); ?></label>
                                         <input type="radio" id="width_type_custom" name="width_type" value="custom_width">
-                                        <label for="width_type_custom"><?php esc_html_e('Custom Width', 'elementskit'); ?></label>
+                                        <label for="width_type_custom"><?php esc_html_e('Custom Width', 'elementskit-lite'); ?></label>
                                     </td>
                                 </tr>
                                 <tr class="menu-width-container">
-                                    <td><strong><?php esc_html_e('Menu Width', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Menu Width', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright">
-                                        <input type="text" placeholder="<?php esc_html_e('750px', 'elementskit'); ?>" id="elementskit-menu-vertical-menu-width-field" />
+                                        <input type="text" placeholder="<?php esc_html_e('750px', 'elementskit-lite'); ?>" id="elementskit-menu-vertical-menu-width-field" />
                                     </td>
                                 </tr>
                                 <tr id="vertical_megamenu_position_type">
-                                    <td><strong><?php esc_html_e('Mega Menu Position as:', 'elementskit'); ?></strong></td>
+                                    <td><strong><?php esc_html_e('Mega Menu Position as:', 'elementskit-lite'); ?></strong></td>
                                     <td class="alignright">
                                         <input type="radio" id="position_type_top" name="position_type" value="top_position">
-                                        <label for="position_type_top"><?php esc_html_e('Default', 'elementskit'); ?></label>
+                                        <label for="position_type_top"><?php esc_html_e('Default', 'elementskit-lite'); ?></label>
                                         <input type="radio" name="position_type" id="position_type_relative" checked value="relative_position">
-                                        <label for="position_type_relative"><?php esc_html_e('Relative', 'elementskit'); ?></label>
+                                        <label for="position_type_relative"><?php esc_html_e('Relative', 'elementskit-lite'); ?></label>
                                     </td>
                                 </tr>
                             </tbody>
@@ -153,7 +153,7 @@
                     </div>
                     <div class="right-content">
                         <span class='spinner'></span>
-                        <?php echo get_submit_button(esc_html__('Save', 'elementskit'), 'elementskit-menu-item-save button-primary alignright','', false); ?>
+                        <?php echo get_submit_button(esc_html__('Save', 'elementskit-lite'), 'elementskit-menu-item-save button-primary alignright','', false); ?>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                         <line fill="none" stroke="#fff" stroke-width="1.4" x1="1" y1="1" x2="19" y2="19"></line>
                         <line fill="none" stroke="#fff" stroke-width="1.4" x1="19" y1="1" x2="1" y2="19"></line>
                     </svg></button>
-                <iframe id="elementskit-menu-builder-iframe" src="<?php echo esc_url(get_rest_url() . 'elementskit/v1/dynamic-content/content_editor/megamenu/menuitem'); ?>" frameborder="0"></iframe>
+                <iframe id="elementskit-menu-builder-iframe" src="" frameborder="0"></iframe>
             </div>
         </div>
     </div>

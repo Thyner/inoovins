@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -52,23 +52,23 @@ class Ekit_Timeline extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_timeline_line_subtitle':
-				return esc_html__( 'Sub Title (Timeline)', 'elementskit' );
+				return esc_html__( 'Sub Title (Timeline)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_timeline_line_title':
-				return esc_html__( 'Title (Timeline)', 'elementskit' );
+				return esc_html__( 'Title (Timeline)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_timeline_line_content':
-				return esc_html__( 'Description (Timeline)', 'elementskit' );
+				return esc_html__( 'Description (Timeline)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_timeline_content_date':
-				return esc_html__( 'Date (Timeline)', 'elementskit' );
+				return esc_html__( 'Date (Timeline)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_timelinehr_content_address':
-				return esc_html__( 'Address (Timeline)', 'elementskit' );
+				return esc_html__( 'Address (Timeline)', 'elementskit-lite' );
 				break;
 
 			default:

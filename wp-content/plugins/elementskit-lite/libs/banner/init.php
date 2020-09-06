@@ -18,7 +18,7 @@ if(!class_exists('WpMet_Banner')){
             }
 
             $this->key = 'wpmet_banner';
-            $this->api = \ElementsKit::api_url() . 'banner/';
+            $this->api = \ElementsKit_Lite::api_url() . 'banner/?package_type=' . \ElementsKit_Lite::package_type();
             $this->check_interval = (3600 * 24); // 1day
             $this->get_banner();
 
@@ -73,7 +73,7 @@ if(!class_exists('WpMet_Banner')){
                 if($banner->slug == 'all_pages'|| in_array($screen->id, $this->plugin_pages)){
                     $contents = '<a target="_blank" class="wpmet-banner-href" href="'.$banner->url.'"><img src="'.$banner->image.'" /></a>';
 
-                    \ElementsKit\Notice::push(
+                    \ElementsKit_Lite\Notice::push(
                         [
                             'id'          => 'wpmet-banner-' . $banner->slug,
                             'type'        => 'banner',

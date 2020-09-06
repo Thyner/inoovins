@@ -1,13 +1,13 @@
 <?php
 namespace Elementor;
 
-use \ElementsKit\Elementskit_Widget_Social_Handler as Handler;
-use \ElementsKit\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\Elementskit_Widget_Social_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Elementskit_Widget_Social extends Widget_Base {
-	use \ElementsKit\Widgets\Widget_Notice;
+	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;
 
@@ -33,20 +33,20 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->start_controls_section(
             'ekit_socialmedia_section_tab_content',
             [
-                'label' => esc_html__('Social Media', 'elementskit'),
+                'label' => esc_html__('Social Media', 'elementskit-lite'),
             ]
         );
 
         $this->add_control(
 			'ekit_socialmedia_style',
 			[
-				'label' => esc_html__( 'Choose Style', 'elementskit' ),
+				'label' => esc_html__( 'Choose Style', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'icon',
 				'options' => [
-					'icon'  => esc_html__( 'Icon', 'elementskit' ),
-					'text' => esc_html__( 'Text', 'elementskit' ),
-					'both' => esc_html__( 'Both', 'elementskit' ),
+					'icon'  => esc_html__( 'Icon', 'elementskit-lite' ),
+					'text' => esc_html__( 'Text', 'elementskit-lite' ),
+					'both' => esc_html__( 'Both', 'elementskit-lite' ),
 				],
 			]
         );
@@ -54,12 +54,12 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_control(
 			'ekit_socialmedia_style_icon_position',
 			[
-				'label' => esc_html__( 'Icon Position', 'elementskit' ),
+				'label' => esc_html__( 'Icon Position', 'elementskit-lite' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'before',
 				'options' => [
-					'before'  => esc_html__( 'Before', 'elementskit' ),
-					'after' => esc_html__( 'After', 'elementskit' ),
+					'before'  => esc_html__( 'Before', 'elementskit-lite' ),
+					'after' => esc_html__( 'After', 'elementskit-lite' ),
                 ],
                 'condition' => [
                     'ekit_socialmedia_style' => 'both'
@@ -70,7 +70,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedia_icon_padding_right',
 			[
-				'label' => esc_html__( 'Spacing Right', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Right', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -97,7 +97,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedia_icon_padding_left',
 			[
-				'label' => esc_html__( 'Spacing Left', 'elementskit' ),
+				'label' => esc_html__( 'Spacing Left', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -124,19 +124,19 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialmedai_list_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -154,7 +154,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_control(
             'ekit_socialmedia_icons',
             [
-                'label' => esc_html__( 'Icon', 'elementskit' ),
+                'label' => esc_html__( 'Icon', 'elementskit-lite' ),
                 'label_block' => true,
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'ekit_socialmedia_icon',
@@ -169,7 +169,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_control(
             'ekit_socialmedia_label',
             [
-                'label' => esc_html__( 'Label', 'elementskit' ),
+                'label' => esc_html__( 'Label', 'elementskit-lite' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Facebook',
             ]
@@ -179,7 +179,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_control(
             'ekit_socialmedia_link',
             [
-                'label' => esc_html__( 'Link', 'elementskit' ),
+                'label' => esc_html__( 'Link', 'elementskit-lite' ),
                 'type' => Controls_Manager::URL,
                 'default' => [
                     'url' => 'https://facebook.com',
@@ -196,7 +196,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->start_controls_tab(
             'ekit_socialmedia_normal',
             [
-                'label' => esc_html__( 'Normal', 'elementskit' ),
+                'label' => esc_html__( 'Normal', 'elementskit-lite' ),
             ]
         );
 
@@ -204,7 +204,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_responsive_control(
 			'ekit_socialmedia_icon_color',
 			[
-				'label' =>esc_html__( 'Color', 'elementskit' ),
+				'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#222222',
 				'selectors' => [
@@ -218,7 +218,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_responsive_control(
 			'ekit_socialmedia_icon_bg_color',
 			[
-				'label' =>esc_html__( 'Background Color', 'elementskit' ),
+				'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} > a' => 'background-color: {{VALUE}};',
@@ -230,7 +230,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_socialmedia_border',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a',
 			]
 		);
@@ -239,7 +239,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'ekit_socialmedia_icon_normal_text_shadow',
-				'label' => esc_html__( 'Text Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Text Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a',
 			]
         );
@@ -258,7 +258,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 		$socialMedia->start_controls_tab(
             'ekit_socialmedia_hover',
             [
-                'label' => esc_html__( 'Hover', 'elementskit' ),
+                'label' => esc_html__( 'Hover', 'elementskit-lite' ),
             ]
         );
 
@@ -266,7 +266,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_responsive_control(
 			'ekit_socialmedia_icon_hover_color',
 			[
-				'label' =>esc_html__( 'Color', 'elementskit' ),
+				'label' =>esc_html__( 'Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} > a:hover' => 'color: {{VALUE}};',
@@ -279,7 +279,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $socialMedia->add_responsive_control(
 			'ekit_socialmedia_icon_hover_bg_color',
 			[
-				'label' =>esc_html__( 'Background Color', 'elementskit' ),
+				'label' =>esc_html__( 'Background Color', 'elementskit-lite' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#3b5998',
 				'selectors' => [
@@ -293,7 +293,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'ekit_socialmedia_icon_hover_text_shadow',
-				'label' => esc_html__( 'Text Shadow', 'elementskit' ),
+				'label' => esc_html__( 'Text Shadow', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover',
 			]
         );
@@ -309,7 +309,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'ekit_socialmedia_border_hover',
-				'label' => esc_html__( 'Border', 'elementskit' ),
+				'label' => esc_html__( 'Border', 'elementskit-lite' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} > a:hover',
 			]
 		);
@@ -324,7 +324,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_control(
             'ekit_socialmedia_add_icons',
             [
-                'label' => esc_html__('Add Social Media', 'elementskit'),
+                'label' => esc_html__('Add Social Media', 'elementskit-lite'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $socialMedia->get_controls(),
                 'default' => [
@@ -367,7 +367,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 		 $this->start_controls_section(
             'ekit_socialmedia_section_tab_style',
             [
-                'label' => esc_html__('Social Media', 'elementskit'),
+                'label' => esc_html__('Social Media', 'elementskit-lite'),
 				 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -375,19 +375,19 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
             'ekit_socialmedai_list_item_align',
             [
-                'label' => esc_html__( 'Alignment', 'elementskit' ),
+                'label' => esc_html__( 'Alignment', 'elementskit-lite' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementskit' ),
+                        'title' => esc_html__( 'Left', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementskit' ),
+                        'title' => esc_html__( 'Center', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementskit' ),
+                        'title' => esc_html__( 'Right', 'elementskit-lite' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -403,12 +403,12 @@ class Elementskit_Widget_Social extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_display',
             [
-                'label' => esc_html__( 'Display', 'elementskit' ),
+                'label' => esc_html__( 'Display', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'inline-block',
                 'options' => [
-                    'inline-block' => esc_html__( 'Inline Block', 'elementskit' ),
-                    'block' => esc_html__( 'Block', 'elementskit' ),
+                    'inline-block' => esc_html__( 'Inline Block', 'elementskit-lite' ),
+                    'block' => esc_html__( 'Block', 'elementskit-lite' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .ekit_social_media > li' => 'display: {{VALUE}};',
@@ -420,14 +420,14 @@ class Elementskit_Widget_Social extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_decoration_box',
             [
-                'label' => esc_html__( 'Decoration', 'elementskit' ),
+                'label' => esc_html__( 'Decoration', 'elementskit-lite' ),
                 'type' => Controls_Manager::SELECT,
 				'default' => 'none',
                 'options' => [
-                    'none' => esc_html__( 'None', 'elementskit' ),
-                    'underline' => esc_html__( 'Underline', 'elementskit' ),
-                    'overline' => esc_html__( 'Overline', 'elementskit' ),
-                    'line-through' => esc_html__( 'Line Through', 'elementskit' ),
+                    'none' => esc_html__( 'None', 'elementskit-lite' ),
+                    'underline' => esc_html__( 'Underline', 'elementskit-lite' ),
+                    'overline' => esc_html__( 'Overline', 'elementskit-lite' ),
+                    'line-through' => esc_html__( 'Line Through', 'elementskit-lite' ),
 
                 ],
                 'selectors' => ['{{WRAPPER}} .ekit_social_media > li > a' => 'text-decoration: {{VALUE}};'],
@@ -438,7 +438,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_border_radius',
             [
-                'label' => esc_html__( 'Border radius', 'elementskit' ),
+                'label' => esc_html__( 'Border radius', 'elementskit-lite' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
@@ -459,7 +459,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 		 $this->add_responsive_control(
             'ekit_socialmedai_list_padding',
             [
-                'label'         => esc_html__('Padding', 'elementskit'),
+                'label'         => esc_html__('Padding', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
 				'default' => [
@@ -479,7 +479,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_socialmedai_list_margin',
             [
-                'label'         => esc_html__('Margin', 'elementskit'),
+                'label'         => esc_html__('Margin', 'elementskit-lite'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => ['px', 'em'],
 				'default' => [
@@ -497,7 +497,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 		$this->add_responsive_control(
             'ekit_socialmedai_list_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'elementskit' ),
+                'label' => esc_html__( 'Icon Size', 'elementskit-lite' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -522,7 +522,7 @@ class Elementskit_Widget_Social extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'ekit_socialmedai_list_typography',
-				'label' => esc_html__( 'Typography', 'elementskit' ),
+				'label' => esc_html__( 'Typography', 'elementskit-lite' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .ekit_social_media > li > a',
 			]
@@ -531,10 +531,10 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_control(
 			'ekit_socialmedai_list_style_use_height_and_width',
 			[
-				'label' => esc_html__( 'Use Height Width', 'elementskit' ),
+				'label' => esc_html__( 'Use Height Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'elementskit' ),
-				'label_off' => esc_html__( 'Hide', 'elementskit' ),
+				'label_on' => esc_html__( 'Show', 'elementskit-lite' ),
+				'label_off' => esc_html__( 'Hide', 'elementskit-lite' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -544,7 +544,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedai_list_width',
 			[
-				'label' => esc_html__( 'Width', 'elementskit' ),
+				'label' => esc_html__( 'Width', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -574,7 +574,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedai_list_height',
 			[
-				'label' => esc_html__( 'Height', 'elementskit' ),
+				'label' => esc_html__( 'Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -604,7 +604,7 @@ class Elementskit_Widget_Social extends Widget_Base {
         $this->add_responsive_control(
 			'ekit_socialmedai_list_line_height',
 			[
-				'label' => esc_html__( 'Line Height', 'elementskit' ),
+				'label' => esc_html__( 'Line Height', 'elementskit-lite' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [

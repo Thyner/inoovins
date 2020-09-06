@@ -1,0 +1,21 @@
+.wplc_trigger_status {
+    width: 70px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    text-align: center;
+}
+
+.wplc_trigger_enabled {
+    background-color: #158500;
+    color: white;
+}
+
+.wplc_trigger_disabled {
+    background-color: lightgrey;
+}
+
+.wplc_trigger_status a {
+    color: inherit;
+}

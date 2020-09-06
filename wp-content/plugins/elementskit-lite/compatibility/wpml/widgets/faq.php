@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -49,11 +49,11 @@ class Ekit_Faq extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_faq_title':
-				return esc_html__( 'Title (FAQ)', 'elementskit' );
+				return esc_html__( 'Title (FAQ)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_faq_content':
-				return esc_html__( 'Content (FAQ)', 'elementskit' );
+				return esc_html__( 'Content (FAQ)', 'elementskit-lite' );
 				break;
 
 			default:

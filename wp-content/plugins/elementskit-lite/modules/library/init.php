@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Modules\Library;
+namespace ElementsKit_Lite\Modules\Library;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -13,7 +13,7 @@ class Init{
         $this->dir = dirname(__FILE__) . '/';
 
         // get current module's url.
-        $this->url = \ElementsKit::plugin_url() . 'modules/library/';
+        $this->url = \ElementsKit_Lite::plugin_url() . 'modules/library/';
 
         // enqueue editor js for elementor.
         add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'editor_scripts' ), 1);
@@ -30,6 +30,7 @@ class Init{
 
         // call api manager.
         new Manager\Api();
+        Library_Manager::init();
     }
 
     public function editor_scripts(){
@@ -37,17 +38,17 @@ class Init{
 			'elementskit-library-editor-script', 
 			$this->url . 'assets/js/editor.js', 
 			array('jquery', 'underscore', 'backbone-marionette'), 
-			\ElementsKit::VERSION,
+			\ElementsKit_Lite::version(),
 			true
 		);
 	}
 
 	public function editor_styles(){
-		wp_enqueue_style( 'elementskit-library-editor-style', $this->url . 'assets/css/editor.css', array(), \ElementsKit::VERSION);
+		wp_enqueue_style( 'elementskit-library-editor-style', $this->url . 'assets/css/editor.css', array(), \ElementsKit_Lite::version());
 	}
 
 	public function preview_styles(){
-		wp_enqueue_style( 'elementskit-library-preview-style', $this->url . 'assets/css/preview.css', array(), \ElementsKit::VERSION );
+		wp_enqueue_style( 'elementskit-library-preview-style', $this->url . 'assets/css/preview.css', array(), \ElementsKit_Lite::version() );
 	}
 
 	public function admin_inline_js() { ?>

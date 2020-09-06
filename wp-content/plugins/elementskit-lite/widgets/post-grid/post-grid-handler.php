@@ -1,14 +1,15 @@
 <?php
-namespace ElementsKit;
+namespace Elementor;
 
-class Elementskit_Widget_Post_Grid_Handler extends Core\Handler_Widget{
+
+class Elementskit_Widget_Post_Grid_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-post-grid';
     }
 
     static function get_title() {
-        return esc_html__( 'Post Grid', 'elementskit' );
+        return esc_html__( 'Post Grid', 'elementskit-lite' );
     }
 
     static function get_icon() {
@@ -24,11 +25,11 @@ class Elementskit_Widget_Post_Grid_Handler extends Core\Handler_Widget{
     }
 
     static function get_dir() {
-        return \ElementsKit::widget_dir() . 'post-grid/';
+        return \ElementsKit_Lite::widget_dir() . 'post-grid/';
     }
 
     static function get_url() {
-        return \ElementsKit::widget_url() . 'post-grid/';
+        return \ElementsKit_Lite::widget_url() . 'post-grid/';
     }
 
 }

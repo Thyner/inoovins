@@ -1,5 +1,5 @@
 <?php 
-namespace ElementsKit;
+namespace ElementsKit_Lite;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,16 +11,21 @@ class ElementsKit_HeaderFooterBuilder_Api extends Core\Handler_Api {
     }
 
     public function get_update(){
+
+        if( !current_user_can( 'manage_options' ) ){
+            return;
+        }
+
         $id = $this->request['id'];
         $open_editor = $this->request['open_editor'];
 
-        $title = ($this->request['title'] == '') ? ('ElementsKit Template #' . time()) : $this->request['title'];
+        $title = ($this->request['title'] == '') ? ('ElementsKit_Lite Template #' . time()) : $this->request['title'];
         $activation = $this->request['activation'];
         $type = $this->request['type'];
         $condition_a = ($type == 'section') ? '' : $this->request['condition_a'];
         $condition_singular = ($type == 'section') ? '' : $this->request['condition_singular'];
-        $condition_singular_id = ($type == 'section') ? '' : $this->request['condition_singular_id'];
-
+        $condition_singular_id = ($type == 'section') ? '' : (is_array($this->request['condition_singular_id']) ? implode(',',$this->request['condition_singular_id']) : $this->request['condition_singular_id']);
+        
         $post_data = array(
             'post_title' => $title,
             'post_status' => 'publish',
@@ -70,14 +75,17 @@ class ElementsKit_HeaderFooterBuilder_Api extends Core\Handler_Api {
                     'activation' => $activation,
                     'cond_text' => $cond,
                     'type_html' => (ucfirst($type) . (($activation == 'yes') 
-                        ? ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-active">'. esc_html__('Active', 'elementskit') .'</span>' ) 
-                        : ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-inactive">'. esc_html__('Inactive', 'elementskit') .'</span>' ))),
+                        ? ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-active">'. esc_html__('Active', 'elementskit-lite') .'</span>' ) 
+                        : ( '<span class="ekit-headerfooter-status ekit-headerfooter-status-inactive">'. esc_html__('Inactive', 'elementskit-lite') .'</span>' ))),
                 ]
             ];
         }
     }
 
     public function get_get(){
+        if( !current_user_can( 'manage_options' ) ){
+            return;
+        }
         $id = $this->request['id'];
         $post = get_post($id);
         if($post != null){

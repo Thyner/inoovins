@@ -1,5 +1,5 @@
 <?php
-namespace ElementsKit\Compatibility\WPML\Widgets;
+namespace ElementsKit_Lite\Compatibility\WPML\Widgets;
 
 use WPML_Elementor_Module_With_Items;
 
@@ -49,11 +49,11 @@ class Ekit_Tab extends WPML_Elementor_Module_With_Items {
 
 		switch ( $field ) {
 			case 'ekit_tab_title':
-				return esc_html__( 'Title (Tab)', 'elementskit' );
+				return esc_html__( 'Title (Tab)', 'elementskit-lite' );
 				break;
 
 			case 'ekit_tab_content':
-				return esc_html__( 'Content (Tab)', 'elementskit' );
+				return esc_html__( 'Content (Tab)', 'elementskit-lite' );
 				break;
 
 			default:
