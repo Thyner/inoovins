@@ -13,6 +13,7 @@ add_action( 'wp_ajax_wplc_admin_send_msg', 'wplc_admin_send_msg' );
 add_action( 'wp_ajax_wplc_admin_upload_file', 'wplc_admin_upload_file' );
 add_action( 'wp_ajax_wplc_admin_close_chat', 'wplc_admin_close_chat' );
 add_action( 'wp_ajax_wplc_choose_accepting', 'wplc_set_agent_accepting' );
+add_action('wp_ajax_wplc_keep_alive','wplc_keep_alive');
 
 
 function wplc_get_chat_info() {
@@ -512,5 +513,15 @@ function wplc_set_agent_accepting() {
 	}, $online_agents );
 
 	die( TCXChatAjaxResponse::success_ajax_respose( $result ) );
+}
+
+function wplc_keep_alive(){
+	$agent_id = wplc_validate_agent_call();
+	if ( $agent_id>=0 ) {
+		TCXAgentsHelper::update_agent_time($agent_id);
+		die( TCXChatAjaxResponse::success_ajax_respose( $agent_id ) );
+	}else{
+		die( TCXChatAjaxResponse::error_ajax_respose( "Not an agent." ) );
+	}
 }
 

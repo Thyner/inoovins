@@ -55,15 +55,10 @@ function wplc_schedule_get_mcu_data() {
 function wplc_cron_update_chats() {
 	global $wpdb;
 	$chats = TCXChatData::get_incomplete_chats( $wpdb, - 1, array(
-		ChatStatus::MISSED,
 		ChatStatus::OLD_ENDED,
 		ChatStatus::PENDING_AGENT,
 		ChatStatus::ACTIVE,
 		ChatStatus::NOT_STARTED,
-		ChatStatus::ENDED_BY_AGENT,
-		ChatStatus::ENDED_BY_CLIENT,
-		ChatStatus::ENDED_DUE_AGENT_INACTIVITY,
-		ChatStatus::ENDED_DUE_CLIENT_INACTIVITY
 	) );
 	TCXChatHelper::update_chat_statuses( $chats, false );
 }
@@ -71,18 +66,16 @@ function wplc_cron_update_chats() {
 function wplc_cron_get_mcu_data() {
 	$wplc_settings = TCXSettings::getSettings();
 	if ( $wplc_settings->wplc_channel === 'mcu' ) {
+
+		$guid = get_option( 'WPLC_GUID' );
+		wplc_check_guid( empty($guid) );
 		$guid = get_option( 'WPLC_GUID' );
 
 		$cm_session_lastcheck = intval( get_option( 'WPLC_CM_SESSION_CHECK' ) );
 		if ( empty( $wplc_settings->wplc_socket_url ) || empty( $wplc_settings->wplc_chat_server_session )
 		     || empty( $cm_session_lastcheck )
 		     || time() - $cm_session_lastcheck > 5400
-		     || WPLC_CHAT_SERVER != $wplc_settings->wplc_cluster_manager_route_server
 		) {
-			if ( empty( $guid ) ) {
-				wplc_check_guid( true );
-				$guid = get_option( 'WPLC_GUID' );
-			}
 			TCXUtilsHelper::wplc_get_mcu_data_from_cm( $guid );
 		}
 	}

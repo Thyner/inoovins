@@ -6,12 +6,12 @@ defined( 'ABSPATH' ) || exit;
  * Description: The most advanced addons for Elementor with tons of widgets, Header builder, Footer builder, Mega menu builder, layout pack and powerful custom controls.
  * Plugin URI: https://products.wpmet.com/elementskit
  * Author: Wpmet
- * Version: 2.0.0
+ * Version: 2.0.4
  * Author URI: https://wpmet.com/
  *
  * Text Domain: elementskit-lite
  *
- * Elementskit is a powerful addon for Elementor page builder.
+ * ElementsKit is a powerful addon for Elementor page builder.
  * It includes most comprehensive modules, such as "header footer builder", "mega menu",
  * "layout installer", "quick form builder" etc under the hood.
  * It has a tons of widgets to create any sites with an ease. It has some most unique
@@ -27,7 +27,7 @@ final class ElementsKit_Lite{
 	 * @var string The plugin version.
 	 */
 	static function version(){
-		return '2.0.0';
+		return '2.0.4';
 	}
 
 	/**

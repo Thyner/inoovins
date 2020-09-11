@@ -1,12 +1,12 @@
 <?php
 namespace Elementor;
 
-use \Elementor\Elementskit_Widget_Header_Search_Handler as Handler;
+use \Elementor\ElementsKit_Widget_Header_Search_Handler as Handler;
 use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 defined('ABSPATH') || exit;
 
-class Elementskit_Widget_Header_Search extends Widget_Base
+class ElementsKit_Widget_Header_Search extends Widget_Base
 {
     use \ElementsKit_Lite\Widgets\Widget_Notice;
 

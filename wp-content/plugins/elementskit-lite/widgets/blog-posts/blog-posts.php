@@ -6,7 +6,7 @@ use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_
 
 if (! defined( 'ABSPATH' ) ) exit;
 
-class Elementskit_Widget_Blog_Posts extends Widget_Base {
+class ElementsKit_Widget_Blog_Posts extends Widget_Base {
     use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
@@ -2452,11 +2452,24 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
             );
         }
 
+        // Post Items
+        $this->add_render_attribute(
+            'post_items',
+            [
+                'id'    => 'post-items--' . $this->get_id(),
+                'class' => 'row post-items',
+            ]
+        );
+
+        if ($ekit_blog_posts_layout_style !== 'elementskit-blog-block-post'):
+            $this->add_render_attribute('post_items', 'data-masonry', 'true');
+        endif;
+
        // Post Query
        $post_query = new \WP_Query( $default );
 
        ?>
-        <div class="row">
+        <div <?php echo $this->get_render_attribute_string('post_items'); ?>>
         <?php  if ( 'elementskit-blog-block-post' == $ekit_blog_posts_layout_style ) {
                 $ekit_blog_posts_column = 'ekit-md-12';
         }
@@ -2787,7 +2800,27 @@ class Elementskit_Widget_Blog_Posts extends Widget_Base {
         </div>
        <?php
         wp_reset_postdata();
+
+        if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ):
+            $this->render_editor_script();
+        endif;
    }
 
-   protected function _content_template() { }
+   protected function render_editor_script() {
+       ?>
+       <script>
+           (function ($) {
+               'use strict';
+
+               $(function () {
+                   var $postItems = $('#post-items--<?php echo esc_attr( $this->get_id() ); ?>[data-masonry]');
+
+                   $postItems.imagesLoaded(function () {
+                       $postItems.masonry();
+                   });
+               });
+           }(jQuery));
+       </script>
+       <?php
+   }
 }

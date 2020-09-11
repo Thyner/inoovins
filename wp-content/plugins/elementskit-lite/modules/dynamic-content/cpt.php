@@ -14,10 +14,10 @@ class Cpt{
     public function post_type() {
         
         $labels = array(
-            'name'                  => _x( 'Elementskit items', 'Post Type General Name', 'elementskit-lite' ),
-            'singular_name'         => _x( 'Elementskit item', 'Post Type Singular Name', 'elementskit-lite' ),
-            'menu_name'             => esc_html__( 'Elementskit item', 'elementskit-lite' ),
-            'name_admin_bar'        => esc_html__( 'Elementskit item', 'elementskit-lite' ),
+            'name'                  => _x( 'ElementsKit items', 'Post Type General Name', 'elementskit-lite' ),
+            'singular_name'         => _x( 'ElementsKit item', 'Post Type Singular Name', 'elementskit-lite' ),
+            'menu_name'             => esc_html__( 'ElementsKit item', 'elementskit-lite' ),
+            'name_admin_bar'        => esc_html__( 'ElementsKit item', 'elementskit-lite' ),
             'archives'              => esc_html__( 'Item Archives', 'elementskit-lite' ),
             'attributes'            => esc_html__( 'Item Attributes', 'elementskit-lite' ),
             'parent_item_colon'     => esc_html__( 'Parent Item:', 'elementskit-lite' ),
@@ -49,7 +49,7 @@ class Cpt{
             'feeds'                 => false,
         );
         $args = array(
-            'label'                 => esc_html__( 'Elementskit item', 'elementskit-lite' ),
+            'label'                 => esc_html__( 'ElementsKit item', 'elementskit-lite' ),
             'description'           => esc_html__( 'elementskit_content', 'elementskit-lite' ),
             'labels'                => $labels,
             'supports'              => array( 'title', 'editor', 'elementor', 'permalink' ),

@@ -1,12 +1,12 @@
 <?php
 namespace Elementor;
 
-use \Elementor\Elementskit_Widget_Caldera_Forms_Handler as Handler;
+use \Elementor\ElementsKit_Widget_Caldera_Forms_Handler as Handler;
 use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if (! defined( 'ABSPATH' ) ) exit;
 
-class Elementskit_Widget_Caldera_Forms extends Widget_Base {
+class ElementsKit_Widget_Caldera_Forms extends Widget_Base {
 	use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;

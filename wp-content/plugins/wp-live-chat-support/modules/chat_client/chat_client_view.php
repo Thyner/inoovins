@@ -41,7 +41,7 @@
                 allow-emojis="<?= $emoji_enabled ?>"
                 enable="<?= $is_enable ?>"
                 soundnotification-url="<?=$message_sound?>"
-                popout="false"
+                popout="<?=$popout_enabled?>"
                 facebook-integration-url="<?= $integrations->facebook ?>"
                 twitter-integration-url="<?= $integrations->twitter ?>"
                 email-integration-url="<?= property_exists( $integrations, 'mail' ) ? $integrations->mail : '' ?>"

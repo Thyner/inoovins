@@ -543,8 +543,13 @@ class TCXUtilsHelper {
 		TCXSettings::setSettingValue( 'wplc_allow_video', $video );
 	}
 
-	public static function get_mcu_data( $wplc_socket_url, $wplc_chat_server_session, $force = false ) {
+	public static function get_mcu_data( $wplc_socket_url, $wplc_chat_server_session, $force_update = false ) {
 		$wplc_settings = TCXSettings::getSettings();
+		$force_update = $force_update ||
+		                WPLC_CHAT_SERVER != $wplc_settings->wplc_cluster_manager_route_server ||
+		                empty( $wplc_settings->wplc_socket_url ) ||
+		                empty( $wplc_settings->wplc_chat_server_session ) ;
+
 		$result        = array(
 			"socket_url"          => '',
 			"chat_server_session" => ''
@@ -554,13 +559,10 @@ class TCXUtilsHelper {
 				"socket_url"          => $wplc_socket_url,
 				"chat_server_session" => $wplc_chat_server_session
 			);
-			$guid   = get_option( 'WPLC_GUID' );
 
-			if ( $force ) {
-				if ( empty( $guid ) ) {
-					wplc_check_guid( $force );
-					$guid = get_option( 'WPLC_GUID' );
-				}
+			if ( $force_update ) {
+				wplc_check_guid( true );
+				$guid = get_option( 'WPLC_GUID' );
 				$result = self::wplc_get_mcu_data_from_cm($guid,true);
 			}
 		}

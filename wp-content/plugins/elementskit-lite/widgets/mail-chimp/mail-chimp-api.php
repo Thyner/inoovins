@@ -2,7 +2,7 @@
 
 namespace ElementsKit_Lite;
 
-use \Elementor\Elementskit_Widget_Mail_Chimp_Handler;
+use \Elementor\ElementsKit_Widget_Mail_Chimp_Handler;
 
 class ElementsKit_Widget_Mail_Chimp_Api extends Core\Handler_Api {
 
@@ -14,7 +14,7 @@ class ElementsKit_Widget_Mail_Chimp_Api extends Core\Handler_Api {
     public function get_sendmail(){
 
         $return = ['success' => [], 'error' => [] ];
-		$dataApi 	= Elementskit_Widget_Mail_Chimp_Handler::get_data();
+		$dataApi 	= ElementsKit_Widget_Mail_Chimp_Handler::get_data();
 
 		$token 		= isset($dataApi['token']) ? $dataApi['token'] : '';
 		$listed 	=  $this->request['listed'];

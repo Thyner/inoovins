@@ -4,7 +4,7 @@ Tags: live chat, live support, chat plugin, live help, wordpress live chat, chat
 Requires at least: 5.3
 Tested up to: 5.5
 Requires PHP: 5.4
-Stable tag: 9.0.20
+Stable tag: 9.0.22
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: wp-live-chat-support
@@ -159,6 +159,15 @@ If the live chat box still does not appear on your website, please go through th
 Huge update with over 300 changes that include: Bugfixes, Vulnerability Fixes & Plugin Security, Plugin Optimization & Rebranding Updates. We suggest you remove any existing installations of this plugin and install 8.1.x fresh.
 
 == Changelog ==
+= 9.0.22 - 2020-09-10 =
+* Fix dashboard online visitors / agents update.
+* Fix agent's status report.
+* Fix bug in 3CX Hosted Chat socket channel.
+
+= 9.0.21 - 2020-09-09 =
+* Added chat pop out to new window functionality.
+* UI optimization for mobile devices.
+
 = 9.0.20 - 2020-09-04 =
 * Fix offline message success form. Message loads from settings.
 * Fix unicode characters support in tools view .

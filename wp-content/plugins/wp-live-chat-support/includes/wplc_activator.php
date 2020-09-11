@@ -35,6 +35,7 @@ function wplc_activate( $plugin_file ) {
  */
 function wplc_choose_deactivate() {
 	TCXAgentsHelper::set_agent_accepting( get_current_user_id(), false );
+	wplc_check_guid( true,true );
 	wplc_cron_job_delete();
 }
 

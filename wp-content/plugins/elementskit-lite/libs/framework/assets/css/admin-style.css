@@ -438,7 +438,7 @@ body.toplevel_page_elementskit {
   top: 0px;
   padding-top: 30px;
   background-color: #fff;
-  z-index: 999;
+  z-index: 1;
 }
 
 .ekit-admin-section-header.fixed+div {
@@ -883,7 +883,7 @@ body.toplevel_page_elementskit {
 #v-elementskit-userdata {
   padding-bottom: 150px;
   position: relative;
-  /* z-index: 1; */
+  z-index: 1;
 }
 
 #v-elementskit-userdata .ekit-admin-fields-container {
@@ -1273,6 +1273,7 @@ body.toplevel_page_elementskit {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 .ekit-go-pro-con{
   margin-top: 50px;

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define('WPLC_MIN_WP_VERSION', "5.3");
 define('WPLC_MIN_PHP_VERSION', "5.4");
-define('WPLC_PLUGIN_VERSION', "9.0.20");
+define('WPLC_PLUGIN_VERSION', "9.0.22");
 define('WPLC_PLUGIN_DIR', dirname(__FILE__));
 define('WPLC_PLUGIN_URL', wplc_plugins_url( '/', __FILE__ ) );
 define('WPLC_PLUGIN', plugin_basename( __FILE__ ) );

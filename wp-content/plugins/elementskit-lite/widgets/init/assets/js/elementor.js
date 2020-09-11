@@ -1,36 +1,36 @@
 (function ($, elementor) {
 	"use strict";
 
-	var Elementskit = {
+	var ElementsKit = {
 
 		init: function () {
 
 			var widgets = {
-				'elementskit-countdown-timer.default': Elementskit.Countdown_Timer,
-				'elementskit-client-logo.default': Elementskit.Client_Logo,
-				'elementskit-testimonial.default': Elementskit.Testimonial_Slider,
-				'elementskit-image-comparison.default': Elementskit.Image_Comparison,
-				'elementskit-progressbar.default': Elementskit.Progressbar,
-				'elementskit-piechart.default': Elementskit.Piechart,
-				'elementskit-funfact.default': Elementskit.Funfact,
-				'elementskit-gallery.default': Elementskit.Gallery,
-				'elementskit-motion-text.default': Elementskit.MotionText,
-				'elementskit-timeline.default': Elementskit.TimeLine,
-				'elementskit-post-tab.default': Elementskit.PostTab,
-				'elementskit-header-search.default': Elementskit.Header_Search,
-				'elementskit-header-offcanvas.default': Elementskit.Header_Off_Canvas,
-				'elementskit-table.default': Elementskit.Table,
-				'elementskit-creative-button.default': Elementskit.Creative_Button,
-				'ekit-nav-menu.default': Elementskit.Nav_Menu,
-				'elementskit-woo-mini-cart.default': Elementskit.Mini_Cart,
-				'elementskit-team.default': Elementskit.Team,
-				'elementskit-woo-product-carousel.default': Elementskit.Woo_Product_slider,
-				'elementskit-hotspot.default': Elementskit.Hotspot,
-				'ekit-vertical-menu.default': Elementskit.Vertical_Menu,
-				'elementskit-advanced-toggle.default': Elementskit.Advanced_Toggle,
-				'elementskit-video-gallery.default': Elementskit.Video_Gallery,
-				'elementskit-facebook-review.default': Elementskit.Facebook_Review,
-				'elementskit-zoom.default': Elementskit.Zoom
+				'elementskit-countdown-timer.default': ElementsKit.Countdown_Timer,
+				'elementskit-client-logo.default': ElementsKit.Client_Logo,
+				'elementskit-testimonial.default': ElementsKit.Testimonial_Slider,
+				'elementskit-image-comparison.default': ElementsKit.Image_Comparison,
+				'elementskit-progressbar.default': ElementsKit.Progressbar,
+				'elementskit-piechart.default': ElementsKit.Piechart,
+				'elementskit-funfact.default': ElementsKit.Funfact,
+				'elementskit-gallery.default': ElementsKit.Gallery,
+				'elementskit-motion-text.default': ElementsKit.MotionText,
+				'elementskit-timeline.default': ElementsKit.TimeLine,
+				'elementskit-post-tab.default': ElementsKit.PostTab,
+				'elementskit-header-search.default': ElementsKit.Header_Search,
+				'elementskit-header-offcanvas.default': ElementsKit.Header_Off_Canvas,
+				'elementskit-table.default': ElementsKit.Table,
+				'elementskit-creative-button.default': ElementsKit.Creative_Button,
+				'ekit-nav-menu.default': ElementsKit.Nav_Menu,
+				'elementskit-woo-mini-cart.default': ElementsKit.Mini_Cart,
+				'elementskit-team.default': ElementsKit.Team,
+				'elementskit-woo-product-carousel.default': ElementsKit.Woo_Product_slider,
+				'elementskit-hotspot.default': ElementsKit.Hotspot,
+				'ekit-vertical-menu.default': ElementsKit.Vertical_Menu,
+				'elementskit-advanced-toggle.default': ElementsKit.Advanced_Toggle,
+				'elementskit-video-gallery.default': ElementsKit.Video_Gallery,
+				'elementskit-facebook-review.default': ElementsKit.Facebook_Review,
+				'elementskit-zoom.default': ElementsKit.Zoom
 			};
 			$.each(widgets, function (widget, callback) {
 				elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
@@ -60,7 +60,7 @@
 		},
 		
 		Facebook_Review: function ($scope) {
-			Elementskit.Social_Review_Slider($scope.find('.ekit-review-slider-wrapper-facebook'))
+			ElementsKit.Social_Review_Slider($scope.find('.ekit-review-slider-wrapper-facebook'))
 
 			$($scope).find('.more').each(function () {
 				$(this).click(() => {
@@ -170,6 +170,21 @@
 							})
 						}).trigger('resize');
 					}
+
+					if (!$(this).hasClass('elementskit-dropdown-menu-full_width') && $(this).hasClass('top_position')) {
+                        $(this).on({
+                            mouseenter: function() {
+                                if ($('.default_menu_position').length === 0) {
+                                    $(this).parents('.elementor-section-wrap').addClass('default_menu_position');
+                                }
+                            },
+                            mouseleave: function() {
+                                if ($('.default_menu_position').length !== 0) {
+                                    $(this).parents('.elementor-section-wrap').removeClass('default_menu_position');
+                                }
+                            }
+                        })
+                    }
 
 					if(data_width && data_width !== undefined) {
 						if(typeof data_width === 'string') {
@@ -430,56 +445,11 @@
 
 		Gallery: function ($scope) {
 			var $galleryGrid = $scope.find('.ekit_gallery_grid'),
-				masonryConfig = $galleryGrid.data('masonry-config');
+				masonryConfig = $galleryGrid.data('grid-config');
 			
-			if (typeof masonryConfig !== 'undefined') {
-				new elementor.modules.Masonry($galleryGrid[0], {
-					itemSelector: '.ekit_gallery_grid_item'
-				});
-			}
-			
-			/*,
-				column = $galleryGrid.data(); gallerycol */
-			
-			// console.log( 'Test 1!' );
-			
-			/*
-			var colWidth = function () {
-					console.log('Test 3!');
-					var w = $galleryGrid.width(),
-						windowWidth = $(window).width(),
-						columnNum,
-						columnWidth = 0;
-					if(windowWidth > 1024) {
-						columnNum = parseInt(column.desktop, 10);
-					} else if(windowWidth >= 768) {
-						columnNum = parseInt(column.tablet, 10);
-					}
-					columnWidth = Math.floor(w / columnNum);
-					$galleryGrid.find('.ekit_gallery_grid_item').each(function () {
-						var $item = $(this),
-							multiplier_w = $item.attr('class').match(/ekit_gallery_grid_item-w(\d)/),
-							width = multiplier_w ? columnWidth * multiplier_w[1] : columnWidth;
-						$item.css({
-							width: width,
-						});
-					});
-					return columnWidth;
-				};
-			*/
-
-			// 	isotopeInit = function () {
-			// 		$galleryGrid.isotope({
-			// 			resizable: false,
-			// 			itemSelector: '.ekit_gallery_grid_item',
-			// 			masonry: {
-			// 				columnWidth: colWidth(),
-			// 				gutterWidth: 0
-			// 			}
-			// 		});
-			// 	};
-			// isotopeInit();
-			// $(window).on('resize load', isotopeInit);
+			$galleryGrid.imagesLoaded(function () {
+				$galleryGrid.isotope(masonryConfig);
+			});
 			
 
 			// Filter List
@@ -505,17 +475,6 @@
 				tiltConfig = $galleryGrid.data('tilt-config');
 			
 			$tiltTargets.tilt(tiltConfig);
-			
-
-			// Isotope
-			// $galleryGrid.imagesLoaded(function () {
-			//     $galleryGrid.isotope();
-			// });
-
-			// $(window).on('scroll', function () {
-			// 	console.log( 'Test 2!' );
-			//     $galleryGrid.isotope('layout');
-			// });
 		},
 
 		MotionText: function ($scope) {
@@ -581,11 +540,11 @@
 		},
 
 		Hotspot: function ($scope) {
-			if ($scope.find('.ekit-location-on-click').length > 0) {
-				$scope.find('.ekit-location-on-click .ekit-location_indicator').on('click', function () {
-					$(this).parents('.ekit-location-on-click').toggleClass('active')
-				})
-			}
+			var $el = $scope.find('.ekit-location-on-click > .ekit-location_indicator');
+			
+			$el.on('click', function () {
+				$(this).parent().toggleClass('active');
+			});
 		},
 
 		Header_Search: function ($scope) {
@@ -759,7 +718,7 @@
 					vertical_menu_wraper = $scope.find('.ekit-vertical-main-menu-wraper'),
 					final_width = Math.floor((parents_container.width() - vertical_menu_wraper.width())) + 'px';
 
-				target.each(function () {
+				target.on('hover',function () {
 					let data_width = $(this).data('vertical-menu'),
 						megamenu_panel = $(this).children('.elementskit-megamenu-panel');
 
@@ -917,7 +876,7 @@
 			});
 		}
 	};
-	$(window).on('elementor/frontend/init', Elementskit.init);
+	$(window).on('elementor/frontend/init', ElementsKit.init);
 }(jQuery, window.elementorFrontend));
 
 

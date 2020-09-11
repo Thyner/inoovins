@@ -1,7 +1,7 @@
 <?php
 namespace Elementor;
 
-class Elementskit_Widget_Icon_Box_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
+class ElementsKit_Widget_Icon_Box_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
     static function get_name() {
         return 'elementskit-icon-box';

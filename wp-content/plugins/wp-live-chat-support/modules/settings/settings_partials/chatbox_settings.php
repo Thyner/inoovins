@@ -51,6 +51,23 @@
     </tr>
 
     <tr>
+        <td width='300'>
+			<?= __( "Pop out to new window", 'wp-live-chat-support' ) ?> <i
+                    class="fa fa-question-circle wplc_light_grey wplc_settings_tooltip"
+                    title="<?= __( "After chat authentication, chat box will pop out to a new browser window.", 'wp-live-chat-support' ) ?>"></i>
+        </td>
+        <td>
+            <input type="checkbox" class="wplc_check" name="wplc_popout_enabled"
+                   value="1"<?= ( $wplc_settings->wplc_popout_enabled ? ' checked' : '' ); ?>/>
+            <label><?= __( "Desktop browsers", 'wp-live-chat-support' ); ?></label>
+            <br/>
+            <input type="checkbox"
+                   value="1" checked disabled/>
+            <label><?= __( "Mobile browsers", 'wp-live-chat-support' ); ?></label>
+        </td>
+    </tr>
+
+    <tr>
         <td>
 			<?= __( "Display for chat message:", 'wp-live-chat-support' ) ?>
         </td>

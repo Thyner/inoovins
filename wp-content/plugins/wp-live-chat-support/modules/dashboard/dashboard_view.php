@@ -15,7 +15,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="wplc_dashboard_activity_current_data">
-                            <span><?= $online_visitors ?></span><br/>
+                            <span id ="wplc_online_visitors" ><?= $online_visitors ?></span><br/>
                             ACTIVE USERS
                         </div>
                         <i class="fa fa-caret-down"></i>
@@ -25,7 +25,7 @@
                             <img src="<?= wplc_protocol_agnostic_url( WPLC_PLUGIN_URL . '/images/svgs/new_agent_ic.svg' ); ?>">
                         </div>
                         <div class="wplc_dashboard_activity_current_data">
-                            <span><?= $online_users ?></span><br/>
+                            <span id="wplc_online_agents"><?= $online_users ?></span><br/>
                             ACTIVE AGENTS
                         </div>
                         <i class="fa fa-caret-up"></i>

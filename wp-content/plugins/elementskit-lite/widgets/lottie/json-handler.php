@@ -4,7 +4,7 @@ namespace ElementsKit_Lite;
 
 defined('ABSPATH') || exit;
 
-class Elementskit_Json_Handler {
+class ElementsKit_Json_Handler {
 
 	const MIME_TYPE = 'application/json';
 	const EXT = 'json';
@@ -86,4 +86,4 @@ class Elementskit_Json_Handler {
 }
 
 // Run the instance.
-Elementskit_Json_Handler::instance();
+ElementsKit_Json_Handler::instance();

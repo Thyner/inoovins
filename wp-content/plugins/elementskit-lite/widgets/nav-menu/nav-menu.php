@@ -2,13 +2,13 @@
 
 namespace Elementor;
 
-use \Elementor\Elementskit_Widget_Nav_Menu_Handler as Handler;
-use \ElementsKit_lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
+use \Elementor\ElementsKit_Widget_Nav_Menu_Handler as Handler;
+use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Elementskit_Widget_Nav_Menu extends Widget_Base {
-    use \ElementsKit_lite\Widgets\Widget_Notice;
+class ElementsKit_Widget_Nav_Menu extends Widget_Base {
+    use \ElementsKit_Lite\Widgets\Widget_Notice;
 
     public $base;
 
@@ -206,7 +206,7 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
                         'max' => 100,
                     ],
                 ],
-                'devices' => [ 'desktop', 'tablet' ],
+                'devices' => [ 'desktop' ],
                 'desktop_default' => [
                     'size' => 80,
                     'unit' => 'px',
@@ -296,7 +296,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Menu border radius', 'elementskit' ),
                 'type' => Controls_Manager::DIMENSIONS,
-                'devices' => [ 'desktop', 'tablet' ],
                 'size_units' => [ 'px' ],
                 'separator' => [ 'before' ],
                 'desktop_default' => [
@@ -393,7 +392,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'desktop_default' => '#000000',
                 'tablet_default' => '#000000',
-                'devices' => [ 'desktop', 'tablet'],
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav > li > a' => 'color: {{VALUE}}',
                 ],
@@ -425,7 +423,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Item text color', 'elementskit' ),
                 'type' => Controls_Manager::COLOR,
-                'devices' => [ 'desktop', 'tablet' ],
                 'default' => '#707070',
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav > li > a:hover' => 'color: {{VALUE}}',
@@ -465,7 +462,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Item text color (Active)', 'elementskit' ),
                 'type' => Controls_Manager::COLOR,
-                'devices' => [ 'desktop', 'tablet' ],
                 'default' => '#707070',
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav > li.current-menu-item > a' => 'color: {{VALUE}}',
@@ -484,7 +480,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Item Spacing', 'elementskit' ),
                 'type' => Controls_Manager::DIMENSIONS,
-                'devices' => [ 'desktop', 'tablet' ],
                 'separator' => [ 'before' ],
                 'desktop_default' => [
                     'top' => 0,
@@ -536,7 +531,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Indicator color', 'elementskit' ),
                 'type' => Controls_Manager::COLOR,
-                'devices' => [ 'desktop', 'tablet' ],
                 'default' =>  '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav > li > a .elementskit-submenu-indicator' => 'color: {{VALUE}}',
@@ -613,7 +607,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Item text color', 'elementskit' ),
                 'type' => Controls_Manager::COLOR,
-                'devices' => [ 'desktop', 'tablet' ],
                 'default' => '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav .elementskit-submenu-panel > li > a' => 'color: {{VALUE}}',
@@ -646,7 +639,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Item text color (hover)', 'elementskit' ),
                 'type' => Controls_Manager::COLOR,
-                'devices' => [ 'desktop', 'tablet' ],
                 'default' => '#707070',
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav .elementskit-submenu-panel > li > a:hover' => 'color: {{VALUE}}',
@@ -685,7 +677,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Item text color (Active)', 'elementskit' ),
                 'type' => Controls_Manager::COLOR,
-                'devices' => [ 'desktop', 'tablet' ],
                 'default' => '#707070',
                 'selectors' => [
                     '{{WRAPPER}} .elementskit-navbar-nav .elementskit-submenu-panel > li.current-menu-item > a' => 'color: {{VALUE}} !important'
@@ -795,7 +786,6 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Border Radius', 'elementskit' ),
                 'type' => Controls_Manager::DIMENSIONS,
-                'devices' => [ 'desktop', 'tablet' ],
                 'desktop_default' => [
                     'top' => 0,
                     'right' => 0,
@@ -822,7 +812,7 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
             [
                 'label' => esc_html__( 'Conatiner width', 'elementskit' ),
                 'type' => Controls_Manager::TEXT,
-                'devices' => [ 'desktop', 'tablet' ],
+                'devices' => [ 'desktop' ],
                 'desktop_default' => '220px',
                 'tablet_default' => '200px',
                 'selectors' => [
@@ -1436,11 +1426,11 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
                 $nofollow = ($settings['elementskit_nav_menu_logo_link']['nofollow'] != "on" ? "" : "nofollow");
             }
 
-            $metadata = \ElementsKit_lite\Utils::img_meta($settings['elementskit_nav_menu_logo']['id']);
+            $metadata = \ElementsKit_Lite\Utils::img_meta($settings['elementskit_nav_menu_logo']['id']);
             $markup = '
 				<div class="elementskit-nav-identity-panel">
 					<div class="elementskit-site-title">
-						<a class="elementskit-nav-logo" href="'.$link.'" target="'.!empty($target) ? $target : '_self'.'" rel="'.$nofollow.'">
+						<a class="elementskit-nav-logo" href="'.$link.'" target="'.(!empty($target) ? $target : '_self').'" rel="'.$nofollow.'">
 							<img src="'.$settings['elementskit_nav_menu_logo']['url'].'" alt="'.$metadata['alt'].'" >
 						</a>
 					</div>
@@ -1458,7 +1448,7 @@ class Elementskit_Widget_Nav_Menu extends Widget_Base {
                 'depth'           => 4,
                 'echo'            => true,
                 'fallback_cb'     => 'wp_page_menu',
-                'walker'          => (class_exists('\ElementsKit_lite\Elementskit_Menu_Walker') ? new \ElementsKit_lite\Elementskit_Menu_Walker() : '' )
+                'walker'          => (class_exists('\ElementsKit_Lite\ElementsKit_Menu_Walker') ? new \ElementsKit_Lite\ElementsKit_Menu_Walker() : '' )
             ];
 
             wp_nav_menu($args);

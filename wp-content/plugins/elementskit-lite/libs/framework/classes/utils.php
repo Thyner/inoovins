@@ -1,7 +1,7 @@
 <?php 
 namespace ElementsKit_Lite\Libs\Framework\Classes;
 use ElementsKit;
-use ElementsKit_Lite\Elementskit_Widget_Instagram_Feed_Handler;
+use ElementsKit_Lite\ElementsKit_Widget_Instagram_Feed_Handler;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -31,7 +31,7 @@ class Utils{
 
     public function reset_cache(){
         require_once \ElementsKit_Lite::plugin_dir() . '/widgets/instagram-feed/instagram-feed-handler.php';
-        Elementskit_Widget_Instagram_Feed_Handler::reset_cache();
+        ElementsKit_Widget_Instagram_Feed_Handler::reset_cache();
     }
 
     public function input($input_options){

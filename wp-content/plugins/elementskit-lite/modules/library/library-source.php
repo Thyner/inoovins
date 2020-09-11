@@ -17,7 +17,7 @@ class Library_Source extends Source_Base {
 	}
 
 	public function get_title() {
-		return __( 'Elementskit Library', 'elementskit-lite' );
+		return __( 'ElementsKit Library', 'elementskit-lite' );
 	}
 
 	public function register_data() {}

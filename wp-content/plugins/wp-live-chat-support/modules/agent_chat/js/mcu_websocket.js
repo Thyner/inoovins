@@ -2,9 +2,10 @@ var socket;
 var clientId;
 var sessionId;
 var socketTimeout;
+var connectionTriesCount;
 
 jQuery(function () {
-
+    connectionTriesCount = 0;
     jQuery("body").on('mcu-setup-socket', function (e) {
         wplc_setupSocket();
     });
@@ -66,14 +67,22 @@ function wplc_socketEventsSetup() {
     }
 
     socket.onerror = function (error) {
-        if (socketTimeout === null || typeof socketTimeout === 'undefined') {
+        if (connectionTriesCount<5 && (socketTimeout === null || typeof socketTimeout === 'undefined')) {
             socketTimeout = setTimeout(wplc_setupSocket, 5000);
+            connectionTriesCount++;
+        }else if(connectionTriesCount>=5)
+        {
+            wplc_force_reload_mcu_data();
         }
     }
 
     socket.onclose = function (event) {
-        if (event.code != 1000 && (socketTimeout === null || typeof socketTimeout === 'undefined')) {
+        if (connectionTriesCount<5 && event.code != 1000 && (socketTimeout === null || typeof socketTimeout === 'undefined')) {
             socketTimeout = setTimeout(wplc_setupSocket, 5000);
+            connectionTriesCount++;
+        }else if(connectionTriesCount>=5)
+        {
+            wplc_force_reload_mcu_data();
         }
     };
 
@@ -145,13 +154,7 @@ function wplc_socketEventsSetup() {
 
                     }
                 } else if (data.notification == 'InvalidLogin' && localization_data.wplc_is_chat_page) {
-                    var url = window.location.href;
-                    if (url.indexOf('?') > -1){
-                        url += '&wplc_action=invalid_login'
-                    }else{
-                        url += '?wplc_action=invalid_login'
-                    }
-                    window.location.href = url;
+                    wplc_force_reload_mcu_data();
                 } else if (data.notification == 'AgentAlreadyJoined')
                 {
                     alert("Another agent already joined this chat session.")
@@ -283,6 +286,16 @@ function wplc_closeConnection() {
     if (socket) {
         socket.close();
     }
+}
+
+function wplc_force_reload_mcu_data() {
+    var url = window.location.href;
+    if (url.indexOf('?') > -1) {
+        url += '&wplc_action=invalid_login'
+    } else {
+        url += '?wplc_action=invalid_login'
+    }
+    window.location.href = url;
 }
 
 var IdGenerator = (function () {

@@ -21,13 +21,13 @@ define('WP_AUTO_UPDATE_CORE', 'minor');// Ce paramètre est requis pour garantir
 
 // ** MySQL settings ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wp_wvh6i' );
+define( 'DB_NAME', 'inoovins_site' );
 
 /** MySQL database username */
-define( 'DB_USER', 'wp_3w5pb' );
+define( 'DB_USER', 'inoovins' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'JG9i!5Mb4n' );
+define( 'DB_PASSWORD', 'Inoovins@2020' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost:3306' );

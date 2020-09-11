@@ -41,7 +41,12 @@ class ElementsKit_Menu_Walker extends \Walker_Nav_Menu
         }
 
         $return = 0;
-        $modules_active = \ElementsKit_Lite\Libs\Framework\Classes\Utils::instance()->get_option('module_list', \ElementsKit_Lite\Helpers\Module_List::instance()->get_list());
+
+        
+        $modules_all = \ElementsKit_Lite\Helpers\Module_List::instance()->get_list();
+        $modules_active = \ElementsKit_Lite\Libs\Framework\Classes\Utils::instance()->get_option('module_list', $modules_all);
+        $modules_active = (!isset($modules_active[0]) ? array_keys($modules_active) : $modules_active);
+
 
         $settings = Attr::instance()->utils->get_option(Init::$megamenu_settings_key, []);
         $term = get_term_by('slug', $menu_slug, 'nav_menu');
@@ -202,7 +207,7 @@ class ElementsKit_Menu_Walker extends \Walker_Nav_Menu
             $atts['class']       .= ' ekit-menu-dropdown-toggle';
         }
         if (in_array('menu-item-has-children', $classes) || $is_megamenu_item == true) {
-            $submenu_indicator    .= '<i class="elementskit-submenu-indicator"></i>';
+            $submenu_indicator    .= '<i class="icon icon-down-arrow1 elementskit-submenu-indicator"></i>';
         }
         if ($depth > 0) {
             $manual_class = array_values($classes)[0] .' '. 'dropdown-item';

@@ -3,6 +3,7 @@ var current_locale = admin_localization_data.locale;
 jQuery(document).ready(function () {
     wplc_showLoader('windowload');
     wplc_init_heartbeat();
+    wplc_init_keep_alive();
     wplc_setup_checkboxes();
     wplc_setup_agent_online_switch();
 
@@ -102,6 +103,13 @@ function wplc_init_heartbeat() {
     });
 }
 
+function wplc_init_keep_alive(){
+    setInterval(()=>{
+        console.log("Keep me alive");
+        wplc_keep_alive_call();
+    },5*60*1000)//
+}
+
 function wplc_desktop_notification() {
     if (typeof Notification !== 'undefined') {
         if (!Notification) {
@@ -175,6 +183,18 @@ function wplc_set_agent_accepting_call(is_online) {
         action: 'wplc_choose_accepting',
         security: admin_localization_data.nonce,
         is_online: is_online
+    };
+    return jQuery.ajax({
+        url: admin_localization_data.wplc_ajaxurl,
+        data: data,
+        type: "POST"
+    });
+}
+
+function wplc_keep_alive_call() {
+    var data = {
+        action: 'wplc_keep_alive',
+        security: admin_localization_data.nonce
     };
     return jQuery.ajax({
         url: admin_localization_data.wplc_ajaxurl,

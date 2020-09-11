@@ -6,7 +6,7 @@ use \ElementsKit_Lite\Modules\Controls\Controls_Manager as ElementsKit_Controls_
 
 if (! defined( 'ABSPATH' ) ) exit;
 
-class Elementskit_Widget_Accordion extends Widget_Base {
+class ElementsKit_Widget_Accordion extends Widget_Base {
     use \ElementsKit_Lite\Widgets\Widget_Notice;
 
 	public $base;

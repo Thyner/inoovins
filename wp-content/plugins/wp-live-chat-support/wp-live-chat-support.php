@@ -3,7 +3,7 @@
   Plugin Name: WP-Live Chat by 3CX
   Plugin URI: https://www.3cx.com/wp-live-chat/
   Description: The easiest to use website live chat plugin. Let your visitors chat with you and increase sales conversion rates with WP-Live Chat by 3CX.
-  Version: 9.0.20
+  Version: 9.0.22
   Author: 3CX
   Author URI: https://www.3cx.com/wp-live-chat/
   Domain Path: /languages
@@ -76,13 +76,13 @@ register_uninstall_hook( __FILE__, 'wplc_uninstall' );
 function wplc_check_compatibility() {
 	global $wplc_error;
 	$compatible = wplc_check_version_compatibility();
-	if ( ! $compatible->php || ! $compatible->wp || !$compatible->ie ) {
+	if ( ! $compatible->php || ! $compatible->wp || ! $compatible->ie ) {
 		wp_register_style( "wplc-bootstrap", admin_url( '/admin.php?wplc_action=loadbootstrap', __FILE__ ), array(), WPLC_PLUGIN_VERSION );
 		wp_enqueue_style( "wplc-bootstrap" );
 		$wplc_error              = new stdClass();
 		$wplc_error->Title       = __( "Incompatible Environment", "wp-live-chat-support" );
 		$wplc_error->Message     = ! $compatible->php ? __( "Your PHP version is lower than required.", "wp-live-chat-support" ) . "<br/>" : "";
-		$wplc_error->Message     = $wplc_error->Message . ( ! $compatible->wp ? __( "Your Wordpress version is lower than required.", "wp-live-chat-support" ) . "<br/>" : "");
+		$wplc_error->Message     = $wplc_error->Message . ( ! $compatible->wp ? __( "Your Wordpress version is lower than required.", "wp-live-chat-support" ) . "<br/>" : "" );
 		$wplc_error->Message     = $wplc_error->Message . ( ! $compatible->ie ? __( "Internet Explorer is not compatible with WP-Live Chat by 3CX plugin.", "wp-live-chat-support" ) : "" );
 		$wplc_error->HtmlContent = "";
 	}
@@ -105,6 +105,7 @@ function wplc_uninstall() {
 
 	$wplc_settings = TCXSettings::getSettings();
 	wplc_cron_job_delete();
+	wplc_check_guid( true, true );
 	if ( $wplc_settings->wplc_delete_db_on_uninstall ) {
 		$options = array(
 			'WPLC_ACBC_SETTINGS',
@@ -203,7 +204,7 @@ function wplc_uninstall() {
 			delete_user_meta( $user->ID, 'wplc_user_department' );
 			delete_user_meta( $user->ID, 'wplc_ma_agent' );
 			delete_user_meta( $user->ID, 'wplc_user_tagline' );
-			$user->remove_cap('wplc_ma_agent');
+			$user->remove_cap( 'wplc_ma_agent' );
 			if ( ! in_array( 'administrator', (array) $user->roles ) ) {
 				$user->remove_cap( 'wplc_cap_show_history' );
 				$user->remove_cap( 'wplc_cap_show_offline' );
@@ -256,7 +257,7 @@ function wplc_parameter_bool( $settings, $name ) {
 	return $param;
 }
 
-function wplc_check_guid( $force_update = false ) {
+function wplc_check_guid( $force_update = false, $uninstall = false ) {
 	$guid           = get_option( 'WPLC_GUID' );
 	$guid_fqdn      = get_option( 'WPLC_GUID_URL' );
 	$guid_lastcheck = intval( get_option( 'WPLC_GUID_CHECK' ) );
@@ -284,11 +285,12 @@ function wplc_check_guid( $force_update = false ) {
 		$data_array = array(
 			'method' => 'POST',
 			'body'   => array(
-				'method'  => 'get_guid',
-				'url'     => get_option( 'siteurl' ),
-				'server'  => $server,
-				'gdpr'    => $gdpr,
-				'version' => WPLC_PLUGIN_VERSION
+				'method'    => 'get_guid',
+				'url'       => get_option( 'siteurl' ),
+				'server'    => $server,
+				'gdpr'      => $gdpr,
+				'version'   => WPLC_PLUGIN_VERSION,
+				'uninstall' => $uninstall ? 1 : 0
 			)
 		);
 		$response   = wp_remote_post( WPLC_ACTIVATION_SERVER . '/api/v1', $data_array );
@@ -360,7 +362,7 @@ function wplc_check_version_compatibility() {
 		$result->php = false;
 	}
 
-	if(array_key_exists('HTTP_USER_AGENT',$_SERVER)) {
+	if ( array_key_exists( 'HTTP_USER_AGENT', $_SERVER ) ) {
 		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
 		if ( preg_match( '~MSIE|Internet Explorer~i', $ua ) || ( strpos( $ua, 'Trident/7.0' ) !== false && strpos( $ua, 'rv:11.0' ) !== false ) ) {
 			$result->ie = false;

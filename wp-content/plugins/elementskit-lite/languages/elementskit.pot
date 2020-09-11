@@ -855,17 +855,17 @@ msgstr ""
 
 #: modules/dynamic-content/cpt.php:17
 msgctxt "Post Type General Name"
-msgid "Elementskit items"
+msgid "ElementsKit items"
 msgstr ""
 
 #: modules/dynamic-content/cpt.php:18
 msgctxt "Post Type Singular Name"
-msgid "Elementskit item"
+msgid "ElementsKit item"
 msgstr ""
 
 #: modules/dynamic-content/cpt.php:19 modules/dynamic-content/cpt.php:20
 #: modules/dynamic-content/cpt.php:52
-msgid "Elementskit item"
+msgid "ElementsKit item"
 msgstr ""
 
 #: modules/dynamic-content/cpt.php:21

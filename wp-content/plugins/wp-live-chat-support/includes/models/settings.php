@@ -91,6 +91,7 @@ class TCXSettings {
 	public $wplc_social_tw;
 	public $wplc_text_chat_ended;
 	public $wplc_typing_enabled;
+	public $wplc_popout_enabled;
 	public $wplc_use_geolocalization;
 	public $wplc_user_alternative_text;
 	public $wplc_user_default_visitor_name;
@@ -221,7 +222,6 @@ class TCXSettings {
 			"wplc_socket_url"                              => "socket-url",
 			"wplc_chat_server_session"                     => "string",
 			"wplc_chat_party"                              => "string",
-			"wplc_powered_by"                              => "integer",
 			"wplc_gutenberg_settings"                      => "array-settings",
 			"wplc_gutenberg_settings>enable"               => "boolean",
 			"wplc_gutenberg_settings>size"                 => "integer",
@@ -240,7 +240,8 @@ class TCXSettings {
 			"wplc_allow_call"                              => "boolean",
 			"wplc_allow_chat"                              => "boolean",
 			"wplc_allow_video"                             => "boolean",
-			"wplc_cluster_manager_route_server"            => "string"
+			"wplc_cluster_manager_route_server"            => "string",
+			"wplc_popout_enabled"                          => "boolean"
 		);
 	}
 
@@ -352,6 +353,7 @@ class TCXSettings {
 		$result->wplc_allow_call                       = false;
 		$result->wplc_allow_chat                       = true;
 		$result->wplc_allow_video                      = false;
+		$result->wplc_popout_enabled                   = false;
 		$result->wplc_cluster_manager_route_server     = '';
 		$result->wplc_gutenberg_settings               = array(
 			"enable"      => true,
@@ -504,7 +506,7 @@ class TCXSettings {
 		}
 	}
 
-	private static function wplc_get_default_transcript_body(){
+	private static function wplc_get_default_transcript_body() {
 		return '
 		<table id="" border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: Georgia, serif;">
 	    <tbody>

@@ -98,6 +98,7 @@ class ChatClientController extends BaseController {
 		$this->view_data["animation"]         = $this->get_chat_animation();
 		$this->view_data["integrations"]      = $this->get_integration_links();
 		$this->view_data["minimized"]         = ! $this->enable_auto_popup() ? "true" : "false";
+		$this->view_data["popout_enabled"]    = $this->wplc_settings->wplc_popout_enabled ? "true" : "false";
 		$this->view_data["enable_typing"]     = $this->wplc_settings->wplc_typing_enabled ? "true" : "false";
 		$this->view_data["is_enable"]         = $this->wplc_settings->wplc_settings_enabled == "1" ? "true" : "false";
 		$this->view_data["enable_mobile"]     = $this->wplc_settings->wplc_enabled_on_mobile ? "true" : "false";

@@ -2,7 +2,7 @@
 namespace Elementor;
 
 
-class Elementskit_Widget_Post_List_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
+class ElementsKit_Widget_Post_List_Handler extends \ElementsKit_Lite\Core\Handler_Widget{
 
 	public function wp_init(){
 		// post view count based on single page visit

@@ -2,7 +2,7 @@
 namespace Elementor;
 
 
-class Elementskit_Widget_Lottie_Handler extends \ElementsKit_Lite\Core\Handler_Widget {
+class ElementsKit_Widget_Lottie_Handler extends \ElementsKit_Lite\Core\Handler_Widget {
 
     public function wp_init(){
         include self::get_dir() . 'json-handler.php';

@@ -45,7 +45,6 @@ function wplc_add_tools_page_resources( $hook ) {
 	wp_enqueue_script( 'tcx-fa' );
 }
 
-
 function wplc_admin_tools_page() {
 	$tools_controller = new ToolsController("Tools");
 	$tools_controller->run();

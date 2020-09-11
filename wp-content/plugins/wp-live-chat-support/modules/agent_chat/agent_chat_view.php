@@ -1,3 +1,12 @@
+<?php if ( is_admin() && $wplc_settings->wplc_channel=='wp' ) { ?>
+    <div class='update-nag'
+         style='margin-top: 30px;margin-bottom: 5px;border-color:red;'>
+        <span style='font-size: large;text-decoration: underline'> Caution </span><br/>
+        On-premise mode is being deprecated.<br/>
+        Click <a target="_blank" href="<?= admin_url( "admin.php?page=wplivechat-menu-settings" ) ?>#tab-advanced">here</a> to switch over to hosted mode.<br/>
+        You will be automatically switched over to hosted mode on the <span style="text-decoration: underline;">1'st of November</span>.<br>
+    </div>
+<?php } ?>
 <div id="wplc_sound"></div>
 <div id="wplc_admin_chat_holder">
     <div class="wplc_admin_chat_on_premise_header">
@@ -146,7 +155,8 @@
                                         </div>
 
                                         <button id="wplc_admin_send_msg" class="wplc_chat_action_button" type="button">
-                                             <img src="<?= wplc_protocol_agnostic_url( WPLC_PLUGIN_URL . '/images/svgs/send_ic.svg' ); ?>"> <?= __("Send","wp-live-chat-support") ?></button>
+                                            <img src="<?= wplc_protocol_agnostic_url( WPLC_PLUGIN_URL . '/images/svgs/send_ic.svg' ); ?>"> <?= __( "Send", "wp-live-chat-support" ) ?>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
