@@ -1245,7 +1245,7 @@ ul.elementor-icon-list-items.elementor-inline-items {
     font-weight: normal;
     font-style: normal;
     vertical-align: middle;
-    margin-right: 5px; }
+    margin-left: 5px; }
   .elementor-message.elementor-message-danger {
     color: #d9534f; }
     .elementor-message.elementor-message-danger:before {

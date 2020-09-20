@@ -1,4 +1,4 @@
-/*! elementor - v3.0.7 - 09-09-2020 */
+/*! elementor - v3.0.9 - 17-09-2020 */
 .dialog-widget-content {
   background-color: #fff;
   position: absolute;
@@ -1464,7 +1464,7 @@ ul.elementor-icon-list-items.elementor-inline-items {
     font-weight: normal;
     font-style: normal;
     vertical-align: middle;
-    margin-right: 5px; }
+    margin-left: 5px; }
   .elementor-message.elementor-message-danger {
     color: #d9534f; }
     .elementor-message.elementor-message-danger:before {
