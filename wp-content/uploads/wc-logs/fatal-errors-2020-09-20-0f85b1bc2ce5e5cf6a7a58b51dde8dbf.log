@@ -1,0 +1,7 @@
+2020-09-20T14:53:31+00:00 CRITICAL Uncaught RuntimeException: Erreur lors de l'enregistrement de l'action : Erreur lors de l'enregistrement de l'action : Erreur de la base de données. in /var/www/vhosts/inoovins.com/httpdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/migration/ActionScheduler_DBStoreMigrator.php:44
+Stack trace:
+#0 /var/www/vhosts/inoovins.com/httpdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_HybridStore.php(242): ActionScheduler_DBStoreMigrator->save_action()
+#1 /var/www/vhosts/inoovins.com/httpdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_ActionFactory.php(177): ActionScheduler_HybridStore->save_action()
+#2 /var/www/vhosts/inoovins.com/httpdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_ActionFactory.php(84): ActionScheduler_ActionFactory->store()
+#3 /var/www/vhosts/inoovins.com/httpdocs/wp-content/plugins/woocommerce/packages/action-scheduler/functions.php(36): ActionSched dans /var/www/vhosts/inoovins.com/httpdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/migration/ActionScheduler_DBStoreMigrator.php à la ligne 44
+
